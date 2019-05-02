@@ -1,0 +1,360 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Personalization Client",
+    "description": "Personalization Service is an Azure Cognitive Service that makes it easy to target content and experiences without complex pre-analysis or cleanup of past data. Given a context and featurized content, the Personalization Service returns your content in a ranked list. As rewards are sent in response to the ranked list, the reinforcement learning algorithm will improve the model and improve performance of future rank calls."
+  },
+  "paths": {
+    "/personalization/v1.0/events/{eventId}/reward": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Report reward to allocate to the top ranked action for the specified event.",
+        "operationId": "Reward",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "The event id this reward applies to.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "reward",
+            "in": "body",
+            "description": "The reward should be a floating point number.",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/RewardRequest"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid arguments"
+          },
+          "404": {
+            "description": "Model not found"
+          }
+        }
+      }
+    },
+    "/personalization/v1.0/events/{eventId}/activate": {
+      "post": {
+        "tags": [
+          "Events"
+        ],
+        "summary": "Report that the specified event was actually displayed to the user and a reward should be expected for it.",
+        "operationId": "Activate",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "description": "The event id this activation applies to.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Invalid arguments"
+          }
+        }
+      }
+    },
+    "/personalization/v1.0/rank": {
+      "post": {
+        "tags": [
+          "Ranking"
+        ],
+        "summary": "A personalization rank request.",
+        "operationId": "Rank",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "name": "personalizationRequest",
+            "in": "body",
+            "description": "A personalization request.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RankRequest"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RankResponse"
+            },
+            "examples": {
+              "application/json": {
+                "ranking": [
+                  {
+                    "id": "EntertainmentArticle",
+                    "probability": 0.8
+                  },
+                  {
+                    "id": "SportsArticle",
+                    "probability": 0.0
+                  },
+                  {
+                    "id": "NewsArticle",
+                    "probability": 0.2
+                  }
+                ],
+                "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
+                "rewardActionId": "EntertainmentArticle"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid argument"
+          },
+          "404": {
+            "description": "Model not found"
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "operationId": "StatusGet",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ContainerStatus"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RewardRequest": {
+      "description": "Reward given to a rank response.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "format": "float",
+          "description": "Reward to be assigned to an action. Value must be between -1 and 1 inclusive.",
+          "type": "number"
+        }
+      },
+      "example": {
+        "value": 1.0
+      }
+    },
+    "RankRequest": {
+      "description": "Request a set of actions to be ranked by the personalization service.",
+      "required": [
+        "actions"
+      ],
+      "type": "object",
+      "properties": {
+        "contextFeatures": {
+          "description": "Features of the context used for personalization as a\r\ndictionary of dictionaries. This depends on the application, and\r\ntypically includes features about the current user, their\r\ndevice, profile information, data about time and date, etc.",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "actions": {
+          "description": "The set of actions the Personalization Service can pick from.\r\nThe set should not contain more than 50 actions.\r\nThe order of the actions does not affect the rank result but the order\r\nshould match the sequence your application would have used to display them.",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RankableAction"
+          }
+        },
+        "excludedActions": {
+          "description": "The set of action ids to exclude from ranking.",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "eventId": {
+          "description": "Optionally pass an eventId that uniquely identifies this Rank event. \r\nIf null, the service generates a unique eventId. The eventId will be used for\r\nassociating this request with its reward, as well as seeding the pseudo-random\r\ngenerator when making a personalization call.",
+          "type": "string"
+        },
+        "deferActivation": {
+          "description": "Send false if the user will see the rank results, therefore\r\nPersonalization will expect a Reward call, otherwise it will assign the default\r\nReward to the event. Send true if it is possible the user will not see the\r\nrank results, because the page is rendering later, or the Rank results may be\r\noverriden by code further downstream.",
+          "default": false,
+          "type": "boolean"
+        }
+      },
+      "example": {
+        "contextFeatures": [
+          {
+            "timeOfDay": "Morning"
+          }
+        ],
+        "actions": [
+          {
+            "id": "NewsArticle",
+            "features": [
+              {
+                "type": "News"
+              }
+            ]
+          },
+          {
+            "id": "SportsArticle",
+            "features": [
+              {
+                "type": "Sports"
+              }
+            ]
+          },
+          {
+            "id": "EntertainmentArticle",
+            "features": [
+              {
+                "type": "Entertainment"
+              }
+            ]
+          }
+        ],
+        "excludedActions": [
+          "SportsArticle"
+        ],
+        "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
+        "deferActivation": false
+      }
+    },
+    "RankableAction": {
+      "description": "An action with it's associated features used for ranking.",
+      "required": [
+        "id",
+        "features"
+      ],
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Id of the action.",
+          "type": "string"
+        },
+        "features": {
+          "description": "List of dictionaries containing features.",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "RankResponse": {
+      "description": "A resulting ordered list of actions that result from a rank request.",
+      "type": "object",
+      "properties": {
+        "ranking": {
+          "description": "The calculated ranking for the current request.",
+          "uniqueItems": false,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RankedAction"
+          }
+        },
+        "eventId": {
+          "description": "The eventId for the round trip from request to response.",
+          "type": "string"
+        },
+        "rewardActionId": {
+          "description": "The action chosen by the Personalization service. This is the action for which to report the reward. This might not be the \r\nfirst found in 'ranking' if an action in the request in first position was part of the excluded ids.",
+          "type": "string"
+        }
+      }
+    },
+    "RankedAction": {
+      "description": "A ranked action with its resulting probability.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Id of the action",
+          "type": "string"
+        },
+        "probability": {
+          "format": "float",
+          "description": "Probability of the action",
+          "type": "number"
+        }
+      }
+    },
+    "ContainerStatus": {
+      "type": "object",
+      "properties": {
+        "service": {
+          "type": "string"
+        },
+        "apiStatus": {
+          "type": "string"
+        },
+        "apiStatusMessage": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "apim_key": {
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header",
+      "type": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "apim_key": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Events",
+      "description": "Description of events operations."
+    },
+    {
+      "name": "Ranking",
+      "description": "Description of ranking operations."
+    }
+  ]
+}
