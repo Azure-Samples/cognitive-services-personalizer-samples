@@ -15,6 +15,11 @@ Repository for samples, tutorial, snippets and utilities that will help you unde
 
 ## Samples
 
+* [Personalizer-powered ChatBot suggestions (C#)](/samples/ChatbotExample)
+* [Personalizer using Cognitive Services Text Analytics (C#)](/samples/CrawlFeaturizer)
+* [Getting Features from Anonymous users http UserAgent (C#)](/samples/HttpRequestFeatures)
+* [Azure Notebook (Python) Simulating Users](/samples/azurenotebook)
+
 
 ## Demo Websites & Apps
 These are samples designed to create appealing, interactive apps that illustrate how Personalizer works.
