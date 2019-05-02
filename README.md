@@ -1,57 +1,54 @@
-# Project Name
+# Azure Cognitive Services - Personalizer Samples
 
-(short, 1-3 sentenced, description of the project)
+Repository for samples, tutorial, snippets and utilities that will help you understand and make great use of the Cognitive Services Personalizer.
 
-## Features
+## About Personalizer
 
-This project framework provides the following features:
+[Read more about Personalizer](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer).
 
-* Feature 1
-* Feature 2
-* ...
+## Quickstarts Using Personalizer with SDKs
+* C# & .NET
+* Python
+* Java
+* PHP
+* NodeJS
 
-## Getting Started
+## Samples
+
+
+## Demo Websites & Apps
+These are samples designed to create appealing, interactive apps that illustrate how Personalizer works.
+
+* Interactive Demo Website
+    * See it in action!
+    * Source code
+
+* Interactive Chatbot
+
 
 ### Prerequisites
 
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
+Basic understanding of Personalizer
 
 ### Installation
 
-(ideally very short)
+See the README.md in each sample for instructions.
 
-- npm install [package name]
-- mvn install
-- ...
+### Getting the Samples
 
-### Quickstart
-(Add steps to get up and running quickly)
 
-1. git clone [repository clone url]
-2. cd [respository name]
-3. ...
+1. git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+2. cd cognitive-services-personalizer-samples
 
 
 ## Demo
 
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
+Interactive Demo
+Run the demo on your box
 
 ## Resources
 
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
+- Personalizer Landing Page
+- Documentation
+- UserVoice
+- Stack Overflow
