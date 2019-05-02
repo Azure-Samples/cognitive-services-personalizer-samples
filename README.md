@@ -20,10 +20,10 @@ Repository for samples, tutorial, snippets and utilities that will help you unde
 These are samples designed to create appealing, interactive apps that illustrate how Personalizer works.
 
 * Interactive Demo Website
-    * See it in action!
+    * [See it in action!](https://personalizationdemo.azurewebsites.net/)
     * Source code
 
-* Interactive Chatbot
+* [Interactive Chat Bot](/demos/techfest-demo-master)
 
 
 ### Prerequisites
