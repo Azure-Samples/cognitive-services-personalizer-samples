@@ -1,0 +1,4 @@
+const COG_SVC_KEY = "";
+
+// https://openweathermap.org/api
+const OPEN_WEATHER_MAP_KEY= "";

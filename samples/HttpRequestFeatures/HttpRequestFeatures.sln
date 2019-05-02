@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2047
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpRequestFeatures", "HttpRequestFeatures\HttpRequestFeatures.csproj", "{2AA6625B-0292-4D3A-81D9-B5E1FB74D5D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpRequestFeaturesExample", "HttpRequestFeaturesExample\HttpRequestFeaturesExample.csproj", "{5D90C5DD-4B90-4EDD-B82B-3ACF099186F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AA6625B-0292-4D3A-81D9-B5E1FB74D5D3}.Debug|x64.ActiveCfg = Debug|x64
+		{2AA6625B-0292-4D3A-81D9-B5E1FB74D5D3}.Debug|x64.Build.0 = Debug|x64
+		{2AA6625B-0292-4D3A-81D9-B5E1FB74D5D3}.Release|x64.ActiveCfg = Release|x64
+		{2AA6625B-0292-4D3A-81D9-B5E1FB74D5D3}.Release|x64.Build.0 = Release|x64
+		{5D90C5DD-4B90-4EDD-B82B-3ACF099186F0}.Debug|x64.ActiveCfg = Debug|x64
+		{5D90C5DD-4B90-4EDD-B82B-3ACF099186F0}.Debug|x64.Build.0 = Debug|x64
+		{5D90C5DD-4B90-4EDD-B82B-3ACF099186F0}.Release|x64.ActiveCfg = Release|x64
+		{5D90C5DD-4B90-4EDD-B82B-3ACF099186F0}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95D57C6A-5458-4346-96F6-C818273E6129}
+	EndGlobalSection
+EndGlobal

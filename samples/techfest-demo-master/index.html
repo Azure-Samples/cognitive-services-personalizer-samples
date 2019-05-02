@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Techfest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./jquery-3.3.1.min.js"></script>
+  <script src="./popper.min.js"></script>
+  <script src="./bootstrap.min.js"></script>
+  <script src="./cookies.js"></script>
+  <script>
+    window.onload = async () => {
+      const sessions_container = document.getElementById("sessions");
+      if (getCookie("sessions") === null) {
+        setCookie("sessions", "0");
+      }
+
+      let num_sessions = parseInt(getCookie("sessions"));
+      sessions_container.innerHTML = num_sessions.toString();
+    };
+
+  </script>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="container h-100 d-none d-flex flex-column">
+    <div class="row  my-page-title" style="min-height: 120px;">
+      <div class="col-lg-6">
+        <span class="rwrl">RWRL / </span><span class="exploitation-vs-exp">Exploitation vs. Exploration</span>
+      </div>
+      <div class="col-lg-6 top-bar-info">
+        <span data-toggle="tooltip" title="How many user sessions have been completed during TechFest.">
+          <span class>User Sessions</span>
+          <span id="sessions" class="top-bar-info-large-text">5</span>
+        </span>
+        <span data-toggle="tooltip" title="This is the probability that the action chosen is a result of exploration. In this case the action chosen is different from the model's preference.">
+          <span>Exploration Probability</span>
+          <span class="top-bar-info-large-text">40%</span>
+        </span>
+      </div>
+    </div>
+    <div class="row flex-grow-1">
+      <div class="col-lg-12 backplate splash">
+        <div class="row h-100 align-content-start">
+          <div class="col-lg-6 offset-lg-3">
+            <div class="splash-title">A look behind the scenes</div>
+            <div class="splash-subtitle">
+              A powerful aspect of Real World Reinforcement Learning is its ability to explore in tandem with an
+              online policy.
+            </div>
+          </div>
+          <div class="col-lg-3 offset-lg-3">
+            <img src="icon_response_dk.svg">
+            <div class="splash-section-title">Exploitation</div>
+            <div class="splash-section-text">
+              <span class="p-highlight">Exploitation</span> is when the action preferred by the model is
+              chosen. The model preference is based on the context and past interactions.
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <img src="icon_experiment_dk.svg">
+            <div class="splash-section-title">Exploration</div>
+            <div class="splash-section-text">
+              <span class="p-highlight">Exploration</span> is when, despite the model's preference, an
+              alternative action is chosen. This is crucial to discover new trends and learn the best
+              policy.
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <a href="./chat.html"><button class="btn splash-button">See it in action</button></a>
+          </div>
+
+        </div>
+      </div>
+</body>
+
+</html>
