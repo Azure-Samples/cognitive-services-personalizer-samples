@@ -4,7 +4,11 @@ Repository for samples, tutorial, snippets and utilities that will help you unde
 
 ## About Personalizer
 
-[Read more about Personalizer](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer).
+<!--[Personalizer on Azure](TBD) -->
+
+[Personalizer Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer)
+
+<!-- [Personalizer launch blog post](TBD) -->
 
 ## Quickstarts Using Personalizer with SDKs
 * C# & .NET
