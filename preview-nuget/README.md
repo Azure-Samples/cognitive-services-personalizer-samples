@@ -1,4 +1,4 @@
-# Personalizer Public Preview - NUget
+# Personalizer Public Preview - Nuget
 
 In this folder you will find a nupkg file that is the Nuget package you can use while the nuget feed one gets deployed.
 
@@ -17,3 +17,6 @@ To use this nuget file in Visual Studio:
 5. Give it a name such as "Personalizer Temp Preview"
 6. Point to the preview-nuget subfolder on your disk where this repository got cloned
 7. Click OK
+
+### More Information
+[See Personalizer Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/)
