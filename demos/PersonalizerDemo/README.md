@@ -16,7 +16,7 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
 - Clone the Azure Personalization Service.
 
     ```bash
-    git clone https://github.com/Azure/personalization-rl.git
+    git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
 - Navigate to _demos/PersonalizerDemo_.
@@ -31,7 +31,7 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
 
 ### Set up Personalization Service
 
-1. Navigate to [Getting Started with Personalization](https://github.com/Azure/personalization-rl/blob/master/docs/getting-started.md).
+1. Navigate to [Getting Started with Personalization](https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/how-to-settings).
 
 1. Follow the instructions to get the endpoint and key to your Personalization Loop.
 
@@ -56,7 +56,7 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
 
 1. Open the `appsettings.json` file and replace the value of the `TextAnalyticsEndpoint` property with your Text Analytics Endpoint URL.
 
-### Using Visual Studio
+### Using Visual Studio to configure the secrets
 
 If you are using Visual Studio for running this project, you can right-click the project and select the **Manage User Secrets** menu option to configure the Personalizer and Text Analytics keys.
 
