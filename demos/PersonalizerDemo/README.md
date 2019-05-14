@@ -56,6 +56,20 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
 
 1. Open the `appsettings.json` file and replace the value of the `TextAnalyticsEndpoint` property with your Text Analytics Endpoint URL.
 
+### Using Visual Studio
+
+If you are using Visual Studio for running this project, you can right-click the project and select the **Manage User Secrets** menu option to configure the Personalizer and Text Analytics keys.
+
+![Selecting the Manage User Secrets option in VS](./imgs/vs-manage-user-secrets.png)
+
+By doing this, Visual Studio will open a `secrets.json` file where you will need to add the keys as following.
+
+```JSON
+{
+  "PersonalizationApiKey": "<your personalizer key here>",
+  "TextAnalyticsKey": "<your text analytics key here>"
+}
+```
 
 ## Running the demo
 
