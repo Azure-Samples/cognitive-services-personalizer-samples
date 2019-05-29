@@ -3,9 +3,9 @@
 # To try this sample
 - Clone the samples repository
 ```bash
-git clone https://github.com/Microsoft/botbuilder-samples.git
+git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
 ```
-- [Optional] Update the `appsettings.json` file under `botbuilder-samples/samples/csharp_dotnetcore/12.nlp-with-luis` with your botFileSecret.  For Azure Bot Service bots, you can find the botFileSecret under application settings.
+- [Optional] Update the `appsettings.json` file under `cognitive-services-personalizer-samples/samples/ChatbotExample/` with your botFileSecret.  For Azure Bot Service bots, you can find the botFileSecret under application settings.
 ## Prerequisites
 ### Set up LUIS
 - Navigate to [LUIS portal](https://www.luis.ai).
@@ -16,9 +16,9 @@ git clone https://github.com/Microsoft/botbuilder-samples.git
 
 - Click on the `Import new app` button.
 
-- Click on the `Choose File` and select [LUIS-Reminders.json](LUIS-Reminders.json) from the `botbuilder-samples/samples/csharp_dotnetcore/12.nlp-with-luis/CognitiveModels` folder.
+- Click on the `Choose File` and select [coffeebot.json](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/CognitiveModels/coffeebot.json) from the `cognitive-services-personalizer-samples/samples/ChatbotExample/CognitiveModels` folder.
 
-- Update [nlp-with-luis.bot](nlp-with-luis.bot) file with your AppId, SubscriptionKey, Region and Version. 
+- Update [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot) file with your AppId, SubscriptionKey, Region and Version. 
     You can find this information under "Manage" tab for your LUIS application at [LUIS portal](https://www.luis.ai).
 
     - The `AppID` can be found in "Application Information"
@@ -44,19 +44,19 @@ git clone https://github.com/Microsoft/botbuilder-samples.git
     The Version is listed on the page.
     Note: Enter the either `authoringKey` OR `subscriptionKey`, not both
 
-- Update [nlp-with-luis.bot](nlp-with-luis.bot) file with your Authoring Key.  
+- Update [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot) file with your Authoring Key.  
     You can find this under your user settings at [luis.ai](https://www.luis.ai).  Click on your name in the upper right hand corner of the portal, and click on the "Settings" menu option.
     NOTE: Once you publish your app on LUIS portal for the first time, it takes some time for the endpoint to become available, about 5 minutes of wait should be sufficient.
 ### (Optional) Install LUDown
 - (Optional) Install the LUDown [here](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) to help describe language understanding components for your bot.
 
 ## Visual Studio
-- Navigate to the samples folder (`botbuilder-samples/samples/csharp_dotnetcore/12.nlp-with-luis`) and open `LuisBot.csproj` in Visual Studio 
+- Navigate to the samples folder (`cognitive-services-personalizer-samples/samples/ChatbotExample/`) and open `LuisBot.csproj` in Visual Studio 
 - Run the project (press `F5` key)
 
 ## Visual Studio Code
-- Open `botbuilder-samples/samples/csharp_dotnetcore/12.nlp-with-luis` sample folder
-- Bring up a terminal, navigate to `botbuilder-samples/samples/csharp_dotnetcore/12.nlp-with-luis` folder.
+- Open `cognitive-services-personalizer-samples/samples/ChatbotExample/` sample folder
+- Bring up a terminal, navigate to `cognitive-services-personalizer-samples/samples/ChatbotExample/` folder.
 - Type `dotnet run`.
 
 ## Testing the bot using Bot Framework Emulator
@@ -66,7 +66,7 @@ their bots on localhost or running remotely through a tunnel.
 
 ## Connect to bot using Bot Framework Emulator **V4**
 - Launch the Bot Framework Emulator
-- File -> Open bot and navigate to `botbuilder-samples/samples/csharp_dotnetcore/12.nlp-with-luis` folder
+- File -> Open bot and navigate to `cognitive-services-personalizer-samples/samples/ChatbotExample/` folder
 - Select `nlp-with-luis.bot` file
 # Deploy this bot to Azure
 
