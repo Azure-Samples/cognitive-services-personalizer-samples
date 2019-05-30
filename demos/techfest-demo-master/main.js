@@ -149,7 +149,7 @@ async function rank(contextFeatures) {
   context.excludeActions = null;
   context.activated = true;
 
-  let response = await fetch("https://westus2.api.cognitive.microsoft.com/personalization/v1.0/rank", {
+  let response = await fetch("https://westus2.api.cognitive.microsoft.com/personalizer/v1.0/rank", {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Ocp-Apim-Subscription-Key": COG_SVC_KEY
@@ -173,7 +173,7 @@ async function reward(eventId, value) {
   let context = {};
   context.value = value;
 
-  let response = await fetch(`https://westus2.api.cognitive.microsoft.com/personalization/v1.0/events/${eventId}/reward`, {
+  let response = await fetch(`https://westus2.api.cognitive.microsoft.com/personalizer/v1.0/events/${eventId}/reward`, {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Ocp-Apim-Subscription-Key": COG_SVC_KEY
