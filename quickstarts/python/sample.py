@@ -5,8 +5,8 @@ from swagger.models.reward_request import RewardRequest
 from msrest.authentication import CognitiveServicesCredentials
 import uuid
 
-key = 'b2f90264c7ea4b8fa5597dd5b05b3e39'
-endpoint = 'https://westeurope.api.cognitive.microsoft.com/'
+key = '<<<YOUR KEY>>>'
+endpoint = '<<<YOUR ENDPOINT>>>'
 client = personalization_client.PersonalizationClient(CognitiveServicesCredentials(key), endpoint)
 
 def get_actions():
