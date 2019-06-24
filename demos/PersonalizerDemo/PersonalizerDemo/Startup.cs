@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Personalization;
+using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -48,7 +47,7 @@ namespace PersonalizerDemo
             });
             services.AddSingleton<CognitiveTextAnalyzer, CognitiveTextAnalyzer>();
             services.AddSingleton<IActionFeaturizer, CognitiveTextAnalyticsFeaturizer>();
-            services.AddSingleton<IPersonalizationClient>(s => CreateClient(personalizationEndPoint, personalizationApiKey));
+            services.AddSingleton<IPersonalizerClient>(s => CreateClient(personalizationEndPoint, personalizationApiKey));
             services.AddSingleton<IActionsRepository, ActionsRepository>();
 
             services.AddMvc()
@@ -86,13 +85,13 @@ namespace PersonalizerDemo
             });
         }
 
-        private IPersonalizationClient CreateClient(string uri, string ApiKey)
+        private IPersonalizerClient CreateClient(string uri, string ApiKey)
         {
-            return new PersonalizationClient(
-                new Uri(uri),
-                new ApiKeyServiceClientCredentials(ApiKey),
-                new DelegatingHandler[] { }
-            );
+            return new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(ApiKey))
+            {
+                Endpoint = uri
+            };
         }
     }
 }

@@ -6,8 +6,8 @@ using PersonalizerDemo.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.CognitiveServices.Personalization;
-using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Newtonsoft.Json.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,10 +17,10 @@ namespace PersonalizerDemo.Controllers
     [Route("api/[controller]")]
     public class PersonalizerController : Controller
     {
-        private readonly IPersonalizationClient _client;
+        private readonly IPersonalizerClient _client;
         private readonly IActionsRepository _actionsRepository;
 
-        public PersonalizerController(IPersonalizationClient client, IActionsRepository actionsRepository)
+        public PersonalizerController(IPersonalizerClient client, IActionsRepository actionsRepository)
         {
             _client = client;
             _actionsRepository = actionsRepository;
