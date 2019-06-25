@@ -35,7 +35,7 @@ These are samples designed to create appealing, interactive apps that illustrate
 
 * Interactive Demo Website
     * [See it in action!](https://personalizationdemo.azurewebsites.net/)
-    * Source code
+    * [Source code](https://personalizationdemo.azurewebsites.net/)
 
 * [Interactive Chat Bot](/demos/techfest-demo-master)
 
