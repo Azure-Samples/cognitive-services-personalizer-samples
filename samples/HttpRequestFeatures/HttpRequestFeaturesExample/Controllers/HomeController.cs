@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Azure.CognitiveServices.Personalization;
-using Microsoft.Azure.CognitiveServices.Personalization.Featurizers;
-using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Microsoft.Azure.CognitiveServices.Personalization.Featurizers;
 
 namespace HttpRequestFeaturesExample.Controllers
 {
@@ -14,10 +14,10 @@ namespace HttpRequestFeaturesExample.Controllers
     {
         private readonly static string serviceEndpoint = "http://localhost:5000";
         private readonly static string subscriptionKey = "";
-        private static readonly Uri url = new Uri(serviceEndpoint);
+        private static readonly string url = serviceEndpoint;
 
         // Initialize Personalization client
-        PersonalizationClient client = InitializePersonalizationClient(url, subscriptionKey);
+        PersonalizerClient client = InitializePersonalizationClient(url, subscriptionKey);
 
         public IActionResult Index()
         {
@@ -109,11 +109,11 @@ namespace HttpRequestFeaturesExample.Controllers
         /// <param name="url">Azure endpoint</param>
         /// <param name="serviceKey">subscription key</param>
         /// <returns>Personalization client instance</returns>
-        private static PersonalizationClient InitializePersonalizationClient(Uri url, string serviceKey)
+        private static PersonalizerClient InitializePersonalizationClient(string url, string serviceKey)
         {
-            PersonalizationClient client = new PersonalizationClient(url,
-            new ApiKeyServiceClientCredentials(serviceKey),
-            new DelegatingHandler[] { });
+            PersonalizerClient client = new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(serviceKey))
+            { Endpoint = url };
 
             return client;
         }

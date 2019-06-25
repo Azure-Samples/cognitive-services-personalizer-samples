@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LuisBot.Model;
-using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 
 namespace LuisBot.ReinforcementLearning
 {

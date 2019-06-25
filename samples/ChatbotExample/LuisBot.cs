@@ -9,8 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using LuisBot.Model;
 using LuisBot.ReinforcementLearning;
-using Microsoft.Azure.CognitiveServices.Personalization;
-using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 using Newtonsoft.Json;
@@ -170,10 +170,9 @@ namespace Microsoft.BotBuilderSamples
 
         private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, string eventId, CancellationToken cancellationToken)
         {
-            var client = new PersonalizationClient(
-                new ApiKeyServiceClientCredentials(_rlFeaturesManager.SubscriptionKey),
-                new DelegatingHandler[] { })
-            { BaseUri = _rlFeaturesManager.RLFeatures.HostName };
+            var client = new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(_rlFeaturesManager.SubscriptionKey))
+            { Endpoint = _rlFeaturesManager.RLFeatures.HostName.ToString() };
 
             IList<object> contextFeature = new List<object>
             {
@@ -240,10 +239,9 @@ namespace Microsoft.BotBuilderSamples
                 $"eventId = {eventId}, reward = {reward}\n",
                 cancellationToken: cancellationToken);
 
-            var client = new PersonalizationClient(
-                new ApiKeyServiceClientCredentials(_rlFeaturesManager.SubscriptionKey),
-                new DelegatingHandler[] { })
-            { BaseUri = _rlFeaturesManager.RLFeatures.HostName };
+            var client = new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(_rlFeaturesManager.SubscriptionKey))
+            { Endpoint = _rlFeaturesManager.RLFeatures.HostName.ToString() };
             await client.RewardAsync(eventId, new RewardRequest(reward), cancellationToken);
         }
 
