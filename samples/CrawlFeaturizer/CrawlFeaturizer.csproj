@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Language.TextAnalytics" Version="2.8.0-preview" />
-    <PackageReference Include="Microsoft.Azure.CognitiveServices.Personalization" Version="0.1.0-alpha" />
+    <PackageReference Include="Microsoft.Azure.CognitiveServices.Personalizer" Version="0.8.0-preview" />
   </ItemGroup>
   
 </Project>

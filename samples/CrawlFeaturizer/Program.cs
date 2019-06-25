@@ -7,8 +7,8 @@ using CrawlFeaturizer.ActionProvider;
 using CrawlFeaturizer.Model;
 using CrawlFeaturizer.Util;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Personalization;
-using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Newtonsoft.Json;
 
 namespace CrawlFeaturizer
@@ -22,7 +22,7 @@ namespace CrawlFeaturizer
         private const string ServiceEndpoint = "";
 
         // Cognitive Service Endpoint
-        private const string cognitiveTextAnalyticsEndpoint = "https://westus.api.cognitive.microsoft.com";
+        private const string cognitiveTextAnalyticsEndpoint = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0";
 
         // Subscription Key for the Cognitive Service for Text Analytics e.g 1325eb544363468ba3de1f25e2e11246
         private const string cognitiveTextAnalyticsSubscriptionKey = "";
@@ -46,7 +46,7 @@ namespace CrawlFeaturizer
             bool runLoop = true;
 
             // Initialize Personalization client.
-            PersonalizationClient client = InitializePersonalizationClient(new Uri(ServiceEndpoint));
+            PersonalizerClient client = InitializePersonalizationClient(ServiceEndpoint);
 
             // Initialize the RSS Feed actions provider
             IActionProvider actionProvider = new RSSFeedActionProvider(new RSSParser
@@ -152,11 +152,12 @@ namespace CrawlFeaturizer
         /// </summary>
         /// <param name="url">Azure endpoint</param>
         /// <returns>Personalization client instance</returns>
-        private static PersonalizationClient InitializePersonalizationClient(Uri url)
+        private static PersonalizerClient InitializePersonalizationClient(string url)
         {
-            PersonalizationClient client = new PersonalizationClient(url,
-            new ApiKeyServiceClientCredentials(ApiKey),
-            new DelegatingHandler[] { });
+            PersonalizerClient client = new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(ApiKey))
+            { Endpoint = url };
+
 
             return client;
         }

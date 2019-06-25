@@ -1,4 +1,4 @@
-﻿using Microsoft.Azure.CognitiveServices.Personalization.Models;
+﻿using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Newtonsoft.Json.Linq;
 
 namespace CrawlFeaturizer.Model
