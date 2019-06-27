@@ -14,6 +14,8 @@ Repository for samples, tutorial, snippets and utilities that will help you unde
 * [.NET Nuget](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview)
 * [Python PIP Package](https://pypi.org/project/azure-cognitiveservices-personalizer/)
 * [Node JS NPM](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0)
+* Java: Coming soon
+* Ruby: Coming soon
 * [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
 
 ## Quickstarts Using Personalizer with SDKs
