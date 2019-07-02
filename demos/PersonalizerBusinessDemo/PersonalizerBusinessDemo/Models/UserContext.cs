@@ -14,6 +14,8 @@ namespace PersonalizerDemo.Models
         public bool UseTextAnalytics { get; set; }
 
         public string Profile { get; set; }
+
+        public string Tournament { get; set; }
     }
 }
 
