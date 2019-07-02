@@ -1,40 +1,8 @@
-@model PersonalizerBusinessDemo.Models.PageConfigModel
-
 @{
     ViewData["Title"] = "Personalizer Interactive Demo";
 }
 <div class="row">
-    <div class="col-md-8">
-        <div class="row">
-            <div class="col-12">
-                <form class="form-inline float-right">
-                    <label class="sr-only" for="weekDay">Week day</label>
-                    <select class="custom-select my-1 mr-sm-2" id="weekDay">
-                        <option value="workweek" selected>Workweek</option>
-                        <option value="weekend">Weekend</option>
-                    </select>
-
-                    <label class="sr-only" for="profile">Profile</label>
-                    <select class="custom-select my-1 mr-sm-2" id="profile">
-                        <option value="anonymous" selected>Anonymous</option>
-                        <option value="loggedin">Logged In</option>
-                        <option value="paying">Paying</option>
-                    </select>
-
-                    <label class="sr-only" for="tournament">Tournament</label>
-                    <select class="custom-select my-1 mr-sm-2" multiple size="1" id="tournament">
-                        <option value="tournament1" selected>Tournament 1</option>
-                        <option value="tournament2">Tournament 2</option>
-                        <option value="tournament3">Tournament 3</option>
-                    </select>
-
-                    <button type="button" class="btn btn-primary " id="go-btn">
-                        @Model.refreshButtonText
-                    </button>
-                </form>
-            </div>
-        </div>
-
+    <div class="col-md-7">
         <div class="row my-2">
             <div class="col-12">
                 <div class="card">
@@ -85,11 +53,36 @@
 
         <div class="row" id="alert-container"></div>
     </div>
-  
-    <div class="col-md-4 ">
+    <div class="col-md-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+
+                    <form class="form-inline">
+                        <label class="sr-only" for="weekDay">Week day</label>
+                        <select class="custom-select my-1 mr-sm-2" id="weekDay">
+                            <option value="workweek" selected>Workweek</option>
+                            <option value="weekend">Weekend</option>
+                        </select>
+
+                        <label class="sr-only" for="profile">Profile</label>
+                        <select class="custom-select my-1 mr-sm-2" id="profile">
+                            <option value="anonymous" selected>Anonymous</option>
+                            <option value="loggedin">Logged In</option>
+                            <option value="paying">Paying</option>
+                        </select>
+
+                        <label class="sr-only" for="tournament">Tournament</label>
+                        <select class="custom-select my-1 mr-sm-2" multiple size="1" id="tournament">
+                            <option value="tournament1" selected>Tournament 1</option>
+                            <option value="tournament2">Tournament 2</option>
+                            <option value="tournament3">Tournament 3</option>
+                        </select>
+                        <button type="button" class="btn btn-primary" id="go-btn">
+                            Simulate New Visit
+                        </button>
+                    </form>
+                    
                     <div class="card-body p-0 pt-0">
                         <h5 class="card-title ml-1 mt-0">Request</h5>
                         <div class="card">
@@ -161,7 +154,7 @@
         <hr />
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-body p-0 pt-1">
                         <h5 class="card-title ml-2 mt-2">Response</h5>
@@ -192,32 +185,6 @@
     </div>
 </div>
 
-<div class="row pt-2 ">
-    <div class="offset-1 col-10 border-top pt-2 text-muted ">
-        <p class="h5">About this Personalizer Demo:</p>
-        <p>
-            <small>
-                This interactive demo shows how Personalizer chooses content, and how the application teaches the service to improve suggestions based on rewards.
-            </small>
-        </p>
-        <p>
-            <small>
-                On the left side there is a simulated news page that displays some article of interest when you click “Show a Personalized Article”, picking it out of five possible articles.
-            </small>
-        </p>
-        <p>
-            <small>
-                The 5 articles are the 5 possible “actions” for  the Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate some context features such as time and weather, which are also shown in JSON format. Features of actions and context will be used by the Personalizer to choose the best article. The Rank API call returns the article the application should show in the rewardActionId attribute.
-            </small>
-        </p>
-        <p>
-            <small>
-                In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait up to fifteen seconds from the time the article was shown before a lower number gets used in a Reward API call.
-            </small>
-        </p>
-    </div>
-</div>
-
 @section Scripts {
     <script src="~/js/demo.js" asp-append-version="true"></script>
-    }
+}
