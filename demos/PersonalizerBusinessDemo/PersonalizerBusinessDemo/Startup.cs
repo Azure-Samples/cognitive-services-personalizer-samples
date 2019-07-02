@@ -12,9 +12,9 @@ using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using PersonalizerDemo.ActionFeaturizer;
+using PersonalizerBusinessDemo.ActionFeaturizer;
 
-namespace PersonalizerDemo
+namespace PersonalizerBusinessDemo
 {
     public class Startup
     {

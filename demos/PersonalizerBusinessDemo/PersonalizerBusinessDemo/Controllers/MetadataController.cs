@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using PersonalizerDemo.Models;
+using PersonalizerBusinessDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace PersonalizerDemo.Controllers
+namespace PersonalizerBusinessDemo.Controllers
 {
     [Route("api/[controller]")]
     public class MetadataController : Controller

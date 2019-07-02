@@ -3,14 +3,14 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Newtonsoft.Json;
-using PersonalizerDemo.ActionFeaturizer;
-using PersonalizerDemo.Models;
+using PersonalizerBusinessDemo.ActionFeaturizer;
+using PersonalizerBusinessDemo.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PersonalizerDemo
+namespace PersonalizerBusinessDemo
 {
     public class ActionsRepository : IActionsRepository
     {

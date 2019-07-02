@@ -1,5 +1,6 @@
-<<<<<<< HEAD
-﻿@{
+@model PersonalizerBusinessDemo.Models.PageConfigModel
+
+@{
     ViewData["Title"] = "Personalizer Interactive Demo";
 }
 <div class="row">
@@ -28,7 +29,7 @@
                     </select>
 
                     <button type="button" class="btn btn-primary " id="go-btn">
-                        Simulate new visit
+                        @Model.refreshButtonText
                     </button>
                 </form>
             </div>

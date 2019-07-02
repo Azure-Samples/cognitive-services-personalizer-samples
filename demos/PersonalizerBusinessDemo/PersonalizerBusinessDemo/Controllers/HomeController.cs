@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using PersonalizerDemo.Models;
+using PersonalizerBusinessDemo.Models;
+using System.IO;
 
-namespace PersonalizerDemo.Controllers
+namespace PersonalizerBusinessDemo.Controllers
 {
     public class HomeController : Controller
     {
@@ -21,7 +22,9 @@ namespace PersonalizerDemo.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/buttonsLabels.json"));
+
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -44,5 +47,14 @@ namespace PersonalizerDemo.Controllers
             ViewData["Title"] = model.Title;
             return View(model);
         }
+
+        private static string LoadJson(string jsonFile)
+        {
+            using (StreamReader r = new StreamReader(jsonFile))
+            {
+                return r.ReadToEnd();
+            }
+        }
+
     }
 }

@@ -1,9 +1,9 @@
-﻿using PersonalizerDemo.Models;
+﻿using PersonalizerBusinessDemo.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PersonalizerDemo.ActionFeaturizer
+namespace PersonalizerBusinessDemo.ActionFeaturizer
 {
     public interface IActionFeaturizer
     {

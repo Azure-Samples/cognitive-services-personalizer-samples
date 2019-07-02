@@ -10,7 +10,7 @@ using UAParser;
 using System;
 using System.Collections.Generic;
 
-namespace PersonalizerDemo.Models
+namespace PersonalizerBusinessDemo.Models
 {
     public class UserAgentInfo
     {

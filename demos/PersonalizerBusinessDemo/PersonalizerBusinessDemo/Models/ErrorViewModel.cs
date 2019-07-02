@@ -1,6 +1,6 @@
 using System;
 
-namespace PersonalizerDemo.Models
+namespace PersonalizerBusinessDemo.Models
 {
     public class ErrorViewModel
     {

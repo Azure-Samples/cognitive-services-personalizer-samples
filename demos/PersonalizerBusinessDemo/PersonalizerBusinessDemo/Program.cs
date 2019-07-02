@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace PersonalizerDemo
+namespace PersonalizerBusinessDemo
 {
     public class Program
     {

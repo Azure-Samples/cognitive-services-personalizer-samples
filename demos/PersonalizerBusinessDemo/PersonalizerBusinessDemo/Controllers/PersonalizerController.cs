@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using PersonalizerDemo.Models;
+using PersonalizerBusinessDemo.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +12,7 @@ using Newtonsoft.Json.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace PersonalizerDemo.Controllers
+namespace PersonalizerBusinessDemo.Controllers
 {
     [Route("api/[controller]")]
     public class PersonalizerController : Controller
