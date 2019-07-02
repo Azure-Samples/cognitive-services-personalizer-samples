@@ -9,12 +9,9 @@ namespace PersonalizerDemo.Models
     {
         public string WeekDay { get; set; }
 
-        public string TimeOfDay { get; set; }
-
-        public string Weather { get; set; }
-
         public bool UseUserAgent { get; set; }
 
         public bool UseTextAnalytics { get; set; }
     }
 }
+

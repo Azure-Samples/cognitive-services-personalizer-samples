@@ -49,10 +49,9 @@ namespace PersonalizerDemo.Controllers
 
         private IList<object> CreateContext(UserContext context, HttpRequest request)
         {
-            var result = new List<object>()
+            var result = new List<object>
             {
-                new {context.TimeOfDay, context.WeekDay},
-                new {context.Weather}
+                new {context.WeekDay}
             };
 
             if (request != null)
