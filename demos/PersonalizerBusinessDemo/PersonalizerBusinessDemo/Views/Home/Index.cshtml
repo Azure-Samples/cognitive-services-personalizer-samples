@@ -1,12 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Personalizer Interactive Demo";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Personalizer Demo</h1>
-    <p>Learn about <a href="https://github.com/Azure/personalization-rl/blob/master/docs/personalizer-service-overview.md">Cognitive Services Personalizer</a>.</p>
-</div>
-
 <div class="row">
     <div class="col-md-8">
         <div class="row">
@@ -25,7 +19,6 @@
                         <option value="paying">Paying</option>
                     </select>
 
-
                     <label class="sr-only" for="tournament">Tournament</label>
                     <select class="custom-select my-1 mr-sm-2" id="tournament">
                         <option value="tournament1" selected>Tournament 1</option>
@@ -43,11 +36,26 @@
         <div class="row my-2">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        We think you may like...
-                    </div>
                     <div class="card-body p-0">
-                        <div class="embed-responsive embed-responsive-1by1 border">
+                        <header>
+                            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                                <div class="container">
+                                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Personalizer</a>
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                            aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                                        <ul class="navbar-nav flex-grow-1">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" href="https://privacy.microsoft.com/en-US/privacystatement">Privacy</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </header>
+                        <div class="embed-responsive embed-responsive-1by1">
                             <iframe id="article-viewer" class="embed-responsive-item" src="/Home/DefaultArticle" allowfullscreen></iframe>
                         </div>
                     </div>
