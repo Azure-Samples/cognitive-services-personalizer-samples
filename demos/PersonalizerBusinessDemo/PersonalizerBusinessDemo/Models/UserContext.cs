@@ -12,6 +12,8 @@ namespace PersonalizerDemo.Models
         public bool UseUserAgent { get; set; }
 
         public bool UseTextAnalytics { get; set; }
+
+        public string Profile { get; set; }
     }
 }
 

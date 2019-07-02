@@ -51,7 +51,8 @@ namespace PersonalizerDemo.Controllers
         {
             var result = new List<object>
             {
-                new {context.WeekDay}
+                new {context.WeekDay},
+                new {context.Profile}
             };
 
             if (request != null)
