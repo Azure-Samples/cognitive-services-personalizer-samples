@@ -17,13 +17,9 @@ namespace PersonalizerBusinessDemo
         private IList<RankableActionWithMetadata> _actions = new List<RankableActionWithMetadata>();
         private IList<RankableActionWithMetadata> _actionsWithTextAnalytics = new List<RankableActionWithMetadata>();
 
-        public ActionsRepository(IHostingEnvironment hostingEnvironment, IActionFeaturizer actionFeaturizer)
+        public ActionsRepository(IArticleRepository articleRepository, IActionFeaturizer actionFeaturizer)
         {
-            var fileProvider = hostingEnvironment.ContentRootFileProvider;
-            var contents = fileProvider.GetDirectoryContents("articles");
-            var articles = contents
-                .Select(file => System.IO.File.ReadAllText(file.PhysicalPath))
-                .Select(fileContent => JsonConvert.DeserializeObject<Models.Article>(fileContent));
+            var articles = articleRepository.GetArticles();
 
             CreateRankableActions(articles, actionFeaturizer);
         }

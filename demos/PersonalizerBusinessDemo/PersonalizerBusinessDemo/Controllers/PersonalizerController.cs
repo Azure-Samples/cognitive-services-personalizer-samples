@@ -17,51 +17,27 @@ namespace PersonalizerBusinessDemo.Controllers
     [Route("api/[controller]")]
     public class PersonalizerController : Controller
     {
-        private readonly IPersonalizerClient _client;
-        private readonly IActionsRepository _actionsRepository;
+        private readonly IPersonalizerService _service;
 
-        public PersonalizerController(IPersonalizerClient client, IActionsRepository actionsRepository)
+        public PersonalizerController(IPersonalizerService service)
         {
-            _client = client;
-            _actionsRepository = actionsRepository;
+            _service = service;
         }
 
         // POST api/Personalizer/Recommendation
         [HttpPost("Recommendation")]
         public JsonResult Recommendation([FromBody] UserContext context)
         {
-            var currentContext = CreateContext(context, context.UseUserAgent ? Request : null);
-            var eventId = Guid.NewGuid().ToString();
-            var actions = _actionsRepository.GetActions(context.UseTextAnalytics);
+            var currentContext = this.CreatePersonalizerContext(context, context.UseUserAgent ? Request : null);
 
-            var request = new RankRequest(actions, currentContext, null, eventId);
-            RankResponse response = _client.Rank(request);
-
-            return new JsonResult(response);
+            return new JsonResult(_service.GetRecommendations(currentContext, context.UseTextAnalytics));
         }
 
         // POST api/Personalizer/Reward
         [HttpPost("Reward")]
         public void Reward([FromBody] Reward reward)
         {
-            _client.Reward(reward.EventId, new RewardRequest(reward.Value));
-        }
-
-        private IList<object> CreateContext(UserContext context, HttpRequest request)
-        {
-            var result = new List<object>
-            {
-                new {context.WeekDay,context.Profile, context.Tournament}
-            };
-
-            if (request != null)
-            {
-                var userAgent = new UserAgentInfo();
-                userAgent.UseUserAgent(request.Headers["User-Agent"]);
-                result.Add(userAgent);
-            }
-
-            return result;
+            _service.Reward(reward);
         }
     }
 }
