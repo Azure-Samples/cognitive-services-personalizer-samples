@@ -23,6 +23,7 @@ namespace PersonalizerBusinessDemo.Controllers
         public IActionResult Index()
         {
             var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = model.NavigationBar;
 
             return View(model);
         }
@@ -44,11 +45,15 @@ namespace PersonalizerBusinessDemo.Controllers
 
         public IActionResult DefaultArticle()
         {
+            var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = model.NavigationBar;
             return View("DefaultArticle");
         }
 
         public IActionResult Article(string id)
         {
+            var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = generalModel.NavigationBar;
             var fileProvider = _hostingEnvironment.ContentRootFileProvider;
             var articleFileInfo = fileProvider.GetFileInfo("articles/" + id + ".json");
             var articleContent = System.IO.File.ReadAllText(articleFileInfo.PhysicalPath);
