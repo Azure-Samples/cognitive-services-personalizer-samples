@@ -22,10 +22,19 @@ namespace PersonalizerBusinessDemo.Controllers
 
         public IActionResult Index()
         {
-            var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/buttonsLabels.json"));
+            var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
             return View(model);
         }
+
+        private static string LoadJson(string jsonFile)
+        {
+            using (StreamReader r = new StreamReader(jsonFile))
+            {
+                return r.ReadToEnd();
+            }
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -48,13 +57,7 @@ namespace PersonalizerBusinessDemo.Controllers
             return View(model);
         }
 
-        private static string LoadJson(string jsonFile)
-        {
-            using (StreamReader r = new StreamReader(jsonFile))
-            {
-                return r.ReadToEnd();
-            }
-        }
+        
 
     }
 }

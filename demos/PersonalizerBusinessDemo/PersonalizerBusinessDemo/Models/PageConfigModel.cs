@@ -7,9 +7,12 @@ namespace PersonalizerBusinessDemo.Models
 {
     public class PageConfigModel
     {
-        //public string logoURL { get; set; }
-
         public string refreshButtonText { get; set; }
+
+        public string personalizerDocumentationURL { get; set; }
+
+        public string personalizerDocumentationLabel { get; set; }
 
     }
 }
+
