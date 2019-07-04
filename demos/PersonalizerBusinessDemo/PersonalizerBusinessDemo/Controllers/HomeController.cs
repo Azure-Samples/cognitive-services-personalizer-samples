@@ -26,6 +26,7 @@ namespace PersonalizerBusinessDemo.Controllers
         public IActionResult Index()
         {
             var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = model.NavigationBar;
 
             return View(model);
         }
@@ -47,14 +48,25 @@ namespace PersonalizerBusinessDemo.Controllers
 
         public IActionResult DefaultArticle()
         {
+            var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = model.NavigationBar;
             return View("DefaultArticle");
         }
 
         public IActionResult Article(string id)
         {
-            var model = _articleRepository.GetArticle(id);
+            var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = generalModel.NavigationBar;
+                var model = _articleRepository.GetArticle(id);
             ViewData["Title"] = model.Title;
             return View(model);
+        }
+
+        public IActionResult HomeSite()
+        {
+            var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = generalModel.NavigationBar;
+            return View("HomeSite");
         }
     }
 }

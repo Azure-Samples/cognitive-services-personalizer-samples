@@ -1,5 +1,50 @@
 {
-  "refreshButtonText": "Simulate new visit",
-  "personalizerDocumentationURL": "https://azure.microsoft.com/en-us/services/cognitive-services/personalizer/",
-  "personalizerDocumentationLabel": "Cognitive Services Personalizer"
+  "RefreshButtonText": "Simulate new visit",
+  "LogoImageURL": "~/img/logo.png",
+  "PersonalizerDocumentationURL": "https://azure.microsoft.com/en-us/services/cognitive-services/personalizer/",
+  "PersonalizerDocumentationLabel": "Cognitive Services Personalizer",
+  "NavigationBar": {
+    "LogoImageURL": "img/logo.png",
+    "OptionsList": [
+      {
+        "label": "Ranking",
+        "items": [
+          {
+            "label": "Season 1",
+            "items": []
+          },
+          {
+            "label": "Season 2",
+            "items": []
+          },
+          {
+            "label": "Season 3",
+            "items": []
+          }
+        ]
+      },
+      {
+        "label": "News",
+        "items": ""
+      },
+      {
+        "label": "Stats",
+        "item": ""
+      },
+      {
+        "label": "Leagues",
+        "items": [
+          {
+            "label": "NBA",
+            "items": []
+          },
+          {
+            "label": "NFL",
+            "items": []
+          }
+        ]
+      }
+    ]
+  }
+  
 }

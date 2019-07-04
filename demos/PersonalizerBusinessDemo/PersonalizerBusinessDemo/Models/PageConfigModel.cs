@@ -7,11 +7,13 @@ namespace PersonalizerBusinessDemo.Models
 {
     public class PageConfigModel
     {
-        public string refreshButtonText { get; set; }
+        public string RefreshButtonText { get; set; }
 
-        public string personalizerDocumentationURL { get; set; }
+        public string PersonalizerDocumentationURL { get; set; }
 
-        public string personalizerDocumentationLabel { get; set; }
+        public string PersonalizerDocumentationLabel { get; set; }
+
+        public NavBarOptionsModel NavigationBar { get; set; }
 
     }
 }

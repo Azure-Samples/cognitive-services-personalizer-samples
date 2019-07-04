@@ -11,7 +11,7 @@
                     <div class="card-body p-0">
                         <header>
                             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                                <div class="container">
+                                <div class="container-fluid">
                                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Personalizer</a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                             aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
                         </header>
 
                         <div class="embed-responsive embed-responsive-1by1">
-                            <iframe id="article-viewer" class="embed-responsive-item" src="/Home/DefaultArticle" allowfullscreen></iframe>
+                            <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                             <option value="tournament3">Tournament 3</option>
                         </select>
                         <button type="button" class="btn btn-primary" id="go-btn">
-                            @Model.refreshButtonText
+                            @Model.RefreshButtonText
                         </button>
                     </form>
 
@@ -193,7 +193,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                Learn about <a href=@Model.personalizerDocumentationURL>@Model.personalizerDocumentationLabel</a>
+                Learn about <a href=@Model.PersonalizerDocumentationURL>@Model.PersonalizerDocumentationLabel</a>
             </div>
         </div>
     </div>
