@@ -49,6 +49,8 @@ namespace PersonalizerBusinessDemo
             services.AddSingleton<IActionFeaturizer, CognitiveTextAnalyticsFeaturizer>();
             services.AddSingleton<IPersonalizerClient>(s => CreateClient(personalizationEndPoint, personalizationApiKey));
             services.AddSingleton<IActionsRepository, ActionsRepository>();
+            services.AddSingleton<IPersonalizerService, PersonalizerService>();
+            services.AddSingleton<IArticleRepository, ArticleRepository>();
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
