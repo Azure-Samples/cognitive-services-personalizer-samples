@@ -13,7 +13,7 @@ namespace PersonalizerBusinessDemo.Models
 
         public string PersonalizerDocumentationLabel { get; set; }
 
-        public List<NavBarItemModel> NavigationBar { get; set; }
+        public NavBarOptionsModel NavigationBar { get; set; }
 
     }
 }
