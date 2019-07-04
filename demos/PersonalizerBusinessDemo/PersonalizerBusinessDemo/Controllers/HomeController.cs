@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PersonalizerBusinessDemo.Models;
 using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace PersonalizerBusinessDemo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IArticleRepository _articleRepository;
+        private readonly IPersonalizerService _personalizerService;
 
-        public HomeController(IHostingEnvironment hostingEnvironment)
+        public HomeController(IArticleRepository articleRepository, IPersonalizerService personalizerService)
         {
-            _hostingEnvironment = hostingEnvironment;
+            _articleRepository = articleRepository;
+            _personalizerService = personalizerService;
         }
 
         public IActionResult Index()
@@ -54,10 +57,7 @@ namespace PersonalizerBusinessDemo.Controllers
         {
             var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
             ViewData["navigationBar"] = generalModel.NavigationBar;
-            var fileProvider = _hostingEnvironment.ContentRootFileProvider;
-            var articleFileInfo = fileProvider.GetFileInfo("articles/" + id + ".json");
-            var articleContent = System.IO.File.ReadAllText(articleFileInfo.PhysicalPath);
-            var model = JsonConvert.DeserializeObject<Article>(articleContent);
+                var model = _articleRepository.GetArticle(id);
             ViewData["Title"] = model.Title;
             return View(model);
         }
@@ -68,6 +68,5 @@ namespace PersonalizerBusinessDemo.Controllers
             ViewData["navigationBar"] = generalModel.NavigationBar;
             return View("HomeSite");
         }
-
     }
 }
