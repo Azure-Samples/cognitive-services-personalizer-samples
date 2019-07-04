@@ -63,12 +63,11 @@ body {
     position: absolute;
     bottom: 8px;
     left: 16px;
-    text-shadow: 0px 0px 15px #808080;
+    text-shadow: 0 0 15px #000000;
 }
 
 img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
 }
 
 /* Container holding the image and the text */
@@ -77,11 +76,10 @@ img {
     text-align: left;
     color: white;
     text-overflow: ellipsis;
-    text-shadow: 0px 0px 15px #808080;
     float: none;
     max-width: 100%;
     height: auto;
-    width: 100%
+    width: 100%;
 }
 
 .small_slot_wrapper {
@@ -95,15 +93,14 @@ img {
     flex-wrap: wrap;
     margin-right: -10px;
     margin-left: -10px;
-    padding-bottom: 19px
+    padding-bottom: 19px;
 }
 
 .small_slot_wrapper_cols {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
-    max-width: 25%;
-    padding: 0 10px
+    padding: 0 10px;
 }
 
 .small_slot_cols_item {
@@ -118,15 +115,15 @@ img {
     margin-right: 25px;
 }
 
-.small_slot_cols_item .small_slot_cols_item_image {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 135px;
-    flex: 0 0 135px;
-    max-width: 135px;
-    height: 90px;
-    display: inline-block;
-    position: relative
-}
+    .small_slot_cols_item .small_slot_cols_item_image {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 135px;
+        flex: 0 0 135px;
+        max-width: 135px;
+        height: 90px;
+        display: inline-block;
+        position: relative;
+    }
 
 .small_slot_item .small_slot_cols_item_title {
     color: #333;
@@ -136,12 +133,11 @@ img {
     letter-spacing: -.06px;
     line-height: 15px;
     padding: 6px;
-    width: 100%
+    width: 100%;
 }
 
 .small_slot_cols_item .small_slot_cols_item_image img {
     height: auto;
     width: 100%;
-    position: absolute
+    position: absolute;
 }
-
