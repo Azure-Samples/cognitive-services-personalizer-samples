@@ -64,6 +64,8 @@ namespace PersonalizerBusinessDemo.Controllers
 
         public IActionResult HomeSite()
         {
+            var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["navigationBar"] = generalModel.NavigationBar;
             return View("HomeSite");
         }
 
