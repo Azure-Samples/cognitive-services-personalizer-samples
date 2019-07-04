@@ -57,7 +57,10 @@ namespace PersonalizerBusinessDemo.Controllers
             return View(model);
         }
 
-        
+        public IActionResult HomeSite()
+        {
+            return View("HomeSite");
+        }
 
     }
 }
