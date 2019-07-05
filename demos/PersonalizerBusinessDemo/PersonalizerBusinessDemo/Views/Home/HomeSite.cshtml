@@ -1,14 +1,31 @@
-﻿@{
+﻿@model IList<Article>
+@{
     ViewData["Title"] = "HomeSite";
-     Layout = "~/Views/Shared/_ArticleLayout.cshtml";
+    Layout = "~/Views/Shared/_ArticleLayout.cshtml";
 }
+
 <div class="container-fluid">
     <div class="row bg-light">
         <div class="col">
-            <div class="main_slot_image container-img-text ">
-                <img src="https://www.tennisworldes.com/imgb/21870/federer-estoy-jugando-un-gran-tenis-tengo-muchas-ganas-de-jugar-en-miami.jpg" alt="News 1" />
-                <div class="bottom-left"><h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3></div>
-            </div>
+            @{
+                if (Model.Any())
+                {
+                    <a href="/home/articles/@Model.First().Id">
+                        <div class="main_slot_image container-img-text">
+                            <img src="~/img/@Model.First().ImageName" alt="News 1" />
+                            <div class="bottom-left"><h3>@Model.First().Title</h3></div>
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <div class="main_slot_image container-img-text">
+                        <img src="~/img/blank.jpg" alt="News 1" />
+                        <div class="bottom-left"></div>
+                    </div>
+                }
+            }
+
         </div>
         <div class="col-md-4 small_slot_wrapper">
             <div class="row">
@@ -59,4 +76,3 @@
         </div>
     </div>
 </div>
-
