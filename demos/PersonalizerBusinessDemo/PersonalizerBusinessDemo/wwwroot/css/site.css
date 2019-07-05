@@ -129,3 +129,8 @@ img {
     font-size: 2rem;
     text-align:center
 }
+
+.article-container {
+    min-height: calc(100vh - 120px);
+    max-height: calc(100vh - 122px);
+}
