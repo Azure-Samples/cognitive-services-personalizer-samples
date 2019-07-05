@@ -127,7 +127,8 @@ img {
 
 #timeleft {
     font-size: 2rem;
-    text-align:center
+    text-align: center;
+    height: 58px;
 }
 
 .article-container {
