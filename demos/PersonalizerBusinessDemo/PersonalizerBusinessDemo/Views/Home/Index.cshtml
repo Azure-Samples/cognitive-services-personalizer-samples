@@ -16,7 +16,7 @@
         {
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @menuItem.Label
+                    <b>@menuItem.Label</b>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach (var subItem in menuItem.Items)
@@ -29,7 +29,7 @@
         else
         {
             <li class="nav-item">
-                <a class="nav-link" href="#">@menuItem.Label</a>
+                <a class="nav-link" href="#"><b>@menuItem.Label</b></a>
             </li>
         }
 
@@ -41,7 +41,7 @@
         </li>
 </ul>;
 }
-    <nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color:#dedede;">
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color:@navigationBarOptions.BackgroundColor;">
         <a class="navbar-brand" href="#"><img src="~/@navigationBarOptions.LogoImageURL" width="40" height="35" style="width:40px;height:35px;" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -61,33 +61,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-0">
-                        <header>
-
-                            
-                            <!--
-
-                            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                                <div class="container-fluid">
-                                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Personalizer</a>
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                                        <ul class="navbar-nav flex-grow-1">
-                                            <li class="nav-item">
-                                                <a class="nav-link text-dark" href="https://privacy.microsoft.com/en-US/privacystatement">Privacy</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
-                                        Backstage
-                                    </button>
-                                </div>
-                            </nav>
-                            -->
-                        </header>
-
                         <div class="embed-responsive embed-responsive-1by1">
                             <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
                         </div>
