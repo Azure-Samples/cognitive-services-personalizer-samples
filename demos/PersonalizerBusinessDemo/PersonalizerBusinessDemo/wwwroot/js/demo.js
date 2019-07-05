@@ -65,6 +65,14 @@
 
             if (iframeBackBtn != undefined) {
                 iframeBackBtn.style.display = "block";
+                iframeBackBtn.addEventListener("click", function () {
+                    clearInterval(intervalId);
+                    intervalId = -1;
+                    timeleftEle.setAttribute("value", 0);
+                    updateRewardValue(0);
+                    clearRewardmessage();
+                    articleViewer.contentWindow.history.back();
+                });
             }
         }
     });
@@ -306,7 +314,3 @@ function sendReward(eventid, value) {
     });
 }
 
-const articleViewer = document.getElementById("article-viewer");
-function goBack() {
-    articleViewer.contentWindow.history.back();
-}
