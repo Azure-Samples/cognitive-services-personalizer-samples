@@ -5,6 +5,8 @@
   "PersonalizerDocumentationLabel": "Cognitive Services Personalizer",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
+    "BackgroundColor": "#0078d4",
+    "BackstageLabelBtn":  "How it works",
     "OptionsList": [
       {
         "label": "Ranking",

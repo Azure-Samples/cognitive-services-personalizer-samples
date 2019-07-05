@@ -2,35 +2,65 @@
 
 @{
     ViewData["Title"] = "Personalizer Interactive Demo";
+
+    NavBarOptionsModel navigationBarOptions = ViewData["navigationBar"] as NavBarOptionsModel;
+
+    Func<List<NavBarItemModel>, Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
+
+    displayMenuItems =
+
+    @<ul class="navbar-nav mr-auto w-100">
+    @foreach (NavBarItemModel menuItem in @item)
+    {
+        if (menuItem.Items != null)
+        {
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b>@menuItem.Label</b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach (var subItem in menuItem.Items)
+                    {
+                        <a class="dropdown-item" href="#">@subItem.Label</a>
+                    }
+                </div>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="#"><b>@menuItem.Label</b></a>
+            </li>
+        }
+
+    }
+        <li class="nav-item ml-auto">
+            <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
+                @navigationBarOptions.BackstageLabelBtn
+            </button>
+        </li>
+</ul>;
 }
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color:@navigationBarOptions.BackgroundColor;">
+        <a class="navbar-brand" href="#"><img src="~/@navigationBarOptions.LogoImageURL" style="width:40px;height:35px;" /></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
+
+
+        </div>
+    </nav>
 <div class="row">
     <div class="col">
+        
         <div class="row my-2">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body p-0">
-                        <header>
-                            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                                <div class="container-fluid">
-                                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Personalizer</a>
-                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                            aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                                        <ul class="navbar-nav flex-grow-1">
-                                            <li class="nav-item">
-                                                <a class="nav-link text-dark" href="https://privacy.microsoft.com/en-US/privacystatement">Privacy</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
-                                        Backstage
-                                    </button>
-                                </div>
-                            </nav>
-                        </header>
-
                         <div class="embed-responsive embed-responsive-1by1">
                             <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
                         </div>
@@ -79,7 +109,7 @@
                         </select>
 
                         <label class="sr-only" for="tournament">Tournament</label>
-                        <select class="custom-select my-1 mr-sm-2" multiple size="1" id="tournament">
+                        <select class="custom-select my-1 mr-sm-2" id="tournament">
                             <option value="tournament1" selected>Tournament 1</option>
                             <option value="tournament2">Tournament 2</option>
                             <option value="tournament3">Tournament 3</option>
