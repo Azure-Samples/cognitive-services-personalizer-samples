@@ -9,6 +9,8 @@ namespace PersonalizerBusinessDemo.Models
     {
         public string LogoImageURL { get; set; }
         public string BackgroundColor { get; set; }
+
+        public string BackstageLabelBtn { get; set; }
         public List<NavBarItemModel> OptionsList { get; set; }
     }
 }

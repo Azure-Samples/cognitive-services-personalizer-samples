@@ -6,6 +6,7 @@
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
     "BackgroundColor": "#0078d4",
+    "BackstageLabelBtn":  "Backstage",
     "OptionsList": [
       {
         "label": "Ranking",
