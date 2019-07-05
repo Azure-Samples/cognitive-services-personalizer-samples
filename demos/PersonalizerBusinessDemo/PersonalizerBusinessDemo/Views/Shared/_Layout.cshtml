@@ -21,16 +21,10 @@
 <body>
     <div class="container-fluid">
         @*<partial name="_CookieConsentPartial" />*@
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - PersonalizerBusinessDemo - <a href="https://privacy.microsoft.com/en-US/privacystatement">Privacy</a>
-        </div>
-    </footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

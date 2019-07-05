@@ -41,138 +41,128 @@
         </li>
 </ul>;
 }
-    <nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color:@navigationBarOptions.BackgroundColor;">
-        <a class="navbar-brand" href="#"><img src="~/@navigationBarOptions.LogoImageURL" style="width:40px;height:35px;" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="row">
+        <div class="col p-0">
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <nav class="navbar navbar-expand-md navbar-dark" style="background-color:@navigationBarOptions.BackgroundColor;">
+                <a class="navbar-brand" href="#"><img src="~/@navigationBarOptions.LogoImageURL" style="width:40px;height:35px;" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+                    @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
-        </div>
-    </nav>
-<div class="row">
-    <div class="col">
-        
-        <div class="row my-2">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <div class="embed-responsive embed-responsive-1by1">
-                            <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
+                </div>
+            </nav>
+
+            <div class="embed-responsive embed-responsive-1by1 article-container">
+                <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
+            </div>
+
+            <footer class="border-top footer">
+                <div class="container-fluid h-100 ">
+                    <div class="row h-100 d-flex align-items-center">
+                        <div class="col-10 pr-1">
+                            <div class="progress" style="height: 58px">
+                                <div class="progress-bar" role="progressbar" id="reward" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1">0</div>
+                            </div>
+                        </div>
+
+                        <div class="col-2 pl-1" style="height: 58px">
+                            <input type="number" class="form-control form-control-sm" readonly id="timeleft" value="0">
                         </div>
                     </div>
                 </div>
-            </div>
+            </footer>
         </div>
 
-        <form class="my-4">
-            <div class="form-group row">
-                <label for="reward" class="col-sm-4 col-form-label col-form-label-sm">Reward</label>
-                <div class="col-sm-8 align-items-center">
-                    <div class="progress" style="height: 1.8rem;">
-                        <div class="progress-bar" role="progressbar" id="reward" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1">0</div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-5 collapse show width border-left pl-2" id="collapseBackstage">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
 
-            <div class="form-group row">
-                <label for="timeleft" class="col-sm-4 col-form-label col-form-label-sm">Time left</label>
-                <div class="col-sm-8">
-                    <input type="number" class="form-control form-control-sm" readonly id="timeleft" value="0">
-                </div>
-            </div>
-        </form>
+                        <form class="form-inline">
+                            <label class="sr-only" for="weekDay">Week day</label>
+                            <select class="custom-select my-1 mr-sm-2" id="weekDay">
+                                <option value="workweek" selected>Workweek</option>
+                                <option value="weekend">Weekend</option>
+                            </select>
 
-        <div class="row" id="alert-container"></div>
-    </div>
-    <div class="col-md-5 collapse show width" id="collapseBackstage">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
+                            <label class="sr-only" for="profile">Profile</label>
+                            <select class="custom-select my-1 mr-sm-2" id="profile">
+                                <option value="anonymous" selected>Anonymous</option>
+                                <option value="loggedin">Logged In</option>
+                                <option value="paying">Paying</option>
+                            </select>
 
-                    <form class="form-inline">
-                        <label class="sr-only" for="weekDay">Week day</label>
-                        <select class="custom-select my-1 mr-sm-2" id="weekDay">
-                            <option value="workweek" selected>Workweek</option>
-                            <option value="weekend">Weekend</option>
-                        </select>
+                            <label class="sr-only" for="tournament">Tournament</label>
+                            <select class="custom-select my-1 mr-sm-2" id="tournament">
+                                <option value="tournament1" selected>Tournament 1</option>
+                                <option value="tournament2">Tournament 2</option>
+                                <option value="tournament3">Tournament 3</option>
+                            </select>
+                            <button type="button" class="btn btn-primary" id="go-btn">
+                                @Model.RefreshButtonText
+                            </button>
+                        </form>
 
-                        <label class="sr-only" for="profile">Profile</label>
-                        <select class="custom-select my-1 mr-sm-2" id="profile">
-                            <option value="anonymous" selected>Anonymous</option>
-                            <option value="loggedin">Logged In</option>
-                            <option value="paying">Paying</option>
-                        </select>
-
-                        <label class="sr-only" for="tournament">Tournament</label>
-                        <select class="custom-select my-1 mr-sm-2" id="tournament">
-                            <option value="tournament1" selected>Tournament 1</option>
-                            <option value="tournament2">Tournament 2</option>
-                            <option value="tournament3">Tournament 3</option>
-                        </select>
-                        <button type="button" class="btn btn-primary" id="go-btn">
-                            @Model.RefreshButtonText
-                        </button>
-                    </form>
-
-                    <div class="card-body p-0 pt-0">
-                        <h5 class="card-title ml-1 mt-0">Request</h5>
-                        <div class="card">
-                            <div class="card-header">
-                                <ul class="nav nav-tabs card-header-tabs" id="response-action-tab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="context-tab" data-toggle="tab" href="#context" role="tab" aria-controls="context" aria-selected="true">Context</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="actions-container-tab" data-toggle="tab" href="#actions-container" role="tab" aria-controls="actions-container" aria-selected="false">Possible actions</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="card-body p-0 pt-1">
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="context" role="tabpanel" aria-labelledby="context-tab">
-                                        <div class="card">
-                                            <div class="card-body p-0">
-                                                <div class="card-title mt-3 ml-2">
-                                                    <h5 class="d-inline pr-2">Context JSON</h5>
-                                                    <div class="custom-control custom-checkbox d-inline-flex align-items-end">
-                                                        <input type="checkbox" class="custom-control-input" id="use-useragent">
-                                                        <label class="custom-control-label" for="use-useragent"><small>Use User Agent</small></label>
+                        <div class="card-body p-0 pt-0">
+                            <h5 class="card-title ml-1 mt-0">Request</h5>
+                            <div class="card">
+                                <div class="card-header">
+                                    <ul class="nav nav-tabs card-header-tabs" id="response-action-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="context-tab" data-toggle="tab" href="#context" role="tab" aria-controls="context" aria-selected="true">Context</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="actions-container-tab" data-toggle="tab" href="#actions-container" role="tab" aria-controls="actions-container" aria-selected="false">Possible actions</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body p-0 pt-1">
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="context" role="tabpanel" aria-labelledby="context-tab">
+                                            <div class="card">
+                                                <div class="card-body p-0">
+                                                    <div class="card-title mt-3 ml-2">
+                                                        <h5 class="d-inline pr-2">Context JSON</h5>
+                                                        <div class="custom-control custom-checkbox d-inline-flex align-items-end">
+                                                            <input type="checkbox" class="custom-control-input" id="use-useragent">
+                                                            <label class="custom-control-label" for="use-useragent"><small>Use User Agent</small></label>
+                                                        </div>
                                                     </div>
+                                                    <pre class="pre-scrollable m-0 p-1 border-top" style="min-height:300px;"><code id="context-code"></code></pre>
                                                 </div>
-                                                <pre class="pre-scrollable m-0 p-1 border-top" style="min-height:300px;"><code id="context-code"></code></pre>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="actions-container" role="tabpanel" aria-labelledby="actions-container-tab">
-                                        <div class="row justify-content-between">
-                                            <div class="col-5 pr-0">
-                                                <div class="card">
-                                                    <div class="card-header p-2">
-                                                        <strong>Action list</strong>
-                                                        <p class="mb-0"><small>Articles to choose from</small></p>
-                                                    </div>
-                                                    <div class="card-body p-0">
-                                                        <div class="nav flex-column nav-pills" id="actions-tab" role="tablist" aria-orientation="vertical">
+                                        <div class="tab-pane fade" id="actions-container" role="tabpanel" aria-labelledby="actions-container-tab">
+                                            <div class="row justify-content-between">
+                                                <div class="col-5 pr-0">
+                                                    <div class="card">
+                                                        <div class="card-header p-2">
+                                                            <strong>Action list</strong>
+                                                            <p class="mb-0"><small>Articles to choose from</small></p>
+                                                        </div>
+                                                        <div class="card-body p-0">
+                                                            <div class="nav flex-column nav-pills" id="actions-tab" role="tablist" aria-orientation="vertical">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-7 pl-1">
-                                                <div class="card">
-                                                    <div class="card-header p-2">
-                                                        <strong>Action JSON</strong>
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input" id="text-analytics">
-                                                            <label class="custom-control-label" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
+                                                <div class="col-7 pl-1">
+                                                    <div class="card">
+                                                        <div class="card-header p-2">
+                                                            <strong>Action JSON</strong>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="text-analytics">
+                                                                <label class="custom-control-label" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="card-body p-0">
-                                                        <div class="tab-content" id="actions-tabContent">
+                                                        <div class="card-body p-0">
+                                                            <div class="tab-content" id="actions-tabContent">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -185,49 +175,50 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr />
+            <hr />
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body p-0 pt-1">
-                        <h5 class="card-title ml-2 mt-2">Response</h5>
-                        <div class="alert alert-info m-2" role="alert" id="result-alert">
-                            When you click the button, the Personalizer Rank will be called with the arguments above and outputs will be shown here.
-                        </div>
-                        <pre class="pre-scrollable border mb-3 p-1 d-none" id="result-container" style="max-height:200px;"><code id="result-code"></code></pre>
-
-                        <h6 class="p-1">For this Rank call, Personalizer was</h6>
-                        <div class="card-group p-1">
-                            <div id="exploring-box" class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Exploring</h5>
-                                    <p class="card-text">Personalizer returned a rewardActionId that is different than the one the learned model predicts would get most reward, in order to discover patterns and keep up with trends.</p>
-                                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body p-0 pt-1">
+                            <h5 class="card-title ml-2 mt-2">Response</h5>
+                            <div class="alert alert-info m-2" role="alert" id="result-alert">
+                                When you click the button, the Personalizer Rank will be called with the arguments above and outputs will be shown here.
                             </div>
-                            <div id="exploiting-box" class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Using Learned Model</h5>
-                                    <p class="card-text">Personalizer returned a rewardActionId that was predicted by the model as most likely to get high reward for this context ("<a href="https://review.docs.microsoft.com/en-us/azure/cognitive-services/personalizer/concepts-reinforcement-learning?branch=release-build-cogserv-personalization-service" class="card-link">Exploiting"</a> in RL terminology).</p>
+                            <pre class="pre-scrollable border mb-3 p-1 d-none" id="result-container" style="max-height:200px;"><code id="result-code"></code></pre>
+
+                            <h6 class="p-1">For this Rank call, Personalizer was</h6>
+                            <div class="card-group p-1">
+                                <div id="exploring-box" class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Exploring</h5>
+                                        <p class="card-text">Personalizer returned a rewardActionId that is different than the one the learned model predicts would get most reward, in order to discover patterns and keep up with trends.</p>
+                                    </div>
+                                </div>
+                                <div id="exploiting-box" class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Using Learned Model</h5>
+                                        <p class="card-text">Personalizer returned a rewardActionId that was predicted by the model as most likely to get high reward for this context ("<a href="https://review.docs.microsoft.com/en-us/azure/cognitive-services/personalizer/concepts-reinforcement-learning?branch=release-build-cogserv-personalization-service" class="card-link">Exploiting"</a> in RL terminology).</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr />
+            <div class="row" id="alert-container"></div>
 
-        <div class="row">
-            <div class="col-md-12">
-                Learn about <a href=@Model.PersonalizerDocumentationURL>@Model.PersonalizerDocumentationLabel</a>
+            <hr />
+
+            <div class="row">
+                <div class="col-md-12">
+                    Learn about <a href=@Model.PersonalizerDocumentationURL>@Model.PersonalizerDocumentationLabel</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 @section Scripts {
     <script src="~/js/demo.js" asp-append-version="true"></script>
