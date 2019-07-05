@@ -178,7 +178,7 @@ function updateContext(weekDay, profile, tournament, removeUserAgent, userAgent)
 
 function updateBasedOnRecommendation(result) {
     showResultContainer();
-    updateArticle(result.rewardActionId);
+    updateArticle(result);
     updateResult(result);
     updatePersonalizerMethod(result);
 }
@@ -270,9 +270,12 @@ function createActionTab(actionObj, active) {
     };
 }
 
-function updateArticle(article) {
+function updateArticle(result) {
+    let articleIds = result.ranking.map(function (ranking) {
+        return ranking.id;
+    }).join(",");
     const articleViewer = document.getElementById("article-viewer");
-    articleViewer.src = `/home/article/${article}`;
+    articleViewer.src = `/home/homesite?articleIds=${articleIds}`;
 }
 
 function getActions(useTextAnalytics) {
