@@ -134,15 +134,7 @@ img {
     background-color: #555;
 }
 
-
-/*.small_slot_cols_item .small_slot_cols_item_image img {
-    height: auto;
-    width: 100%;
-    position: ;
-}*/
-
-
-.progress{ 
+.progress { 
     font-size: 2rem;
 }
 
@@ -155,4 +147,9 @@ img {
 .article-container {
     min-height: calc(100vh - 120px);
     max-height: calc(100vh - 122px);
+}
+
+#collapseBackstage.collapsing {
+    width: 0;
+    transition: width 0.05s ease;
 }
