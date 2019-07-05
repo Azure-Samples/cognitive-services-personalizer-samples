@@ -6,6 +6,10 @@
     <UserSecretsId>7e7187fe-8562-4710-93fe-40f33e289558</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\img\blank.jpg" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />

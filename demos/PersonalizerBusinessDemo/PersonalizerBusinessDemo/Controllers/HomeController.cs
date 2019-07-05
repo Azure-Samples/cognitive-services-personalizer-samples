@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using PersonalizerBusinessDemo.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Collections;
 
 namespace PersonalizerBusinessDemo.Controllers
 {
@@ -57,16 +58,30 @@ namespace PersonalizerBusinessDemo.Controllers
         {
             var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
             ViewData["navigationBar"] = generalModel.NavigationBar;
-                var model = _articleRepository.GetArticle(id);
+            var model = _articleRepository.GetArticle(id);
             ViewData["Title"] = model.Title;
             return View(model);
         }
-
-        public IActionResult HomeSite()
+        public IActionResult HomeSite(string articleIds)
         {
             var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
             ViewData["navigationBar"] = generalModel.NavigationBar;
-            return View("HomeSite");
+            if (String.IsNullOrWhiteSpace(articleIds))
+            {
+                return View("HomeSite", new List<Article>());
+            }
+
+            var articles = _articleRepository.GetArticles();
+
+            List<string> topArticlesIds = articleIds.Split(",").ToList();
+
+            var topArticles = articles.Where(article => topArticlesIds.Contains(article.Id))
+                                        .OrderBy(article => topArticlesIds.IndexOf(article.Id))
+                                        //Max articles that fit in layout
+                                        .Take(4)
+                                        .ToList();
+
+            return View("HomeSite", topArticles);
         }
     }
 }
