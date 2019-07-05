@@ -1,41 +1,4 @@
-﻿@{
-    NavBarOptionsModel navigationBarOptions = ViewData["navigationBar"] as NavBarOptionsModel;
-
-    Func<List<NavBarItemModel>, Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
-
-    displayMenuItems =
-
-    @<ul class="navbar-nav mr-auto">
-        @foreach (NavBarItemModel menuItem in @item)
-        {
-            if (menuItem.Items != null)
-            {
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        @menuItem.Label
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach (var subItem in menuItem.Items)
-                        {
-                            <a class="dropdown-item" href="#">@subItem.Label</a>
-                        }
-                    </div>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a class="nav-link" href="#">@menuItem.Label</a>
-                </li>
-            }
-
-
-
-        }
-    </ul>;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -63,19 +26,6 @@
     </head>
     <body>
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-md navbar-light bg-light navbar-fixed-top">
-                <a class="navbar-brand" href="#"><img src="~/@navigationBarOptions.LogoImageURL" width="40" height="35" style="width:40px;height:35px;"/></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
-
-
-                </div>
-            </nav>
         <main role="main">
             @RenderBody()
         </main>
