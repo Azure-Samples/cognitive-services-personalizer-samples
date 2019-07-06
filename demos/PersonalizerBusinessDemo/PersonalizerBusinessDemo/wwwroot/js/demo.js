@@ -28,7 +28,7 @@
                 intervalId = -1;
             }
 
-            let counter = 15;
+            let counter = 20;
             waiting = true;
             reward = 0;
             updateRewardValue(reward);
