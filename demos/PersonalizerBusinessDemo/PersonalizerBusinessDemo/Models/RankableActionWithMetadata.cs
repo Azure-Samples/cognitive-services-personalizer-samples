@@ -26,15 +26,7 @@ namespace PersonalizerBusinessDemo.Models
 
             if (article.Entities != null && article.Entities.Any())
             {
-                ExpandoObject entities = new ExpandoObject();
-
-                foreach (string key in article.Entities.Keys)
-                {
-                    entities.TryAdd(key, article.Entities[key]);
-
-                }
-
-                Features.Add(new { entities });
+                Features.Add(new { article.Entities });
             }
 
             if (article.Tags != null && article.Tags.Any())
