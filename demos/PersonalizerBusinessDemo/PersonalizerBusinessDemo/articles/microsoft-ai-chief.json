@@ -1,5 +1,6 @@
 {
   "id": "microsoft-ai-chief",
+  "enabled": false,
   "title": "Microsoft AI chief warns of coming AI challenges and ethics risks",
   "author": "Dan Thorp-Lancaster",
   "authorLink": "https://www.windowscentral.com/author/Dan%20Thorp-Lancaster",
@@ -13,7 +14,7 @@
   ],
   "imageName": "microsoft_billboard.jpg",
   "originalSourceURL": "https://www.windowscentral.com/microsoft-ai-chief-warns-coming-ai-challenges-and-ethics-risks",
-  "publishedDayAgo": 1,
+  "publishedAgo": "3Days",
   "breakingNews": true,
-  "newsSource": "windowscentral.com"
+  "source": "windowscentral.com"
 }

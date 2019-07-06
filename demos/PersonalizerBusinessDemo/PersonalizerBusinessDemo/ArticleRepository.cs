@@ -19,6 +19,7 @@ namespace PersonalizerBusinessDemo
             _articles = contents
                             .Select(file => System.IO.File.ReadAllText(file.PhysicalPath))
                             .Select(fileContent => JsonConvert.DeserializeObject<Article>(fileContent))
+                            .Where(a => a.Enabled)
                             .ToList();
         }
 

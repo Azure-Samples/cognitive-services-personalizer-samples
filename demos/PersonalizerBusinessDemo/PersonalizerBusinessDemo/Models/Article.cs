@@ -1,21 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace PersonalizerBusinessDemo.Models
 {
     public class Article
     {
+        public Article()
+        {
+            Enabled = true;
+        }
+
         public string Id { get; set; }
 
-        public int PublishedDayAgo { get; set; }
+        public bool Enabled { get; set; }
+
+        public string PublishedAgo { get; set; }
 
         public bool BreakingNews { get; set; }
 
         public string NewsLocation { get; set; }
 
-        public string NewsSource { get; set; }
+        public string Source { get; set; }
 
         public string Title { get; set; }
 
@@ -26,5 +30,13 @@ namespace PersonalizerBusinessDemo.Models
         public string Author { get; set; }
 
         public string AuthorLink { get; set; }
+
+        public bool HasVideo { get; set; }
+
+        public bool? EditorialHighlight { get; set; }
+
+        public string[] Tags { get; set; }
+
+        public IDictionary<string, object> Entities { get; set; }
     }
 }
