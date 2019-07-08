@@ -154,6 +154,6 @@ img {
     transition: width 0.05s ease;
 }
 
-#collapseBackstage div.container-fluid {
-    max-height:100vh;
+#collapseBackstage .backstage-container {
+    max-height: 100vh;
 }

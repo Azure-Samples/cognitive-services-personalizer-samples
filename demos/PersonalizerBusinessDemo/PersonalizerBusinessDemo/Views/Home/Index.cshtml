@@ -80,16 +80,15 @@
     </div>
 
     <div class="col-md-5 collapse border-left p-0" id="collapseBackstage">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div class="navbar-brand" >How it works</div>
-        </nav>
+        <div class="overflow-auto backstage-container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="navbar-brand">How it works</div>
+            </nav>
 
-        <div class="container-fluid overflow-auto">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-
-                        <form class="form-inline">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <form class="form-inline py-3">
                             <label class="sr-only" for="weekDay">Week day</label>
                             <select class="custom-select my-1 mr-sm-2" id="weekDay">
                                 <option value="workweek" selected>Workweek</option>
@@ -114,60 +113,62 @@
                             </button>
                         </form>
 
-                        <div class="card-body p-0 pt-0">
-                            <h5 class="card-title ml-1 mt-0">Request</h5>
-                            <div class="card">
-                                <div class="card-header">
-                                    <ul class="nav nav-tabs card-header-tabs" id="response-action-tab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="context-tab" data-toggle="tab" href="#context" role="tab" aria-controls="context" aria-selected="true">Context</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="actions-container-tab" data-toggle="tab" href="#actions-container" role="tab" aria-controls="actions-container" aria-selected="false">Possible actions</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="card-body p-0 pt-1">
-                                    <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active" id="context" role="tabpanel" aria-labelledby="context-tab">
-                                            <div class="card">
-                                                <div class="card-body p-0">
-                                                    <div class="card-title mt-3 ml-2">
-                                                        <h5 class="d-inline pr-2">Context JSON</h5>
-                                                        <div class="custom-control custom-checkbox d-inline-flex align-items-end">
-                                                            <input type="checkbox" class="custom-control-input" id="use-useragent">
-                                                            <label class="custom-control-label" for="use-useragent"><small>Use User Agent</small></label>
+                        <div class="card">
+                            <div class="card-body p-0 pt-0">
+                                <h5 class="card-title ml-1 mt-0">Request</h5>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <ul class="nav nav-tabs card-header-tabs" id="response-action-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="context-tab" data-toggle="tab" href="#context" role="tab" aria-controls="context" aria-selected="true">Context</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="actions-container-tab" data-toggle="tab" href="#actions-container" role="tab" aria-controls="actions-container" aria-selected="false">Possible actions</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body p-0 pt-1">
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="context" role="tabpanel" aria-labelledby="context-tab">
+                                                <div class="card">
+                                                    <div class="card-body p-0">
+                                                        <div class="card-title mt-3 ml-2">
+                                                            <h5 class="d-inline pr-2">Context JSON</h5>
+                                                            <div class="custom-control custom-checkbox d-inline-flex align-items-end">
+                                                                <input type="checkbox" class="custom-control-input" id="use-useragent">
+                                                                <label class="custom-control-label" for="use-useragent"><small>Use User Agent</small></label>
+                                                            </div>
                                                         </div>
+                                                        <pre class="pre-scrollable m-0 p-1 border-top" style="min-height:300px;"><code id="context-code"></code></pre>
                                                     </div>
-                                                    <pre class="pre-scrollable m-0 p-1 border-top" style="min-height:300px;"><code id="context-code"></code></pre>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="actions-container" role="tabpanel" aria-labelledby="actions-container-tab">
-                                            <div class="row justify-content-between">
-                                                <div class="col-5 pr-0">
-                                                    <div class="card">
-                                                        <div class="card-header p-2">
-                                                            <strong>Action list</strong>
-                                                            <p class="mb-0"><small>Articles to choose from</small></p>
-                                                        </div>
-                                                        <div class="card-body p-0">
-                                                            <div class="nav flex-column nav-pills" id="actions-tab" role="tablist" aria-orientation="vertical">
+                                            <div class="tab-pane fade" id="actions-container" role="tabpanel" aria-labelledby="actions-container-tab">
+                                                <div class="row justify-content-between">
+                                                    <div class="col-5 pr-0">
+                                                        <div class="card">
+                                                            <div class="card-header p-2">
+                                                                <strong>Action list</strong>
+                                                                <p class="mb-0"><small>Articles to choose from</small></p>
+                                                            </div>
+                                                            <div class="card-body p-0">
+                                                                <div class="nav flex-column nav-pills" id="actions-tab" role="tablist" aria-orientation="vertical">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-7 pl-1">
-                                                    <div class="card">
-                                                        <div class="card-header p-2">
-                                                            <strong>Action JSON</strong>
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="text-analytics">
-                                                                <label class="custom-control-label" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
+                                                    <div class="col-7 pl-1">
+                                                        <div class="card">
+                                                            <div class="card-header p-2">
+                                                                <strong>Action JSON</strong>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="text-analytics">
+                                                                    <label class="custom-control-label" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="card-body p-0">
-                                                            <div class="tab-content" id="actions-tabContent">
+                                                            <div class="card-body p-0">
+                                                                <div class="tab-content" id="actions-tabContent">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -180,45 +181,45 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <hr />
+                <hr />
 
-            <div class="row d-none" id="result-section">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body p-0 pt-1">
-                            <h5 class="card-title ml-2 mt-2">Response</h5>
-                            <pre class="pre-scrollable border mb-3 p-1" style="max-height:200px;"><code id="result-code"></code></pre>
+                <div class="row d-none" id="result-section">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0 pt-1">
+                                <h5 class="card-title ml-2 mt-2">Response</h5>
+                                <pre class="pre-scrollable border mb-3 p-1" style="max-height:200px;"><code id="result-code"></code></pre>
 
-                            <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
-                            <div class="card-group p-4">
-                                <div id="exploring-box" class="card-flex col-md-6">
-                                    <div class="card-body" data-toggle="tooltip" data-placement="top" title="Personalizer returned a rewardActionId that is different than the one the learned model predicts would get most reward, in order to discover patterns and keep up with trends.">
-                                        <h5 class="card-title text-center">Exploring</h5>
-                                        <div class="card-text text-center"><i class="fas fa-search fa-5x" style="color:#c8c8c8;"></i></div>
+                                <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
+                                <div class="card-group p-4">
+                                    <div id="exploring-box" class="card-flex col-md-6">
+                                        <div class="card-body" data-toggle="tooltip" data-placement="top" title="Personalizer returned a rewardActionId that is different than the one the learned model predicts would get most reward, in order to discover patterns and keep up with trends.">
+                                            <h5 class="card-title text-center">Exploring</h5>
+                                            <div class="card-text text-center"><i class="fas fa-search fa-5x" style="color:#c8c8c8;"></i></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div id="exploiting-box" class="card-flex col-md-6">
-                                    <div class="card-body" data-toggle="tooltip" data-placement="top" title="Personalizer returned a rewardActionId that was predicted by the model as most likely to get high reward for this context ('Exploiting' in RL terminology).">
-                                        <h5 class="card-title text-center">Using Learned Model</h5>
-                                        <div class="card-text text-center"><i class="fas fa-chart-line fa-5x" style="color:#c8c8c8;"></i></div>
+                                    <div id="exploiting-box" class="card-flex col-md-6">
+                                        <div class="card-body" data-toggle="tooltip" data-placement="top" title="Personalizer returned a rewardActionId that was predicted by the model as most likely to get high reward for this context ('Exploiting' in RL terminology).">
+                                            <h5 class="card-title text-center">Using Learned Model</h5>
+                                            <div class="card-text text-center"><i class="fas fa-chart-line fa-5x" style="color:#c8c8c8;"></i></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
+                <div class="row" id="alert-container"></div>
 
-            <div class="row" id="alert-container"></div>
+                <hr />
 
-            <hr />
-
-            <div class="row">
-                <div class="col-md-12">
-                    Learn about <a href=@Model.PersonalizerDocumentationURL>@Model.PersonalizerDocumentationLabel</a>
+                <div class="row">
+                    <div class="col-md-12">
+                        Learn about <a href=@Model.PersonalizerDocumentationURL>@Model.PersonalizerDocumentationLabel</a>
+                    </div>
                 </div>
             </div>
         </div>
