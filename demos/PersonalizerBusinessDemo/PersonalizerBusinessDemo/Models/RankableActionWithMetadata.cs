@@ -1,4 +1,4 @@
-﻿using Microsoft.Azure.CognitiveServices.Personalizer.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;

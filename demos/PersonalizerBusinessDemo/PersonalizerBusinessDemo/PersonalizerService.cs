@@ -1,4 +1,4 @@
-﻿using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using PersonalizerBusinessDemo.Models;
 using System;

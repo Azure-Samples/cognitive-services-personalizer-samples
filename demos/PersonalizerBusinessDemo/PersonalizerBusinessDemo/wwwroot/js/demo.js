@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const timeleftEle = document.getElementById("timeleft");
     const goBtnEle = document.getElementById("go-btn");
     let intervalId = -1;
