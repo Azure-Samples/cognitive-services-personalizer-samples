@@ -153,3 +153,7 @@ img {
     width: 0;
     transition: width 0.05s ease;
 }
+
+#collapseBackstage div.container-fluid {
+    max-height:100vh;
+}

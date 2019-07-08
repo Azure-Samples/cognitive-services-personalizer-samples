@@ -184,9 +184,7 @@ function updateBasedOnRecommendation(result) {
 }
 
 function showResultContainer() {
-    const resultAlertEle = document.getElementById("result-alert");
-    const resultContainerEle = document.getElementById("result-container");
-    resultAlertEle.classList.add("d-none");
+    const resultContainerEle = document.getElementById("result-section");
     resultContainerEle.classList.remove("d-none");
 }
 
