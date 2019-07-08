@@ -9,3 +9,7 @@ function cleanChilds(element) {
         element.removeChild(element.firstChild);
     }
 }
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+})
