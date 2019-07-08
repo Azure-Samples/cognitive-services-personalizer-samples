@@ -39,46 +39,48 @@
                 @navigationBarOptions.BackstageLabelBtn
             </button>
         </li>
-</ul>;
+    </ul>;
 }
-    <div class="row">
-        <div class="col p-0">
 
-            <nav class="navbar navbar-expand-md navbar-dark" style="background-color:@navigationBarOptions.BackgroundColor;">
-                <a class="navbar-brand" href="#"><img src="~/@navigationBarOptions.LogoImageURL" style="width:40px;height:35px;" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<div class="row">
+    <div class="col p-0">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <nav class="navbar navbar-expand-md navbar-dark px-5" style="background-color:@navigationBarOptions.BackgroundColor;">
+            <a class="navbar-brand" href="#"><img src="~/@navigationBarOptions.LogoImageURL" style="width:40px;height:35px;" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                </div>
-            </nav>
+                @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
-            <div class="embed-responsive embed-responsive-1by1 article-container">
-                <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
             </div>
+        </nav>
 
-            <footer class="border-top footer">
-                <div class="container-fluid h-100 ">
-                    <div class="row h-100 d-flex align-items-center">
-                        <div class="col-10 pr-1">
-                            <div class="progress" style="height: 58px">
-                                <div class="progress-bar" role="progressbar" id="reward" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1">0</div>
-                            </div>
-                        </div>
-
-                        <div class="col-2 pl-1" style="height: 58px">
-                            <input type="number" class="form-control form-control-sm" readonly id="timeleft" value="0">
-                        </div>
-                    </div>
-                </div>
-            </footer>
+        <div class="embed-responsive embed-responsive-1by1 article-container">
+            <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
         </div>
 
-        <div class="col-md-5 collapse border-left pl-2" id="collapseBackstage">
+        <footer class="border-top footer">
+            <div class="container-fluid h-100 ">
+                <div class="row h-100 d-flex align-items-center">
+                    <div class="col-10 pr-1">
+                        <div class="progress" style="height: 58px">
+                            <div class="progress-bar" role="progressbar" id="reward" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="1">0</div>
+                        </div>
+                    </div>
+
+                    <div class="col-2 pl-1" style="height: 58px">
+                        <input type="number" class="form-control form-control-sm" readonly id="timeleft" value="0">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="col-md-5 collapse border-left p-0" id="collapseBackstage">
+        <div class="container-fluid overflow-auto">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -178,34 +180,32 @@
 
             <hr />
 
-            <div class="row">
-                <div class="col-md-12">
+            <div class="row d-none" id="result-section">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-body p-0 pt-1">
                             <h5 class="card-title ml-2 mt-2">Response</h5>
-                            <div class="alert alert-info m-2" role="alert" id="result-alert">
-                                When you click the button, the Personalizer Rank will be called with the arguments above and outputs will be shown here.
-                            </div>
-                            <pre class="pre-scrollable border mb-3 p-1 d-none" id="result-container" style="max-height:200px;"><code id="result-code"></code></pre>
+                            <pre class="pre-scrollable border mb-3 p-1" style="max-height:200px;"><code id="result-code"></code></pre>
 
-                            <h6 class="p-1">For this Rank call, Personalizer was</h6>
-                            <div class="card-group p-1">
-                                <div id="exploring-box" class="card">
+                            <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
+                            <div class="card-group p-4">
+                                <div id="exploring-box" class="card-flex col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Exploring</h5>
-                                        <p class="card-text">Personalizer returned a rewardActionId that is different than the one the learned model predicts would get most reward, in order to discover patterns and keep up with trends.</p>
+                                        <h5 class="card-title text-center">Exploring</h5>
+                                        <div class="card-text text-center"><i class="fas fa-search fa-5x" style="color:#c8c8c8;"></i></div>
                                     </div>
                                 </div>
-                                <div id="exploiting-box" class="card">
+                                <div id="exploiting-box" class="card-flex col-md-6">
                                     <div class="card-body">
-                                        <h5 class="card-title">Using Learned Model</h5>
-                                        <p class="card-text">Personalizer returned a rewardActionId that was predicted by the model as most likely to get high reward for this context ("<a href="https://review.docs.microsoft.com/en-us/azure/cognitive-services/personalizer/concepts-reinforcement-learning?branch=release-build-cogserv-personalization-service" class="card-link">Exploiting"</a> in RL terminology).</p>
+                                        <h5 class="card-title text-center">Using Learned Model</h5>
+                                        <div class="card-text text-center"><i class="fas fa-chart-line fa-5x" style="color:#c8c8c8;"></i></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             <div class="row" id="alert-container"></div>
@@ -219,6 +219,7 @@
             </div>
         </div>
     </div>
+</div>
 
 @section Scripts {
     <script src="~/js/demo.js" asp-append-version="true"></script>

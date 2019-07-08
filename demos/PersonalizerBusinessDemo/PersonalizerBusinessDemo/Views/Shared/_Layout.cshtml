@@ -16,12 +16,14 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
     </environment>
+
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid px-0">
         @*<partial name="_CookieConsentPartial" />*@
-        <main role="main">
+        <main role="main" class="overflow-hidden">
             @RenderBody()
         </main>
     </div>
