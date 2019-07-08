@@ -1,5 +1,6 @@
 {
   "id": "microsoft-executives-meet",
+  "enabled": false,
   "title": "Microsoft's CEO meets with top execs every week to review AI projects",
   "author": "Jordan Novet",
   "authorLink": "https://www.cnbc.com/jordan-novet/",
@@ -12,7 +13,7 @@
   ],
   "imageName": "nadella.jpg",
   "originalSourceURL": "https://www.cnbc.com/2019/04/07/microsoft-executives-meet-each-week-to-review-ai-projects.html",
-  "publishedDayAgo": 2,
+  "publishedAgo": "2-6Months",
   "breakingNews": false,
-  "newsSource": "cnbc.com"
+  "source": "cnbc.com"
 }

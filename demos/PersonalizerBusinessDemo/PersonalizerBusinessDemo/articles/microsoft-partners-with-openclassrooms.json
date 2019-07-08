@@ -1,5 +1,6 @@
 {
   "id": "microsoft-partners-with-openclassrooms",
+  "enabled": false,
   "title": "Microsoft partners with OpenClassrooms to recruit and train 1,000 AI students",
   "author": "Paul Sawers",
   "authorLink": "https://venturebeat.com/author/paul-sawers/",
@@ -11,7 +12,7 @@
   ],
   "imageName": "building.jpg",
   "originalSourceURL": "https://venturebeat.com/2019/04/03/microsoft-partners-with-openclassrooms-to-recruit-and-train-1000-ai-students/",
-  "publishedDayAgo": 3,
+  "publishedAgo": "2-6Months",
   "breakingNews": false,
-  "newsSource": "venturebeat.com"
+  "source": "venturebeat.com"
 }

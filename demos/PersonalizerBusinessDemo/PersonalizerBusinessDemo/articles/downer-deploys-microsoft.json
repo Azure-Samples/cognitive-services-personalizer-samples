@@ -1,5 +1,6 @@
 {
   "id": "downer-deploys-microsoft",
+  "enabled": false,
   "title": "Downer deploys Microsoft AI solution to boost safety on Sydney trains",
   "author": "Samira Sarraf",
   "authorLink": "https://www.arnnet.com.au/author/2147449418/samira-sarraf/articles",
@@ -14,8 +15,8 @@
   ],
   "imageName": "train.jpg",
   "originalSourceURL": "https://www.arnnet.com.au/article/660037/downer-deploys-microsoft-ai-solution-boost-safety-sydney-trains/",
-  "publishedDayAgo": 2,
+  "publishedAgo": "2Days",
   "breakingNews": false,
   "newsLocation": "Australia",
-  "newsSource": "arnnet.com.au"
+  "source": "arnnet.com.au"
 }

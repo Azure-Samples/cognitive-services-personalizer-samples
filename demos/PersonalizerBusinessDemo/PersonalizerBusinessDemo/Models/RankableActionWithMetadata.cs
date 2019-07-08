@@ -1,8 +1,7 @@
 ﻿using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PersonalizerBusinessDemo.Models
 {
@@ -14,16 +13,32 @@ namespace PersonalizerBusinessDemo.Models
             ImageName = article.ImageName;
             Title = article.Title;
             Features = new List<object>()
-                {
-                    new {article.PublishedDayAgo},
-                    new {article.BreakingNews},
-                    new {article.NewsSource},
-                };
-
-
-            if (!string.IsNullOrWhiteSpace(article.NewsLocation))
             {
-                Features.Add(new { article.NewsLocation });
+                    new {article.Source},
+                    new {article.HasVideo},
+                    new {article.PublishedAgo}
+            };
+
+            if (article.EditorialHighlight.HasValue)
+            {
+                Features.Add(new { article.EditorialHighlight });
+            }
+
+            if (article.Entities != null && article.Entities.Any())
+            {
+                Features.Add(new { article.Entities });
+            }
+
+            if (article.Tags != null && article.Tags.Any())
+            {
+                ExpandoObject tags = new ExpandoObject();
+
+                foreach (string tag in article.Tags)
+                {
+                    tags.TryAdd(tag, "Yes");
+                }
+
+                Features.Add(new { tags });
             }
         }
 
