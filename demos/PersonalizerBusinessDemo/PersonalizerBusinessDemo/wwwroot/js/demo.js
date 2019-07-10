@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const timeleftEle = document.getElementById("timeleft");
+    const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     let intervalId = -1;
     let reward = 0;
@@ -33,16 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
             reward = 0;
             updateRewardValue(reward);
             clearRewardmessage();
-
+            
             intervalId = setInterval(function () {
                 counter--;
-                timeleftEle.setAttribute("value", counter);
+                timeleftEle.textContent = counter + "s left to get reward";
+                timeleftContainer.style.visibility = 'visible';
                 if (counter <= 0) {
                     clearInterval(intervalId);
                     intervalId = -1;
                     sendReward(personalizerCallResult.eventId, reward).then(() => {
                         showRewardMessage(reward);
                     });
+                    timeleftContainer.style.visibility = 'hidden';
                 }
             }, 1000);
 
@@ -68,7 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.addEventListener("click", function () {
                     clearInterval(intervalId);
                     intervalId = -1;
-                    timeleftEle.setAttribute("value", 0);
+                    timeleftContainer.style.visibility = 'visible';
+                    timeleftEle.textContent = "";
                     updateRewardValue(0);
                     clearRewardmessage();
                     articleViewer.contentWindow.history.back();
