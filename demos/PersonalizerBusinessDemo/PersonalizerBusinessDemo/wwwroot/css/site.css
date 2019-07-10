@@ -167,3 +167,110 @@ img {
     min-height: 4rem;
     height: 4rem;
 }
+
+.gauge-container {
+    display: block;
+    position: fixed;
+    top: 500px;
+    right: 30px;
+    z-index: 99;
+    width: 420px;
+    height: 420px;
+    overflow: hidden;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,255,1);
+    border-radius: 300px 300px 300px 300px;
+    border-color: rgba(0,0,255,1);
+}
+
+/* the grey bar that will be filled*/
+.gauge-a {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(200,200,200,1);
+    width: 400px;
+    height: 200px;
+    top: 0%;
+    border-radius: 250px 250px 0px 0px;
+}
+
+/* the bottom semicircle area white */
+.gauge-cover {
+    z-index: 10;
+    position: absolute;
+    background-color: rgba(255,255,255,1);
+    width: 400px;
+    height: 201px;
+    top: 200px;
+    border-radius: 0px 0px 250px 250px;
+}
+
+/* the semicircle area containing the percentage*/
+.gauge-b {
+    z-index: 3;
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 250px;
+    height: 125px;
+    top: 75px;
+    margin-left: 75px;
+    margin-right: auto;
+    border-radius: 250px 250px 0px 0px;
+}
+
+/* the green measure bar that moves*/
+.gauge-c {
+    z-index: 2;
+    position: absolute;
+    background-color: #009900;
+    width: 400px;
+    height: 200px;
+    top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px 0px 200px 200px;
+    transform-origin: center top;
+    transition: all 1.3s ease-in-out;
+}
+
+/* Turn is 0%= 0 turn, 100%=.5 turn*/
+.gauge-container:hover .gauge-c {
+    transform: rotate(.4turn);
+}
+
+.gauge-container:hover .gauge-data {
+    color: rgba(0,0,0,1);
+}
+
+.gauge-data {
+    z-index: 10;
+    color: rgba(0,0,0,0.8);
+    font-family: calibri;
+    font-size: 2.5em;
+    line-height: 25px;
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 1s ease-out;
+}
+
+.gauge-comment {
+    z-index: 10;
+    color: rgba(30,30,30,1);
+    font-family: calibri;
+    font-size: 1.2em;
+    line-height: 40px;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 100px;
+    top: 200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 1s ease-out;
+}
