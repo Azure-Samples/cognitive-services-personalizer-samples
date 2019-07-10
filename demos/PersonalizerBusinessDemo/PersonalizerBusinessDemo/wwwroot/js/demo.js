@@ -68,6 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.addEventListener("click", function () {
                     clearInterval(intervalId);
                     intervalId = -1;
+                    if (counter > 0) {
+                        sendReward(personalizerCallResult.eventId, reward).then(() => {
+                            showRewardMessage(reward);
+                        });
+                    }
                     timeleftEle.setAttribute("value", 0);
                     updateRewardValue(0);
                     clearRewardmessage();
