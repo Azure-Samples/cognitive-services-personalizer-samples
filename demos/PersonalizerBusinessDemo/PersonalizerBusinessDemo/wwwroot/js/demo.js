@@ -37,15 +37,16 @@ document.addEventListener("DOMContentLoaded", function () {
             
             intervalId = setInterval(function () {
                 counter--;
-                timeleftEle.textContent = counter + "s left to get reward";
-                timeleftContainer.style.visibility = 'visible';
+                timeleftContainer.innerHTML = `<div class="col-12 mx-auto" >
+                        <p>${counter + "s left to get reward"}</p>
+                    </div>`
                 if (counter <= 0) {
                     clearInterval(intervalId);
                     intervalId = -1;
                     sendReward(personalizerCallResult.eventId, reward).then(() => {
                         showRewardMessage(reward);
                     });
-                    timeleftContainer.style.visibility = 'hidden';
+                    timeleftContainer.innerHTML = '';
                 }
             }, 1000);
 
@@ -71,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.addEventListener("click", function () {
                     clearInterval(intervalId);
                     intervalId = -1;
-                    timeleftContainer.style.visibility = 'visible';
+                    timeleftContainer.innerHTML = '';
                     timeleftEle.textContent = "";
                     updateRewardValue(0);
                     clearRewardmessage();
