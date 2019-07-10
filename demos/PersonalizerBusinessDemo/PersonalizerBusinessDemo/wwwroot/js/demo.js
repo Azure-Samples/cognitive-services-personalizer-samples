@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeleftEle = document.getElementById("timeleft");
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
+    const brandLogoImg = document.getElementById("brand-logo");
     let intervalId = -1;
     let reward = 0;
     let waiting = false;
@@ -73,12 +74,36 @@ document.addEventListener("DOMContentLoaded", function () {
                     clearInterval(intervalId);
                     intervalId = -1;
                     timeleftContainer.innerHTML = '';
-                    timeleftEle.textContent = "";
+
+                    if (counter > 0) {
+                        sendReward(personalizerCallResult.eventId, reward).then(() => {
+                            showRewardMessage(reward);
+                        });
+                    }
+
                     updateRewardValue(0);
                     clearRewardmessage();
+                    counter = 0;
                     articleViewer.contentWindow.history.back();
                 });
             }
+
+            brandLogoImg.addEventListener("click", function () {
+                if (iframeBackBtn != undefined) {
+                    clearInterval(intervalId);
+                    intervalId = -1;
+                    if (counter > 0) {
+                        sendReward(personalizerCallResult.eventId, reward).then(() => {
+                            showRewardMessage(reward);
+                        });
+                    }
+                    timeleftEle.setAttribute("value", 0);
+                    updateRewardValue(0);
+                    clearRewardmessage();
+                    counter = 0;
+                }
+                articleViewer.contentWindow.history.back();
+            });
         }
     });
 });
@@ -228,8 +253,8 @@ function updateCodeElementWithJSON(eleId, jsonObj, resultId) {
     let code = JSON.stringify(jsonObj, null, 2);
 
     if (resultId) {
-        const regex = new RegExp(`({\\n.*)("id":\\s"${resultId}",\\n)(.*)("probability.*\\n)(.*})`, 'gm');
-        code = code.replace(regex, '$1<mark>$2</mark>$3<mark>$4</mark>$5');
+        const regex = new RegExp(`(.*)("rewardActionId":\\s"${resultId}"\\n)(.*)`, 'gm');
+        code = code.replace(regex, '$1<mark>$2</mark>$3');
     }
 
     codeEle.innerHTML = code;
@@ -319,4 +344,3 @@ function sendReward(eventid, value) {
         })
     });
 }
-
