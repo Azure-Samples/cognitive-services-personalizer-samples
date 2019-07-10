@@ -33,7 +33,7 @@ namespace PersonalizerBusinessDemo.Models
 
         public bool HasVideo { get; set; }
 
-        public bool? EditorialHighlight { get; set; }
+        public bool? FeaturedByEditorial { get; set; }
 
         public string[] Tags { get; set; }
 
