@@ -157,3 +157,13 @@ img {
 #collapseBackstage .backstage-container {
     max-height: 100vh;
 }
+
+#collapseBackstage .backstageNavBar {
+    min-height: 4rem;
+    height:4rem;
+}
+
+.articleNavBar {
+    min-height: 4rem;
+    height: 4rem;
+}
