@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
             
             intervalId = setInterval(function () {
                 counter--;
-                timeleftContainer.innerHTML = `<div class="col-12 mx-auto" >
-                        <p>${counter + "s left to get reward"}</p>
-                    </div>`
+                timeleftContainer.innerHTML = `<p class="col-12">
+                        ${counter}s left to get reward
+                    </p>`
                 if (counter <= 0) {
                     clearInterval(intervalId);
                     intervalId = -1;
