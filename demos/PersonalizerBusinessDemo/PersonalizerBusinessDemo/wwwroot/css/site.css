@@ -168,10 +168,24 @@ img {
     height: 4rem;
 }
 
-.gauge-container {
+.super-container {
     display: block;
     position: fixed;
-    top: 500px;
+    top: 250px;
+    right: 30px;
+    z-index: 99;
+    width: 420px;
+    height: 420px;
+}
+
+.gauge-container {
+    /*z-index: 0;
+    width: 21%;
+    height: 21%;
+    position: absolute;*/
+    display: block;
+    position: fixed;
+    top: 250px;
     right: 30px;
     z-index: 99;
     width: 420px;
@@ -179,9 +193,18 @@ img {
     overflow: hidden;
     text-align: center;
     transform: translate(-50%, -50%);
-    background-color: rgba(0,0,255,1);
-    border-radius: 300px 300px 300px 300px;
     border-color: rgba(0,0,255,1);
+}
+
+.gauge-background {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(0,0,255,1);
+    width: 21%;
+    height: 21%;
+    left: 30%;
+    top: 30%;
+    border-radius: 300px 300px 300px 300px;
 }
 
 /* the grey bar that will be filled*/
@@ -189,10 +212,11 @@ img {
     z-index: 1;
     position: absolute;
     background-color: rgba(200,200,200,1);
-    width: 400px;
-    height: 200px;
-    top: 0%;
-    border-radius: 250px 250px 0px 0px;
+    width: 20%;
+    height: 20%;
+    left: 30%;
+    top: 30%;
+    border-radius: 250px 250px 250px 250px;
 }
 
 /* the bottom semicircle area white */
@@ -200,9 +224,10 @@ img {
     z-index: 10;
     position: absolute;
     background-color: rgba(255,255,255,1);
-    width: 400px;
-    height: 201px;
-    top: 200px;
+    width: 20%;
+    height: 10%;
+    left: 30%;
+    top: 40%;
     border-radius: 0px 0px 250px 250px;
 }
 
@@ -211,10 +236,11 @@ img {
     z-index: 3;
     position: absolute;
     background-color: #FFFFFF;
-    width: 250px;
-    height: 125px;
-    top: 75px;
-    margin-left: 75px;
+    width: 12.5%;
+    height: 6.5%;
+    left: 30%;
+    top: 33.75%;
+    margin-left: 3.75%;
     margin-right: auto;
     border-radius: 250px 250px 0px 0px;
 }
@@ -224,9 +250,10 @@ img {
     z-index: 2;
     position: absolute;
     background-color: #009900;
-    width: 400px;
-    height: 200px;
-    top: 200px;
+    width: 20%;
+    height: 10%;
+    left: 30%;
+    top: 40%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0px 0px 200px 200px;
@@ -250,9 +277,10 @@ img {
     font-size: 2.5em;
     line-height: 25px;
     position: absolute;
-    width: 400px;
-    height: 200px;
-    top: 90px;
+    width: 20%;
+    height: 10%;
+    left: 30%;
+    top: 34.5%;
     margin-left: auto;
     margin-right: auto;
     transition: all 1s ease-out;
@@ -265,10 +293,10 @@ img {
     font-size: 1.2em;
     line-height: 40px;
     position: absolute;
-    width: 200px;
-    height: 200px;
-    left: 100px;
-    top: 200px;
+    width: 10%;
+    height: 10%;
+    left: 35%;
+    top: 40%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
