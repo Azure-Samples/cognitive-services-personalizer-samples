@@ -19,9 +19,9 @@ namespace PersonalizerBusinessDemo.Models
                     new {article.PublishedAgo}
             };
 
-            if (article.EditorialHighlight.HasValue)
+            if (article.FeaturedByEditorial.HasValue)
             {
-                Features.Add(new { article.EditorialHighlight });
+                Features.Add(new { article.FeaturedByEditorial });
             }
 
             if (article.Entities != null && article.Entities.Any())
