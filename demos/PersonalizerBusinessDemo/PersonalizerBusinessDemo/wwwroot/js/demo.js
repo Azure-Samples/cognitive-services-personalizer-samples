@@ -223,8 +223,8 @@ function updateCodeElementWithJSON(eleId, jsonObj, resultId) {
     let code = JSON.stringify(jsonObj, null, 2);
 
     if (resultId) {
-        const regex = new RegExp(`({\\n.*)("id":\\s"${resultId}",\\n)(.*)("probability.*\\n)(.*})`, 'gm');
-        code = code.replace(regex, '$1<mark>$2</mark>$3<mark>$4</mark>$5');
+        const regex = new RegExp(`(.*)("rewardActionId":\\s"${resultId}"\\n)(.*)`, 'gm');
+        code = code.replace(regex, '$1<mark>$2</mark>$3');
     }
 
     codeEle.innerHTML = code;
