@@ -168,28 +168,15 @@ img {
     height: 4rem;
 }
 
-.super-container {
-    display: block;
-    position: fixed;
-    top: 250px;
-    right: 30px;
-    z-index: 99;
-    width: 420px;
-    height: 420px;
-}
 
 .gauge-container {
-    /*z-index: 0;
-    width: 21%;
-    height: 21%;
-    position: absolute;*/
     display: block;
     position: fixed;
-    top: 250px;
-    right: 30px;
+    top: 70px;
+    right: -120px;
     z-index: 99;
-    width: 420px;
-    height: 420px;
+    width: 210px;
+    height: 210px;
     overflow: hidden;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -200,10 +187,10 @@ img {
     z-index: 1;
     position: absolute;
     background-color: rgba(0,0,255,1);
-    width: 21%;
-    height: 21%;
+    width: 42%;
+    height: 42%;
     left: 30%;
-    top: 30%;
+    top: 20%;
     border-radius: 300px 300px 300px 300px;
 }
 
@@ -212,10 +199,10 @@ img {
     z-index: 1;
     position: absolute;
     background-color: rgba(200,200,200,1);
-    width: 20%;
-    height: 20%;
+    width: 40%;
+    height: 40%;
     left: 30%;
-    top: 30%;
+    top: 20%;
     border-radius: 250px 250px 250px 250px;
 }
 
@@ -224,8 +211,8 @@ img {
     z-index: 10;
     position: absolute;
     background-color: rgba(255,255,255,1);
-    width: 20%;
-    height: 10%;
+    width: 40%;
+    height: 20%;
     left: 30%;
     top: 40%;
     border-radius: 0px 0px 250px 250px;
@@ -236,10 +223,10 @@ img {
     z-index: 3;
     position: absolute;
     background-color: #FFFFFF;
-    width: 12.5%;
-    height: 6.5%;
-    left: 30%;
-    top: 33.75%;
+    width: 25%;
+    height: 13%;
+    left: 34%;
+    top: 29%;
     margin-left: 3.75%;
     margin-right: auto;
     border-radius: 250px 250px 0px 0px;
@@ -250,8 +237,8 @@ img {
     z-index: 2;
     position: absolute;
     background-color: #009900;
-    width: 20%;
-    height: 10%;
+    width: 40%;
+    height: 20%;
     left: 30%;
     top: 40%;
     margin-left: auto;
@@ -277,8 +264,8 @@ img {
     font-size: 2.5em;
     line-height: 25px;
     position: absolute;
-    width: 20%;
-    height: 10%;
+    width: 40%;
+    height: 20%;
     left: 30%;
     top: 34.5%;
     margin-left: auto;
@@ -293,8 +280,8 @@ img {
     font-size: 1.2em;
     line-height: 40px;
     position: absolute;
-    width: 10%;
-    height: 10%;
+    width: 20%;
+    height: 20%;
     left: 35%;
     top: 40%;
     text-align: center;
