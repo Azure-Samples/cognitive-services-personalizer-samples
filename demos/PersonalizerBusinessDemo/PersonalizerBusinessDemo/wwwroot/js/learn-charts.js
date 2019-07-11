@@ -70,7 +70,7 @@
     const peopleChart = new Chart(peopleCtx, {
         type: 'bar',
         data: {
-            labels: ["P1", "P2", "P3", "P4"],
+            labels: ["User 1", "user 2", "User 3", "User 4"],
             datasets: [{
                 data: [0, 0, 0, 0],
                 backgroundColor: [
