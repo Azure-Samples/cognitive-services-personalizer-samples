@@ -1,52 +1,30 @@
 {
-  "RefreshButtonText": "Simulate new visit",
+  "RefreshButtonText": "Show a Personalized Article",
   "LogoImageURL": "~/img/logo.png",
   "PersonalizerDocumentationURL": "https://azure.microsoft.com/en-us/services/cognitive-services/personalizer/",
   "PersonalizerDocumentationLabel": "Cognitive Services Personalizer",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
-    "BackgroundColor": "#7D619B", 
+    "BackgroundColor": "#F57636",
     "BackstageLabelBtn": "How it works",
     "OptionsList": [
       {
-        "label": "Ranking",
-        "items": [
-          {
-            "label": "Season 1",
-            "items": []
-          },
-          {
-            "label": "Season 2",
-            "items": []
-          },
-          {
-            "label": "Season 3",
-            "items": []
-          }
-        ]
-      },
-      {
-        "label": "News",
+        "label": "Tournaments",
         "items": ""
       },
       {
-        "label": "Stats",
+        "label": "Players",
+        "items": ""
+      },
+      {
+        "label": "Watch",
         "item": ""
       },
       {
-        "label": "Leagues",
-        "items": [
-          {
-            "label": "NBA",
-            "items": []
-          },
-          {
-            "label": "NFL",
-            "items": []
-          }
-        ]
+        "label": "Log In",
+        "items": ""
       }
     ]
   }
-  
+
 }
