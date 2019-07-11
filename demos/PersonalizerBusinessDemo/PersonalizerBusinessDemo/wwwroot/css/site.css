@@ -168,7 +168,40 @@ img {
     height: 4rem;
 }
 
-.homeNavBarFont > b{
+.homeNavBarFont > b {
     color: white;
     font-weight: lighter;
+    text-transform: uppercase;
+    font-family: "Open Sans";
+    font-size: 100%;
+}
+
+.row .py-2 > table {
+    color: #333;
+    font-family: "Open Sans";
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: -.03px;
+    line-height: 10px;
+}
+
+.tournament-name {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: -.03px;
+    line-height: 14px;
+}
+
+.player-name {
+    font-style: italic;
+}
+
+.hero-text {
+    text-shadow: 0px 0px 10px #000;
+    font-size: 34px;
+    color: #fff;
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 800;
+    line-height: 36px;
 }

@@ -11,30 +11,30 @@
     displayMenuItems =
 
     @<ul class="navbar-nav mr-auto w-100">
-        @foreach (NavBarItemModel menuItem in @item)
+    @foreach (NavBarItemModel menuItem in @item)
+    {
+        if (menuItem.Items != null)
         {
-            if (menuItem.Items != null)
-            {
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <b class="homeNavBarFont">@menuItem.Label </b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        @foreach (var subItem in menuItem.Items)
-                        {
-                            <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
-                        }
-                    </div>
-                </li>
-            }
-            else
-            {
-                <li class="nav-item">
-                    <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
-                </li>
-            }
-
+            <li class="nav-item dropdown">
+                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b class="homeNavBarFont">@menuItem.Label </b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach (var subItem in menuItem.Items)
+                    {
+                        <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
+                    }
+                </div>
+            </li>
         }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
+            </li>
+        }
+
+    }
         <li class="nav-item ml-auto">
             <button class="btn btn-light" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                 @navigationBarOptions.BackstageLabelBtn
@@ -79,7 +79,6 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary backstageNavBar">
                 <div class="navbar-brand">See Personalizer in Action</div>
             </nav>
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -223,16 +222,16 @@
                 <hr />
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <a href=@siteConfig.PersonalizerSignUpURL>@siteConfig.PersonalizerSignUpLabel</a> to try Personalizer
                     </div>
-                    <div class="col-md-6">
-                        Learn more about <a href=@siteConfig.PersonalizerDocumentationURL>@siteConfig.PersonalizerDocumentationLabel</a>
+                    <div class="col-md-12">
+                        <a href=@siteConfig.PersonalizerDocumentationURL>@siteConfig.PersonalizerDocumentationLabel</a> about Personalizer
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         See Personalizer <a href=@siteConfig.PersonalizerDeveloperDocsURL>@siteConfig.PersonalizerDeveloperDocsLabel</a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         Get Personalizer <a href=@siteConfig.PersonalizerCodeSamplesURL>@siteConfig.PersonalizerCodeSampleLabel</a>
                     </div>
                 </div>
