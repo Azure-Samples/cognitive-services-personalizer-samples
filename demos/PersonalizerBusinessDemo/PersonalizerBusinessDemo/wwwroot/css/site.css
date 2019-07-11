@@ -122,9 +122,9 @@ img {
     border-radius: 4px;
 }
 
-#iframe-backBtn:hover {
-    background-color: #555;
-}
+    #iframe-backBtn:hover {
+        background-color: #555;
+    }
 
 .progress {
     font-size: 2rem;
@@ -281,6 +281,8 @@ img {
     text-transform: uppercase;
     font-family: "Open Sans";
     font-size: 100%;
+    cursor: default !important;
+    pointer-events: none !important;
 }
 
 .row .py-2 > table {
@@ -312,4 +314,9 @@ img {
     font-style: italic;
     font-weight: 800;
     line-height: 36px;
+}
+
+.dropdownHover > a, b, button{
+    cursor: default !important;
+    pointer-events: none !important;
 }
