@@ -247,8 +247,9 @@ img {
     z-index: 10;
     color: rgba(0, 0, 0, 0.8);
     font-family: calibri;
-    font-size: 1rem;
-    line-height: 25px;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    padding-top: 0.2rem;
     position: absolute;
     width: 40%;
     height: 20%;
