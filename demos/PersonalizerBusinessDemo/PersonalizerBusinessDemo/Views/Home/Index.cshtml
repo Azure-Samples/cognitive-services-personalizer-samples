@@ -11,33 +11,33 @@
     displayMenuItems =
 
     @<ul class="navbar-nav mr-auto dropdownHover">
-    @foreach (NavBarItemModel menuItem in @item)
-    {
-        if (menuItem.Items != null)
+        @foreach (NavBarItemModel menuItem in @item)
         {
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle dropdownHover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b class="homeNavBarFont">@menuItem.Label </b>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @foreach (var subItem in menuItem.Items)
-                    {
-                        <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
-                    }
-                </div>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item dropdownHover">
-                <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
-            </li>
+            if (menuItem.Items != null)
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle dropdownHover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b class="homeNavBarFont">@menuItem.Label </b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach (var subItem in menuItem.Items)
+                        {
+                            <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
+                        }
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item dropdownHover">
+                    <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
+                </li>
+            }
+
         }
 
-    }
 
-        
-</ul>;
+    </ul>;
 }
 
 <div class="row dropdownHover">
@@ -54,10 +54,13 @@
 
                 <form class="form-inline my-2 my-lg-0 dropdownHover">
                     <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-                    <button class="btn btn-light my-2 my-sm-0 dropdownHover" type="button"><i class="fas fa-search dropdownHover"></i></button>
+                    <button class="btn btn-light my-2 my-sm-0" style="cursor: default !important;
+    pointer-events: none !important;" type="button">
+                        <i class="fas fa-search dropdownHover"></i>
+                    </button>
 
                 </form>
-                <a class=" mx-2 homeNavBarFont dropdownHover" ><b>Log In</b></a>
+                <a class=" mx-2 homeNavBarFont dropdownHover"><b>Log In</b></a>
                 <button class="btn btn-light" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                     @navigationBarOptions.BackstageLabelBtn
                 </button>
