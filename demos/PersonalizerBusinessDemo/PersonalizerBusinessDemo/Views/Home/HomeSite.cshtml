@@ -30,6 +30,9 @@
                             <button type="button" class="btn btn-primary" id="go-btn-iframe">
                                 @siteConfig.RefreshButtonText
                             </button>
+                            <button class="btn btn-light" type="button" id="backstage-btn-iframe">
+                                @siteConfig.NavigationBar.BackstageLabelBtn
+                            </button>
                         </div>
                     </div>
                     <div class="bottom-left"></div>
@@ -104,11 +107,12 @@
 <script>
 
     document.getElementById('go-btn-iframe').addEventListener("click", function () {
-        console.log("click");
         parent.document.getElementById("go-btn").click()
     })
        
-   
+   document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
+        parent.document.getElementById("backstage-btn").click()
+    })
 
     
 </script>
