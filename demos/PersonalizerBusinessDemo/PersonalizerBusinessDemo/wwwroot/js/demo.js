@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             intervalId = setInterval(function () {
                 counter--;
-                timeleftContainer.innerHTML = `<p class="col-12 px-4" style="font-size: 1.4rem;">
+                timeleftContainer.innerHTML = `<p class="col-12 px-4 py-2 m-0" style="font-size: 1.4rem;">
                         <i class="fas fa-hourglass-half"></i> ${counter}s left to get reward
                     </p>`;
                 if (counter <= 0) {
