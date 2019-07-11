@@ -53,9 +53,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
-
             </div>
         </nav>
 
@@ -81,35 +79,40 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary backstageNavBar">
                 <div class="navbar-brand">See Personalizer in Action</div>
             </nav>
-
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <form class="form-inline py-3">
-                            <label class="sr-only" for="referrer">Referrer</label>
-                            <select class="custom-select my-1 mr-sm-2" id="referrer">
-                                <option value="social" selected>Social</option>
-                                <option value="direct">Direct</option>
-                                <option value="email">Email</option>
-                                <option value="search">Search</option>
-                            </select>
-
-                            <label class="sr-only" for="currentTournament">Current Tournament</label>
-                            <select class="custom-select my-1 mr-sm-2" id="currentTournament">
-                                <option value="wimbledon" selected>Wimbledon</option>
-                                <option value="hallOfFameOpen">Hall of Fame Open</option>
-                                <option value="cityOpen">City Open</option>
-                            </select>
-
-                            <label class="sr-only" for="device">Device</label>
-                            <select class="custom-select my-1 mr-sm-2" id="device">
-                                <option value="mobile" selected>Mobile</option>
-                                <option value="desktop">Desktop</option>
-                                <option value="tablet">Tablet</option>
-                            </select>
-                            <button type="button" class="btn btn-primary" id="go-btn">
-                                @siteConfig.RefreshButtonText
-                            </button>
+                            <div class="mr-2">
+                                <label for="referrer">Referrer</label>
+                                <select class="custom-select my-1" id="referrer">
+                                    <option value="social" selected>Social</option>
+                                    <option value="direct">Direct</option>
+                                    <option value="email">Email</option>
+                                    <option value="search">Search</option>
+                                </select>
+                            </div>
+                            <div class="mr-2">
+                                <label for="currentTournament">Ongoing Tournament</label>
+                                <select class="custom-select my-1" id="currentTournament">
+                                    <option value="wimbledon" selected>Wimbledon</option>
+                                    <option value="hallOfFameOpen">Hall of Fame Open</option>
+                                    <option value="cityOpen">City Open</option>
+                                </select>
+                            </div>
+                            <div class="mr-2">
+                                <label for="device">Device</label>
+                                <select class="custom-select my-1" id="device">
+                                    <option value="mobile" selected>Mobile</option>
+                                    <option value="desktop">Desktop</option>
+                                    <option value="tablet">Tablet</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary mt-lg-4" id="go-btn">
+                                    @siteConfig.RefreshButtonText
+                                </button>
+                            </div>
                         </form>
 
                         <div class="card">
@@ -219,16 +222,16 @@
                 <hr />
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <a href=@siteConfig.PersonalizerSignUpURL>@siteConfig.PersonalizerSignUpLabel</a> to try Personalizer
                     </div>
-                    <div class="col-md-6">
-                        Learn more about <a href=@siteConfig.PersonalizerDocumentationURL>@siteConfig.PersonalizerDocumentationLabel</a>
+                    <div class="col-md-12">
+                        <a href=@siteConfig.PersonalizerDocumentationURL>@siteConfig.PersonalizerDocumentationLabel</a> about Personalizer
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         See Personalizer <a href=@siteConfig.PersonalizerDeveloperDocsURL>@siteConfig.PersonalizerDeveloperDocsLabel</a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12 pb-4">
                         Get Personalizer <a href=@siteConfig.PersonalizerCodeSamplesURL>@siteConfig.PersonalizerCodeSampleLabel</a>
                     </div>
                 </div>

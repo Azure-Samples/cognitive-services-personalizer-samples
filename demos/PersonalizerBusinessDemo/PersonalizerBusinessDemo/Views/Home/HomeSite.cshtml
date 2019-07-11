@@ -14,7 +14,7 @@
                 <a href="/home/article/@Model.First().Id">
                     <div class="main_slot_image container-img-text">
                         <img src="~/img/@Model.First().ImageName" alt="News 1" />
-                        <div class="bottom-left"><h3>@Model.First().Title</h3></div>
+                        <div class="bottom-left"><h2 class="hero-text">@Model.First().Title</h2></div>
                     </div>
                 </a>
             }
@@ -24,22 +24,18 @@
                     <div class="row my-auto">
                         <div class="col-8 mx-auto">
                             <div class="row">
-                                <p>
+                                <p class="text-center">
                                     Personalizer will recommend the content to show here,
                                     based on real-time context.
                                 </p>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-6 my-2">
-                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
-                                        @siteConfig.RefreshButtonText
-                                    </button>
-                                </div>
-                                <div class="col-md-12 col-lg-6 my-2">
-                                    <button class="btn btn-light" type="button" id="backstage-btn-iframe">
-                                        @siteConfig.NavigationBar.BackstageLabelBtn
-                                    </button>
-                                </div>
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                    @siteConfig.RefreshButtonText
+                                </button>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleBackstageLabel</a>
                             </div>
                         </div>
                     </div>
@@ -47,52 +43,52 @@
                 </div>
             }
         }
-
     </div>
     <div class="col-md-3 small_slot_wrapper">
         <div class="row py-2">
-            <h3 class="font-weight-light">Latest Scores</h3>
+            <h5 class="font-weight-light">Latest Scores</h5>
+
             <table class="table table-sm bg-light">
                 <tr>
-                    <th>Wimbledon</th>
+                    <th colspan="4">Wimbledon</th>
                 </tr>
                 <tbody>
                     <tr>
-                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/us.svg" alt="US Flag" style="max-height:15%; max-width:15%"> Chris Evert</td>
+                        <td class="text-wrap player-name" style="width: 75%"><img src="~/img/flags/us.svg" alt="US Flag" style="max-height:15%; max-width:15%"> Chris Evert</td>
                         <td>7</td><td>6</td><td>6</td>
                     </tr>
                     <tr>
-                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/au.svg" alt="AU Flag" style="max-height:15%; max-width:15%"> Margaret Court</td>
+                        <td class="text-wrap player-name" style="width: 75%"><img src="~/img/flags/au.svg" alt="AU Flag" style="max-height:15%; max-width:15%"> Margaret Court</td>
                         <td>5</td><td>1</td><td>2</td>
                     </tr>
                 </tbody>
             </table>
             <table class="table table-sm bg-light">
                 <tr>
-                    <th>US Open</th>
+                    <th colspan="4">US Open</th>
                 </tr>
                 <tbody>
                     <tr>
-                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/de.svg" alt="DE Flag" style="max-height:15%; max-width:15%"> Steffi Graf</td>
+                        <td class="text-wrap player-name" style="width: 75%"><img src="~/img/flags/de.svg" alt="DE Flag" style="max-height:15%; max-width:15%"> Steffi Graf</td>
                         <td>6</td><td>6</td><td>6</td>
                     </tr>
                     <tr>
-                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/in.svg" alt="IN Flag" style="max-height:15%; max-width:15%"> Sania Mirza</td>
+                        <td class="text-wrap player-name" style="width: 75%"><img src="~/img/flags/in.svg" alt="IN Flag" style="max-height:15%; max-width:15%"> Sania Mirza</td>
                         <td>3</td><td>1</td><td>4</td>
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-sm bg-light d-none d-xl-block">
+            <table class="table table-sm bg-light d-none d-lg-block">
                 <tr>
-                    <th>French Open</th>
+                    <th colspan="4">French Open</th>
                 </tr>
                 <tbody>
                     <tr>
-                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/rs.svg" alt="RS Flag" style="max-height:15%; max-width:15%"> Monica Seles</td>
+                        <td class="text-wrap player-name" style="width: 75%"><img src="~/img/flags/rs.svg" alt="RS Flag" style="max-height:15%; max-width:15%"> Monica Seles</td>
                         <td>3</td><td>5</td><td>2</td>
                     </tr>
                     <tr>
-                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/ch.svg" alt="CH Flag" style="max-height:15%; max-width:15%"> Martina Hingis</td>
+                        <td class="text-wrap player-name" style="width: 75%"><img src="~/img/flags/ch.svg" alt="CH Flag" style="max-height:15%; max-width:15%"> Martina Hingis</td>
                         <td>6</td><td>7</td><td>6</td>
                     </tr>
                 </tbody>
@@ -100,15 +96,16 @@
         </div>
     </div>
 </div>
+
 <script>
 
     document.getElementById('go-btn-iframe').addEventListener("click", function () {
         parent.document.getElementById("go-btn").click()
     })
-       
-   document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
+
+    document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
         parent.document.getElementById("backstage-btn").click()
     })
 
-    
+
 </script>
