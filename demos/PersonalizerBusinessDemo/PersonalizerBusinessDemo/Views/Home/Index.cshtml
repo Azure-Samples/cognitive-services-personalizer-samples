@@ -11,30 +11,30 @@
     displayMenuItems =
 
     @<ul class="navbar-nav mr-auto w-100">
-    @foreach (NavBarItemModel menuItem in @item)
-    {
-        if (menuItem.Items != null)
+        @foreach (NavBarItemModel menuItem in @item)
         {
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b class="homeNavBarFont">@menuItem.Label </b>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @foreach (var subItem in menuItem.Items)
-                    {
-                        <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
-                    }
-                </div>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
-            </li>
-        }
+            if (menuItem.Items != null)
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b class="homeNavBarFont">@menuItem.Label </b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach (var subItem in menuItem.Items)
+                        {
+                            <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
+                        }
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
+                </li>
+            }
 
-    }
+        }
         <li class="nav-item ml-auto">
             <button class="btn btn-light" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                 @navigationBarOptions.BackstageLabelBtn
@@ -87,29 +87,29 @@
                     <div class="col-12">
                         <form class="form-inline py-3">
                             <div>
-                                    <label for="referrer">Referrer</label>
-                                    <select class="custom-select my-1 mr-sm-2" id="referrer">
-                                        <option value="social" selected>Social</option>
-                                        <option value="direct">Direct</option>
-                                        <option value="email">Email</option>
-                                        <option value="search">Search</option>
-                                    </select>
+                                <label for="referrer">Referrer</label>
+                                <select class="custom-select my-1 mr-sm-2" id="referrer">
+                                    <option value="social" selected>Social</option>
+                                    <option value="direct">Direct</option>
+                                    <option value="email">Email</option>
+                                    <option value="search">Search</option>
+                                </select>
                             </div>
                             <div>
-                                    <label for="currentTournament">Ongoing Tournament</label>
-                                    <select class="custom-select my-1 mr-sm-2" id="currentTournament">
-                                        <option value="wimbledon" selected>Wimbledon</option>
-                                        <option value="hallOfFameOpen">Hall of Fame Open</option>
-                                        <option value="cityOpen">City Open</option>
-                                    </select>
+                                <label for="currentTournament">Ongoing Tournament</label>
+                                <select class="custom-select my-1 mr-sm-2" id="currentTournament">
+                                    <option value="wimbledon" selected>Wimbledon</option>
+                                    <option value="hallOfFameOpen">Hall of Fame Open</option>
+                                    <option value="cityOpen">City Open</option>
+                                </select>
                             </div>
                             <div>
-                                    <label for="device">Device</label>
-                                    <select class="custom-select my-1 mr-sm-2" id="device">
-                                        <option value="mobile" selected>Mobile</option>
-                                        <option value="desktop">Desktop</option>
-                                        <option value="tablet">Tablet</option>
-                                    </select>
+                                <label for="device">Device</label>
+                                <select class="custom-select my-1 mr-sm-2" id="device">
+                                    <option value="mobile" selected>Mobile</option>
+                                    <option value="desktop">Desktop</option>
+                                    <option value="tablet">Tablet</option>
+                                </select>
                             </div>
                             <div>
                                 <button type="button" class="btn btn-primary mt-lg-4" id="go-btn">
