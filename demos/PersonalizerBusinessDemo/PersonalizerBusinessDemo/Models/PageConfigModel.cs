@@ -22,7 +22,8 @@ namespace PersonalizerBusinessDemo.Models
 
         public NavBarOptionsModel NavigationBar { get; set; }
 
-        public string MainArticleBackstageLabel { get; set; }
+        public string MainArticleShowBackstageLabel { get; set; }
+        public string MainArticleCloseBackstageLabel { get; set; }
 
     }
 }
