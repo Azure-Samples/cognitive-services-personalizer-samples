@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             articleDoc.addEventListener("scroll", function () {
                 const currentPosition = articleViewer.contentWindow.pageYOffset;
-                const newReward = parseFloat((currentPosition / maxScrollPosition).toFixed(2));
+                const newReward = Math.min(1, parseFloat((currentPosition / maxScrollPosition).toFixed(2)));
                 if (intervalId >= 0 && reward < newReward) {
                     reward = newReward;
                     updateRewardValue(reward, articleDoc);
