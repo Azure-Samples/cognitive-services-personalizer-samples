@@ -14,7 +14,7 @@ namespace PersonalizerBusinessDemo
         {
             var result = new List<object>
             {
-                new {context.WeekDay,context.Profile, context.Tournament}
+                new {context.Referrer,context.Tournament, context.Device}
             };
 
             if (request != null)

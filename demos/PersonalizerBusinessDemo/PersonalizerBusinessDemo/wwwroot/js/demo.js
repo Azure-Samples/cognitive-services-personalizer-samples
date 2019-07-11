@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const brandLogoImg = document.getElementById("brand-logo");
     let intervalId = -1;
     let reward = 0;
-    let waiting = false;
 
     let personalizerCallResult;
 
@@ -109,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let context = {
-    weekDay: "workweek",
-    profile: "anonymous",
-    tournament: "tournament1",
+    referrer: "social",
+    tournament: "wimbledon",
+    device: "mobile",
     userAgent: null,
     useTextAnalytics: false
 };
@@ -151,18 +150,21 @@ function setupActionControls() {
 }
 
 function setupContextControls() {
-    const weekDaySelectEle = document.getElementById('weekDay');
-    weekDaySelectEle.addEventListener('change', (event) => {
+    const referrerSelectEle = document.getElementById('referrer');
+    referrerSelectEle.selectedIndex = ramdomizeSelectedOption(referrerSelectEle);
+    referrerSelectEle.addEventListener('change', (event) => {
         updateContext(event.target.value);
     });
 
-    const profileSelectEle = document.getElementById('profile');
-    profileSelectEle.addEventListener('change', (event) => {
+    const currentTournamentSelectEle = document.getElementById('currentTournament');
+    currentTournamentSelectEle.selectedIndex = ramdomizeSelectedOption(currentTournamentSelectEle);
+    currentTournamentSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value);
     });
 
-    const tournamentSelectEle = document.getElementById('tournament');
-    tournamentSelectEle.addEventListener('change', (event) => {
+    const deviceSelectEle = document.getElementById('device');
+    deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
+    deviceSelectEle.addEventListener('change', (event) => {
         updateContext(null, null, event.target.value);
     });
 
@@ -178,24 +180,24 @@ function setupContextControls() {
 
     getUserAgent().then(userAgentResponse => {
         userAgent = userAgentResponse;
-        updateContext(weekDaySelectEle.value, profileSelectEle.value, tournamentSelectEle.value, !UseUserAgentEle.checked, userAgent);
+        updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
     });
 
-    updateContext(weekDaySelectEle.value, profileSelectEle.value, tournamentSelectEle.value);
+    updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value);
 }
 
-function updateContext(weekDay, profile, tournament, removeUserAgent, userAgent) {
-    context.weekDay = weekDay || context.weekDay;
-    context.profile = profile || context.profile;
-    context.tournament = tournament || context.tournament;
+function updateContext(referrer, currentTournament, device, removeUserAgent, userAgent) {
+    context.referrer = referrer || context.referrer;
+    context.tournament = currentTournament || context.tournament;
+    context.device = device || context.device;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
-            weekDay: context.weekDay,
-            profile: context.profile
+            referrer: context.referrer,
+            tournament: context.tournament
         },
-        { tournament: context.tournament }
+        { device: context.device }
     ];
 
 
@@ -204,6 +206,13 @@ function updateContext(weekDay, profile, tournament, removeUserAgent, userAgent)
     }
 
     updateCodeElementWithJSON("context-code", { contextFeatures: contextFeatures });
+}
+
+function ramdomizeSelectedOption(select) {
+    var items = select.getElementsByTagName('option');
+    var index = Math.floor(Math.random() * items.length);
+
+    return index;
 }
 
 function updateBasedOnRecommendation(result) {
@@ -312,9 +321,9 @@ function getActions(useTextAnalytics) {
 
 function getRecommendation() {
     const requestContext = {
-        weekDay: context.weekDay,
-        profile: context.profile,
+        referrer: context.referrer,
         tournament: context.tournament,
+        device: context.device,
         useTextAnalytics: context.useTextAnalytics,
         useUserAgent: !!context.userAgent
     };
