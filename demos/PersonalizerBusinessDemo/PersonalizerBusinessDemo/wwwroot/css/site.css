@@ -157,3 +157,8 @@ img {
 #collapseBackstage .backstage-container {
     max-height: 100vh;
 }
+
+.footer.learn-container {
+    height: 20rem;
+    max-height: 20rem;
+}

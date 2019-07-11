@@ -10,30 +10,30 @@
     displayMenuItems =
 
     @<ul class="navbar-nav mr-auto w-100">
-    @foreach (NavBarItemModel menuItem in @item)
-    {
-        if (menuItem.Items != null)
+        @foreach (NavBarItemModel menuItem in @item)
         {
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b>@menuItem.Label</b>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @foreach (var subItem in menuItem.Items)
-                    {
-                        <a class="dropdown-item" href="#">@subItem.Label</a>
-                    }
-                </div>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <a class="nav-link" href="#"><b>@menuItem.Label</b></a>
-            </li>
-        }
+            if (menuItem.Items != null)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>@menuItem.Label</b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach (var subItem in menuItem.Items)
+                        {
+                            <a class="dropdown-item" href="#">@subItem.Label</a>
+                        }
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><b>@menuItem.Label</b></a>
+                </li>
+            }
 
-    }
+        }
         <li class="nav-item ml-auto">
             <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                 @navigationBarOptions.BackstageLabelBtn
@@ -226,6 +226,23 @@
     </div>
 </div>
 
+
+<footer class="border-top footer learn-container">
+    <div class="container-fluid h-100 ">
+        <div class="row h-100 d-flex align-items-center">
+            <div class="col-10 pr-1">
+                <canvas id="avg-learn-chart" width="400" height="200"></canvas>
+            </div>
+
+            <div class="col-2 pl-1" style="height: 58px">
+                <input type="number" class="form-control form-control-sm" readonly id="timeleft" value="0">
+            </div>
+        </div>
+    </div>
+</footer>
+
 @section Scripts {
+    <script src="~/lib/chartjs/Chart.bundle.js"></script>
     <script src="~/js/demo.js" asp-append-version="true"></script>
+    <script src="~/js/learn-charts.js" asp-append-version="true"></script>
 }
