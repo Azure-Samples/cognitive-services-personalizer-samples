@@ -1,5 +1,7 @@
 @model IList<Article>
+
 @{
+    PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
     ViewData["Title"] = "HomeSite";
     Layout = "~/Views/Shared/_ArticleLayout.cshtml";
 }
@@ -18,8 +20,29 @@
             }
             else
             {
-                <div class="main_slot_image container-img-text">
-                    <img src="~/img/blank.jpg" alt="News 1" />
+                <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
+                    <div class="row my-auto">
+                        <div class="col-8 mx-auto">
+                            <div class="row">
+                                <p>
+                                    Personalizer will recommend the content to show here,
+                                    based on real-time context.
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 my-2">
+                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                        @siteConfig.RefreshButtonText
+                                    </button>
+                                </div>
+                                <div class="col-md-12 col-lg-6 my-2">
+                                    <button class="btn btn-light" type="button" id="backstage-btn-iframe">
+                                        @siteConfig.NavigationBar.BackstageLabelBtn
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="bottom-left"></div>
                 </div>
             }
@@ -77,3 +100,15 @@
         </div>
     </div>
 </div>
+<script>
+
+    document.getElementById('go-btn-iframe').addEventListener("click", function () {
+        parent.document.getElementById("go-btn").click()
+    })
+       
+   document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
+        parent.document.getElementById("backstage-btn").click()
+    })
+
+    
+</script>

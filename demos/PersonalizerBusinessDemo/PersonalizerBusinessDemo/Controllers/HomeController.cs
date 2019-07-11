@@ -26,10 +26,9 @@ namespace PersonalizerBusinessDemo.Controllers
 
         public IActionResult Index()
         {
-            var model = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
-            ViewData["navigationBar"] = model.NavigationBar;
+            ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
-            return View(model);
+            return View();
         }
 
         private static string LoadJson(string jsonFile)
@@ -54,8 +53,7 @@ namespace PersonalizerBusinessDemo.Controllers
 
         public IActionResult Article(string id)
         {
-            var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
-            ViewData["navigationBar"] = generalModel.NavigationBar;
+            ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
             var model = _articleRepository.GetArticle(id);
             ViewData["Title"] = model.Title;
@@ -63,9 +61,8 @@ namespace PersonalizerBusinessDemo.Controllers
         }
         public IActionResult HomeSite(string articleIds)
         {
-            var generalModel = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
-            ViewData["navigationBar"] = generalModel.NavigationBar;
             if (String.IsNullOrWhiteSpace(articleIds))
             {
                 return View("HomeSite", new List<Article>());
