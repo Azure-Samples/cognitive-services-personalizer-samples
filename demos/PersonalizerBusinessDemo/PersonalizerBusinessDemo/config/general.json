@@ -1,5 +1,5 @@
 {
-  "RefreshButtonText": "Show a Personalized Article",
+  "RefreshButtonText": "Simulate new visit",
   "LogoImageURL": "~/img/logo.png",
   "PersonalizerDocumentationURL": "https://azure.microsoft.com/en-us/services/cognitive-services/personalizer/",
   "PersonalizerDocumentationLabel": "Cognitive Services Personalizer",
