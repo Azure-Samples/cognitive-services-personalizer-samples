@@ -24,22 +24,18 @@
                     <div class="row my-auto">
                         <div class="col-8 mx-auto">
                             <div class="row">
-                                <p>
+                                <p class="text-center">
                                     Personalizer will recommend the content to show here,
                                     based on real-time context.
                                 </p>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 col-lg-6 my-2">
-                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
-                                        @siteConfig.RefreshButtonText
-                                    </button>
-                                </div>
-                                <div class="col-md-12 col-lg-6 my-2">
-                                    <button class="btn btn-light" type="button" id="backstage-btn-iframe">
-                                        @siteConfig.NavigationBar.BackstageLabelBtn
-                                    </button>
-                                </div>
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                    @siteConfig.RefreshButtonText
+                                </button>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleBackstageLabel</a>
                             </div>
                         </div>
                     </div>
