@@ -9,10 +9,11 @@
   "PersonalizerDeveloperDocsLabel": "Developer Docs",
   "PersonalizerCodeSamplesURL": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
   "PersonalizerCodeSampleLabel": "Code Samples",
+  "MainArticleBackstageLabel": "View How It Works",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
     "BackgroundColor": "#F57636",
-    "BackstageLabelBtn": "View How It Works",
+    "BackstageLabelBtn": "How it works",
     "OptionsList": [
       {
         "label": "Tournaments",
