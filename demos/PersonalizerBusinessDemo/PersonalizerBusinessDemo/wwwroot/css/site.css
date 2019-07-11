@@ -316,7 +316,7 @@ img {
     line-height: 36px;
 }
 
-.dropdownHover > a, b, button{
-    cursor: default !important;
-    pointer-events: none !important;
+.dropdownHover > a, b{
+    cursor: default;
+    pointer-events: none;
 }
