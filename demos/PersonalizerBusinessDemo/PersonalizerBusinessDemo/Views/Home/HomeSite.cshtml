@@ -77,3 +77,16 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    document.getElementById('go-btn-iframe').addEventListener("click", function () {
+        parent.document.getElementById("go-btn").click()
+    })
+       
+   document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
+        parent.document.getElementById("backstage-btn").click()
+    })
+
+    
+</script>

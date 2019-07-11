@@ -3,7 +3,8 @@
 @{
     ViewData["Title"] = "Personalizer Interactive Demo";
 
-    NavBarOptionsModel navigationBarOptions = ViewData["navigationBar"] as NavBarOptionsModel;
+    PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
+    NavBarOptionsModel navigationBarOptions = siteConfig.NavigationBar as NavBarOptionsModel;
 
     Func<List<NavBarItemModel>, Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
 
@@ -35,7 +36,7 @@
 
     }
         <li class="nav-item ml-auto">
-            <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
+            <button class="btn btn-light" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                 @navigationBarOptions.BackstageLabelBtn
             </button>
         </li>
@@ -107,7 +108,7 @@
                                 <option value="tablet">Tablet</option>
                             </select>
                             <button type="button" class="btn btn-primary" id="go-btn">
-                                @Model.RefreshButtonText
+                                @siteConfig.RefreshButtonText
                             </button>
                         </form>
 
@@ -218,17 +219,17 @@
                 <hr />
 
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href=@Model.PersonalizerSignUpURL>@Model.PersonalizerSignUpLabel</a> to try Personalizer
+                    <div class="col-md-6">
+                        <a href=@siteConfig.PersonalizerSignUpURL>@siteConfig.PersonalizerSignUpLabel</a> to try Personalizer
                     </div>
-                    <div class="col-md-12">
-                        Learn more about <a href=@Model.PersonalizerDocumentationURL>@Model.PersonalizerDocumentationLabel</a>
+                    <div class="col-md-6">
+                        Learn more about <a href=@siteConfig.PersonalizerDocumentationURL>@siteConfig.PersonalizerDocumentationLabel</a>
                     </div>
-                    <div class="col-md-12">
-                        See Personalizer <a href=@Model.PersonalizerDeveloperDocsURL>@Model.PersonalizerDeveloperDocsLabel</a>
+                    <div class="col-md-6">
+                        See Personalizer <a href=@siteConfig.PersonalizerDeveloperDocsURL>@siteConfig.PersonalizerDeveloperDocsLabel</a>
                     </div>
-                    <div class="col-md-12">
-                        Get Personalizer <a href=@Model.PersonalizerCodeSamplesURL>@Model.PersonalizerCodeSampleLabel</a>
+                    <div class="col-md-6">
+                        Get Personalizer <a href=@siteConfig.PersonalizerCodeSamplesURL>@siteConfig.PersonalizerCodeSampleLabel</a>
                     </div>
                 </div>
             </div>
