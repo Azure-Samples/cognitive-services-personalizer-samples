@@ -137,8 +137,8 @@ img {
 }
 
 .article-container {
-    min-height: calc(100vh - 120px);
-    max-height: calc(100vh - 122px);
+    min-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem);
 }
 
 #collapseBackstage.collapsing {
@@ -171,13 +171,13 @@ img {
     overflow: hidden;
     text-align: center;
     transform: translate(-50%, -50%);
-    border-color: rgba(0, 0, 255, 1);
+    border-color: #007bff;
 }
 
 .gauge-background {
     z-index: 1;
     position: absolute;
-    background-color: rgba(0, 0, 255, 1);
+    background-color: #007bff;
     width: 42%;
     height: 42%;
     left: 30%;
