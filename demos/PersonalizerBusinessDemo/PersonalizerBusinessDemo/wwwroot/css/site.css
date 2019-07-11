@@ -241,46 +241,39 @@ img {
     transition: all 1.3s ease-in-out;
 }
 
-/* Turn is 0%= 0 turn, 100%=.5 turn*/
-.gauge-container:hover .gauge-c {
-    transform: rotate(.4turn);
-}
-
 .gauge-container:hover .gauge-data {
     color: rgba(0, 0, 0, 1);
 }
 
-.gauge-data {
+.gauge-data > h1 {
     z-index: 10;
     color: rgba(0, 0, 0, 0.8);
     font-family: calibri;
-    font-size: 2.5em;
+    font-size: 1rem;
     line-height: 25px;
     position: absolute;
     width: 40%;
     height: 20%;
     left: 30%;
-    top: 34.5%;
+    top: 40%;
     margin-left: auto;
     margin-right: auto;
-    transition: all 1s ease-out;
 }
 
-.gauge-comment {
+.gauge-comment > h1 {
     z-index: 10;
     color: rgba(30, 30, 30, 1);
     font-family: calibri;
-    font-size: 1.2em;
-    line-height: 40px;
+    font-size: 1.5em;
+    line-height: normal;
     position: absolute;
     width: 20%;
     height: 20%;
-    left: 35%;
-    top: 40%;
+    left: 40%;
+    top: 30%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    transition: all 1s ease-out;
 }
 
 .homeNavBarFont>b {

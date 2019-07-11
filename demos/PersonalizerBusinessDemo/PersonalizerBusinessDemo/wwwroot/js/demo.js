@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
             let counter = 20;
             waiting = true;
             reward = 0;
-            updateRewardValue(reward);
+            updateRewardValue(reward, articleDoc);
             clearRewardmessage();
-            
+
             intervalId = setInterval(function () {
                 counter--;
                 timeleftContainer.innerHTML = `<p class="col-12">
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const newReward = parseFloat((currentPosition / maxScrollPosition).toFixed(2));
                 if (intervalId >= 0 && reward < newReward) {
                     reward = newReward;
-                    updateRewardValue(reward);
+                    updateRewardValue(reward, articleDoc);
                 }
             });
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
 
-                    updateRewardValue(0);
+                    updateRewardValue(0, articleDoc);
                     clearRewardmessage();
                     counter = 0;
                     articleViewer.contentWindow.history.back();
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
                     timeleftEle.setAttribute("value", 0);
-                    updateRewardValue(0);
+                    updateRewardValue(0, articleDoc);
                     clearRewardmessage();
                     counter = 0;
                 }
@@ -117,13 +117,13 @@ let context = {
 
 let userAgent = {};
 
-function updateRewardValue(value) {
+function updateRewardValue(value, articleDoc) {
     const percentageValue = Math.round(value * 100);
-
-    const rewardEle = document.getElementById("reward");
-    rewardEle.style = `width: ${percentageValue}%;`;
-    rewardEle.setAttribute("aria-valuenow", value);
-    rewardEle.innerText = `${value}`;
+    const turnValue = Math.round((percentageValue * 5) / 100);
+    const rewardEle = articleDoc.getElementById('gauge');
+    rewardEle.setAttribute('style', `transform:rotate(.${turnValue}turn)`);
+    const comment = articleDoc.getElementById('gauge-comment');
+    comment.innerText = `${value.toFixed(1)}`;
 }
 
 function showRewardMessage(reward) {
