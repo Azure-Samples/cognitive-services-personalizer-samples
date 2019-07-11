@@ -110,14 +110,20 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const goBtnIframe = document.getElementById('go-btn-iframe');
+        if (goBtnIframe) {
+            goBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("go-btn").click()
+            })
+        }
 
-    document.getElementById('go-btn-iframe').addEventListener("click", function () {
-        parent.document.getElementById("go-btn").click()
-    })
-
-    document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
-        parent.document.getElementById("backstage-btn").click()
-    })
-
+        const backstageBtnIframe = document.getElementById('backstage-btn-iframe');
+        if (backstageBtnIframe) {
+            backstageBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("backstage-btn").click()
+            })
+        }
+    });
 
 </script>

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const timeleftEle = document.getElementById("timeleft");
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
@@ -96,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             showRewardMessage(reward);
                         });
                     }
-                    timeleftEle.setAttribute("value", 0);
+                    timeleftContainer.innerHTML = '';
                     updateRewardValue(0, articleDoc);
                     clearRewardmessage();
                     counter = 0;
