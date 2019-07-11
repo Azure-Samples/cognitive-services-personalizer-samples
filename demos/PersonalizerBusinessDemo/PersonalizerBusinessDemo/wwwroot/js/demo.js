@@ -261,7 +261,16 @@ function updateCodeElementWithJSON(eleId, jsonObj, resultId) {
     let code = JSON.stringify(jsonObj, null, 2);
 
     if (resultId) {
-        const regex = new RegExp(`(.*)("rewardActionId":\\s"${resultId}"\\n)(.*)`, 'gm');
+        let aux = JSON.parse(code);
+        aux = {
+            result: {
+                eventId: aux.result.eventId,
+                rewardActionId: aux.result.rewardActionId,
+                ranking: aux.result.ranking
+            }
+        }
+        code = JSON.stringify(aux, null, 2);
+        const regex = new RegExp(`(.*)("rewardActionId":\\s"${resultId}")(.*)`, 'gm');
         code = code.replace(regex, '$1<mark>$2</mark>$3');
     }
 
