@@ -43,10 +43,6 @@ html {
     min-height: 100%;
 }
 
-body {
-    /* Margin bottom by footer height */
-    /*margin-bottom: 60px;*/
-}
 
 .footer {
     /*position: absolute;
@@ -55,7 +51,8 @@ body {
     white-space: nowrap;
     /* Set the fixed height of the footer here */
     height: 60px;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 60px;
+    /* Vertically center the text there */
 }
 
 /* Bottom left text */
@@ -84,14 +81,11 @@ img {
     position: relative;
 }
 
-.small_slot_wrapper_cols {
-}
-
 .small_slot_cols_item {
     background: #fff;
     overflow: hidden;
     position: relative;
-    height:100%;
+    height: 100%;
 }
 
 .small_slot_cols_item_image {
@@ -132,7 +126,7 @@ img {
     background-color: #555;
 }
 
-.progress { 
+.progress {
     font-size: 2rem;
 }
 
@@ -143,8 +137,8 @@ img {
 }
 
 .article-container {
-    min-height: calc(100vh - 120px);
-    max-height: calc(100vh - 122px);
+    min-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem);
 }
 
 #collapseBackstage.collapsing {
@@ -158,12 +152,126 @@ img {
 
 #collapseBackstage .backstageNavBar {
     min-height: 4rem;
-    height:4rem;
+    height: 4rem;
 }
 
 .articleNavBar {
     min-height: 4rem;
     height: 4rem;
+}
+
+.gauge-container {
+    display: block;
+    position: fixed;
+    top: 70px;
+    right: -120px;
+    z-index: 99;
+    width: 210px;
+    height: 210px;
+    overflow: hidden;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    border-color: #007bff;
+}
+
+.gauge-background {
+    z-index: 1;
+    position: absolute;
+    background-color: #007bff;
+    width: 42%;
+    height: 42%;
+    left: 30%;
+    top: 20%;
+    border-radius: 300px 300px 300px 300px;
+}
+
+/* the grey bar that will be filled*/
+.gauge-a {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(200, 200, 200, 1);
+    width: 40%;
+    height: 40%;
+    left: 30%;
+    top: 20%;
+    border-radius: 250px 250px 250px 250px;
+}
+
+/* the bottom semicircle area white */
+.gauge-cover {
+    z-index: 10;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    width: 40%;
+    height: 20%;
+    left: 30%;
+    top: 40%;
+    border-radius: 0px 0px 250px 250px;
+}
+
+/* the semicircle area containing the percentage*/
+.gauge-b {
+    z-index: 3;
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 25%;
+    height: 13%;
+    left: 34%;
+    top: 29%;
+    margin-left: 3.75%;
+    margin-right: auto;
+    border-radius: 250px 250px 0px 0px;
+}
+
+/* the green measure bar that moves*/
+.gauge-c {
+    z-index: 2;
+    position: absolute;
+    background-color: #009900;
+    width: 40%;
+    height: 20%;
+    left: 30%;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px 0px 200px 200px;
+    transform-origin: center top;
+    transition: all 1.3s ease-in-out;
+}
+
+.gauge-container:hover .gauge-data {
+    color: rgba(0, 0, 0, 1);
+}
+
+.gauge-data > h1 {
+    z-index: 10;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: calibri;
+    font-size: 1rem;
+    line-height: 25px;
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    left: 30%;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gauge-comment > h1 {
+    z-index: 10;
+    color: rgba(30, 30, 30, 1);
+    font-family: calibri;
+    font-size: 1.5em;
+    line-height: normal;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .homeNavBarFont > b {
