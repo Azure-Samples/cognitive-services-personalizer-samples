@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     updateRewardValue(0, articleDoc);
                     clearRewardmessage();
                     counter = 0;
-                    articleViewer.contentWindow.history.back();
                 }
+                articleViewer.contentWindow.history.go(1 - articleViewer.contentWindow.history.length);
             });
         }
     });
