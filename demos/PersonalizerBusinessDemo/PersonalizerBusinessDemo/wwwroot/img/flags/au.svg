@@ -1,9 +1,198 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-au" viewBox="0 0 640 480">
-  <g stroke-width="1pt">
-    <path fill="#006" d="M0 0h640v480H0z"/>
-    <path fill="#fff" d="M0 0v28l307 222h38.7v-28L38.7 0H0zm345.7 0v28l-307 222H0v-28L307 0h38.7z"/>
-    <path fill="#fff" d="M144 0v250h57.6V0H144zM0 83.3v83.4h345.7V83.3H0z"/>
-    <path fill="#c00" d="M0 100v50h345.7v-50H0zM155.6 0v250H190V0h-34.5zM0 250l115.2-83.3H141L25.8 250H0zM0 0l115.2 83.3H89.5L0 18.6V0zm204.7 83.3L319.9 0h25.8L230.5 83.3h-25.8zm141 166.7l-115.2-83.3h25.7l89.5 64.7V250z"/>
-    <path fill="#fff" fill-rule="evenodd" d="M299.8 392.5l-43.7 3.8 6 43.4L232 408l-30.1 31.7 6-43.4-43.7-3.8 37.7-22.3-24.3-36.5 41 15.5 13.4-41.7 13.5 41.7 41-15.5-24.3 36.5m224.4 62.3L476 416.7l17.8 6.7 5.8-18.1 5.8 18.1 17.8-6.7-10.5 15.8 16.4 9.7-19 1.7 2.6 18.9-13-13.9-13.2 13.9 2.6-18.9-19-1.6m16.4-291.9L476 134.6l17.8 6.7 5.8-18.1 5.8 18.1 17.8-6.7-10.5 15.8 16.4 9.8-19 1.6 2.6 18.9-13-13.8-13.2 13.7 2.6-18.8-19-1.6M380.8 265l-10.5-15.8 17.8 6.7 5.8-18.1 5.9 18.1 17.8-6.7L407 265l16.4 9.7-19 1.7 2.7 18.9-13.2-13.9-13 13.9 2.5-18.9-19-1.6m216.3-38L570 221l17.8 6.7 5.8-18.1 5.9 18.1 17.8-6.7-10.5 15.8 16.3 9.7-19 1.7 2.6 18.8-13-13.8-13.2 13.8 2.6-18.8-19-1.7M542 320l-10.3 6.5 2.9-11.9-9.3-7.8 12.1-1 4.6-11.2 4.7 11.3 12.1.9-9.3 7.8 2.9 11.9"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="flag-icon-css-au"
+   viewBox="0 0 640 480"
+   version="1.1"
+   sodipodi:docname="au.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata46">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs44">
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Greyscale"
+       id="filter50">
+      <feColorMatrix
+         values="-10 -10 -7.22 0 0 -10 -10 -7.22 0 0 -10 -10 -7.22 0 0 0 0 0 1 0 "
+         id="feColorMatrix48"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix60" />
+      <feColorMatrix
+         id="feColorMatrix62"
+         values="3.28125 7.24 -7.22 0 0 3.28125 7.24 -7.22 0 0 3.28125 7.24 -7.22 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix64" />
+      <feColorMatrix
+         id="feColorMatrix66"
+         values="3.28 7.24 -7.22 0 0 3.28 7.24 -7.22 0 0 3.28 7.24 -7.22 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix68" />
+      <feColorMatrix
+         id="feColorMatrix70"
+         values="3.28 7.24 -0.31 0 0 3.28 7.24 -0.31 0 0 3.28 7.24 -0.31 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix72" />
+      <feColorMatrix
+         id="feColorMatrix74"
+         values="3.28 7.24 5.36 0 0 3.28 7.24 5.36 0 0 3.28 7.24 5.36 0 0 0 0 0 1 0 "
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Fade to Black or White"
+       id="filter78">
+      <feColorMatrix
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"
+         id="feColorMatrix76" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter268">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix256" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix258" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence260" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix262" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur264" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite266" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter282">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix270" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix272" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence274" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix276" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur278" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite280" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1346"
+     id="namedview42"
+     showgrid="false"
+     inkscape:zoom="2.2770833"
+     inkscape:cx="320"
+     inkscape:cy="240"
+     inkscape:window-x="-11"
+     inkscape:window-y="1609"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="flag-icon-css-au" />
+  <g
+     stroke-width="1pt"
+     id="g39"
+     style="filter:url(#filter282)">
+    <path
+       fill="#006"
+       d="M0 0h640v480H0z"
+       id="path29"
+       style="" />
+    <path
+       fill="#fff"
+       d="M0 0v28l307 222h38.7v-28L38.7 0H0zm345.7 0v28l-307 222H0v-28L307 0h38.7z"
+       id="path31"
+       style="" />
+    <path
+       fill="#fff"
+       d="M144 0v250h57.6V0H144zM0 83.3v83.4h345.7V83.3H0z"
+       id="path33"
+       style="" />
+    <path
+       fill="#c00"
+       d="M0 100v50h345.7v-50H0zM155.6 0v250H190V0h-34.5zM0 250l115.2-83.3H141L25.8 250H0zM0 0l115.2 83.3H89.5L0 18.6V0zm204.7 83.3L319.9 0h25.8L230.5 83.3h-25.8zm141 166.7l-115.2-83.3h25.7l89.5 64.7V250z"
+       id="path35"
+       style="" />
+    <path
+       fill="#fff"
+       fill-rule="evenodd"
+       d="M299.8 392.5l-43.7 3.8 6 43.4L232 408l-30.1 31.7 6-43.4-43.7-3.8 37.7-22.3-24.3-36.5 41 15.5 13.4-41.7 13.5 41.7 41-15.5-24.3 36.5m224.4 62.3L476 416.7l17.8 6.7 5.8-18.1 5.8 18.1 17.8-6.7-10.5 15.8 16.4 9.7-19 1.7 2.6 18.9-13-13.9-13.2 13.9 2.6-18.9-19-1.6m16.4-291.9L476 134.6l17.8 6.7 5.8-18.1 5.8 18.1 17.8-6.7-10.5 15.8 16.4 9.8-19 1.6 2.6 18.9-13-13.8-13.2 13.7 2.6-18.8-19-1.6M380.8 265l-10.5-15.8 17.8 6.7 5.8-18.1 5.9 18.1 17.8-6.7L407 265l16.4 9.7-19 1.7 2.7 18.9-13.2-13.9-13 13.9 2.5-18.9-19-1.6m216.3-38L570 221l17.8 6.7 5.8-18.1 5.9 18.1 17.8-6.7-10.5 15.8 16.3 9.7-19 1.7 2.6 18.8-13-13.8-13.2 13.8 2.6-18.8-19-1.7M542 320l-10.3 6.5 2.9-11.9-9.3-7.8 12.1-1 4.6-11.2 4.7 11.3 12.1.9-9.3 7.8 2.9 11.9"
+       id="path37"
+       style="" />
   </g>
 </svg>
