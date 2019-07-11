@@ -12,7 +12,7 @@
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
     "BackgroundColor": "#F57636",
-    "BackstageLabelBtn": "How it works",
+    "BackstageLabelBtn": "View How It Works",
     "OptionsList": [
       {
         "label": "Tournaments",
