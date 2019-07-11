@@ -139,7 +139,7 @@ img {
 }
 
 #timeleft {
-    font-size: 2rem;
+    font-size: 1.2rem;
     text-align: center;
     height: 58px;
 }
@@ -156,6 +156,16 @@ img {
 
 #collapseBackstage .backstage-container {
     max-height: 100vh;
+}
+
+#collapseBackstage .backstageNavBar {
+    min-height: 4rem;
+    height:4rem;
+}
+
+.articleNavBar {
+    min-height: 4rem;
+    height: 4rem;
 }
 
 .footer.learn-container {

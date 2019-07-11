@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const timeleftEle = document.getElementById("timeleft");
+    const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
+    const brandLogoImg = document.getElementById("brand-logo");
     let intervalId = -1;
     let reward = 0;
     let waiting = false;
@@ -33,16 +35,19 @@ document.addEventListener("DOMContentLoaded", function () {
             reward = 0;
             updateRewardValue(reward);
             clearRewardmessage();
-
+            
             intervalId = setInterval(function () {
                 counter--;
-                timeleftEle.setAttribute("value", counter);
+                timeleftContainer.innerHTML = `<p class="col-12">
+                        ${counter}s left to get reward
+                    </p>`
                 if (counter <= 0) {
                     clearInterval(intervalId);
                     intervalId = -1;
                     sendReward(personalizerCallResult.eventId, reward).then(() => {
                         showRewardMessage(reward);
                     });
+                    timeleftContainer.innerHTML = '';
                 }
             }, 1000);
 
@@ -68,12 +73,37 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.addEventListener("click", function () {
                     clearInterval(intervalId);
                     intervalId = -1;
-                    timeleftEle.setAttribute("value", 0);
+                    timeleftContainer.innerHTML = '';
+
+                    if (counter > 0) {
+                        sendReward(personalizerCallResult.eventId, reward).then(() => {
+                            showRewardMessage(reward);
+                        });
+                    }
+
                     updateRewardValue(0);
                     clearRewardmessage();
+                    counter = 0;
                     articleViewer.contentWindow.history.back();
                 });
             }
+
+            brandLogoImg.addEventListener("click", function () {
+                if (iframeBackBtn != undefined) {
+                    clearInterval(intervalId);
+                    intervalId = -1;
+                    if (counter > 0) {
+                        sendReward(personalizerCallResult.eventId, reward).then(() => {
+                            showRewardMessage(reward);
+                        });
+                    }
+                    timeleftEle.setAttribute("value", 0);
+                    updateRewardValue(0);
+                    clearRewardmessage();
+                    counter = 0;
+                }
+                articleViewer.contentWindow.history.back();
+            });
         }
     });
 });
@@ -314,4 +344,3 @@ function sendReward(eventid, value) {
         })
     });
 }
-
