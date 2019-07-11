@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     clearRewardmessage();
                     counter = 0;
                 }
-                articleViewer.contentWindow.history.back();
+                articleViewer.contentWindow.history.go(1 - articleViewer.contentWindow.history.length);
             });
         }
     });
