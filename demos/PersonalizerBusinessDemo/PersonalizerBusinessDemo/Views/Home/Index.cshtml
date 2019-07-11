@@ -10,7 +10,7 @@
 
     displayMenuItems =
 
-    @<ul class="navbar-nav mr-auto w-100">
+    @<ul class="navbar-nav mr-auto">
     @foreach (NavBarItemModel menuItem in @item)
     {
         if (menuItem.Items != null)
@@ -35,11 +35,8 @@
         }
 
     }
-        <li class="nav-item ml-auto">
-            <button class="btn btn-light" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
-                @navigationBarOptions.BackstageLabelBtn
-            </button>
-        </li>
+        
+
     </ul>;
 }
 
@@ -54,6 +51,16 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
+
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-light my-2 my-sm-0"><i class="fas fa-search"></i></button>
+
+                </form>
+
+                <button class="btn btn-light mx-2" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
+                    @navigationBarOptions.BackstageLabelBtn
+                </button>
             </div>
         </nav>
 
