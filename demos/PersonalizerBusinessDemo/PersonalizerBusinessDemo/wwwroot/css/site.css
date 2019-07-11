@@ -167,3 +167,8 @@ img {
     min-height: 4rem;
     height: 4rem;
 }
+
+.homeNavBarFont > b{
+    color: white;
+    font-weight: lighter;
+}

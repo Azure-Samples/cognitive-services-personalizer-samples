@@ -15,13 +15,13 @@
         if (menuItem.Items != null)
         {
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b>@menuItem.Label</b>
+                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b class="homeNavBarFont">@menuItem.Label </b>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach (var subItem in menuItem.Items)
                     {
-                        <a class="dropdown-item" href="#">@subItem.Label</a>
+                        <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
                     }
                 </div>
             </li>
@@ -29,7 +29,7 @@
         else
         {
             <li class="nav-item">
-                <a class="nav-link" href="#"><b>@menuItem.Label</b></a>
+                <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
             </li>
         }
 
