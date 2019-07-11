@@ -35,7 +35,7 @@
                                 </button>
                             </div>
                             <div class="row justify-content-center mt-3">
-                                <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleBackstageLabel</a>
+                                <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,9 @@
         const backstageBtnIframe = document.getElementById('backstage-btn-iframe');
         if (backstageBtnIframe) {
             backstageBtnIframe.addEventListener("click", function () {
-                parent.document.getElementById("backstage-btn").click()
+                parent.document.getElementById("backstage-btn").click();
+
+                backstageBtnIframe.innerHTML = backstageBtnIframe.innerHTML === `@siteConfig.MainArticleCloseBackstageLabel` ? `@siteConfig.MainArticleShowBackstageLabel` : `@siteConfig.MainArticleCloseBackstageLabel`;
             })
         }
     });
