@@ -10,7 +10,7 @@
   "PersonalizerCodeSamplesURL": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
   "PersonalizerCodeSampleLabel": "Code Samples",
   "MainArticleShowBackstageLabel": "Show How It Works",
-  "MainArticleCloseBackstageLabel": "Close How It Works",
+  "MainArticleCloseBackstageLabel": "Hide How It Works",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
     "BackgroundColor": "#F57636",
