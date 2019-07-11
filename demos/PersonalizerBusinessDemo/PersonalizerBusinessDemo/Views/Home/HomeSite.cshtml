@@ -1,5 +1,7 @@
 @model IList<Article>
+
 @{
+    PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
     ViewData["Title"] = "HomeSite";
     Layout = "~/Views/Shared/_ArticleLayout.cshtml";
 }
@@ -18,61 +20,95 @@
             }
             else
             {
-                <div class="main_slot_image container-img-text">
-                    <img src="~/img/blank.jpg" alt="News 1" />
+                <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
+                    <div class="row my-auto">
+                        <div class="col-8 mx-auto">
+                            <div class="row">
+                                <p>
+                                    Personalizer will recommend the content to show here,
+                                    based on real-time context.
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 my-2">
+                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                        @siteConfig.RefreshButtonText
+                                    </button>
+                                </div>
+                                <div class="col-md-12 col-lg-6 my-2">
+                                    <button class="btn btn-light" type="button" id="backstage-btn-iframe">
+                                        @siteConfig.NavigationBar.BackstageLabelBtn
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="bottom-left"></div>
                 </div>
             }
         }
 
     </div>
-    <div class="col-md-4 small_slot_wrapper">
+    <div class="col-md-3 small_slot_wrapper">
         <div class="row py-2">
-            <h2>Latest Scores</h2>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="https://www.tennisworldes.com/imgb/21870/federer-estoy-jugando-un-gran-tenis-tengo-muchas-ganas-de-jugar-en-miami.jpg"
-                                class="card-img" alt="news 1" style="object-fit:cover ;height:inherit; ">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-title" style="padding-left:15px;margin-bottom:1em;">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row py-2">
-            <h2>Player Highlights</h2>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="https://static.abc.es/media/deportes/2019/03/29/tenis-federer-anderson-kpsG--620x349@abc.jpg"
-                                class="card-img" alt="news 2" style="object-fit: cover;height:inherit;">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-title" style="padding-left:15px;margin-bottom:1em;">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk1kNwCpwY8pP2LKy5_gU0Zz075DOYdNSM6p_Rg2TAuLaOodGq"
-                                class="card-img" alt="news 3" style="object-fit:cover; height:inherit; width:100%;">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-title" style="padding-left:15px;margin-bottom:1em;">
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h3 class="font-weight-light">Latest Scores</h3>
+            <table class="table table-sm bg-light">
+                <tr>
+                    <th>Wimbledon</th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/us.svg" alt="US Flag" style="max-height:15%; max-width:15%"> Chris Evert</td>
+                        <td>7</td><td>6</td><td>6</td>
+                    </tr>
+                    <tr>
+                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/au.svg" alt="AU Flag" style="max-height:15%; max-width:15%"> Margaret Court</td>
+                        <td>5</td><td>1</td><td>2</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm bg-light">
+                <tr>
+                    <th>US Open</th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/de.svg" alt="DE Flag" style="max-height:15%; max-width:15%"> Steffi Graf</td>
+                        <td>6</td><td>6</td><td>6</td>
+                    </tr>
+                    <tr>
+                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/in.svg" alt="IN Flag" style="max-height:15%; max-width:15%"> Sania Mirza</td>
+                        <td>3</td><td>1</td><td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm bg-light d-none d-xl-block">
+                <tr>
+                    <th>French Open</th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/rs.svg" alt="RS Flag" style="max-height:15%; max-width:15%"> Monica Seles</td>
+                        <td>3</td><td>5</td><td>2</td>
+                    </tr>
+                    <tr>
+                        <td class="text-wrap" style="width: 75%"><img src="~/img/flags/ch.svg" alt="CH Flag" style="max-height:15%; max-width:15%"> Martina Hingis</td>
+                        <td>6</td><td>7</td><td>6</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+<script>
+
+    document.getElementById('go-btn-iframe').addEventListener("click", function () {
+        parent.document.getElementById("go-btn").click()
+    })
+       
+   document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
+        parent.document.getElementById("backstage-btn").click()
+    })
+
+    
+</script>

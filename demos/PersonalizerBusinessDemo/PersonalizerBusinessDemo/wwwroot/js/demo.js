@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     const timeleftEle = document.getElementById("timeleft");
+    const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
+    const brandLogoImg = document.getElementById("brand-logo");
     let intervalId = -1;
     let reward = 0;
-    let waiting = false;
 
     let personalizerCallResult;
 
@@ -33,16 +34,19 @@ document.addEventListener("DOMContentLoaded", function () {
             reward = 0;
             updateRewardValue(reward);
             clearRewardmessage();
-
+            
             intervalId = setInterval(function () {
                 counter--;
-                timeleftEle.setAttribute("value", counter);
+                timeleftContainer.innerHTML = `<p class="col-12">
+                        ${counter}s left to get reward
+                    </p>`
                 if (counter <= 0) {
                     clearInterval(intervalId);
                     intervalId = -1;
                     sendReward(personalizerCallResult.eventId, reward).then(() => {
                         showRewardMessage(reward);
                     });
+                    timeleftContainer.innerHTML = '';
                 }
             }, 1000);
 
@@ -68,20 +72,45 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.addEventListener("click", function () {
                     clearInterval(intervalId);
                     intervalId = -1;
-                    timeleftEle.setAttribute("value", 0);
+                    timeleftContainer.innerHTML = '';
+
+                    if (counter > 0) {
+                        sendReward(personalizerCallResult.eventId, reward).then(() => {
+                            showRewardMessage(reward);
+                        });
+                    }
+
                     updateRewardValue(0);
                     clearRewardmessage();
+                    counter = 0;
                     articleViewer.contentWindow.history.back();
                 });
             }
+
+            brandLogoImg.addEventListener("click", function () {
+                if (iframeBackBtn != undefined) {
+                    clearInterval(intervalId);
+                    intervalId = -1;
+                    if (counter > 0) {
+                        sendReward(personalizerCallResult.eventId, reward).then(() => {
+                            showRewardMessage(reward);
+                        });
+                    }
+                    timeleftEle.setAttribute("value", 0);
+                    updateRewardValue(0);
+                    clearRewardmessage();
+                    counter = 0;
+                }
+                articleViewer.contentWindow.history.back();
+            });
         }
     });
 });
 
 let context = {
-    weekDay: "workweek",
-    profile: "anonymous",
-    tournament: "tournament1",
+    referrer: "social",
+    tournament: "wimbledon",
+    device: "mobile",
     userAgent: null,
     useTextAnalytics: false
 };
@@ -121,18 +150,21 @@ function setupActionControls() {
 }
 
 function setupContextControls() {
-    const weekDaySelectEle = document.getElementById('weekDay');
-    weekDaySelectEle.addEventListener('change', (event) => {
+    const referrerSelectEle = document.getElementById('referrer');
+    referrerSelectEle.selectedIndex = ramdomizeSelectedOption(referrerSelectEle);
+    referrerSelectEle.addEventListener('change', (event) => {
         updateContext(event.target.value);
     });
 
-    const profileSelectEle = document.getElementById('profile');
-    profileSelectEle.addEventListener('change', (event) => {
+    const currentTournamentSelectEle = document.getElementById('currentTournament');
+    currentTournamentSelectEle.selectedIndex = ramdomizeSelectedOption(currentTournamentSelectEle);
+    currentTournamentSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value);
     });
 
-    const tournamentSelectEle = document.getElementById('tournament');
-    tournamentSelectEle.addEventListener('change', (event) => {
+    const deviceSelectEle = document.getElementById('device');
+    deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
+    deviceSelectEle.addEventListener('change', (event) => {
         updateContext(null, null, event.target.value);
     });
 
@@ -148,24 +180,24 @@ function setupContextControls() {
 
     getUserAgent().then(userAgentResponse => {
         userAgent = userAgentResponse;
-        updateContext(weekDaySelectEle.value, profileSelectEle.value, tournamentSelectEle.value, !UseUserAgentEle.checked, userAgent);
+        updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
     });
 
-    updateContext(weekDaySelectEle.value, profileSelectEle.value, tournamentSelectEle.value);
+    updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value);
 }
 
-function updateContext(weekDay, profile, tournament, removeUserAgent, userAgent) {
-    context.weekDay = weekDay || context.weekDay;
-    context.profile = profile || context.profile;
-    context.tournament = tournament || context.tournament;
+function updateContext(referrer, currentTournament, device, removeUserAgent, userAgent) {
+    context.referrer = referrer || context.referrer;
+    context.tournament = currentTournament || context.tournament;
+    context.device = device || context.device;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
-            weekDay: context.weekDay,
-            profile: context.profile
+            referrer: context.referrer,
+            tournament: context.tournament
         },
-        { tournament: context.tournament }
+        { device: context.device }
     ];
 
 
@@ -174,6 +206,13 @@ function updateContext(weekDay, profile, tournament, removeUserAgent, userAgent)
     }
 
     updateCodeElementWithJSON("context-code", { contextFeatures: contextFeatures });
+}
+
+function ramdomizeSelectedOption(select) {
+    var items = select.getElementsByTagName('option');
+    var index = Math.floor(Math.random() * items.length);
+
+    return index;
 }
 
 function updateBasedOnRecommendation(result) {
@@ -282,9 +321,9 @@ function getActions(useTextAnalytics) {
 
 function getRecommendation() {
     const requestContext = {
-        weekDay: context.weekDay,
-        profile: context.profile,
+        referrer: context.referrer,
         tournament: context.tournament,
+        device: context.device,
         useTextAnalytics: context.useTextAnalytics,
         useUserAgent: !!context.userAgent
     };
@@ -314,4 +353,3 @@ function sendReward(eventid, value) {
         })
     });
 }
-

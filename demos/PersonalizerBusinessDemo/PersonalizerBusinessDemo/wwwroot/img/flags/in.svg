@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="flag-icon-css-in"
+   viewBox="0 0 640 480"
+   version="1.1"
+   sodipodi:docname="in.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata86">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs84">
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter100">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix88" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix90" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence92" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix94" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur96" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite98" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter114">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix102" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix104" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence106" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix108" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur110" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite112" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter128">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix116" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix118" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence120" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix122" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur124" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite126" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter142">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix130" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix132" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence134" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix136" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur138" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite140" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter1756">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix1744" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix1746" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence1748" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix1750" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur1752" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite1754" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter1770">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix1758" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix1760" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence1762" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix1764" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur1766" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite1768" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter1784">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix1772" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix1774" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence1776" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix1778" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur1780" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite1782" />
+    </filter>
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter1798">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix1786" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix1788" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence1790" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix1792" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur1794" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite1796" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1346"
+     id="namedview82"
+     showgrid="false"
+     inkscape:zoom="2.2770833"
+     inkscape:cx="320"
+     inkscape:cy="298.70016"
+     inkscape:window-x="-11"
+     inkscape:window-y="1609"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="flag-icon-css-in" />
+  <path
+     fill="#f93"
+     d="M0 0h640v160H0z"
+     id="path49"
+     style="filter:url(#filter1756)" />
+  <path
+     fill="#fff"
+     d="M0 160h640v160H0z"
+     id="path51"
+     style="filter:url(#filter1770)" />
+  <path
+     fill="#128807"
+     d="M0 320h640v160H0z"
+     id="path53"
+     style="filter:url(#filter1784)" />
+  <g
+     transform="matrix(3.2 0 0 3.2 320 240)"
+     id="g79"
+     style="filter:url(#filter1798)">
+    <circle
+       r="20"
+       fill="#008"
+       id="circle55"
+       style="" />
+    <circle
+       r="17.5"
+       fill="#fff"
+       id="circle57"
+       style="" />
+    <circle
+       r="3.5"
+       fill="#008"
+       id="circle59"
+       style="" />
+    <g
+       id="d"
+       style="">
+      <g
+         id="c"
+         style="">
+        <g
+           id="b"
+           style="">
+          <g
+             id="a"
+             fill="#008"
+             style="">
+            <circle
+               r=".9"
+               transform="rotate(7.5 -8.8 133.5)"
+               id="circle61"
+               style="" />
+            <path
+               d="M0 17.5L.6 7 0 2l-.6 5L0 17.5z"
+               id="path63"
+               style="" />
+          </g>
+          <use
+             width="100%"
+             height="100%"
+             transform="rotate(15)"
+             xlink:href="#a"
+             id="use66"
+             style="" />
+        </g>
+        <use
+           width="100%"
+           height="100%"
+           transform="rotate(30)"
+           xlink:href="#b"
+           id="use69"
+           style="" />
+      </g>
+      <use
+         width="100%"
+         height="100%"
+         transform="rotate(60)"
+         xlink:href="#c"
+         id="use72"
+         style="" />
+    </g>
+    <use
+       width="100%"
+       height="100%"
+       transform="rotate(120)"
+       xlink:href="#d"
+       id="use75"
+       style="" />
+    <use
+       width="100%"
+       height="100%"
+       transform="rotate(-120)"
+       xlink:href="#d"
+       id="use77"
+       style="" />
+  </g>
+</svg>
