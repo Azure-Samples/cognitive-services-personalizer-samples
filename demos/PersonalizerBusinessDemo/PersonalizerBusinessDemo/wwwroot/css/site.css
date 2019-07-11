@@ -79,8 +79,6 @@ img {
 .small_slot_wrapper {
     min-height: 350px;
     position: relative;
-    margin-right: 10px;
-    padding-bottom: 19px;
 }
 
 .small_slot_cols_item {
@@ -302,6 +300,7 @@ img {
 
 .player-name {
     font-style: italic;
+    max-width: 80px;
 }
 
 .hero-text {
