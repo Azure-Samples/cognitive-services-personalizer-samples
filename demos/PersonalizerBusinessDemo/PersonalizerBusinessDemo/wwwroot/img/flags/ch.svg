@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="flag-icon-css-cz"
+   id="flag-icon-css-ch"
    viewBox="0 0 640 480"
    version="1.1"
-   sodipodi:docname="cz.svg"
+   sodipodi:docname="ch.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
-     id="metadata57">
+     id="metadata1182">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -23,6 +23,40 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <defs
+     id="defs1180">
+    <filter
+       inkscape:label="Age"
+       inkscape:menu="Image Effects"
+       inkscape:menu-tooltip="Imitate aged photograph"
+       style="color-interpolation-filters:sRGB;"
+       id="filter1196">
+      <feColorMatrix
+         type="saturate"
+         in="SourceGraphic"
+         values="0"
+         id="feColorMatrix1184" />
+      <feColorMatrix
+         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
+         result="result0"
+         id="feColorMatrix1186" />
+      <feTurbulence
+         baseFrequency="0.111"
+         numOctaves="2"
+         type="fractalNoise"
+         id="feTurbulence1188" />
+      <feColorMatrix
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
+         id="feColorMatrix1190" />
+      <feGaussianBlur
+         stdDeviation="1"
+         id="feGaussianBlur1192" />
+      <feComposite
+         in2="result0"
+         operator="atop"
+         id="feComposite1194" />
+    </filter>
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -32,76 +66,35 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1346"
-     id="namedview55"
+     inkscape:window-width="2880"
+     inkscape:window-height="1526"
+     id="namedview1178"
      showgrid="false"
-     inkscape:zoom="2.2770833"
+     inkscape:zoom="0.49166667"
      inkscape:cx="320"
      inkscape:cy="240"
-     inkscape:window-x="-11"
-     inkscape:window-y="1609"
+     inkscape:window-x="495"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="flag-icon-css-cz" />
-  <defs
-     id="defs44">
-    <clipPath
-       id="a">
-      <path
-         fill-opacity=".7"
-         d="M-74 0h682.7v512H-74z"
-         id="path41" />
-    </clipPath>
-    <filter
-       inkscape:label="Age"
-       inkscape:menu="Image Effects"
-       inkscape:menu-tooltip="Imitate aged photograph"
-       style="color-interpolation-filters:sRGB;"
-       id="filter71">
-      <feColorMatrix
-         type="saturate"
-         in="SourceGraphic"
-         values="0"
-         id="feColorMatrix59" />
-      <feColorMatrix
-         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
-         result="result0"
-         id="feColorMatrix61" />
-      <feTurbulence
-         baseFrequency="0.111"
-         numOctaves="2"
-         type="fractalNoise"
-         id="feTurbulence63" />
-      <feColorMatrix
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
-         id="feColorMatrix65" />
-      <feGaussianBlur
-         stdDeviation="1"
-         id="feGaussianBlur67" />
-      <feComposite
-         in2="result0"
-         operator="atop"
-         id="feComposite69" />
-    </filter>
-  </defs>
+     inkscape:current-layer="flag-icon-css-ch" />
   <g
      fill-rule="evenodd"
      stroke-width="1pt"
-     clip-path="url(#a)"
-     transform="translate(69.4) scale(.94)"
-     id="g52"
-     style="filter:url(#filter71)">
+     id="g1175"
+     style="filter:url(#filter1196)">
     <path
-       fill="#e80000"
-       d="M-74 0h768v512H-74z"
-       id="path46" />
-    <path
+       fill="#d52b1e"
+       d="M0 0h640v480H0z"
+       id="path1167" />
+    <g
        fill="#fff"
-       d="M-74 0h768v256H-74z"
-       id="path48" />
-    <path
-       fill="#00006f"
-       d="M-74 0l382.7 255.7L-74 511V0z"
-       id="path50" />
+       id="g1173">
+      <path
+         d="M170 195h300v90H170z"
+         id="path1169" />
+      <path
+         d="M275 90h90v300h-90z"
+         id="path1171" />
+    </g>
   </g>
 </svg>
