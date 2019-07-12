@@ -327,3 +327,12 @@ img {
     height: 20vh;
     overflow-y: scroll;
 }
+
+.exploring-content {
+    display: inline-block;
+}
+
+.table-borderless {
+    border-collapse: separate;
+    border-spacing: 1Vw;
+}
