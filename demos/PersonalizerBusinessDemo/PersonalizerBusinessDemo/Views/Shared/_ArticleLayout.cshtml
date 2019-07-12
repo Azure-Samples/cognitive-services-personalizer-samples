@@ -25,21 +25,27 @@
         body {
             margin: 0;
             padding: 0;
-            background: rgb(237,238,240);
-            background: linear-gradient(180deg, rgba(237,238,240,1) 60%, rgba(247,248,250,1) 80%, rgba(255,255,255,1) 100%);
+            background-color: #263238;
             font-family: 'Open Sans', sans-serif;
         }
 
+        body > .container-fluid {
+            background: rgb(237,238,240);
+            background: linear-gradient(180deg, rgba(237,238,240,1) 60%, rgba(247,248,250,1) 80%, rgba(255,255,255,1) 100%);
+        }
+        
         main {
             padding: 0 4rem;
         }
     </style>
 </head>
 <body>
-    <div class="container py-5">
-        <main role="main">
-            @RenderBody()
-        </main>
+    <div class="container-fluid">
+        <div class="container px-0 py-5">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
     <footer class="footer">
@@ -52,12 +58,9 @@
                     <p><i class="fa fa-location-arrow"></i> 9878/25 sec 9 rohini 35 </p>
                     <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
                     <p><i class="fa fa fa-envelope"></i> info@example.com  </p>
-
-
                 </div>
 
-
-                <div class=" col-sm-4 col-md  col-6 col">
+                <div class=" col-sm-4 col-md col-6 col">
                     <h5 class="headin5_amrc col_white_amrc pt2">Tournaments</h5>
                     <!--headin5_amrc-->
                     <ul class="footer_ul_amrc">
@@ -68,7 +71,6 @@
                     <!--footer_ul_amrc ends here-->
                 </div>
 
-
                 <div class=" col-sm-4 col-md  col-6 col">
                     <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
                     <!--headin5_amrc-->
@@ -78,7 +80,6 @@
                     </ul>
                     <!--footer_ul_amrc ends here-->
                 </div>
-
 
                 <div class=" col-sm-4 col-md  col-12 col">
                     <h5 class="headin5_amrc col_white_amrc pt2">Follow us</h5>
@@ -92,7 +93,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="container">
             <ul class="foote_bottom_ul_amrc">
