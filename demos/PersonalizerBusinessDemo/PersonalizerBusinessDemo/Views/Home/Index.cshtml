@@ -22,7 +22,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach (var subItem in menuItem.Items)
                         {
-                            <a class="dropdown-item homeNavBarFont" href="#">@subItem.Label</a>
+                            <span class="dropdown-item homeNavBarFont">@subItem.Label</span>
                         }
                     </div>
                 </li>
@@ -30,12 +30,14 @@
             else
             {
                 <li class="nav-item dropdownHover">
-                    <a class="nav-link homeNavBarFont" href="#"><b>@menuItem.Label</b></a>
+                    <span class="nav-link homeNavBarFont"><b>@menuItem.Label</b></span>
                 </li>
             }
 
         }
-
+        <li class="nav-item dropdownHover">
+            <span class="nav-link homeNavBarFont border rounded border-light"><b><i class="fas fa-search dropdownHover"></i></b></span>
+        </li>
 
     </ul>;
 }
@@ -52,15 +54,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
-                <form class="form-inline my-2 my-lg-0 dropdownHover">
-                    <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-                    <button class="btn btn-light my-2 my-sm-0" style="cursor: default !important;
-    pointer-events: none !important;" type="button">
-                        <i class="fas fa-search dropdownHover"></i>
-                    </button>
-
-                </form>
-                <a class=" mx-2 homeNavBarFont dropdownHover"><b>Log In</b></a>
                 <button class="btn btn-light" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                     @navigationBarOptions.BackstageLabelBtn
                 </button>
