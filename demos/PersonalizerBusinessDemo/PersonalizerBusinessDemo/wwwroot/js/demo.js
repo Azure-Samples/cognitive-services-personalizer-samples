@@ -2,8 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
+    const backstageBtn = document.getElementById("backstage-btn");
     let intervalId = -1;
     let reward = 0;
+
+    backstageBtn.addEventListener("click", function () {
+        $(this).text(function (i, old) {
+            return old.trim() == "How it works" ? "Hide how it works" : "How it works";
+        });
+    });
 
     let personalizerCallResult;
 
