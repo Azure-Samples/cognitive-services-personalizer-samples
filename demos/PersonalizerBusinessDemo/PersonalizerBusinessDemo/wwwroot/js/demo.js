@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             var innerDoc = articleViewer.contentWindow.document;
             var iframeBackBtn = innerDoc.getElementById('iframe-backBtn');
+            const gaugeContainerEle = innerDoc.getElementById('gauge-container');
 
             if (iframeBackBtn != undefined) {
                 iframeBackBtn.style.display = "block";
@@ -91,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
 
+                    gaugeContainerEle.style.display = 'none';
                     updateRewardValue(0, articleDoc);
                     clearRewardmessage();
                     counter = 0;
@@ -108,11 +110,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         });
                     }
                     timeleftContainer.innerHTML = '';
+                    gaugeContainerEle.style.display = 'none';
                     updateRewardValue(0, articleDoc);
                     clearRewardmessage();
                     counter = 0;
                 }
-                    articleViewer.contentWindow.history.back();
+
+                articleViewer.contentWindow.history.back();
             });
         }
     });
