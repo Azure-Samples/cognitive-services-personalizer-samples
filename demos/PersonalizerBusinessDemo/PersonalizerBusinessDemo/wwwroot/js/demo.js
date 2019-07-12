@@ -2,8 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
+    const backstageBtn = document.getElementById("backstage-btn");
+    const backstage = document.getElementById('collapseBackstage');
     let intervalId = -1;
     let reward = 0;
+
+    backstageBtn.addEventListener("click", function () {
+        $(this).text(function (i, old) {
+            return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
+        });
+    });
 
     let personalizerCallResult;
 
