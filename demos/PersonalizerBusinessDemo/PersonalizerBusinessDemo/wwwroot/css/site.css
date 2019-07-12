@@ -86,6 +86,10 @@ img {
     max-width: 80px;
 }
 
+    .player-name img {
+        filter: grayscale(1) contrast(0.5)
+    }
+
 .small_slot_cols_item {
     background: #fff;
     overflow: hidden;

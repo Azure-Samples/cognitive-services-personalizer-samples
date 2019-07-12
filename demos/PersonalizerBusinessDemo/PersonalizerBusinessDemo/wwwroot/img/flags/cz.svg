@@ -1,107 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="flag-icon-css-cz"
-   viewBox="0 0 640 480"
-   version="1.1"
-   sodipodi:docname="cz.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-  <metadata
-     id="metadata57">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1346"
-     id="namedview55"
-     showgrid="false"
-     inkscape:zoom="2.2770833"
-     inkscape:cx="320"
-     inkscape:cy="240"
-     inkscape:window-x="-11"
-     inkscape:window-y="1609"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="flag-icon-css-cz" />
-  <defs
-     id="defs44">
-    <clipPath
-       id="a">
-      <path
-         fill-opacity=".7"
-         d="M-74 0h682.7v512H-74z"
-         id="path41" />
+<svg xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-cz" viewBox="0 0 640 480">
+  <defs>
+    <clipPath id="a">
+      <path fill-opacity=".7" d="M-74 0h682.7v512H-74z"/>
     </clipPath>
-    <filter
-       inkscape:label="Age"
-       inkscape:menu="Image Effects"
-       inkscape:menu-tooltip="Imitate aged photograph"
-       style="color-interpolation-filters:sRGB;"
-       id="filter71">
-      <feColorMatrix
-         type="saturate"
-         in="SourceGraphic"
-         values="0"
-         id="feColorMatrix59" />
-      <feColorMatrix
-         values="3 0 0 0 -0.3 0 3 0 0 -0.3 0 0 3 0 -0.3 0 0 0 1 0"
-         result="result0"
-         id="feColorMatrix61" />
-      <feTurbulence
-         baseFrequency="0.111"
-         numOctaves="2"
-         type="fractalNoise"
-         id="feTurbulence63" />
-      <feColorMatrix
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 -200"
-         id="feColorMatrix65" />
-      <feGaussianBlur
-         stdDeviation="1"
-         id="feGaussianBlur67" />
-      <feComposite
-         in2="result0"
-         operator="atop"
-         id="feComposite69" />
-    </filter>
   </defs>
-  <g
-     fill-rule="evenodd"
-     stroke-width="1pt"
-     clip-path="url(#a)"
-     transform="translate(69.4) scale(.94)"
-     id="g52"
-     style="filter:url(#filter71)">
-    <path
-       fill="#e80000"
-       d="M-74 0h768v512H-74z"
-       id="path46" />
-    <path
-       fill="#fff"
-       d="M-74 0h768v256H-74z"
-       id="path48" />
-    <path
-       fill="#00006f"
-       d="M-74 0l382.7 255.7L-74 511V0z"
-       id="path50" />
+  <g fill-rule="evenodd" stroke-width="1pt" clip-path="url(#a)" transform="translate(69.4) scale(.94)">
+    <path fill="#e80000" d="M-74 0h768v512H-74z"/>
+    <path fill="#fff" d="M-74 0h768v256H-74z"/>
+    <path fill="#00006f" d="M-74 0l382.7 255.7L-74 511V0z"/>
   </g>
 </svg>
