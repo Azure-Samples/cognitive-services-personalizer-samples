@@ -321,6 +321,12 @@ img {
     pointer-events: none;
 }
 
+
+.latest-photo {
+    height: 18rem; 
+    object-fit:cover;
+}
+
 .responseRequestContainers > .pre-scrollable, pre{
     max-height: 40vh !important;
     min-height: 10vh;
@@ -336,3 +342,4 @@ img {
     border-collapse: separate;
     border-spacing: 1Vw;
 }
+

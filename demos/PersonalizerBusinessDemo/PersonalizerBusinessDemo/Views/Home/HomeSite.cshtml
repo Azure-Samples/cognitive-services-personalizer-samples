@@ -7,7 +7,7 @@
 }
 
 <div class="row">
-    <div class="col">
+    <div class="col-md-9">
         @{
             if (Model.Any())
             {
@@ -72,7 +72,6 @@
         }
     </div>
     <div class="col-md-3 small_slot_wrapper">
-        <div class="row d-flex flex-column justify-content-between">
             <h5 class="font-weight-light">Latest Scores</h5>
 
             <table class="table table-sm bg-light">
@@ -132,11 +131,42 @@
                     </tr>
                 </tbody>
             </table>
+    </div>
+</div>
+<div class=" mt-2" id="container-latest-photos">
+    <label for="latest-photos" style="font-size: 2vw">Latest Photos</label>
+    <div class="row" id="latest-photos" style="filter: grayscale(100%)">
+        <div class="col-md-3">
+            <div class="card-deck">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo1.jpg" class="card-img">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-deck">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo2.jpg" class="card-img">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-deck">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo3.jpg" class="card-img">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-deck">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo4.jpg" class="card-img">
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<script>
+        <script>
     document.addEventListener("DOMContentLoaded", function () {
         const goBtnIframe = document.getElementById('go-btn-iframe');
         if (goBtnIframe) {
@@ -155,4 +185,4 @@
         }
     });
 
-</script>
+        </script>
