@@ -313,8 +313,8 @@ function createActionTab(actionObj, active) {
                         <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.title}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
                     </a>`,
         tabContent: `<div class="tab-pane fade ${active ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
-                        <p class="h6 p-1 pt-2"><strong>Title:</strong> ${actionObj.title}</p>
-                        <pre class="pre-scrollable border m-0"><code>${JSON.stringify(action, null, 2)}</code></pre>
+                        <p class="h6 p-1 pt-2 mb-0"><strong>Title:</strong> ${actionObj.title}</p>
+                        <pre class="pre-scrollable border m-0 actionsjson"><code>${JSON.stringify(action, null, 2)}</code></pre>
                     </div>`
     };
 }

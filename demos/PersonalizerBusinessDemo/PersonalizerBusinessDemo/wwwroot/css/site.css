@@ -334,11 +334,23 @@ img {
     object-fit:cover;
 }
 
-.responseRequestContainers > .pre-scrollable, pre{
-    max-height: 40vh !important;
+.responseRequestContainers > .pre-scrollable, pre {
+    max-height: 30vh !important;
     min-height: 10vh;
-    height: 20vh;
+    height: 10vh;
     overflow-y: scroll;
+}
+.contextjson {
+    height: 16vh;
+    min-height: 13rem;
+}
+
+.responsejson {
+    min-height: 8rem;
+}
+
+.actionsjson {
+    min-height: 9rem;
 }
 
 .exploring-content {
