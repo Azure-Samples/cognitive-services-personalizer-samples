@@ -20,27 +20,54 @@
             }
             else
             {
-                <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
-                    <div class="row my-auto">
-                        <div class="col-8 mx-auto">
-                            <div class="row text-center justify-content-center">
-                                <p>
-                                    Personalizer will recommend the content to show here,<br />
-                                    based on real-time context.
-                                </p>
-                            </div>
-                            <div class="row justify-content-center">
-                                <button type="button" class="btn btn-primary" id="go-btn-iframe">
-                                    @siteConfig.RefreshButtonText
-                                </button>
-                            </div>
-                            <div class="row justify-content-center mt-3">
-                                <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
+                if (siteConfig.StartWithBlankPage == "true")
+                {
+                    <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
+                        <div class="row my-auto">
+                            <div class="col-8 mx-auto">
+                                <div class="row text-center justify-content-center">
+                                    <p>
+                                        Personalizer will recommend the content to show here,<br />
+                                        based on real-time context.
+                                    </p>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                        @siteConfig.RefreshButtonText
+                                    </button>
+                                </div>
+                                <div class="row justify-content-center mt-3">
+                                    <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
+                                </div>
                             </div>
                         </div>
+                        <div class="bottom-left"></div>
                     </div>
-                    <div class="bottom-left"></div>
-                </div>
+                }
+                else
+                {
+                    <div class="main_slot_image container-img-text card " style="height: 100%; visibility:hidden; color: black;">
+                        <div class="row my-auto">
+                            <div class="col-8 mx-auto">
+                                <div class="row text-center justify-content-center">
+                                    <p>
+                                        Personalizer will recommend the content to show here,<br />
+                                        based on real-time context.
+                                    </p>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                        @siteConfig.RefreshButtonText
+                                    </button>
+                                </div>
+                                <div class="row justify-content-center mt-3">
+                                    <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-left"></div>
+                    </div>
+                }
             }
         }
     </div>

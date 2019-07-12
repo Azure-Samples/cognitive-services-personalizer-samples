@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     setupActionControls();
     setupContextControls();
 
+    getRecommendation().then(result => {
+        personalizerCallResult = result;
+        updateBasedOnRecommendation(result);
+    });
+    
     goBtnEle.addEventListener("click", function () {
         getRecommendation().then(result => {
             personalizerCallResult = result;
