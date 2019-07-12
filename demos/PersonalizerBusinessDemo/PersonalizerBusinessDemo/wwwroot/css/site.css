@@ -81,6 +81,18 @@ img {
     position: relative;
 }
 
+    .small_slot_wrapper table td {
+        padding: 0.3rem 0rem;
+    }
+        .small_slot_wrapper table td.player-name {
+            padding: 0.3rem;
+        }
+
+.player-name {
+    font-style: italic;
+    max-width: 80px;
+}
+
 .small_slot_cols_item {
     background: #fff;
     overflow: hidden;
@@ -299,11 +311,6 @@ img {
     font-weight: 700;
     letter-spacing: -.03px;
     line-height: 14px;
-}
-
-.player-name {
-    font-style: italic;
-    max-width: 80px;
 }
 
 .hero-text {
