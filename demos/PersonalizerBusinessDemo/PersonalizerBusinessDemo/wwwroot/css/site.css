@@ -79,6 +79,7 @@ img {
 .small_slot_wrapper {
     min-height: 350px;
     position: relative;
+    font-size: 0.8rem;
 }
 
     .small_slot_wrapper table td {
