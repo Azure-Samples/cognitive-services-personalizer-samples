@@ -320,3 +320,8 @@ img {
     cursor: default;
     pointer-events: none;
 }
+
+.latest-photo {
+    height: 18rem; 
+    object-fit:cover;
+}

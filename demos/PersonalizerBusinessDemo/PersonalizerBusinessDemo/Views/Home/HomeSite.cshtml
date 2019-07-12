@@ -7,7 +7,7 @@
 }
 
 <div class="row">
-    <div class="col">
+    <div class="col-md-9">
         @{
             if (Model.Any())
             {
@@ -108,8 +108,30 @@
         </div>
     </div>
 </div>
+<div class=" mt-2" id="container-latest-photos">
+    <label for="latest-photos" style="font-size: 2vw">Latest Photos</label>
+    <div class="row" id="latest-photos">
+        <div class="col-md-9">
+            <div class="card-deck">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo1.jpg" class="card-img-top" style="height: 18rem; object-fit:cover;">
+                </div>
+                <div class="card">
+                    <img src="~/img/latest-photos/photo2.jpg" class="card-img-top" style="height: 18rem; object-fit:cover;">
+                </div>
 
-<script>
+            </div>
+        </div>
+        <div class="col-md-3 p-0 m-0">
+            <div class="card-deck">
+                <div class="card" >
+                    <img src="~/img/latest-photos/photo3.jpg" class="card-img-top" style="height: 18rem; object-fit:cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <script>
     document.addEventListener("DOMContentLoaded", function () {
         const goBtnIframe = document.getElementById('go-btn-iframe');
         if (goBtnIframe) {
@@ -128,4 +150,4 @@
         }
     });
 
-</script>
+        </script>
