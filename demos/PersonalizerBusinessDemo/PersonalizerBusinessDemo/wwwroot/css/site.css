@@ -236,7 +236,7 @@ img {
     margin-right: auto;
     border-radius: 0px 0px 200px 200px;
     transform-origin: center top;
-    transition: all 1.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .gauge-container:hover .gauge-data {
