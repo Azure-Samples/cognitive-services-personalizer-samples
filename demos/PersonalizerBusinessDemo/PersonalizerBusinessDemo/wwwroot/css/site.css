@@ -321,6 +321,13 @@ img {
     pointer-events: none;
 }
 
+.responseRequestContainers > .pre-scrollable, pre{
+    max-height: 40vh !important;
+    min-height: 10vh;
+    height: 20vh;
+    overflow-y: scroll;
+}
+
 .exploring-content {
     display: inline-block;
 }
