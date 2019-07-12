@@ -320,3 +320,12 @@ img {
     cursor: default;
     pointer-events: none;
 }
+
+.exploring-content {
+    display: inline-block;
+}
+
+.table-borderless {
+    border-collapse: separate;
+    border-spacing: 1Vw;
+}
