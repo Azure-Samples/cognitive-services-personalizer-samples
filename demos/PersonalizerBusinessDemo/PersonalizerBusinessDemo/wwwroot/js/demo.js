@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             let counter = 20;
-            let waiting = true;
             reward = 0;
             updateRewardValue(reward, articleDoc);
             clearRewardmessage();
