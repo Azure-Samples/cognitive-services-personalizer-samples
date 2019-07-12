@@ -321,8 +321,8 @@ img {
     pointer-events: none;
 }
 
-.responseRequestContainers > prescrollable {
-    max-height: 50vh;
+.responseRequestContainers > .pre-scrollable, pre{
+    max-height: 40vh !important;
     min-height: 10vh;
     height: 20vh;
     overflow-y: scroll;
