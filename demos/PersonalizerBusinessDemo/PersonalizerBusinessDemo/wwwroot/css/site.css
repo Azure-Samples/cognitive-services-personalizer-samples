@@ -320,3 +320,10 @@ img {
     cursor: default;
     pointer-events: none;
 }
+
+.responseRequestContainers > prescrollable {
+    max-height: 50vh;
+    min-height: 10vh;
+    height: 20vh;
+    overflow-y: scroll;
+}
