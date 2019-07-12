@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
     const backstageBtn = document.getElementById("backstage-btn");
+    const backstage = document.getElementById('collapseBackstage');
     let intervalId = -1;
     let reward = 0;
 
     backstageBtn.addEventListener("click", function () {
         $(this).text(function (i, old) {
-            return old.trim() == "How it works" ? "Hide how it works" : "How it works";
+            return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
         });
     });
 
