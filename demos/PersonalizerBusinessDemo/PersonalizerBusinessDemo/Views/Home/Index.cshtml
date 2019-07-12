@@ -175,8 +175,6 @@
                     </div>
                 </div>
 
-                <hr />
-
                 <div class="row d-none" id="result-section">
                     <div class="col-12">
                         <div class="card">
@@ -188,14 +186,31 @@
                                 <div class="card-group p-4">
                                     <div id="exploring-box" class="card-flex col-md-6">
                                         <div class="card-body" data-toggle="tooltip" data-placement="top" data-html="true" title="To discover patterns and keep up with trends, Personalizer returned a <i>rewardActionId</i> that is different than the one that the learned model predicted would get the highest reward.">
-                                            <h5 class="card-title text-center">Exploring</h5>
-                                            <div class="card-text text-center"><i class="fas fa-search fa-5x" style="color:#c8c8c8;"></i></div>
+
+                                            <table class="table-borderless">
+                                                <tr>
+                                                    <td>
+                                                        <div><i class="fas fa-search fa-5x" style="color:#c8c8c8;"></i></div>
+                                                    </td>
+                                                    <td>
+                                                        <h5>Exploring</h5>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                     <div id="exploiting-box" class="card-flex col-md-6">
                                         <div class="card-body" data-toggle="tooltip" data-placement="top" data-html="true" title="Personalizer returned a <i>rewardActionId</i> that was predicted by the model as the most likely to get a high reward for this context ('Exploiting' in RL terminology).">
-                                            <h5 class="card-title text-center">Using Learned Model</h5>
-                                            <div class="card-text text-center"><i class="fas fa-chart-line fa-5x" style="color:#c8c8c8;"></i></div>
+                                            <table class="table-borderless">
+                                                <tr>
+                                                    <td>
+                                                        <div class="card-text text-center"><i class="fas fa-chart-line fa-5x" style="color:#c8c8c8;"></i></div>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="card-title text-center">Using Learned Model</h5>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
