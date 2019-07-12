@@ -36,7 +36,7 @@
 
         }
         <li class="nav-item dropdownHover">
-            <span class="nav-link homeNavBarFont border rounded border-light mx-2"><b><i class="fas fa-search dropdownHover"></i></b></span>
+            <span class="nav-link homeNavBarFont mx-2"><b><i class="fas fa-search dropdownHover"></i></b></span>
         </li>
 
     </ul>;
@@ -132,7 +132,7 @@
                                                                 <label class="custom-control-label" for="use-useragent"><small>Use User Agent</small></label>
                                                             </div>
                                                         </div>
-                                                        <pre class="pre-scrollable m-0 p-1 border-top" style="min-height:300px;"><code id="context-code"></code></pre>
+                                                        <pre class="pre-scrollable responseRequestContainers m-0 p-1 border-top"><code id="context-code"></code></pre>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,27 +175,42 @@
                     </div>
                 </div>
 
-                <hr />
-
                 <div class="row d-none" id="result-section">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body p-0 pt-1">
                                 <h5 class="card-title ml-2 mt-2">Response</h5>
-                                <pre class="pre-scrollable border mb-3 p-1" style="max-height:200px;"><code id="result-code"></code></pre>
+                                <pre class="pre-scrollable responseRequestContainers border mb-3 p-1" ><code id="result-code"></code></pre>
 
                                 <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
                                 <div class="card-group p-4">
                                     <div id="exploring-box" class="card-flex col-md-6">
                                         <div class="card-body" data-toggle="tooltip" data-placement="top" data-html="true" title="To discover patterns and keep up with trends, Personalizer returned a <i>rewardActionId</i> that is different than the one that the learned model predicted would get the highest reward.">
-                                            <h5 class="card-title text-center">Exploring</h5>
-                                            <div class="card-text text-center"><i class="fas fa-search fa-5x" style="color:#c8c8c8;"></i></div>
+
+                                            <table class="table-borderless">
+                                                <tr>
+                                                    <td>
+                                                        <div><i class="fas fa-search fa-5x" style="color:#c8c8c8;"></i></div>
+                                                    </td>
+                                                    <td>
+                                                        <h5>Exploring</h5>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                     <div id="exploiting-box" class="card-flex col-md-6">
                                         <div class="card-body" data-toggle="tooltip" data-placement="top" data-html="true" title="Personalizer returned a <i>rewardActionId</i> that was predicted by the model as the most likely to get a high reward for this context ('Exploiting' in RL terminology).">
-                                            <h5 class="card-title text-center">Using Learned Model</h5>
-                                            <div class="card-text text-center"><i class="fas fa-chart-line fa-5x" style="color:#c8c8c8;"></i></div>
+                                            <table class="table-borderless">
+                                                <tr>
+                                                    <td>
+                                                        <div class="card-text text-center"><i class="fas fa-chart-line fa-5x" style="color:#c8c8c8;"></i></div>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="card-title text-center">Using Learned Model</h5>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

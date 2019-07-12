@@ -25,6 +25,7 @@ namespace PersonalizerBusinessDemo.Models
         public string MainArticleShowBackstageLabel { get; set; }
         public string MainArticleCloseBackstageLabel { get; set; }
 
+        public string StartWithBlankPage { get; set; }
     }
 }
 

@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
     setupActionControls();
     setupContextControls();
 
+    getRecommendation().then(result => {
+        personalizerCallResult = result;
+        updateBasedOnRecommendation(result);
+    });
+    
     goBtnEle.addEventListener("click", function () {
         getRecommendation().then(result => {
             personalizerCallResult = result;
@@ -29,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             let counter = 20;
-            waiting = true;
             reward = 0;
             updateRewardValue(reward, articleDoc);
             clearRewardmessage();
