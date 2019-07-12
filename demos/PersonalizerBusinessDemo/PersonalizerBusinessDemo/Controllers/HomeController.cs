@@ -62,13 +62,12 @@ namespace PersonalizerBusinessDemo.Controllers
         public IActionResult HomeSite(string articleIds)
         {
             ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
+            var articles = _articleRepository.GetArticles();
 
             if (String.IsNullOrWhiteSpace(articleIds))
             {
-                return View("HomeSite", new List<Article>());
+                return View("HomeSite", articles);
             }
-
-            var articles = _articleRepository.GetArticles();
 
             List<string> topArticlesIds = articleIds.Split(",").ToList();
 
