@@ -16,17 +16,30 @@
         let min = currentValue - minDelta;
 
         let newValue = Math.random() * (max - min) + min;
+        if (newValue < currentValue) {
+            return currentValue;
+        }
         if (newValue > maxValue) {
             return maxValue;
         }
-
         return newValue;
     }
 
-    for (i = 1; i <= maxLoop / hoops; i++) {
-        currentValue = getRandomValue(currentValue, 0.03, 0.01);
+    function getFinalValue(currentValue) {
+        //let finalValue = (Math.log(currentValue + 0.37) + 1)/1.5;
+        let finalValue = (Math.log(currentValue + 0.15) + 2) /2.3;
 
-        data.push(currentValue);
+        if (finalValue > maxValue) {
+            return maxValue;
+        }
+
+        return finalValue;
+    }
+
+    for (i = 1; i <= maxLoop / hoops; i++) {
+        currentValue = getRandomValue(currentValue, 0.02, 0.01);
+        console.log("currentValue", getFinalValue(currentValue));
+        data.push(getFinalValue(currentValue));
     }
 
     const startLearnBtnEle = document.getElementById("start-learn-btn");
