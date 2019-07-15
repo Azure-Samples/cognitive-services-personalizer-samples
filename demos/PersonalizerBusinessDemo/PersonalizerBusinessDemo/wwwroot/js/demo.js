@@ -18,11 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
     setupActionControls();
     setupContextControls();
 
-    getRecommendation().then(result => {
-        personalizerCallResult = result;
-        updateBasedOnRecommendation(result);
-    });
-    
+    if (!startDemoWithBlankPage) {
+        getRecommendation().then(result => {
+            personalizerCallResult = result;
+            updateBasedOnRecommendation(result);
+        });
+    }
+
     goBtnEle.addEventListener("click", function () {
         getRecommendation().then(result => {
             personalizerCallResult = result;
@@ -134,18 +136,13 @@ let userAgent = {};
 
 function updateRewardValue(value, articleDoc) {
     const percentageValue = Math.round(value * 100);
-    const turnValue = Math.round((percentageValue * 5) / 100);
-    const rewardEle = articleDoc.getElementById('gauge');
-    rewardEle.setAttribute('style', `transform:rotate(.${turnValue}turn)`);
-    const comment = articleDoc.getElementById('gauge-comment');
-    comment.innerText = `${value.toFixed(1)}`;
-}
-
-function showRewardMessage(reward) {
-    const alertContainerEle = document.getElementById('alert-container');
-    alertContainerEle.innerHTML = `<div class="alert alert-success col-12" role="alert">
+    const turnValue = Math.round((percentageValue * 5) / 100); g
+    function showRewardMessage(reward) {
+        const alertContainerEle = document.getElementById('alert-container');
+        alertContainerEle.innerHTML = `<div class="alert alert-success col-12" role="alert">
         Reward of <strong>${reward}</strong> was sent to Personalizer
     </div>`;
+    }
 }
 
 function clearRewardmessage() {
