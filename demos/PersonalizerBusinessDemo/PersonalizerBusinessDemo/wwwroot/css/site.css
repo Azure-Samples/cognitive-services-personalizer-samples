@@ -41,8 +41,9 @@ button.accept-policy {
 html {
     position: relative;
     min-height: 100%;
+    font-size: 1em;
+    font-size: calc(0.5em + 1vmin);
 }
-
 
 .footer {
     width: 100%;
