@@ -11,7 +11,7 @@
   "PersonalizerCodeSampleLabel": "Code Samples",
   "MainArticleShowBackstageLabel": "Show How It Works",
   "MainArticleCloseBackstageLabel": "Hide How It Works",
-  "StartWithBlankPage": "false",
+  "StartWithBlankPage": "true",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
     "BackgroundColor": "#F57636",
