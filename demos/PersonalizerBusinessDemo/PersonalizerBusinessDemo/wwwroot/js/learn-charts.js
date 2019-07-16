@@ -64,6 +64,10 @@
             legend: {
                 display: false
             },
+            title: {
+                display: true,
+                text: ''
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -116,6 +120,10 @@
             maintainAspectRatio: false,
             legend: {
                 display: false
+            },
+            title: {
+                display: true,
+                text: 'Engagement by user segment'
             },
             scales: {
                 xAxes: [{
