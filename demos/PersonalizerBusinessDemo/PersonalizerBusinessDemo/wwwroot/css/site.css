@@ -77,6 +77,7 @@ img {
     .small_slot_wrapper table td {
         padding: 0.3rem 0rem;
     }
+
         .small_slot_wrapper table td.player-name {
             padding: 0.3rem;
         }
@@ -157,6 +158,39 @@ img {
 
 #collapseBackstage .backstage-container {
     max-height: 100vh;
+}
+
+.footer.learn-container {
+    height: 20rem;
+    max-height: 20rem;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.btn-circle.btn-lg {
+    width: 50px;
+    height: 50px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
 }
 
 #collapseBackstage .backstageNavBar {
@@ -320,15 +354,15 @@ img {
     line-height: 1.4rem;
 }
 
-.dropdownHover > a, b{
+.dropdownHover > a, b {
     cursor: default;
     pointer-events: none;
 }
 
 
 .latest-photo {
-    height: 18rem; 
-    object-fit:cover;
+    height: 18rem;
+    object-fit: cover;
 }
 
 .responseRequestContainers > .pre-scrollable, pre {
@@ -337,6 +371,7 @@ img {
     height: 10vh;
     overflow-y: scroll;
 }
+
 .contextjson {
     height: 16vh;
     min-height: 13rem;
@@ -358,4 +393,3 @@ img {
     border-collapse: separate;
     border-spacing: 1Vw;
 }
-
