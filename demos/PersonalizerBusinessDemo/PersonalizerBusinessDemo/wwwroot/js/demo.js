@@ -36,6 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
     articleViewer.addEventListener("load", function () {
         const articleDoc = articleViewer.contentDocument;
 
+        const mainContainer = articleViewer.contentWindow.document.getElementById("main-container");
+
+        backstageBtn.addEventListener('click', function () {
+            if (!backstage.classList.contains('show')) {
+                mainContainer.className = "col-12";
+            }
+            else {
+                mainContainer.className = "col-lg-8 offset-lg-2 col-12";
+            }
+        });
+
         if (articleViewer.contentWindow.location.href.indexOf("rticle/") > -1) {
 
             if (intervalId >= 0) {

@@ -9,16 +9,6 @@ a.navbar-brand {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
 .border-top {
     border-top: 1px solid #e5e5e5;
 }
@@ -105,25 +95,12 @@ img {
     object-fit: cover;
 }
 
-.small_slot_cols_item_title {
-    color: #333;
-    font-family: "Open Sans";
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: -.06px;
-    line-height: 15px;
-    padding-left: 6px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
 #iframe-backBtn {
     display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
     z-index: 1000;
-    font-size: 18px;
     border: none;
     outline: none;
     background-color: #0078d4;
@@ -195,13 +172,17 @@ img {
 }
 
 #collapseBackstage .backstageNavBar {
-    min-height: 4rem;
-    height: 4rem;
+    min-height: 3rem;
+    height: 3rem;
 }
 
 .articleNavBar {
-    min-height: 4rem;
-    height: 4rem;
+    min-height: 3rem;
+    height: 3rem;
+}
+
+h1 {
+    font-size: 1.8rem;
 }
 
 .gauge-container {
@@ -324,7 +305,7 @@ img {
     font-weight: lighter;
     text-transform: uppercase;
     font-family: "Open Sans";
-    font-size: 100%;
+    font-size: 0.8rem;
     cursor: default !important;
     pointer-events: none !important;
 }
@@ -332,17 +313,10 @@ img {
 .row .py-2 > table {
     color: #333;
     font-family: "Open Sans";
-    font-size: 10px;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: -.03px;
     line-height: 10px;
-}
-
-.tournament-name {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: -.03px;
-    line-height: 14px;
 }
 
 .hero-text {

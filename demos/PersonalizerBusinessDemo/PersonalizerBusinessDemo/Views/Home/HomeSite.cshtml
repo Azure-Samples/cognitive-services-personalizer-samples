@@ -13,7 +13,9 @@
             {
                 <a href="/home/article/@Model.First().Id">
                     <div class="main_slot_image container-img-text">
-                        <img src="~/img/@Model.First().ImageName" alt="News 1" />
+                        <div style="max-height: 21rem; overflow: hidden;">
+                            <img src="~/img/@Model.First().ImageName" alt="News 1" />
+                        </div>
                         <div class="bottom-left"><h2 class="hero-text">@Model.First().Title</h2></div>
                     </div>
                 </a>
