@@ -8,38 +8,51 @@
     }
 
     let data = [];
+    let dataWithout = [];
     let currentValue = 0;
+    let decreasedValue = 0;
     const maxValue = 0.8;
+    const maxWithoutValue = 0.6;
 
-    function getRandomValue(currentValue, maxDelta, minDelta) {
+    function getRandomValue(currentValue, maxDelta, minDelta, withoutPersonalizer) {
         let max = currentValue + maxDelta;
         let min = currentValue - minDelta;
-
         let newValue = Math.random() * (max - min) + min;
-        if (newValue < currentValue) {
-            return currentValue;
+
+        if (!withoutPersonalizer) {
+            if (newValue < currentValue) {
+                return currentValue;
+            }
+        } else {
+            if (newValue > maxWithoutValue) {
+                return maxWithoutValue;
+            }
         }
-        if (newValue > maxValue) {
-            return maxValue;
-        }
+        
         return newValue;
     }
 
-    function getFinalValue(currentValue) {
+    function getFinalValue(currentValue, withoutPersonalizer) {
         //let finalValue = (Math.log(currentValue + 0.37) + 1)/1.5;
-        let finalValue = (Math.log(currentValue + 0.15) + 2) /2.3;
-
-        if (finalValue > maxValue) {
-            return maxValue;
+        let finalValue;
+        if (withoutPersonalizer) {
+            finalValue = currentValue;
+        } else {
+            finalValue = (Math.log(currentValue + 0.15) + 2) / 2.3;
+            if (finalValue > maxValue) {
+                return maxValue;
+            }
         }
 
         return finalValue;
     }
 
     for (i = 1; i <= maxLoop / hoops; i++) {
-        currentValue = getRandomValue(currentValue, 0.02, 0.01);
-        console.log("currentValue", getFinalValue(currentValue));
-        data.push(getFinalValue(currentValue));
+        currentValue = getRandomValue(currentValue, 0.02, 0.01, false);
+        decreasedValue = getRandomValue(0.2, 0.2, 0, true);
+
+        data.push(getFinalValue(currentValue, false));
+        dataWithout.push(getFinalValue(decreasedValue,true));
     }
 
     const startLearnBtnEle = document.getElementById("start-learn-btn");
@@ -52,12 +65,19 @@
         data: {
             labels: labels,
             datasets: [{
-                fillColor: "rgba(172,194,132,0.4)",
-                strokeColor: "#ACC26D",
+                label: "A",
+                backgroundColor: "rgba(172,194,132,0.4)",
+                borderColor: "#ACC26D",
                 pointColor: "#fff",
                 pointStrokeColor: "#9DB86D",
                 data: []
-            }]
+            },
+                {
+                    label: "B",
+                    borderColor: "red",
+                    data: []
+                }
+            ]
         },
         options: {
             maintainAspectRatio: false,
@@ -145,15 +165,16 @@
         }
     });
 
-    function updateData(avgLearnChart, peopleChart,  data, currentTick) {
+    function updateData(avgLearnChart, peopleChart,  data, dataWithout, currentTick) {
         avgLearnChart.data.datasets[0].data.push(data);
+        avgLearnChart.data.datasets[1].data.push(dataWithout);
         avgLearnChart.update();
                
         peopleChart.data.datasets[0].data = [
-            getRandomValue(data, 0.05, 0.05),
-            getRandomValue(data, 0.05, 0.05),
-            getRandomValue(data, 0.05, 0.05),
-            getRandomValue(data, 0.05, 0.05)
+            getRandomValue(data, 0.05, 0.05, false),
+            getRandomValue(data, 0.05, 0.05, false),
+            getRandomValue(data, 0.05, 0.05, false),
+            getRandomValue(data, 0.05, 0.05, false)
         ];
         peopleChart.update();
 
@@ -170,6 +191,7 @@
         }
 
         avgLearnChart.data.datasets[0].data = [];
+        avgLearnChart.data.datasets[1].data = [];
         avgLearnChart.update();
 
         let currentTick = 0;
@@ -179,7 +201,7 @@
                 return;
             }
 
-            updateData(avgLearnChart, peopleChart, data[currentTick], currentTick);
+            updateData(avgLearnChart, peopleChart, data[currentTick], dataWithout[currentTick], currentTick);
             currentTick++;
 
         }, 70);
