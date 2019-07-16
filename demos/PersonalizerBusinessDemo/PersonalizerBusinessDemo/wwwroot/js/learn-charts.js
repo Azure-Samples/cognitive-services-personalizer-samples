@@ -72,6 +72,16 @@
                         stepSize: 0.1,
                         suggestedMin: 0,
                         suggestedMax: 1
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'User engagement (Reward)'
+                    }
+                }],
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Home Page Visits'
                     }
                 }]
             }
