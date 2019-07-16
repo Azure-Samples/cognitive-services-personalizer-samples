@@ -32,19 +32,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    function setIframeContentSize(mainContainer, isBackStageOpen) {
+        if (isBackStageOpen) {
+            mainContainer.className = "col-12";
+        }
+        else {
+            mainContainer.className = "col-xl-8 offset-xl-2 col-12";
+        }
+    }
+
     const articleViewer = document.getElementById("article-viewer");
     articleViewer.addEventListener("load", function () {
         const articleDoc = articleViewer.contentDocument;
 
         const mainContainer = articleViewer.contentWindow.document.getElementById("main-container");
 
+        const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
+
+        boundSetIframeContentSize(backstage.classList.contains('show'));
+
         backstageBtn.addEventListener('click', function () {
-            if (!backstage.classList.contains('show')) {
-                mainContainer.className = "col-12";
-            }
-            else {
-                mainContainer.className = "col-lg-8 offset-lg-2 col-12";
-            }
+            boundSetIframeContentSize(!backstage.classList.contains('show'));
         });
 
         if (articleViewer.contentWindow.location.href.indexOf("rticle/") > -1) {

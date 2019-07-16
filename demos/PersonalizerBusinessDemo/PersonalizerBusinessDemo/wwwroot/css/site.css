@@ -7,6 +7,10 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+.navbar-brand {
+    font-size: 0.8rem;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 .border-top {
@@ -39,6 +43,10 @@ html {
     width: 100%;
 }
 
+h5 {
+    font-size: 1rem;
+}
+
 /* Bottom left text */
 .bottom-left {
     position: absolute;
@@ -62,7 +70,7 @@ img {
 }
 
 .small_slot_wrapper {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
     .small_slot_wrapper table td {
@@ -136,6 +144,7 @@ img {
 
 #collapseBackstage .backstage-container {
     max-height: 100vh;
+    font-size: 0.7rem;
 }
 
 .footer.learn-container {
@@ -182,7 +191,7 @@ img {
 }
 
 h1 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
 }
 
 .gauge-container {
@@ -305,7 +314,7 @@ h1 {
     font-weight: lighter;
     text-transform: uppercase;
     font-family: "Open Sans";
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     cursor: default !important;
     pointer-events: none !important;
 }
@@ -313,7 +322,7 @@ h1 {
 .row .py-2 > table {
     color: #333;
     font-family: "Open Sans";
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: -.03px;
     line-height: 10px;
@@ -321,12 +330,11 @@ h1 {
 
 .hero-text {
     text-shadow: 0px 0px 10px #000;
-    font-size: 1.3rem;
     color: #fff;
     font-family: "Open Sans";
     font-style: italic;
     font-weight: 800;
-    line-height: 1.4rem;
+    line-height: 2rem;
 }
 
 .dropdownHover > a, b {
@@ -367,4 +375,12 @@ h1 {
 .table-borderless {
     border-collapse: separate;
     border-spacing: 1Vw;
+}
+
+.btn {
+    font-size: 0.7rem;
+}
+
+.custom-select {
+    font-size: 0.7rem;
 }
