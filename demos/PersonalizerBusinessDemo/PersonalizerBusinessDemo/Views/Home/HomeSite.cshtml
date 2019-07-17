@@ -7,13 +7,15 @@
 }
 
 <div class="row">
-    <div class="col-12 col-lg-9">
+    <div class="col-12 col-md-9">
         @{
             if (Model.Any())
             {
                 <a href="/home/article/@Model.First().Id">
                     <div class="main_slot_image container-img-text">
-                        <img src="~/img/@Model.First().ImageName" alt="News 1" />
+                        <div style="max-height: 30rem; overflow: hidden;">
+                            <img src="~/img/@Model.First().ImageName" alt="News 1" />
+                        </div>
                         <div class="bottom-left"><h2 class="hero-text">@Model.First().Title</h2></div>
                     </div>
                 </a>
@@ -71,7 +73,7 @@
             }
         }
     </div>
-    <div class="col-12 col-lg-3 mt-3 mt-lg-0 small_slot_wrapper d-lg-flex flex-column justify-content-between">
+    <div class="col-12 col-md-3 mt-3 mt-lg-0 small_slot_wrapper d-lg-flex flex-column justify-content-between">
         <h5 class="font-weight-light">Latest Scores</h5>
 
         <table class="table table-sm bg-light">
@@ -112,7 +114,7 @@
                 </tr>
             </tbody>
         </table>
-        <table class="table table-sm bg-light d-none d-lg-table mb-0">
+        <table class="table table-sm bg-light d-none d-md-table mb-0">
             <tr>
                 <th colspan="4">French Open</th>
             </tr>
@@ -140,22 +142,22 @@
     <div class="col-12">
         <h5>Latest Photos</h5>
         <div class="row card-deck">
-            <div class="col-md-4 col-lg-3 m-0 px-4 py-2 p-md-0">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/latest-photos/photo1.jpg" class="card-img section-image">
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3 m-0 px-4 py-2 p-md-0">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/latest-photos/photo2.jpg" class="card-img section-image">
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3 m-0 px-4 py-2 p-md-0">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/latest-photos/photo3.jpg" class="card-img section-image">
                 </div>
             </div>
-            <div class="col-lg-3 d-none d-lg-block m-0 px-4 py-2 p-md-0">
+            <div class="col-lg-3 col-md-3 d-none d-md-block m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/latest-photos/photo4.jpg" class="card-img section-image">
                 </div>
@@ -170,7 +172,7 @@
     <div class="col-12">
         <h5>Other News</h5>
         <div class="row card-deck text-white">
-            <div class="col-md-4 col-lg-3 m-0 px-4 py-2 p-md-0">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/other-news/photo1.jpg" class="card-img section-image">
                     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
@@ -178,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3 m-0 px-4 py-2 p-md-0">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/other-news/photo2.jpg" class="card-img section-image">
                     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
@@ -186,7 +188,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-3 m-0 px-4 py-2 p-md-0">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/other-news/photo3.jpg" class="card-img section-image">
                     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
@@ -194,7 +196,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 d-none d-lg-block m-0 px-4 py-2 p-md-0">
+            <div class="col-lg-3 col-md-3 d-none d-md-block m-0 px-4 py-2 p-md-0">
                 <div class="card">
                     <img src="~/img/other-news/photo4.jpg" class="card-img section-image">
                     <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">

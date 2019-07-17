@@ -27,29 +27,28 @@
             padding: 0;
             background-color: #263238;
             font-family: 'Open Sans', sans-serif;
+            font-size: 0.8rem;
         }
 
         body > .container-fluid {
             background: rgb(237,238,240);
             background: linear-gradient(180deg, rgba(237,238,240,1) 60%, rgba(247,248,250,1) 80%, rgba(255,255,255,1) 100%);
         }
-        
-        main {
-            padding: 0 4rem;
-        }
     </style>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="container px-0 py-5">
-            <main role="main">
-                @RenderBody()
-            </main>
+        <div class="container-fluid px-0 py-5">
+            <div id="main-container" class="col-xl-8 offset-xl-2 col-12">
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
         </div>
     </div>
 
     <footer class="footer">
-        <div class="container bottom_border">
+        <div class="container-fluid bottom_border">
             <div class="row">
                 <div class=" col-sm-4 col-md col-sm-4  col-12 col">
                     <h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
