@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
     const backstageBtn = document.getElementById("backstage-btn");
+    const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
+    const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
     const backstage = document.getElementById('collapseBackstage');
     let intervalId = -1;
     let reward = 0;
@@ -11,6 +13,22 @@ document.addEventListener("DOMContentLoaded", function () {
         $(this).text(function (i, old) {
             return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
         });
+    });
+
+    mobileShowBackstageBtn.addEventListener("click", function () {
+        if(!backstage.classList.contains('show')){
+            document.getElementById('navbar-container').style.display = 'none';
+            document.getElementById('article-container').style.display = 'none';
+            document.getElementById('graph-container').style.display = 'none';
+        }
+    });
+
+    mobileHideBackstageBtn.addEventListener("click", function () {
+        if(backstage.classList.contains('show')){
+            document.getElementById('navbar-container').style.display = 'flex';
+            document.getElementById('article-container').style.display = 'block';
+            document.getElementById('graph-container').style.display = 'flex';
+        }
     });
 
     let personalizerCallResult;
