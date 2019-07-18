@@ -66,15 +66,16 @@
             labels: labels,
             datasets: [{
                 label: "A",
-                backgroundColor: "rgba(180,199,231,0.4)",
-                borderColor: "rgba(79,122,199,1)",
+                backgroundColor: "rgba(0,153,0,0.2)",
+                borderColor: "rgba(0,153,0,1)",
                 pointColor: "#fff",
                 pointStrokeColor: "#9DB86D",
                 data: []
             },
                 {
                     label: "B",
-                    borderColor: "rgba(255,69,69,1)",
+                    borderColor: "rgba(200,200,200,1)",
+                    backgroundColor: "rgba(0,0,0,0)",
                     data: []
                 }
             ]
