@@ -43,32 +43,30 @@
 }
 
 <div class="row dropdownHover">
-    <div class="col p-0">
+    <div class="col p-0" id="webpage-container">
 
-        <nav class="navbar navbar-expand-md navbar-dark px-5 articleNavBar" style="background-color:@navigationBarOptions.BackgroundColor;">
+        <nav class="navbar navbar-expand-md navbar-dark px-5 articleNavBar" style="background-color:@navigationBarOptions.BackgroundColor;" id="navbar-container">
             <a class="navbar-brand " id="brand-logo" href="#"><img src="~/@navigationBarOptions.LogoImageURL" style="width:2.2rem;height:2rem;" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
-                <button class="btn btn-light" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
+                <button class="btn btn-light d-none d-lg-block" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                     @navigationBarOptions.BackstageLabelBtn
                 </button>
             </div>
+            <button class="btn btn-light d-lg-none float-right" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">Show how It Works</button>
         </nav>
 
-        <div class="embed-responsive embed-responsive-1by1 article-container">
+        <div class="embed-responsive embed-responsive-1by1 article-container" id="article-container">
             <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
         </div>
     </div>
 
-    <div class="col-12 col-lg-4 collapse border-left p-0" id="collapseBackstage">
+    <div class="col-12 col-lg-4 collapse border-left-lg p-lg-0" id="collapseBackstage">
         <div class="overflow-auto backstage-container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary backstageNavBar">
                 <div class="navbar-brand">See Personalizer in Action</div>
+                <button class="btn btn-light d-lg-none" type="button" id="mobile-hide-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">Hide how It Works</button>
             </nav>
             <div class="container-fluid">
                 <div class="row">
@@ -180,7 +178,7 @@
                         <div class="card">
                             <div class="card-body p-0">
                                 <h5 class="card-title ml-2 mt-2">Response</h5>
-                                <pre class="pre-scrollable responseRequestContainers border mb-3 p-1 responsejson" ><code id="result-code"></code></pre>
+                                <pre class="pre-scrollable responseRequestContainers border mb-3 p-1 responsejson"><code id="result-code"></code></pre>
 
                                 <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
                                 <div class="card-group p-3">
@@ -246,7 +244,7 @@
     </div>
 </div>
 
-<footer class="border-top footer learn-container">
+<footer class="border-top footer learn-container" id="graph-container">
     <div class="container-fluid h-100">
         <div class="row h-100 d-flex align-items-center pt-5 pb-3">
             <div class="col-1 pr-1 pl-4">

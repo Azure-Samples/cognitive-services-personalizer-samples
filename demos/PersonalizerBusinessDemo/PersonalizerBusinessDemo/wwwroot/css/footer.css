@@ -101,9 +101,9 @@ footer p {
         float: left;
     }
 
-    .social_footer_ul li:first-of-type {
-        padding-left: 0;
-    }
+        .social_footer_ul li:first-of-type {
+            padding-left: 0;
+        }
 
         .social_footer_ul li span {
             color: #CCC;
