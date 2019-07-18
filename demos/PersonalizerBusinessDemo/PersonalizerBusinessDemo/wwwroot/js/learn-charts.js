@@ -108,6 +108,9 @@
                         display: true,
                         labelString: 'Home Page Visits'
                     },
+                    gridLines: {
+                        display: false
+                    }
                 }]
             }
         }
