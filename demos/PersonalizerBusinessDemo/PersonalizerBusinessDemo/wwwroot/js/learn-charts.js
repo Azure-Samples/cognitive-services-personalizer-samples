@@ -57,8 +57,6 @@
 
     const startLearnBtnEle = document.getElementById("start-learn-btn");
     const currentAvgNumberEle = document.getElementById('current-avg-number');
-    const currentAvgNumberLbl = document.getElementById('current-avg-number-label');
-
     const avgCtx = document.getElementById('avg-learn-chart');
     const avgLearnChart = new Chart(avgCtx, {
         type: 'line',
@@ -183,7 +181,6 @@
         peopleChart.update();
 
         currentAvgNumberEle.innerHTML = parseFloat(Math.round(data * 100) / 100).toFixed(2);
-        currentAvgNumberLbl.innerHTML = 'Average Engagement last 100 visits';
     }
 
     const maxTick = maxLoop / hoops;
