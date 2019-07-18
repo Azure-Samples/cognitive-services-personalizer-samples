@@ -52,7 +52,7 @@
         decreasedValue = getRandomValue(0.25, 0.05, 0, true);
 
         data.push(getFinalValue(currentValue, false));
-        dataWithout.push(getFinalValue(decreasedValue,true));
+        dataWithout.push(getFinalValue(decreasedValue, true));
     }
 
     const startLearnBtnEle = document.getElementById("start-learn-btn");
@@ -154,7 +154,7 @@
                         maxRotation: 70,
                         minRotation: 0
                     }
-                    
+
                 }],
                 yAxes: [{
                     ticks: {
@@ -173,11 +173,11 @@
         }
     });
 
-    function updateData(avgLearnChart, peopleChart,  data, dataWithout, currentTick) {
+    function updateData(avgLearnChart, peopleChart, data, dataWithout, currentTick) {
         avgLearnChart.data.datasets[0].data.push(data);
         avgLearnChart.data.datasets[1].data.push(dataWithout);
         avgLearnChart.update();
-               
+
         peopleChart.data.datasets[0].data = [
             getRandomValue(data, 0.05, 0.05, false),
             getRandomValue(data, 0.05, 0.05, false),

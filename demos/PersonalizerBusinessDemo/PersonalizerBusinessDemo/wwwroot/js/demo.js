@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
-    const backstageBtn = document.getElementById("backstage-btn");
-    const backstage = document.getElementById('collapseBackstage');
+    const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
+    const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
     let intervalId = -1;
     let reward = 0;
 
@@ -11,6 +11,18 @@ document.addEventListener("DOMContentLoaded", function () {
         $(this).text(function (i, old) {
             return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
         });
+    });
+
+    mobileShowBackstageBtn.addEventListener("click", function () {
+        if (!backstage.classList.contains('show')) {
+            hidePageContent();
+        }
+    });
+
+    mobileHideBackstageBtn.addEventListener("click", function () {
+        if (backstage.classList.contains('show')) {
+            showPageContent();
+        }
     });
 
     let personalizerCallResult;
@@ -142,6 +154,67 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+const navbar = document.getElementById('navbar-container');
+const articleContainer = document.getElementById('article-container');
+const graphContainer = document.getElementById('graph-container');
+const backstage = document.getElementById('collapseBackstage');
+const backstageBtn = document.getElementById("backstage-btn");
+
+let currentSize;
+const SCREEN_SIZE_SMALL = 0;
+const SCREEN_SIZE_BIG = 1;
+const mobileSize = 991;
+
+if ($(window).width() > mobileSize) {
+    currentSize = SCREEN_SIZE_BIG;
+}
+else {
+    currentSize = SCREEN_SIZE_SMALL;
+}
+
+$(window).resize(function () {
+    if (jQuery(window).innerWidth() > mobileSize) {
+        if (currentSize == SCREEN_SIZE_SMALL) {
+            currentSize = SCREEN_SIZE_BIG;
+            setBigLayoutConfiguration();
+        }
+    } else {
+        if (currentSize == SCREEN_SIZE_BIG) {
+            currentSize = SCREEN_SIZE_SMALL;
+            setSmallLayoutConfiguration();
+        }
+    }
+});
+
+function setBigLayoutConfiguration() {
+    if (backstage.classList.contains('show')) {
+        showPageContent();
+        backstageBtn.firstChild.data = "Hide how it works";
+    } else {
+        backstageBtn.firstChild.data = "Show how it works";
+    }
+}
+
+function setSmallLayoutConfiguration() {
+    if (backstage.classList.contains('show')) {
+        hidePageContent();
+    }
+}
+
+// Hides the page content except for the backstage
+function showPageContent() {
+    navbar.style.display = 'flex';
+    articleContainer.style.display = 'block';
+    graphContainer.style.display = 'flex';
+}
+
+// Makes the page content visible except for the backstage which will remain unchanged
+function hidePageContent() {
+    navbar.style.display = 'none';
+    articleContainer.style.display = 'none';
+    graphContainer.style.display = 'none';
+}
 
 let context = {
     referrer: "social",

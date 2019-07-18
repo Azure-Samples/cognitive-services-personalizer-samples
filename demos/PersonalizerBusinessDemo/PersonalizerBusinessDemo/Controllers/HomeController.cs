@@ -66,7 +66,7 @@ namespace PersonalizerBusinessDemo.Controllers
 
             if (String.IsNullOrWhiteSpace(articleIds))
             {
-                return View("HomeSite",new List<Article>());
+                return View("HomeSite", new List<Article>());
             }
 
             var articles = _articleRepository.GetArticles();

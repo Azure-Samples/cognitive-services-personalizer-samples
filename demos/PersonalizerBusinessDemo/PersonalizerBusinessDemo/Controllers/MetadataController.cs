@@ -29,7 +29,7 @@ namespace PersonalizerBusinessDemo.Controllers
             var userAgent = new UserAgentInfo();
             userAgent.UseUserAgent(Request.Headers["User-Agent"]);
 
-            return new JsonResult(userAgent); 
+            return new JsonResult(userAgent);
         }
     }
 }
