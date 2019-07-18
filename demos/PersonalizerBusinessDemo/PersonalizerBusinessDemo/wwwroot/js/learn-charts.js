@@ -107,7 +107,7 @@
                     scaleLabel: {
                         display: true,
                         labelString: 'Home Page Visits'
-                    }
+                    },
                 }]
             }
         }
@@ -150,6 +150,7 @@
                         maxRotation: 70,
                         minRotation: 0
                     }
+                    
                 }],
                 yAxes: [{
                     ticks: {
@@ -160,7 +161,9 @@
                         suggestedMin: 0,
                         suggestedMax: 1
                     },
-                    display: false
+                    gridLines: {
+                        display: false
+                    }
                 }]
             }
         }
