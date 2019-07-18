@@ -427,3 +427,9 @@ h1 {
         height: 30rem;
     }
 }
+
+.align-icon-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
