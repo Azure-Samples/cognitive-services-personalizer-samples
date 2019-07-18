@@ -9,7 +9,7 @@
 
     let data = [];
     let dataWithout = [];
-    let currentValue = 0;
+    let currentValue = 0.05;
     let decreasedValue = 0;
     const maxValue = 0.8;
     const maxWithoutValue = 0.6;
@@ -29,7 +29,7 @@
             }
         }
         
-        return newValue;
+        return newValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
     }
 
     function getFinalValue(currentValue, withoutPersonalizer) {
@@ -40,7 +40,7 @@
         } else {
             finalValue = (Math.log(currentValue + 0.15) + 2) / 2.3;
             if (finalValue > maxValue) {
-                return maxValue;
+                return maxValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
             }
         }
 
@@ -49,7 +49,7 @@
 
     for (i = 1; i <= maxLoop / hoops; i++) {
         currentValue = getRandomValue(currentValue, 0.02, 0.01, false);
-        decreasedValue = getRandomValue(0.2, 0.2, 0, true);
+        decreasedValue = getRandomValue(0.25, 0.05, 0, true);
 
         data.push(getFinalValue(currentValue, false));
         dataWithout.push(getFinalValue(decreasedValue,true));
