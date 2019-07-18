@@ -167,27 +167,21 @@ const SCREEN_SIZE_BIG = 1;
 const mobileSize = 991;
 
 if ($(window).width() > mobileSize) {
-   console.log("Window detected as BIG");
    currentSize = SCREEN_SIZE_BIG;
 }
 else {
-   console.log("Window detected as SMALL");
    currentSize = SCREEN_SIZE_SMALL;
 }
 
 $(window).resize(function () {
     if (jQuery(window).innerWidth() > mobileSize) {
-        //console.log("Window size is now BIG");
         if(currentSize == SCREEN_SIZE_SMALL){
             currentSize = SCREEN_SIZE_BIG;
-            console.log("Window size is now BIG");
             setBigLayoutConfiguration();
         }
     } else {
-        //console.log("Window size is now SMALL");
         if(currentSize == SCREEN_SIZE_BIG){
             currentSize = SCREEN_SIZE_SMALL;
-            console.log("Window size is now SMALL");
             setSmallLayoutConfiguration();
         }
     }
@@ -210,7 +204,6 @@ function setSmallLayoutConfiguration(){
 
 // Hides the page content except for the backstage
 function showPageContent(){
-    console.log('show');
     navbar.style.display = 'flex';
     articleContainer.style.display = 'block';
     graphContainer.style.display = 'flex';
@@ -218,7 +211,6 @@ function showPageContent(){
 
 // Makes the page content visible except for the backstage which will remain unchanged
 function hidePageContent(){
-    console.log('hide');
     navbar.style.display = 'none';
     articleContainer.style.display = 'none';
     graphContainer.style.display = 'none';
