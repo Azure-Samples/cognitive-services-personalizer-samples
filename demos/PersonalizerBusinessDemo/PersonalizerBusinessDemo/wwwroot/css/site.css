@@ -159,7 +159,7 @@ img {
     padding: 6px 0;
     font-size: 1rem;
     line-height: 1.428571429;
-    border-radius: 15px;
+    border-radius: 2rem;
 }
 
     .btn-circle.btn-lg {
@@ -168,7 +168,7 @@ img {
         padding: 10px 16px;
         font-size: 1rem;
         line-height: 1.33;
-        border-radius: 25px;
+        border-radius: 2rem;
     }
 
     .btn-circle.btn-xl {
@@ -177,7 +177,7 @@ img {
         padding: 10px 16px;
         font-size: 1rem;
         line-height: 1.33;
-        border-radius: 35px;
+        border-radius: 2rem;
     }
 
 #collapseBackstage .backstageNavBar {
@@ -387,7 +387,7 @@ h1 {
 }
 
 .chart-number {
-    font-size: 5rem;
+    font-size: 4rem;
     margin-bottom: 2rem;
     padding-right: 2rem;
 }
