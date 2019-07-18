@@ -153,6 +153,9 @@
                         autoSkip: false,
                         maxRotation: 70,
                         minRotation: 0
+                    },
+                    gridLines: {
+                        display: false
                     }
 
                 }],
@@ -164,9 +167,6 @@
                         stepSize: 0.1,
                         suggestedMin: 0,
                         suggestedMax: 1
-                    },
-                    gridLines: {
-                        display: false
                     }
                 }]
             }
