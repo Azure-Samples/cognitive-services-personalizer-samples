@@ -159,7 +159,8 @@
                         stepSize: 0.1,
                         suggestedMin: 0,
                         suggestedMax: 1
-                    }
+                    },
+                    display: false
                 }]
             }
         }
