@@ -66,15 +66,15 @@
             labels: labels,
             datasets: [{
                 label: "A",
-                backgroundColor: "rgba(172,194,132,0.4)",
-                borderColor: "#ACC26D",
+                backgroundColor: "rgba(180,199,231,0.4)",
+                borderColor: "rgba(79,122,199,1)",
                 pointColor: "#fff",
                 pointStrokeColor: "#9DB86D",
                 data: []
             },
                 {
                     label: "B",
-                    borderColor: "red",
+                    borderColor: "rgba(255,69,69,1)",
                     data: []
                 }
             ]
@@ -107,7 +107,7 @@
                     scaleLabel: {
                         display: true,
                         labelString: 'Home Page Visits'
-                    }
+                    },
                 }]
             }
         }
@@ -122,14 +122,14 @@
             datasets: [{
                 data: [0, 0, 0],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)'
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(54, 162, 235, 1)',
                 ],
                 borderWidth: 1
             }]
@@ -150,6 +150,7 @@
                         maxRotation: 70,
                         minRotation: 0
                     }
+                    
                 }],
                 yAxes: [{
                     ticks: {
@@ -159,6 +160,9 @@
                         stepSize: 0.1,
                         suggestedMin: 0,
                         suggestedMax: 1
+                    },
+                    gridLines: {
+                        display: false
                     }
                 }]
             }
