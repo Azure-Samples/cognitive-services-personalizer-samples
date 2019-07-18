@@ -2,10 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
-    const backstageBtn = document.getElementById("backstage-btn");
     const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
     const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
-    const backstage = document.getElementById('collapseBackstage');
     let intervalId = -1;
     let reward = 0;
 
@@ -17,17 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mobileShowBackstageBtn.addEventListener("click", function () {
         if(!backstage.classList.contains('show')){
-            document.getElementById('navbar-container').style.display = 'none';
-            document.getElementById('article-container').style.display = 'none';
-            document.getElementById('graph-container').style.display = 'none';
+            hidePageContent();
         }
     });
 
     mobileHideBackstageBtn.addEventListener("click", function () {
         if(backstage.classList.contains('show')){
-            document.getElementById('navbar-container').style.display = 'flex';
-            document.getElementById('article-container').style.display = 'block';
-            document.getElementById('graph-container').style.display = 'flex';
+            showPageContent();
         }
     });
 
@@ -160,6 +154,75 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+const navbar = document.getElementById('navbar-container');
+const articleContainer = document.getElementById('article-container');
+const graphContainer = document.getElementById('graph-container');
+const backstage = document.getElementById('collapseBackstage');
+const backstageBtn = document.getElementById("backstage-btn");
+
+let currentSize;
+const SCREEN_SIZE_SMALL = 0;
+const SCREEN_SIZE_BIG = 1;
+const mobileSize = 991;
+
+if ($(window).width() > mobileSize) {
+   console.log("Window detected as BIG");
+   currentSize = SCREEN_SIZE_BIG;
+}
+else {
+   console.log("Window detected as SMALL");
+   currentSize = SCREEN_SIZE_SMALL;
+}
+
+$(window).resize(function () {
+    if (jQuery(window).innerWidth() > mobileSize) {
+        //console.log("Window size is now BIG");
+        if(currentSize == SCREEN_SIZE_SMALL){
+            currentSize = SCREEN_SIZE_BIG;
+            console.log("Window size is now BIG");
+            setBigLayoutConfiguration();
+        }
+    } else {
+        //console.log("Window size is now SMALL");
+        if(currentSize == SCREEN_SIZE_BIG){
+            currentSize = SCREEN_SIZE_SMALL;
+            console.log("Window size is now SMALL");
+            setSmallLayoutConfiguration();
+        }
+    }
+});
+
+function setBigLayoutConfiguration(){
+    if(backstage.classList.contains('show')){
+        showPageContent();
+        backstageBtn.firstChild.data = "Hide how it works";
+    }else{
+        backstageBtn.firstChild.data = "Show how it works";
+    }
+}
+
+function setSmallLayoutConfiguration(){
+    if(backstage.classList.contains('show')){
+        hidePageContent();
+    }
+}
+
+// Hides the page content except for the backstage
+function showPageContent(){
+    console.log('show');
+    navbar.style.display = 'flex';
+    articleContainer.style.display = 'block';
+    graphContainer.style.display = 'flex';
+}
+
+// Makes the page content visible except for the backstage which will remain unchanged
+function hidePageContent(){
+    console.log('hide');
+    navbar.style.display = 'none';
+    articleContainer.style.display = 'none';
+    graphContainer.style.display = 'none';
+}
 
 let context = {
     referrer: "social",
