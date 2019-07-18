@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     mobileShowBackstageBtn.addEventListener("click", function () {
-        if(!backstage.classList.contains('show')){
+        if (!backstage.classList.contains('show')) {
             hidePageContent();
         }
     });
 
     mobileHideBackstageBtn.addEventListener("click", function () {
-        if(backstage.classList.contains('show')){
+        if (backstage.classList.contains('show')) {
             showPageContent();
         }
     });
@@ -167,50 +167,50 @@ const SCREEN_SIZE_BIG = 1;
 const mobileSize = 991;
 
 if ($(window).width() > mobileSize) {
-   currentSize = SCREEN_SIZE_BIG;
+    currentSize = SCREEN_SIZE_BIG;
 }
 else {
-   currentSize = SCREEN_SIZE_SMALL;
+    currentSize = SCREEN_SIZE_SMALL;
 }
 
 $(window).resize(function () {
     if (jQuery(window).innerWidth() > mobileSize) {
-        if(currentSize == SCREEN_SIZE_SMALL){
+        if (currentSize == SCREEN_SIZE_SMALL) {
             currentSize = SCREEN_SIZE_BIG;
             setBigLayoutConfiguration();
         }
     } else {
-        if(currentSize == SCREEN_SIZE_BIG){
+        if (currentSize == SCREEN_SIZE_BIG) {
             currentSize = SCREEN_SIZE_SMALL;
             setSmallLayoutConfiguration();
         }
     }
 });
 
-function setBigLayoutConfiguration(){
-    if(backstage.classList.contains('show')){
+function setBigLayoutConfiguration() {
+    if (backstage.classList.contains('show')) {
         showPageContent();
         backstageBtn.firstChild.data = "Hide how it works";
-    }else{
+    } else {
         backstageBtn.firstChild.data = "Show how it works";
     }
 }
 
-function setSmallLayoutConfiguration(){
-    if(backstage.classList.contains('show')){
+function setSmallLayoutConfiguration() {
+    if (backstage.classList.contains('show')) {
         hidePageContent();
     }
 }
 
 // Hides the page content except for the backstage
-function showPageContent(){
+function showPageContent() {
     navbar.style.display = 'flex';
     articleContainer.style.display = 'block';
     graphContainer.style.display = 'flex';
 }
 
 // Makes the page content visible except for the backstage which will remain unchanged
-function hidePageContent(){
+function hidePageContent() {
     navbar.style.display = 'none';
     articleContainer.style.display = 'none';
     graphContainer.style.display = 'none';

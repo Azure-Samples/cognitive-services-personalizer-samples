@@ -150,7 +150,7 @@
                         maxRotation: 70,
                         minRotation: 0
                     }
-                    
+
                 }],
                 yAxes: [{
                     ticks: {
