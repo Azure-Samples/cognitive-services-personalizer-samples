@@ -16,10 +16,10 @@ namespace PersonalizerBusinessDemo.Models
     {
         private static Dictionary<string, string> OStoDeviceType = new Dictionary<string, string>
         {
-            { "Android", "Android" }, 
+            { "Android", "Android" },
             { "BlackBerry OS", "Mobile" },
             { "Chrome OS", "Tablet" },
-            { "iOS", "iOS" }, 
+            { "iOS", "iOS" },
             { "Linux", "Desktop" },
             { "Mac OS X", "Desktop" },
             { "Other", "Other" },
