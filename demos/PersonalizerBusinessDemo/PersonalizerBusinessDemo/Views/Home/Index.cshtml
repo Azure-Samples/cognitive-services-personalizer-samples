@@ -69,13 +69,13 @@
             </div>
             <div class="modal-body">
                 <p style="font-size:12px;white-space: pre-wrap;">
-Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Peersonalizer to improve suggestions based on rewards.
-                
-On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
-                
-The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
+                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Peersonalizer to improve suggestions based on rewards.
 
-In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait it up to fifteen seconds from the time the article was first shown.
+                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
+
+                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
+
+                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait it up to fifteen seconds from the time the article was first shown.
                 </p>
             </div>
             <div class="modal-footer">
@@ -263,6 +263,14 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
 
                 </div>
 
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <button class="btn btn-light" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                            See how Personalizer learns over time
+                        </button>
+                    </div>
+                </div>
+
                 <hr />
 
                 <div class="row" id="alert-container"></div>
@@ -289,44 +297,58 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
     </div>
 </div>
 
-<footer class="border-top footer learn-container" id="graph-container">
-    <div class="container-fluid h-100">
-        <div class="row h-100 d-flex align-items-center pt-5 pb-3 small-footer">
-            <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
-                <div class="col-md-3 col-sm-2 align-items-center justify-content-center">
-                    <div class="row d-block align-items-center justify-content-center">
-                        <div class="col-12">
-                            <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
-                        </div>
-                    </div>
-                    <div class="row mt-2  d-block align-items-center justify-content-center">
-                        <div class="col-12">
-                            <span style="text-align: center;font-size:small;">See how Personalizer learns over time</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
-                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
-                </div>
+<div class="modal fade" tabindex="-1" id="learnModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Learning Simulator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
-                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 align-items-center justify-content-center ">
-                    <div class="row align-items-center justify-content-center">
-                        <div id="current-avg-number" class="display-1 chart-number">0.0</div>
-                    </div>
-                    <div class="row align-items-center justify-content-center">
-                        <span id="current-avg-number-label" style="text-align: center;font-size:small;">Average Engagement last 100 visits</span>
-                    </div>
-                </div>
+            <div class="modal-body">
+                <div class="learn-container" id="graph-container">
+                    <div class="container-fluid h-100">
+                        <div class="row h-100 d-flex align-items-center pt-5 pb-3 small-footer">
+                            <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
+                                <div class="col-md-3 col-sm-2 align-items-center justify-content-center">
+                                    <div class="row d-block align-items-center justify-content-center">
+                                        <div class="col-12">
+                                            <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2  d-block align-items-center justify-content-center">
+                                        <div class="col-12">
+                                            <span style="text-align: center;font-size:small;">See how Personalizer learns over time</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div class="col-md-9 col-sm-9 d-flex pl-1 d-flex align-items-center justify-content-center">
-                    <canvas id="people-learn-chart" class="chart-people"></canvas>
+                                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
+                                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
+                                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 align-items-center justify-content-center ">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                                    </div>
+                                    <div class="row align-items-center justify-content-center">
+                                        <span id="current-avg-number-label" style="text-align: center;font-size:small;">Average Engagement last 100 visits</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9 d-flex pl-1 d-flex align-items-center justify-content-center">
+                                    <canvas id="people-learn-chart" class="chart-people"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</footer>
+</div>
 
 @section Scripts {
     <script src="~/lib/chartjs/Chart.bundle.js"></script>
