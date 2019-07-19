@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const brandLogoImg = document.getElementById("brand-logo");
     const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
     const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
-    const showLearningGraphButton = document.getElementById("show-graph-btn");
+    const showLearningGraphButton = document.getElementById("learn-button");
     let intervalId = -1;
     let reward = 0;
 
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
         });
     });
-
 
 
     mobileShowBackstageBtn.addEventListener("click", function () {
@@ -74,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (articleViewer.contentWindow.location.href.indexOf("rticle/") > -1) {
 
+            updateShowGraphbtn();
             if (intervalId >= 0) {
                 clearInterval(intervalId);
                 intervalId = -1;
@@ -477,3 +477,7 @@ function sendReward(eventid, value) {
         })
     });
 }
+
+function updateShowGraphbtn() {
+    showLearningGraphButton.style.visibility = 'visible';
+};
