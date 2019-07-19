@@ -48,14 +48,44 @@
             <span class="mx-auto" style="font-size:14px;"><b>Personalizer Interactive Demo</b></span>
         </div>
         <div class="row">
-            <span class="mx-auto" style="font-size:10px;"><a href="#" target="_blank">Learn more</a> about Personalizer</span>
+            <span class="mx-auto" style="font-size:12px;"><a href="#" target="_blank">Learn more</a> about Personalizer</span>
         </div>
         <div class="row">
-            <span class="mx-auto" style="font-size:10px;"><a href="#" target="_blank">About</a> this demo</span>
+            <span class="mx-auto" style="font-size:12px;"><button type="button" class="btn btn-link p-0" style="font-size:12px;" data-toggle="modal" data-target="#about-modal">About</button> this demo</span>
         </div>
     </div>
 </div>
 
+<!-- Title modal -->
+
+<div class="modal fade bd-example-modal-lg" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mx-auto" id="about-modal-title">About Personalizer Demo</h5>
+                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:12px;white-space: pre-wrap;">
+Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Peersonalizer to improve suggestions based on rewards.
+                
+On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
+                
+The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
+
+In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait it up to fifteen seconds from the time the article was first shown.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Title modal -->
 <div class="row dropdownHover">
     <div class="col p-0" id="webpage-container">
 
