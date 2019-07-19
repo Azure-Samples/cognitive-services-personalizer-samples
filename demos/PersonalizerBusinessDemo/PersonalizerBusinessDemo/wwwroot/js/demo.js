@@ -4,11 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const brandLogoImg = document.getElementById("brand-logo");
     const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
     const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
-    const showLearningGraphButton = document.getElementById("learn-button");
     let intervalId = -1;
     let reward = 0;
-
-    showLearningGraphButton.style.visibillity = 'hidden';
 
     backstageBtn.addEventListener("click", function () {
         $(this).text(function (i, old) {
@@ -38,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
         getRecommendation().then(result => {
             personalizerCallResult = result;
             updateBasedOnRecommendation(result);
-            showLearningGraphButton.style.visibillity = 'visibile';
         });
     }
 
@@ -73,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (articleViewer.contentWindow.location.href.indexOf("rticle/") > -1) {
 
-            updateShowGraphbtn();
+            updateShowGraphbtn(true);
             if (intervalId >= 0) {
                 clearInterval(intervalId);
                 intervalId = -1;
@@ -157,6 +153,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 articleViewer.contentWindow.history.back();
             });
+        }
+        else {
+            updateShowGraphbtn(false);
         }
     });
 });
@@ -478,6 +477,15 @@ function sendReward(eventid, value) {
     });
 }
 
-function updateShowGraphbtn() {
-    showLearningGraphButton.style.visibility = 'visible';
-};
+function updateShowGraphbtn(shouldShow) {
+    let previousClass = "visible";
+    let actualClass = "invisible";
+
+    if (shouldShow) {
+        previousClass = "invisible";
+        actualClass = "visible";
+    }
+
+    document.getElementById("learn-button").classList.replace(previousClass, actualClass);
+    document.getElementById("mobile-learn-button").classList.replace(previousClass, actualClass);
+}
