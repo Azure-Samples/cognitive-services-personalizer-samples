@@ -56,9 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const articleViewer = document.getElementById("article-viewer");
     articleViewer.addEventListener("load", function () {
         const articleDoc = articleViewer.contentDocument;
-
         const mainContainer = articleViewer.contentWindow.document.getElementById("main-container");
-
+        const articleFooter = articleViewer.contentWindow.document.getElementById("article-footer");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
 
         boundSetIframeContentSize(backstage.classList.contains('show'));
@@ -95,9 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
 
 
-            const maxScrollPosition = Math.max(articleDoc.body.scrollHeight, articleDoc.body.offsetHeight,
-                articleDoc.documentElement.clientHeight, articleDoc.documentElement.scrollHeight, articleDoc.documentElement.offsetHeight)
-                - articleViewer.contentWindow.innerHeight;
+            const maxScrollFooter = Math.max(articleFooter.clientHeight, articleFooter.scrollHeight, articleFooter.offsetHeight);
+            const maxScrollArticle = Math.max(articleDoc.body.scrollHeight, articleDoc.body.offsetHeight,
+                articleDoc.documentElement.clientHeight, articleDoc.documentElement.scrollHeight, articleDoc.documentElement.offsetHeight);
+            const maxScrollPosition = maxScrollArticle - articleViewer.contentWindow.innerHeight - maxScrollFooter;
 
             articleDoc.addEventListener("scroll", function () {
                 const currentPosition = articleViewer.contentWindow.pageYOffset;
