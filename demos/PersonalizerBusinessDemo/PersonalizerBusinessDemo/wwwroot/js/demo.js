@@ -4,14 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const brandLogoImg = document.getElementById("brand-logo");
     const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
     const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
+    const showLearningGraphButton = document.getElementById("show-graph-btn");
     let intervalId = -1;
     let reward = 0;
+
+    showLearningGraphButton.style.visibillity = 'hidden';
 
     backstageBtn.addEventListener("click", function () {
         $(this).text(function (i, old) {
             return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
         });
     });
+
+
 
     mobileShowBackstageBtn.addEventListener("click", function () {
         if (!backstage.classList.contains('show')) {
@@ -34,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         getRecommendation().then(result => {
             personalizerCallResult = result;
             updateBasedOnRecommendation(result);
+            showLearningGraphButton.style.visibillity = 'visibile';
         });
     }
 
