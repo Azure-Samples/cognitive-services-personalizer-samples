@@ -9,7 +9,7 @@
 
     let data = [];
     let dataWithout = [];
-    let currentValue = 0;
+    let currentValue = 0.05;
     let decreasedValue = 0;
     const maxValue = 0.8;
     const maxWithoutValue = 0.6;
@@ -28,8 +28,8 @@
                 return maxWithoutValue;
             }
         }
-
-        return newValue;
+        
+        return newValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
     }
 
     function getFinalValue(currentValue, withoutPersonalizer) {
@@ -40,7 +40,7 @@
         } else {
             finalValue = (Math.log(currentValue + 0.15) + 2) / 2.3;
             if (finalValue > maxValue) {
-                return maxValue;
+                return maxValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
             }
         }
 
@@ -49,7 +49,7 @@
 
     for (i = 1; i <= maxLoop / hoops; i++) {
         currentValue = getRandomValue(currentValue, 0.02, 0.01, false);
-        decreasedValue = getRandomValue(0.2, 0.2, 0, true);
+        decreasedValue = getRandomValue(0.25, 0.05, 0, true);
 
         data.push(getFinalValue(currentValue, false));
         dataWithout.push(getFinalValue(decreasedValue, true));
@@ -66,17 +66,18 @@
             labels: labels,
             datasets: [{
                 label: "A",
-                backgroundColor: "rgba(180,199,231,0.4)",
-                borderColor: "rgba(79,122,199,1)",
+                backgroundColor: "rgba(0,153,0,0.2)",
+                borderColor: "rgba(0,153,0,1)",
                 pointColor: "#fff",
                 pointStrokeColor: "#9DB86D",
                 data: []
             },
-            {
-                label: "B",
-                borderColor: "red",
-                data: []
-            }
+                {
+                    label: "B",
+                    borderColor: "rgba(200,200,200,1)",
+                    backgroundColor: "rgba(0,0,0,0)",
+                    data: []
+                }
             ]
         },
         options: {
@@ -108,6 +109,9 @@
                         display: true,
                         labelString: 'Home Page Visits'
                     },
+                    gridLines: {
+                        display: false
+                    }
                 }]
             }
         }
@@ -149,6 +153,9 @@
                         autoSkip: false,
                         maxRotation: 70,
                         minRotation: 0
+                    },
+                    gridLines: {
+                        display: false
                     }
 
                 }],
@@ -160,9 +167,6 @@
                         stepSize: 0.1,
                         suggestedMin: 0,
                         suggestedMax: 1
-                    },
-                    gridLines: {
-                        display: false
                     }
                 }]
             }
