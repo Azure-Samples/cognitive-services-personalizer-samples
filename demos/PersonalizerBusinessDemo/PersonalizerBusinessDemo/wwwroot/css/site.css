@@ -148,36 +148,36 @@ img {
 }
 
 .footer.learn-container {
-    height: 20rem;
-    max-height: 20rem;
+    height: 30rem;
+    max-height: 30rem;
 }
 
 .btn-circle {
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
     text-align: center;
     padding: 6px 0;
-    font-size: 12px;
+    font-size: 1rem;
     line-height: 1.428571429;
-    border-radius: 15px;
+    border-radius: 2rem;
 }
 
     .btn-circle.btn-lg {
-        width: 50px;
-        height: 50px;
+        width: 3rem;
+        height: 3rem;
         padding: 10px 16px;
-        font-size: 18px;
+        font-size: 1rem;
         line-height: 1.33;
-        border-radius: 25px;
+        border-radius: 2rem;
     }
 
     .btn-circle.btn-xl {
-        width: 70px;
-        height: 70px;
+        width: 3rem;
+        height: 3rem;
         padding: 10px 16px;
-        font-size: 24px;
+        font-size: 1rem;
         line-height: 1.33;
-        border-radius: 35px;
+        border-radius: 2rem;
     }
 
 #collapseBackstage .backstageNavBar {
@@ -384,4 +384,52 @@ h1 {
 
 .custom-select {
     font-size: 0.7rem;
+}
+
+.chart-number {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    padding-right: 2rem;
+}
+
+.chartplaybutton {
+    margin-bottom: 2rem;
+}
+
+.chart-people {
+    max-height: 20rem;
+    min-height: 15rem;
+    min-width: 15vw;
+    max-width: 65vw;
+    margin-right: 1.5rem;
+}
+
+.chart-learn {
+    max-height: 20rem;
+    min-height: 15rem;
+    max-width: 70vw;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 480px) {
+    .small-footer {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width : 1200px) {
+    .chart-learn {
+        height: 30rem;
+    }
+
+    .chart-people {
+        height: 30rem;
+    }
+}
+
+.align-icon-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -187,7 +187,6 @@
         peopleChart.update();
 
         currentAvgNumberEle.innerHTML = parseFloat(Math.round(data * 100) / 100).toFixed(2);
-        currentAvgNumberLbl.innerHTML = 'Average Engagement last 100 visits';
     }
 
     const maxTick = maxLoop / hoops;

@@ -290,30 +290,38 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
 
 <footer class="border-top footer learn-container" id="graph-container">
     <div class="container-fluid h-100">
-        <div class="row h-100 d-flex align-items-center pt-5 pb-3">
-            <div class="col-1 pr-1 pl-4">
-                <div class="row align-items-center justify-content-center">
-                    <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl"><i class="fas fa-play"></i></button>
+        <div class="row h-100 d-flex align-items-center pt-5 pb-3 small-footer">
+            <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
+                <div class="col-md-3 col-sm-2 align-items-center justify-content-center">
+                    <div class="row d-block align-items-center justify-content-center">
+                        <div class="col-12">
+                            <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                        </div>
+                    </div>
+                    <div class="row mt-2  d-block align-items-center justify-content-center">
+                        <div class="col-12">
+                            <span style="text-align: center;font-size:small;">See how Personalizer learns over time</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="row mt-2 align-items-center justify-content-center">
-                    <span style="text-align: center;font-size:small;">See how Personalizer learns over time</span>
-                </div>
-            </div>
-            <div class="col-6 h-100 pl-5">
-                <canvas id="avg-learn-chart" width="400" height="200"></canvas>
-            </div>
 
-            <div class="col-2 h-100 pt-5">
-                <div class="row align-items-center justify-content-center">
-                    <div id="current-avg-number" class="display-1"></div>
-                </div>
-                <div class="row align-items-center justify-content-center">
-                    <span id="current-avg-number-label" style="text-align: center;font-size:small;"></span>
+                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
+                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
                 </div>
             </div>
+            <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
+                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 align-items-center justify-content-center ">
+                    <div class="row align-items-center justify-content-center">
+                        <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        <span id="current-avg-number-label" style="text-align: center;font-size:small;">Average Engagement last 100 visits</span>
+                    </div>
+                </div>
 
-            <div class="col-3 h-100 pl-1 pb-5">
-                <canvas id="people-learn-chart"></canvas>
+                <div class="col-md-9 col-sm-9 d-flex pl-1 d-flex align-items-center justify-content-center">
+                    <canvas id="people-learn-chart" class="chart-people"></canvas>
+                </div>
             </div>
         </div>
     </div>
