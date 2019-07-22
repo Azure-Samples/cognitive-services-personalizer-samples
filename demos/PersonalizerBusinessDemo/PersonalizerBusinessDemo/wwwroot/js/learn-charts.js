@@ -71,7 +71,7 @@
                 pointColor: "#fff",
                 pointStrokeColor: "#9DB86D",
                 data: [],
-                fill: '+1'
+                fill: false
             },
                 {
                     label: "B",
@@ -194,16 +194,21 @@
     let intervalId = -1;
 
     startLearnBtnEle.addEventListener("click", function () {
+
         if (intervalId >= 0) {
             clearInterval(intervalId);
         }
 
+        avgLearnChart.data.datasets[0].fill = false;
         avgLearnChart.data.datasets[0].data = [];
         avgLearnChart.data.datasets[1].data = [];
         avgLearnChart.update();
 
         let currentTick = 0;
         intervalId = setInterval(function () {
+            if (currentTick == maxTick - 1) {
+                avgLearnChart.data.datasets[0].fill = '+1';
+            }
             if (currentTick >= maxTick) {
                 clearInterval(intervalId);
                 return;
@@ -213,5 +218,8 @@
             currentTick++;
 
         }, 70);
+
+        
+
     });
 });
