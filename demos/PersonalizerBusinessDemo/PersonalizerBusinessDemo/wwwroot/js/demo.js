@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backstageBtn.addEventListener("click", function () {
         $(this).text(function (i, old) {
-            return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
+            return backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
         });
     });
 
