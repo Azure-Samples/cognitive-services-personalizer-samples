@@ -65,7 +65,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: "A",
+                label: "Engagement with Personalizer",
                 backgroundColor: "rgba(0,153,0,0.2)",
                 borderColor: "rgba(0,153,0,1)",
                 pointColor: "#fff",
@@ -73,12 +73,12 @@
                 data: [],
                 fill: '+1'
             },
-                {
-                    label: "B",
-                    borderColor: "rgba(200,200,200,1)",
-                    backgroundColor: "rgba(0,0,0,0)",
-                    data: []
-                }
+            {
+                label: "User Engagement Baseline",
+                borderColor: "rgba(200,200,200,1)",
+                backgroundColor: "rgba(0,0,0,0)",
+                data: []
+            }
             ]
         },
         options: {
