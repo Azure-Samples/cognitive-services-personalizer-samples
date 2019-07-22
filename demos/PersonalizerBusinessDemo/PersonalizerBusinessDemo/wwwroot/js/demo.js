@@ -195,9 +195,9 @@ $(window).resize(function () {
 function setBigLayoutConfiguration() {
     if (backstage.classList.contains('show')) {
         showPageContent();
-        backstageBtn.firstChild.data = "Hide how it works";
+        backstageBtn.firstChild.data = MainArticleCloseBackstageLabel;
     } else {
-        backstageBtn.firstChild.data = "Show how it works";
+        backstageBtn.firstChild.data = MainArticleShowBackstageLabel;
     }
 }
 
