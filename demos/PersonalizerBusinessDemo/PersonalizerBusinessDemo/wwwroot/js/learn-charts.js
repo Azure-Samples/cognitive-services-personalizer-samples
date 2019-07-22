@@ -2,7 +2,7 @@
 
     let labels = [];
     const maxLoop = 1000;
-    const hoops = 5;
+    const hoops = 10;
     for (var i = 1; i <= maxLoop / hoops; i++) {
         labels.push(i * hoops);
     }
@@ -212,6 +212,6 @@
             updateData(avgLearnChart, peopleChart, data[currentTick], dataWithout[currentTick], currentTick);
             currentTick++;
 
-        }, 40);
+        }, 30);
     });
 });
