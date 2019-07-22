@@ -43,10 +43,6 @@ html {
     width: 100%;
 }
 
-h5 {
-    font-size: 1rem;
-}
-
 /* Bottom left text */
 .bottom-left {
     position: absolute;
@@ -432,4 +428,12 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.modal-dialog {
+    max-width: 98vw;
+}
+
+.chart-height {
+    height: 20rem;
 }

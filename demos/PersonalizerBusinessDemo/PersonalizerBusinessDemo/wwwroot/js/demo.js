@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+
     mobileShowBackstageBtn.addEventListener("click", function () {
         if (!backstage.classList.contains('show')) {
             hidePageContent();
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (articleViewer.contentWindow.location.href.indexOf("rticle/") > -1) {
 
+            updateShowGraphbtn(true);
             if (intervalId >= 0) {
                 clearInterval(intervalId);
                 intervalId = -1;
@@ -151,6 +153,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 articleViewer.contentWindow.history.back();
             });
+        }
+        else {
+            updateShowGraphbtn(false);
         }
     });
 });
@@ -326,14 +331,20 @@ function ramdomizeSelectedOption(select) {
 
 function updateBasedOnRecommendation(result) {
     showResultContainer();
+    hideResultAlert();
     updateArticle(result);
     updateResult(result);
     updatePersonalizerMethod(result);
 }
 
 function showResultContainer() {
-    const resultContainerEle = document.getElementById("result-section");
+    const resultContainerEle = document.getElementById("result-container");
     resultContainerEle.classList.remove("d-none");
+}
+
+function hideResultAlert() {
+    const resultAlertElement = document.getElementById("result-alert");
+    resultAlertElement.classList.add("d-none");
 }
 
 function updatePersonalizerMethod(recommendation) {
@@ -470,4 +481,17 @@ function sendReward(eventid, value) {
             value: value
         })
     });
+}
+
+function updateShowGraphbtn(shouldShow) {
+    let previousClass = "visible";
+    let actualClass = "invisible";
+
+    if (shouldShow) {
+        previousClass = "invisible";
+        actualClass = "visible";
+    }
+
+    document.getElementById("learn-button").classList.replace(previousClass, actualClass);
+    document.getElementById("mobile-learn-button").classList.replace(previousClass, actualClass);
 }

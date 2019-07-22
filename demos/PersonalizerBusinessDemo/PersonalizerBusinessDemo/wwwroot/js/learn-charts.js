@@ -70,7 +70,8 @@
                 borderColor: "rgba(0,153,0,1)",
                 pointColor: "#fff",
                 pointStrokeColor: "#9DB86D",
-                data: []
+                data: [],
+                fill: '+1'
             },
                 {
                     label: "B",

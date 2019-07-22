@@ -92,11 +92,20 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
+                <button class="btn btn-light d-lg-block invisible mx-2" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                    Show Learning Graph
+                </button>
+
                 <button class="btn btn-light d-none d-lg-block" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                     @siteConfig.MainArticleShowBackstageLabel
                 </button>
             </div>
-            <button class="btn btn-light d-lg-none float-right" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">Show how It Works</button>
+            <div>
+                <button class="btn btn-light d-md-none invisible mx-2" id="mobile-learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                    Show Learning Graph
+                </button>
+                <button class="btn btn-light d-lg-none float-right" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">Show how It Works</button>
+            </div>
         </nav>
 
         <div class="embed-responsive embed-responsive-1by1 article-container" id="article-container">
@@ -215,12 +224,15 @@
                     </div>
                 </div>
 
-                <div class="row pt-2 d-none" id="result-section">
+                <div class="row pt-2">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body p-0">
                                 <h5 class="card-title ml-2 mt-2">Response</h5>
-                                <pre class="pre-scrollable responseRequestContainers border mb-3 p-1 responsejson"><code id="result-code"></code></pre>
+                                <div class="alert alert-secondary m-2" role="alert" id="result-alert">
+                                    When you click the button, the Personalizer Rank will be called with the arguments above and outputs will be shown here.
+                                </div>
+                                <pre class="d-none pre-scrollable responseRequestContainers border mb-3 p-1 responsejson" id="result-container"><code id="result-code"></code></pre>
 
                                 <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
                                 <div class="card-group p-3">
@@ -286,44 +298,58 @@
     </div>
 </div>
 
-<footer class="border-top footer learn-container" id="graph-container">
-    <div class="container-fluid h-100">
-        <div class="row h-100 d-flex align-items-center pt-5 pb-3 small-footer">
-            <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
-                <div class="col-md-3 col-sm-2 align-items-center justify-content-center">
-                    <div class="row d-block align-items-center justify-content-center">
-                        <div class="col-12">
-                            <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
-                        </div>
-                    </div>
-                    <div class="row mt-2  d-block align-items-center justify-content-center">
-                        <div class="col-12">
-                            <span style="text-align: center;font-size:small;">See how Personalizer learns over time</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
-                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
-                </div>
+<div class="modal fade" tabindex="-1" id="learnModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Learning Simulator</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
-                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 align-items-center justify-content-center ">
-                    <div class="row align-items-center justify-content-center">
-                        <div id="current-avg-number" class="display-1 chart-number">0.0</div>
-                    </div>
-                    <div class="row align-items-center justify-content-center">
-                        <span id="current-avg-number-label" style="text-align: center;font-size:small;">Average Engagement last 100 visits</span>
-                    </div>
-                </div>
+            <div class="modal-body">
+                <div class="learn-container" id="graph-container">
+                    <div class="container-fluid h-100">
+                        <div class="row h-100 d-flex align-items-center pt-5 pb-3 small-footer">
+                            <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
+                                <div class="col-md-3 col-sm-2 align-items-center justify-content-center">
+                                    <div class="row d-block align-items-center justify-content-center">
+                                        <div class="col-12">
+                                            <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2  d-block align-items-center justify-content-center">
+                                        <div class="col-12">
+                                            <span style="text-align: center;font-size:small;">See how Personalizer learns over time</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div class="col-md-9 col-sm-9 d-flex pl-1 d-flex align-items-center justify-content-center">
-                    <canvas id="people-learn-chart" class="chart-people"></canvas>
+                                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
+                                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
+                                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 align-items-center justify-content-center ">
+                                    <div class="row align-items-center justify-content-center">
+                                        <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                                    </div>
+                                    <div class="row align-items-center justify-content-center">
+                                        <span id="current-avg-number-label" style="text-align: center;font-size:small;">Average Engagement last 100 visits</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9 d-flex pl-1 d-flex align-items-center justify-content-center">
+                                    <canvas id="people-learn-chart" class="chart-people"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</footer>
+</div>
 
 @section Scripts {
     <script src="~/lib/chartjs/Chart.bundle.js"></script>
