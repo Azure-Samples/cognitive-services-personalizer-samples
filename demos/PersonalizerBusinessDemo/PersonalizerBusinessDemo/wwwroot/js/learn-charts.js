@@ -212,6 +212,6 @@
             updateData(avgLearnChart, peopleChart, data[currentTick], dataWithout[currentTick], currentTick);
             currentTick++;
 
-        }, 70);
+        }, 40);
     });
 });
