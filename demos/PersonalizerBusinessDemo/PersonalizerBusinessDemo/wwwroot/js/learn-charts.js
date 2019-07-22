@@ -65,7 +65,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: "Engagement with Personalizer",
+                label: "User Engagement with Personalizer",
                 backgroundColor: "rgba(0,153,0,0.2)",
                 borderColor: "rgba(0,153,0,1)",
                 pointColor: "#fff",
