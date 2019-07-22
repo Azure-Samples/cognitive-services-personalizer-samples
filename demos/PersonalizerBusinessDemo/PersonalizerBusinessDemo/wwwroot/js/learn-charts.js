@@ -65,7 +65,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: "A",
+                label: "Personalizer Engagement",
                 backgroundColor: "rgba(0,153,0,0.2)",
                 borderColor: "rgba(0,153,0,1)",
                 pointColor: "#fff",
@@ -73,7 +73,7 @@
                 data: []
             },
                 {
-                    label: "B",
+                    label: "Baseline Engagement",
                     borderColor: "rgba(200,200,200,1)",
                     backgroundColor: "rgba(0,0,0,0)",
                     data: []
@@ -81,6 +81,7 @@
             ]
         },
         options: {
+            responsive: true,
             maintainAspectRatio: false,
             legend: {
                 display: false
@@ -139,6 +140,7 @@
             }]
         },
         options: {
+            responsive: true,
             maintainAspectRatio: false,
             legend: {
                 display: false
