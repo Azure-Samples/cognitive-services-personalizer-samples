@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backstageBtn.addEventListener("click", function () {
         $(this).text(function (i, old) {
-            return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
+            return backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
         });
     });
 
@@ -195,9 +195,9 @@ $(window).resize(function () {
 function setBigLayoutConfiguration() {
     if (backstage.classList.contains('show')) {
         showPageContent();
-        backstageBtn.firstChild.data = "Hide how it works";
+        backstageBtn.firstChild.data = MainArticleCloseBackstageLabel;
     } else {
-        backstageBtn.firstChild.data = "Show how it works";
+        backstageBtn.firstChild.data = MainArticleShowBackstageLabel;
     }
 }
 

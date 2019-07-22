@@ -68,14 +68,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p style="font-size:12px;white-space: pre-wrap;">
-                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Peersonalizer to improve suggestions based on rewards.
-
-                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
-
-                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
-
-                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait it up to fifteen seconds from the time the article was first shown.
+                <p style="font-size:12px;">
+                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Peersonalizer to improve suggestions based on rewards.<br />
+                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.<br />
+                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.<br />
+                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait it up to fifteen seconds from the time the article was first shown.<br />
                 </p>
             </div>
             <div class="modal-footer">
@@ -86,6 +83,7 @@
 </div>
 
 <!-- End Title modal -->
+
 <div class="row dropdownHover">
     <div class="col p-0" id="webpage-container">
 
@@ -94,19 +92,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
-                <button class="btn btn-light d-lg-block invisible mx-2" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                <button class="btn btn-light d-lg-block invisible mx-2 text-capitalize" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
                     Show Learning Graph
                 </button>
 
-                <button class="btn btn-light d-none d-lg-block" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
-                    @navigationBarOptions.BackstageLabelBtn
+                <button class="btn btn-light d-none d-lg-block text-capitalize" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
+                    @siteConfig.MainArticleShowBackstageLabel
                 </button>
             </div>
             <div>
-                <button class="btn btn-light d-md-none invisible mx-2" id="mobile-learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                <button class="btn btn-light d-md-none invisible mx-2 text-capitalize" id="mobile-learn-button" type="button" data-toggle="modal" data-target="#learnModal">
                     Show Learning Graph
                 </button>
-                <button class="btn btn-light d-lg-none float-right" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">Show how It Works</button>
+                <button class="btn btn-light d-lg-none float-right text-capitalize" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleShowBackstageLabel</button>
             </div>
         </nav>
 
@@ -119,7 +117,7 @@
         <div class="overflow-auto backstage-container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary backstageNavBar">
                 <div class="navbar-brand">See Personalizer in Action</div>
-                <button class="btn btn-light d-lg-none" type="button" id="mobile-hide-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">Hide how It Works</button>
+                <button class="btn btn-light d-lg-none text-capitalize" type="button" id="mobile-hide-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleCloseBackstageLabel</button>
             </nav>
             <div class="container-fluid">
                 <div class="row">
@@ -364,6 +362,9 @@
 @section Scripts {
     <script src="~/lib/chartjs/Chart.bundle.js"></script>
     <script> const startDemoWithBlankPage = @siteConfig.StartWithBlankPage; </script>
+    <script>const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';</script>
+    <script>const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';</script>
+
     <script src="~/js/demo.js" asp-append-version="true"></script>
     <script src="~/js/learn-charts.js" asp-append-version="true"></script>
 }
