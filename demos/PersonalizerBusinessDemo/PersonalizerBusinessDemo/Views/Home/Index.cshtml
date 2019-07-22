@@ -226,12 +226,15 @@
                     </div>
                 </div>
 
-                <div class="row pt-2 d-none" id="result-section">
+                <div class="row pt-2">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body p-0">
                                 <h5 class="card-title ml-2 mt-2">Response</h5>
-                                <pre class="pre-scrollable responseRequestContainers border mb-3 p-1 responsejson"><code id="result-code"></code></pre>
+                                <div class="alert alert-secondary m-2" role="alert" id="result-alert">
+                                    When you click the button, the Personalizer Rank will be called with the arguments above and outputs will be shown here.
+                                </div>
+                                <pre class="d-none pre-scrollable responseRequestContainers border mb-3 p-1 responsejson" id="result-container"><code id="result-code"></code></pre>
 
                                 <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
                                 <div class="card-group p-3">

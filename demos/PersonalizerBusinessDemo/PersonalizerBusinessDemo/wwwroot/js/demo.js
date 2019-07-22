@@ -331,14 +331,20 @@ function ramdomizeSelectedOption(select) {
 
 function updateBasedOnRecommendation(result) {
     showResultContainer();
+    hideResultAlert();
     updateArticle(result);
     updateResult(result);
     updatePersonalizerMethod(result);
 }
 
 function showResultContainer() {
-    const resultContainerEle = document.getElementById("result-section");
+    const resultContainerEle = document.getElementById("result-container");
     resultContainerEle.classList.remove("d-none");
+}
+
+function hideResultAlert() {
+    const resultAlertElement = document.getElementById("result-alert");
+    resultAlertElement.classList.add("d-none");
 }
 
 function updatePersonalizerMethod(recommendation) {
