@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backstageBtn.addEventListener("click", function () {
         $(this).text(function (i, old) {
-            return backstage.classList.contains('show') ? "Show how it works" : "Hide how it works";
+            return backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
         });
     });
 
@@ -195,9 +195,9 @@ $(window).resize(function () {
 function setBigLayoutConfiguration() {
     if (backstage.classList.contains('show')) {
         showPageContent();
-        backstageBtn.firstChild.data = "Hide how it works";
+        backstageBtn.firstChild.data = MainArticleCloseBackstageLabel;
     } else {
-        backstageBtn.firstChild.data = "Show how it works";
+        backstageBtn.firstChild.data = MainArticleShowBackstageLabel;
     }
 }
 
@@ -331,14 +331,20 @@ function ramdomizeSelectedOption(select) {
 
 function updateBasedOnRecommendation(result) {
     showResultContainer();
+    hideResultAlert();
     updateArticle(result);
     updateResult(result);
     updatePersonalizerMethod(result);
 }
 
 function showResultContainer() {
-    const resultContainerEle = document.getElementById("result-section");
+    const resultContainerEle = document.getElementById("result-container");
     resultContainerEle.classList.remove("d-none");
+}
+
+function hideResultAlert() {
+    const resultAlertElement = document.getElementById("result-alert");
+    resultAlertElement.classList.add("d-none");
 }
 
 function updatePersonalizerMethod(recommendation) {

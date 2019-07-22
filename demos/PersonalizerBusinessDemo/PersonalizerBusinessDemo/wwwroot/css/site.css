@@ -43,10 +43,6 @@ html {
     width: 100%;
 }
 
-h5 {
-    font-size: 1rem;
-}
-
 /* Bottom left text */
 .bottom-left {
     position: absolute;
@@ -437,7 +433,6 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-
 
 .chart-height {
     height: 20rem;
