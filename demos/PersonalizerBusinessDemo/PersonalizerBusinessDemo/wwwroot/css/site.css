@@ -460,3 +460,12 @@ h1 {
 }
 
 /* End Backstage */
+
+/* Charts Modal */
+
+.charts-modal-text {
+    text-align: center;
+    font-size: small;
+}
+
+/* End Charts Modal */
