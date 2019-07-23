@@ -40,6 +40,8 @@ namespace PersonalizerExample
                 };
 
                 // Exclude an action for personalizer ranking. This action will be held at its current position.
+                // This simulates a business rule to force the action "juice" to be ignored in the ranking.
+                // As juice is excluded, the return of the API will always be with a probability of 0.
                 IList<string> excludeActions = new List<string> { "juice" };
 
                 // Generate an ID to associate with the request.
