@@ -436,3 +436,21 @@ h1 {
 .chart-height {
     height: 20rem;
 }
+
+.about-modal {
+    max-width: 50%;
+}
+
+/* About Modal Mobile */
+@media screen and (max-width: 600px) {
+    .about-modal {
+        padding-left: 0px;
+        max-width: 100%;
+    }
+}
+/* About Modal 4K screens */
+@media screen and (min-width: 2000px) {
+    .about-modal {
+        max-width: 30%;
+    }
+}
