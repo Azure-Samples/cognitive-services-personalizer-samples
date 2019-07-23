@@ -436,3 +436,13 @@ h1 {
 .chart-height {
     height: 20rem;
 }
+
+/* NavBar */
+#navbar-container {
+    background-color: #F57636;
+}
+
+.brand-logo {
+    width: 2.2rem;
+    height: 2rem;
+}
