@@ -436,3 +436,23 @@ h1 {
 .chart-height {
     height: 20rem;
 }
+
+#page-title {
+    font-size: 14px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+#backstage-title {
+    margin-bottom: 0;
+    font-weight: inherit;
+}
+
+#about-modal-title {
+    font-size: 1rem;
+}
+
+h3.modal-title {
+    font-size: 1rem;
+}
