@@ -440,12 +440,12 @@ h1 {
 .about-modal {
     max-width: 50%;
     font-size: 0.8rem;
+    padding-right: 0px;
 }
 
 /* About Modal Mobile */
 @media screen and (max-width: 600px) {
     .about-modal {
-        padding-left: 0px;
         max-width: 100%;
     }
 }
