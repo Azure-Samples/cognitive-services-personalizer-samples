@@ -436,3 +436,18 @@ h1 {
 .chart-height {
     height: 20rem;
 }
+
+.section-image {
+    filter: grayscale(100%) contrast(50%);
+}
+
+#article-render {
+    background: linear-gradient(180deg, rgba(237,238,240,1) 60%, rgba(247,248,250,1) 80%, rgba(255,255,255,1) 100%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+}
