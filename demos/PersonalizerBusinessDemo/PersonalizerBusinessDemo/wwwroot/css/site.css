@@ -65,6 +65,11 @@ img {
     float: none;
 }
 
+.article-img-container {
+    max-height: 30rem;
+    overflow: hidden;
+}
+
 .small_slot_wrapper {
     font-size: 0.7rem;
 }
@@ -469,3 +474,12 @@ h1 {
 }
 
 /* End Charts Modal */
+
+/* Score section */
+
+.flag-image {
+    max-height: 15%;
+    max-width: 15%
+}
+
+/* End Score Section */
