@@ -6,8 +6,7 @@
     PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
     NavBarOptionsModel navigationBarOptions = siteConfig.NavigationBar as NavBarOptionsModel;
 
-    Func<List<NavBarItemModel>
-    , Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
+    Func<List<NavBarItemModel>, Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
 
     displayMenuItems =
 
@@ -366,7 +365,7 @@
 <div class="row my-2">
     <div class="mx-auto">
         <div class="row">
-            <span class="mx-auto" style="font-size:0.8rem;"><i class="far fa-copyright"></i> 2019 - Demo of Personalizer, an Azure Cognitive Service <a href="https://privacy.microsoft.com/en-us/PrivacyStatement" target="_blank">Privacy</a></span>
+            <span class="mx-auto"style="font-size:0.8rem;"><i class="far fa-copyright"></i> 2019 - Demo of Personalizer, an Azure Cognitive Service <a href="https://privacy.microsoft.com/en-us/PrivacyStatement" target="_blank" class="privacy-padding" >Privacy</a></span>
         </div>
     </div>
 </div>
