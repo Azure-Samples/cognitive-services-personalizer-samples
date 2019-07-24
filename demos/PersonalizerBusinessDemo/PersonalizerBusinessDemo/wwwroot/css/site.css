@@ -442,6 +442,12 @@ h1 {
     height: 20rem;
 }
 
+#page-title {
+    font-size: 14px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    line-height: 1.5;
+
 /* NavBar */
 
 .brand-logo {
@@ -461,7 +467,20 @@ h1 {
     color: #c8c8c8;
 }
 
+#backstage-title {
+    margin-bottom: 0;
+    font-weight: inherit;
+}
+
 /* End Backstage */
+
+#about-modal-title {
+    font-size: 1rem;
+}
+
+h3.modal-title {
+    font-size: 1rem;
+}
 
 /* Charts Modal */
 
