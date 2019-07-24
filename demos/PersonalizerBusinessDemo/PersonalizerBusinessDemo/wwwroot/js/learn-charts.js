@@ -118,76 +118,11 @@
             }
         }
     });
-
-
-    const peopleCtx = document.getElementById('people-learn-chart');
-    const peopleChart = new Chart(peopleCtx, {
-        type: 'bar',
-        data: {
-            labels: ["Mobile", "Social Media", "Anonymous Users"],
-            datasets: [{
-                data: [0, 0, 0],
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-                display: false
-            },
-            title: {
-                display: true,
-                text: 'Engagement by user segment'
-            },
-            scales: {
-                xAxes: [{
-                    ticks: {
-                        autoSkip: false,
-                        maxRotation: 70,
-                        minRotation: 0
-                    },
-                    gridLines: {
-                        display: false
-                    }
-
-                }],
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 1,
-                        stepSize: 0.1,
-                        suggestedMin: 0,
-                        suggestedMax: 1
-                    }
-                }]
-            }
-        }
-    });
-
-    function updateData(avgLearnChart, peopleChart, data, dataWithout, currentTick) {
+    
+    function updateData(avgLearnChart, data, dataWithout, currentTick) {
         avgLearnChart.data.datasets[0].data.push(data);
         avgLearnChart.data.datasets[1].data.push(dataWithout);
         avgLearnChart.update();
-
-        peopleChart.data.datasets[0].data = [
-            getRandomValue(data, 0.05, 0.05, false),
-            getRandomValue(data, 0.05, 0.05, false),
-            getRandomValue(data, 0.05, 0.05, false),
-            getRandomValue(data, 0.05, 0.05, false)
-        ];
-        peopleChart.update();
 
         currentAvgNumberEle.innerHTML = parseFloat(Math.round(data * 100) / 100).toFixed(2);
     }
@@ -216,7 +151,7 @@
                 return;
             }
 
-            updateData(avgLearnChart, peopleChart, data[currentTick], dataWithout[currentTick], currentTick);
+            updateData(avgLearnChart, data[currentTick], dataWithout[currentTick], currentTick);
             currentTick++;
 
         }, 10);
