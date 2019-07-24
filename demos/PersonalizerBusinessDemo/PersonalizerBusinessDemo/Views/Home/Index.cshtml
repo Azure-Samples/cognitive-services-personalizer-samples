@@ -6,7 +6,8 @@
     PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
     NavBarOptionsModel navigationBarOptions = siteConfig.NavigationBar as NavBarOptionsModel;
 
-    Func<List<NavBarItemModel>, Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
+    Func<List<NavBarItemModel>
+    , Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
 
     displayMenuItems =
 
@@ -186,7 +187,7 @@
                                                             <h5 class="d-inline pr-2">Context JSON</h5>
                                                             <div class="custom-control custom-checkbox d-inline-flex align-items-end">
                                                                 <input type="checkbox" class="custom-control-input" id="use-useragent">
-                                                                <label class="custom-control-label" for="use-useragent"><small>Use User Agent</small></label>
+                                                                <label class="custom-control-label custom-control-description" for="use-useragent"><small>Use User Agent</small></label>
                                                             </div>
                                                         </div>
                                                         <pre class="pre-scrollable responseRequestContainers m-0 p-1 border-top contextjson"><code id="context-code"></code></pre>
@@ -213,7 +214,7 @@
                                                                 <strong>Action JSON</strong>
                                                                 <div class="custom-control custom-checkbox">
                                                                     <input type="checkbox" class="custom-control-input" id="text-analytics">
-                                                                    <label class="custom-control-label" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
+                                                                    <label class="custom-control-label custom-control-description" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
                                                                 </div>
                                                             </div>
                                                             <div class="card-body p-0">
@@ -307,7 +308,7 @@
 </div>
 
 <div class="modal fade" tabindex="-1" id="learnModal" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Learning Simulator</h3>
@@ -317,38 +318,42 @@
             </div>
             <div class="modal-body">
                 <div class="learn-container" id="graph-container">
-                    <div class="container-fluid h-100">
-                        <div class="row h-100 d-flex align-items-center pt-5 pb-3 small-footer">
-                            <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
-                                <div class="col-md-3 col-sm-2 align-items-center justify-content-center">
-                                    <div class="row d-block align-items-center justify-content-center">
-                                        <div class="col-12">
-                                            <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                    <div class="container-fluid">
+                        <div class="row d-block pt-5 pb-3 small-footer">
+                            <div class="row d-flex">
+                                <div class="col-md-12 col-sm-12 col-xl-12 d-inline-flex align-items-center justify-content-center">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 align-items-center justify-content-center">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-12 text-center">
+                                                <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mt-2  d-block align-items-center justify-content-center">
-                                        <div class="col-12">
+                                        <div class="row mt-2 align-items-center justify-content-center">
+                                            <div class="col-12 text-center text-capitalize">
                                             <span class="charts-modal-text">See how Personalizer learns over time</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
-                                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
+                                    <div class="col-md-8 col-sm-8 col-xl-8 align-items-center justify-content-center">
+                                        <canvas id="avg-learn-chart" class="chart-learn" style="height:600px;"></canvas>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
-                                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 align-items-center justify-content-center ">
-                                    <div class="row align-items-center justify-content-center">
-                                        <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                            <div class="row d-flex">
+                                <div class="col-md-12 col-sm-12 col-xl-12 d-flex align-items-center justify-content-center">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 px-0 mx-0 align-items-center justify-content-center text-center">
+                                        <div class="row align-items-center justify-content-center text-center">
+                                            <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                                        </div>
+                                        <div class="row align-items-center justify-content-center text-center">
+                                            <div class="col-10 text-center text-capitalize">
+                                        	<span id="current-avg-number-label" class="charts-modal-text">Average Engagement last 100 visits</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="row align-items-center justify-content-center">
-                                        <span id="current-avg-number-label" class="charts-modal-text">Average Engagement last 100 visits</span>
+                                    <div class="col-md-8 col-sm-8 col-xl-8 ml-2 align-items-center justify-content-center">
+                                        <canvas id="people-learn-chart" class="chart-people"></canvas>
                                     </div>
-                                </div>
-
-                                <div class="col-md-9 col-sm-9 d-flex pl-1 d-flex align-items-center justify-content-center">
-                                    <canvas id="people-learn-chart" class="chart-people"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -358,7 +363,6 @@
         </div>
     </div>
 </div>
-
 <div class="row my-2">
     <div class="mx-auto">
         <div class="row">
@@ -372,7 +376,6 @@
     <script> const startDemoWithBlankPage = @siteConfig.StartWithBlankPage; </script>
     <script>const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';</script>
     <script>const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';</script>
-
     <script src="~/js/demo.js" asp-append-version="true"></script>
     <script src="~/js/learn-charts.js" asp-append-version="true"></script>
 }

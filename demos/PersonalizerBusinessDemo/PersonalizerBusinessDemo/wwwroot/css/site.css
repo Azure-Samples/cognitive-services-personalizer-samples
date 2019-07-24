@@ -390,24 +390,28 @@ h1 {
     font-size: 4rem;
     margin-bottom: 2rem;
     padding-right: 2rem;
+    min-width:50vw;
+    max-width:50vw;
 }
 
 .chartplaybutton {
     margin-bottom: 2rem;
+    max-width:40vw;
 }
 
 .chart-people {
     max-height: 20rem;
     min-height: 15rem;
     min-width: 15vw;
-    max-width: 65vw;
-    margin-right: 1.5rem;
+    max-width: 45vw;
+    margin-right: 1rem;
 }
 
 .chart-learn {
     max-height: 20rem;
     min-height: 15rem;
-    max-width: 70vw;
+    max-width: 50vw;
+    min-width: 15vw;
     padding-bottom: 1rem;
 }
 
@@ -434,14 +438,19 @@ h1 {
     align-items: center;
 }
 
-.modal-dialog {
-    max-width: 98vw;
-}
-
 .chart-height {
     height: 20rem;
 }
 
+.custom-control-input {
+    position: static;
+    margin: 0 .5rem -0.1rem 0;
+}
+
+.custom-control-description {
+    line-height: 80%;
+    padding-top: 0.4rem;
+}
 
 /* NavBar */
 
