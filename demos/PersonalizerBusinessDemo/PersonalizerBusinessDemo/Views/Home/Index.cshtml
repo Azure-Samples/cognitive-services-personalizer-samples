@@ -58,21 +58,29 @@
 
 <!-- Title modal -->
 
-<div class="modal fade bd-example-modal-lg" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
+    <div class="modal-dialog about-modal modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title mx-auto" id="about-modal-title">About Personalizer Demo</h2>
-                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                <h5 class="col-md-12 modal-title text-center" id="about-modal-title">
+                    About Personalizer Demo
+                <button type="button" class="close pr-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                </h5>
             </div>
             <div class="modal-body">
-                <p style="font-size:12px;">
-                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Peersonalizer to improve suggestions based on rewards.<br />
-                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.<br />
-                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.<br />
-                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait it up to fifteen seconds from the time the article was first shown.<br />
+                <p>
+                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Personalizer to improve suggestions based on rewards.
+                </p>
+                <p>
+                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
+                </p>
+                <p>
+                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
+                </p>
+                <p>
+                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait up to fifteen seconds from the time the article was first shown.
                 </p>
             </div>
             <div class="modal-footer">
@@ -178,7 +186,7 @@
                                                             <h5 class="d-inline pr-2">Context JSON</h5>
                                                             <div class="custom-control custom-checkbox d-inline-flex align-items-end">
                                                                 <input type="checkbox" class="custom-control-input" id="use-useragent">
-                                                                <label class="custom-control-label" for="use-useragent"><small>Use User Agent</small></label>
+                                                                <label class="custom-control-label custom-control-description" for="use-useragent"><small>Use User Agent</small></label>
                                                             </div>
                                                         </div>
                                                         <pre class="pre-scrollable responseRequestContainers m-0 p-1 border-top contextjson"><code id="context-code"></code></pre>
@@ -205,7 +213,7 @@
                                                                 <strong>Action JSON</strong>
                                                                 <div class="custom-control custom-checkbox">
                                                                     <input type="checkbox" class="custom-control-input" id="text-analytics">
-                                                                    <label class="custom-control-label" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
+                                                                    <label class="custom-control-label custom-control-description" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
                                                                 </div>
                                                             </div>
                                                             <div class="card-body p-0">
@@ -299,7 +307,7 @@
 </div>
 
 <div class="modal fade" tabindex="-1" id="learnModal" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Learning Simulator</h3>
@@ -309,38 +317,42 @@
             </div>
             <div class="modal-body">
                 <div class="learn-container" id="graph-container">
-                    <div class="container-fluid h-100">
-                        <div class="row h-100 d-flex align-items-center pt-5 pb-3 small-footer">
-                            <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
-                                <div class="col-md-3 col-sm-2 align-items-center justify-content-center">
-                                    <div class="row d-block align-items-center justify-content-center">
-                                        <div class="col-12">
-                                            <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                    <div class="container-fluid">
+                        <div class="row d-block pt-5 pb-3 small-footer">
+                            <div class="row d-flex">
+                                <div class="col-md-12 col-sm-12 col-xl-12 d-inline-flex align-items-center justify-content-center">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 align-items-center justify-content-center">
+                                        <div class="row align-items-center justify-content-center">
+                                            <div class="col-12 text-center">
+                                                <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2 align-items-center justify-content-center">
+                                            <div class="col-12 text-center text-capitalize">
+                                                <span style="font-size:small;">See how Personalizer learns over time</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-2  d-block align-items-center justify-content-center">
-                                        <div class="col-12">
-                                            <span style="text-align: center;font-size:small;">See how Personalizer learns over time</span>
-                                        </div>
+                                    <div class="col-md-8 col-sm-8 col-xl-8 align-items-center justify-content-center">
+                                        <canvas id="avg-learn-chart" class="chart-learn" style="height:600px;"></canvas>
                                     </div>
-                                </div>
-
-                                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
-                                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
-                                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 align-items-center justify-content-center ">
-                                    <div class="row align-items-center justify-content-center">
-                                        <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                            <div class="row d-flex">
+                                <div class="col-md-12 col-sm-12 col-xl-12 d-flex align-items-center justify-content-center">
+                                    <div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 px-0 mx-0 align-items-center justify-content-center text-center">
+                                        <div class="row align-items-center justify-content-center text-center">
+                                            <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                                        </div>
+                                        <div class="row align-items-center justify-content-center text-center">
+                                            <div class="col-10 text-center text-capitalize">
+                                                <span id="current-avg-number-label" style="text-align: center;font-size:small;">Average Engagement last 100 visits</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="row align-items-center justify-content-center">
-                                        <span id="current-avg-number-label" style="text-align: center;font-size:small;">Average Engagement last 100 visits</span>
+                                    <div class="col-md-8 col-sm-8 col-xl-8 ml-2 align-items-center justify-content-center">
+                                        <canvas id="people-learn-chart" class="chart-people"></canvas>
                                     </div>
-                                </div>
-
-                                <div class="col-md-9 col-sm-9 d-flex pl-1 d-flex align-items-center justify-content-center">
-                                    <canvas id="people-learn-chart" class="chart-people"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -350,7 +362,6 @@
         </div>
     </div>
 </div>
-
 <div class="row my-2">
     <div class="mx-auto">
         <div class="row">
@@ -364,7 +375,6 @@
     <script> const startDemoWithBlankPage = @siteConfig.StartWithBlankPage; </script>
     <script>const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';</script>
     <script>const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';</script>
-
     <script src="~/js/demo.js" asp-append-version="true"></script>
     <script src="~/js/learn-charts.js" asp-append-version="true"></script>
 }
