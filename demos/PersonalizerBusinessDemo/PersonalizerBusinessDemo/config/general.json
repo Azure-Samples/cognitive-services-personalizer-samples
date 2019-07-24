@@ -38,6 +38,10 @@
         "item": ""
       }
     ]
+  },
+  "BackstageSection": {
+    "ResponseLabel": "API Response",
+    "RequestLabel":  "API Request"
   }
 
 }

@@ -16,12 +16,17 @@ footer {
 }
 
 footer p {
-    padding-left: 4rem;
+    padding-left: 3rem;
     font-size: 13px;
     color: #CCC;
     padding-bottom: 0px;
     margin-bottom: 8px;
 }
+
+footerh5{
+    padding-left:4rem;
+}
+
 
 .mb10 {
     padding-bottom: 15px;
@@ -58,6 +63,7 @@ footer p {
 
     .footer_ul2_amrc li p {
         display: table;
+        padding-right: -1rem;
     }
 
     .footer_ul2_amrc li i {
