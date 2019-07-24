@@ -437,6 +437,25 @@ h1 {
     height: 20rem;
 }
 
+.about-modal {
+    max-width: 50%;
+    font-size: 0.8rem;
+    padding-right: 0px;
+}
+
+/* About Modal Mobile */
+@media screen and (max-width: 600px) {
+    .about-modal {
+        max-width: 100%;
+    }
+}
+/* About Modal 4K screens */
+@media screen and (min-width: 2000px) {
+    .about-modal {
+        max-width: 30%;
+    }
+}
+
 #page-title {
     font-size: 14px;
     font-weight: bolder;
@@ -455,4 +474,8 @@ h1 {
 
 h3.modal-title {
     font-size: 1rem;
+}
+
+.modal-header .close {
+    font-size: 1.25rem;
 }
