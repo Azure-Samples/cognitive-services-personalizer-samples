@@ -442,11 +442,6 @@ h1 {
     height: 20rem;
 }
 
-#page-title {
-    font-size: 14px;
-    font-weight: bolder;
-    margin-bottom: 0;
-    line-height: 1.5;
 
 /* NavBar */
 
@@ -503,8 +498,15 @@ h3.modal-title {
 /* Top Bar */
 
 .subtitle-topbar {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     margin-bottom: 0px;
+    line-height: 1.5;
 }
 
+#page-title {
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
 /* End Top Bar */
