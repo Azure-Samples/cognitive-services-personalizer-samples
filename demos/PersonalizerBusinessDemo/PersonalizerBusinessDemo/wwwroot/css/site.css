@@ -456,3 +456,7 @@ h1 {
 h3.modal-title {
     font-size: 1rem;
 }
+
+.privacy-padding{
+    padding-left:6rem;
+}
