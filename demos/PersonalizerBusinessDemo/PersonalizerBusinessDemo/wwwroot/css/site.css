@@ -442,6 +442,16 @@ h1 {
     height: 20rem;
 }
 
+.custom-control-input {
+    position: static;
+    margin: 0 .5rem -0.1rem 0;
+}
+
+.custom-control-description {
+    line-height: 80%;
+    padding-top: 0.4rem;
+}
+
 .section-image {
     filter: grayscale(100%) contrast(50%);
 }
