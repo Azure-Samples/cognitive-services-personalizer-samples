@@ -131,7 +131,10 @@
     let intervalId = -1;
 
     startLearnBtnEle.addEventListener("click", function () {
+        runAnimation();
+    });
 
+    function runAnimation() {
         if (intervalId >= 0) {
             clearInterval(intervalId);
         }
@@ -155,5 +158,9 @@
             currentTick++;
 
         }, 10);
+    }
+
+    document.getElementById("learnModal").addEventListener("transitionend", function () {
+        runAnimation();
     });
 });
