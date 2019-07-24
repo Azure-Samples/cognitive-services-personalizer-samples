@@ -442,14 +442,19 @@ h1 {
     height: 20rem;
 }
 
-.custom-control-input {
-    position: static;
-    margin: 0 .5rem -0.1rem 0;
+.section-image {
+    filter: grayscale(100%) contrast(50%);
 }
 
-.custom-control-description {
-    line-height: 80%;
-    padding-top: 0.4rem;
+#article-render {
+    background: linear-gradient(180deg, rgba(237,238,240,1) 60%, rgba(247,248,250,1) 80%, rgba(255,255,255,1) 100%);
+}
+
+#article-body-layout {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
 }
 
 /* NavBar */
@@ -544,3 +549,7 @@ h3.modal-title {
     line-height: 1.5;
 }
 /* End Top Bar */
+
+.privacy-padding{
+    padding-left:5rem;
+}

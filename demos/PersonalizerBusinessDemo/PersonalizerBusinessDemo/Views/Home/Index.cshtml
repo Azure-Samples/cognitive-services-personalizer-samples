@@ -6,8 +6,7 @@
     PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
     NavBarOptionsModel navigationBarOptions = siteConfig.NavigationBar as NavBarOptionsModel;
 
-    Func<List<NavBarItemModel>
-    , Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
+    Func<List<NavBarItemModel>, Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
 
     displayMenuItems =
 
