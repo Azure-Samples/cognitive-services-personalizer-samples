@@ -1,11 +1,6 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using Newtonsoft.Json;
 using PersonalizerBusinessDemo.ActionFeaturizer;
 using PersonalizerBusinessDemo.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
