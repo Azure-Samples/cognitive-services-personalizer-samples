@@ -43,11 +43,6 @@ namespace PersonalizerBusinessDemo.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult DefaultArticle()
-        {
-            return View("DefaultArticle");
-        }
-
         public IActionResult Article(string id)
         {
             ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
