@@ -115,6 +115,14 @@
                         display: false
                     }
                 }]
+            },
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    boxWidth: 20,
+                    fontColor: 'black'
+                }
             }
         }
     });
