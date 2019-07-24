@@ -14,8 +14,8 @@
   "StartWithBlankPage": "true",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
-    "BackgroundColor": "#F57636",
     "BackstageLabelBtn": "Show how it works",
+    "BackgroundColor": "#F57636",
     "OptionsList": [
       {
         "label": "Tournaments",

@@ -65,6 +65,11 @@ img {
     float: none;
 }
 
+.article-img-container {
+    max-height: 30rem;
+    overflow: hidden;
+}
+
 .small_slot_wrapper {
     font-size: 0.7rem;
 }
@@ -452,6 +457,36 @@ h1 {
     font-size: 0.8rem;
 }
 
+/* NavBar */
+
+.brand-logo {
+    width: 2.2rem;
+    height: 2rem;
+}
+
+/* End NavBar */
+
+/* Backstage */
+
+.exploring-icon {
+    color: #c8c8c8;
+}
+
+.exploiting-icon {
+    color: #c8c8c8;
+}
+
+#backstage-title {
+    margin-bottom: 0;
+    font-weight: inherit;
+}
+
+/* End Backstage */
+
+#about-modal-title {
+    font-size: 1rem;
+}
+
 .about-modal {
     max-width: 50%;
     font-size: 0.8rem;
@@ -472,30 +507,49 @@ h1 {
     }
 }
 
-#page-title {
-    font-size: 14px;
-    font-weight: bolder;
-    margin-bottom: 0;
-    line-height: 1.5;
-}
-
-#backstage-title {
-    margin-bottom: 0;
-    font-weight: inherit;
-}
-
-#about-modal-title {
-    font-size: 1rem;
-}
 
 h3.modal-title {
     font-size: 1rem;
 }
 
-.privacy-padding{
-    padding-left:5rem;
-}
-
 .modal-header .close {
     font-size: 1.25rem;
+}
+
+/* Charts Modal */
+
+.charts-modal-text {
+    text-align: center;
+    font-size: small;
+}
+
+/* End Charts Modal */
+
+/* Score section */
+
+.flag-image {
+    max-height: 15%;
+    max-width: 15%
+}
+
+/* End Score Section */
+
+/* Top Bar */
+
+.subtitle-topbar {
+    font-size: 0.6rem;
+    margin-bottom: 0px;
+    line-height: 1.5;
+}
+
+#page-title {
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+/* End Top Bar */
+
+.privacy-padding{
+    padding-left:5rem;
 }
