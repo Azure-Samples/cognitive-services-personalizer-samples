@@ -3,8 +3,6 @@
 //     Copyright (c) Microsoft Corporation. All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using UAParser;
 using System;
