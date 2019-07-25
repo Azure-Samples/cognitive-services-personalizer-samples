@@ -167,20 +167,20 @@
     }
 
     function setupChartResponsiveness() {
-        if ($(window).width() > mobileSize) {
+        if (document.documentElement.clientWidth > mobileSize) {
             avgLearnChart.options.legend.display = true;
         }
         else {
             avgLearnChart.options.legend.display = false;
         }
 
-        $(window).resize(function () {
-            if (jQuery(window).innerWidth() > mobileSize) {
+        window.onresize = function () {
+            if (window.innerWidth > mobileSize) {
                 avgLearnChart.options.legend.display = true;
             } else {
                 avgLearnChart.options.legend.display = false;
             }
-        });
+        };
     }
 
     const graphModal = document.getElementById("learnModal");
