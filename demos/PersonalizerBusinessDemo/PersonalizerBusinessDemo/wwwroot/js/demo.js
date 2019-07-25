@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const brandLogoImg = document.getElementById("brand-logo");
     const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
     const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
+    const navbar = document.getElementById('navbar-container');
+    const articleContainer = document.getElementById('article-container');
+    const graphContainer = document.getElementById('graph-container');
+    const backstage = document.getElementById('collapseBackstage');
+    const backstageBtn = document.getElementById("backstage-btn");
+
+    let currentSize;
+    const SCREEN_SIZE_SMALL = 0;
+    const SCREEN_SIZE_BIG = 1;
+    const mobileSize = 991;
     let intervalId = -1;
     let reward = 0;
 
@@ -38,6 +48,27 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    if ($(window).width() > mobileSize) {
+        currentSize = SCREEN_SIZE_BIG;
+    }
+    else {
+        currentSize = SCREEN_SIZE_SMALL;
+    }
+
+    $(window).resize(function () {
+        if (jQuery(window).innerWidth() > mobileSize) {
+            if (currentSize === SCREEN_SIZE_SMALL) {
+                currentSize = SCREEN_SIZE_BIG;
+                setBigLayoutConfiguration();
+            }
+        } else {
+            if (currentSize === SCREEN_SIZE_BIG) {
+                currentSize = SCREEN_SIZE_SMALL;
+                setSmallLayoutConfiguration();
+            }
+        }
+    });
+
     goBtnEle.addEventListener("click", function () {
         getRecommendation().then(result => {
             personalizerCallResult = result;
@@ -52,6 +83,35 @@ document.addEventListener("DOMContentLoaded", function () {
         else {
             mainContainer.className = "col-xl-8 offset-xl-2 col-12";
         }
+    }
+
+    function setBigLayoutConfiguration() {
+        if (backstage.classList.contains('show')) {
+            showPageContent();
+            backstageBtn.firstChild.data = MainArticleCloseBackstageLabel;
+        } else {
+            backstageBtn.firstChild.data = MainArticleShowBackstageLabel;
+        }
+    }
+
+    function setSmallLayoutConfiguration() {
+        if (backstage.classList.contains('show')) {
+            hidePageContent();
+        }
+    }
+
+    // Hides the page content except for the backstage
+    function showPageContent() {
+        navbar.style.display = 'flex';
+        articleContainer.style.display = 'block';
+        graphContainer.style.display = 'flex';
+    }
+
+    // Makes the page content visible except for the backstage which will remain unchanged
+    function hidePageContent() {
+        navbar.style.display = 'none';
+        articleContainer.style.display = 'none';
+        graphContainer.style.display = 'none';
     }
 
     const articleViewer = document.getElementById("article-viewer");
@@ -159,67 +219,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-const navbar = document.getElementById('navbar-container');
-const articleContainer = document.getElementById('article-container');
-const graphContainer = document.getElementById('graph-container');
-const backstage = document.getElementById('collapseBackstage');
-const backstageBtn = document.getElementById("backstage-btn");
-
-let currentSize;
-const SCREEN_SIZE_SMALL = 0;
-const SCREEN_SIZE_BIG = 1;
-const mobileSize = 991;
-
-if ($(window).width() > mobileSize) {
-    currentSize = SCREEN_SIZE_BIG;
-}
-else {
-    currentSize = SCREEN_SIZE_SMALL;
-}
-
-$(window).resize(function () {
-    if (jQuery(window).innerWidth() > mobileSize) {
-        if (currentSize === SCREEN_SIZE_SMALL) {
-            currentSize = SCREEN_SIZE_BIG;
-            setBigLayoutConfiguration();
-        }
-    } else {
-        if (currentSize === SCREEN_SIZE_BIG) {
-            currentSize = SCREEN_SIZE_SMALL;
-            setSmallLayoutConfiguration();
-        }
-    }
-});
-
-function setBigLayoutConfiguration() {
-    if (backstage.classList.contains('show')) {
-        showPageContent();
-        backstageBtn.firstChild.data = MainArticleCloseBackstageLabel;
-    } else {
-        backstageBtn.firstChild.data = MainArticleShowBackstageLabel;
-    }
-}
-
-function setSmallLayoutConfiguration() {
-    if (backstage.classList.contains('show')) {
-        hidePageContent();
-    }
-}
-
-// Hides the page content except for the backstage
-function showPageContent() {
-    navbar.style.display = 'flex';
-    articleContainer.style.display = 'block';
-    graphContainer.style.display = 'flex';
-}
-
-// Makes the page content visible except for the backstage which will remain unchanged
-function hidePageContent() {
-    navbar.style.display = 'none';
-    articleContainer.style.display = 'none';
-    graphContainer.style.display = 'none';
-}
 
 let context = {
     referrer: "social",
