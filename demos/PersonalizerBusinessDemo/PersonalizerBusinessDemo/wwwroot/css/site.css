@@ -392,7 +392,8 @@ h1 {
 }
 
 .chartplaybutton {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top:1rem;
     max-width:40vw;
 }
 
