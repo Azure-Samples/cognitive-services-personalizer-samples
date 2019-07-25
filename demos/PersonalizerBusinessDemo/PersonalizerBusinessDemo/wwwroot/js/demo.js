@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var iframeBackBtn = innerDoc.getElementById('iframe-backBtn');
             const gaugeContainerEle = innerDoc.getElementById('gauge-container');
 
-            if (iframeBackBtn != undefined) {
+            if (iframeBackBtn !== undefined) {
                 iframeBackBtn.style.display = "block";
                 iframeBackBtn.addEventListener("click", function () {
                     clearInterval(intervalId);
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             brandLogoImg.addEventListener("click", function () {
-                if (iframeBackBtn != undefined) {
+                if (iframeBackBtn !== undefined) {
                     clearInterval(intervalId);
                     intervalId = -1;
                     if (counter > 0) {
@@ -180,12 +180,12 @@ else {
 
 $(window).resize(function () {
     if (jQuery(window).innerWidth() > mobileSize) {
-        if (currentSize == SCREEN_SIZE_SMALL) {
+        if (currentSize === SCREEN_SIZE_SMALL) {
             currentSize = SCREEN_SIZE_BIG;
             setBigLayoutConfiguration();
         }
     } else {
-        if (currentSize == SCREEN_SIZE_BIG) {
+        if (currentSize === SCREEN_SIZE_BIG) {
             currentSize = SCREEN_SIZE_SMALL;
             setSmallLayoutConfiguration();
         }
@@ -233,7 +233,7 @@ let userAgent = {};
 
 function updateRewardValue(value, articleDoc) {
     const percentageValue = Math.round(value * 100);
-    const turnValue = Math.round((percentageValue * 5) / 100);
+    const turnValue = Math.round(percentageValue * 5 / 100);
     const rewardEle = articleDoc.getElementById('gauge');
     rewardEle.setAttribute('style', `transform:rotate(.${turnValue}turn)`);
     const comment = articleDoc.getElementById('gauge-comment');
@@ -389,7 +389,7 @@ function updateCodeElementWithJSON(eleId, jsonObj, resultId) {
                 rewardActionId: aux.result.rewardActionId,
                 ranking: aux.result.ranking
             }
-        }
+        };
         code = JSON.stringify(aux, null, 2);
         const regex = new RegExp(`(.*)("rewardActionId":\\s"${resultId}")(.*)`, 'gm');
         code = code.replace(regex, '$1<mark>$2</mark>$3');

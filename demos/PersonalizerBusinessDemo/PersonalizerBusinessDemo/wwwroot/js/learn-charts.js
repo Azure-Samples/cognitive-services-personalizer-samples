@@ -151,7 +151,7 @@
 
         let currentTick = 0;
         intervalId = setInterval(function () {
-            if (currentTick == maxTick - 1) {
+            if (currentTick === maxTick - 1) {
                 avgLearnChart.data.datasets[0].fill = '+1';
             }
             if (currentTick >= maxTick) {
@@ -165,7 +165,14 @@
         }, 10);
     }
 
-    document.getElementById("learnModal").addEventListener("transitionend", function () {
-        runAnimation();
+    const graphModal = document.getElementById("learnModal");
+    graphModal.addEventListener("transitionend", function () {
+        if (graphModal.classList.contains('show')) {
+            runAnimation();
+        }
+    });
+
+    document.getElementById("learnModalContent").addEventListener("transitionend", function (event) {
+        event.stopPropagation();
     });
 });
