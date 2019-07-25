@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\img\latest-photos\**" />
+    <Content Remove="wwwroot\img\latest-photos\**" />
+    <EmbeddedResource Remove="wwwroot\img\latest-photos\**" />
+    <None Remove="wwwroot\img\latest-photos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\img\blank.jpg" />
   </ItemGroup>
 
@@ -18,11 +25,6 @@
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Personalizer" Version="0.8.0-preview" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="UAParser" Version="3.1.36" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="wwwroot\img\latest-photos\" />
   </ItemGroup>
 
 </Project>
