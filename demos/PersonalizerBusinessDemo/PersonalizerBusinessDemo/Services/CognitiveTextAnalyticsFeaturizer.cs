@@ -1,10 +1,11 @@
 using PersonalizerBusinessDemo.Models;
+using PersonalizerBusinessDemo.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PersonalizerBusinessDemo.ActionFeaturizer
+namespace PersonalizerBusinessDemo.Services.ActionFeaturizer
 {
     /// <summary>
     /// This class is a Cognitive Text Analytics implementation of the <see cref="IActionFeaturizer"/> interface.

@@ -2,7 +2,7 @@ using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using PersonalizerBusinessDemo.Models;
 using System.Collections.Generic;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerBusinessDemo.Repositories
 {
     public interface IActionsRepository
     {
