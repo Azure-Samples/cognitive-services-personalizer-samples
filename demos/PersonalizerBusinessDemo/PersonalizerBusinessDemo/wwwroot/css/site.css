@@ -388,10 +388,7 @@ h1 {
 
 .chart-number {
     font-size: 4rem;
-    margin-bottom: 2rem;
     padding-right: 2rem;
-    min-width:50vw;
-    max-width:50vw;
 }
 
 .chartplaybutton {
