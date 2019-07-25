@@ -35,14 +35,13 @@
     }
 
     function getFinalValue(currentValue, withoutPersonalizer) {
-        //let finalValue = (Math.log(currentValue + 0.37) + 1)/1.5;
         let finalValue;
         if (withoutPersonalizer) {
             finalValue = currentValue;
         } else {
             finalValue = (Math.log(currentValue + 0.15) + 2) / 2.3;
             if (finalValue > maxValue) {
-                return maxValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
+                return (maxValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1)).toFixed(2);
             }
         }
 
