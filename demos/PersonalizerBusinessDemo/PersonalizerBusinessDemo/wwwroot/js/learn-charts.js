@@ -165,7 +165,14 @@
         }, 10);
     }
 
-    document.getElementById("learnModal").addEventListener("transitionend", function () {
-        runAnimation();
+    const graphModal = document.getElementById("learnModal");
+    graphModal.addEventListener("transitionend", function () {
+        if (graphModal.classList.contains('show')) {
+            runAnimation();
+        }
+    });
+
+    document.getElementById("learnModalContent").addEventListener("transitionend", function (event) {
+        event.stopPropagation();
     });
 });
