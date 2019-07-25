@@ -16,8 +16,6 @@
 
     const mobileSize = 991;
 
-
-
     function getRandomValue(currentValue, maxDelta, minDelta, withoutPersonalizer) {
         let max = currentValue + maxDelta;
         let min = currentValue - minDelta;
@@ -89,7 +87,7 @@
             responsive: true,
             maintainAspectRatio: false,
             legend: {
-                display: true,
+                display: false,
                 position: 'top',
                 labels: {
                     boxWidth: 10,
@@ -127,7 +125,6 @@
             }
         }
     });
-
 
     function updateData(avgLearnChart, data, dataWithout, currentTick) {
         avgLearnChart.data.datasets[0].data.push(data);
@@ -169,8 +166,6 @@
 
         }, 10);
     }
-
-    
 
     function setupChartResponsiveness() {
         if ($(window).width() > mobileSize) {
