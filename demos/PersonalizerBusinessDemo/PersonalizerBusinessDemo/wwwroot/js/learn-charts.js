@@ -28,7 +28,7 @@
                 return maxWithoutValue;
             }
         }
-        
+
         return newValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
     }
 
@@ -85,11 +85,16 @@
             responsive: true,
             maintainAspectRatio: false,
             legend: {
-                display: false
+                display: true,
+                position: 'top',
+                labels: {
+                    boxWidth: 10,
+                    fontColor: 'black'
+                }
             },
             title: {
                 display: true,
-                text: ''
+                text: ' '
             },
             scales: {
                 yAxes: [{
@@ -115,18 +120,10 @@
                         display: false
                     }
                 }]
-            },
-            legend: {
-                display: true,
-                position: 'top',
-                labels: {
-                    boxWidth: 20,
-                    fontColor: 'black'
-                }
             }
         }
     });
-    
+
     function updateData(avgLearnChart, data, dataWithout, currentTick) {
         avgLearnChart.data.datasets[0].data.push(data);
         avgLearnChart.data.datasets[1].data.push(dataWithout);
