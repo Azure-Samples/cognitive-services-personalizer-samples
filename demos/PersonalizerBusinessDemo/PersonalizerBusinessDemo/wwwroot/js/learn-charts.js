@@ -14,6 +14,8 @@
     const maxValue = 0.8;
     const maxWithoutValue = 0.6;
 
+    const mobileSize = 991;
+
     function getRandomValue(currentValue, maxDelta, minDelta, withoutPersonalizer) {
         let max = currentValue + maxDelta;
         let min = currentValue - minDelta;
@@ -165,9 +167,20 @@
         }, 10);
     }
 
+    function refactorChart() {
+        $(window).resize(function () {
+            if (jQuery(window).innerWidth() > mobileSize) {
+                avgLearnChart.options.legend.display = true;
+            } else {
+                avgLearnChart.options.legend.display = false;
+            }
+        });
+    }
+
     const graphModal = document.getElementById("learnModal");
     graphModal.addEventListener("transitionend", function () {
         if (graphModal.classList.contains('show')) {
+            refactorChart();
             runAnimation();
         }
     });
