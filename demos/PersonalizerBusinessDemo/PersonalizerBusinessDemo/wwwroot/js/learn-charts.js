@@ -85,7 +85,12 @@
             responsive: true,
             maintainAspectRatio: false,
             legend: {
-                display: false
+                display: true,
+                position: 'top',
+                labels: {
+                    boxWidth: 20,
+                    fontColor: 'black'
+                }
             },
             title: {
                 display: true,
@@ -115,14 +120,6 @@
                         display: false
                     }
                 }]
-            },
-            legend: {
-                display: true,
-                position: 'top',
-                labels: {
-                    boxWidth: 20,
-                    fontColor: 'black'
-                }
             }
         }
     });
@@ -154,7 +151,7 @@
 
         let currentTick = 0;
         intervalId = setInterval(function () {
-            if (currentTick == maxTick - 1) {
+            if (currentTick === maxTick - 1) {
                 avgLearnChart.data.datasets[0].fill = '+1';
             }
             if (currentTick >= maxTick) {

@@ -12,4 +12,4 @@ function cleanChilds(element) {
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
-})
+});
