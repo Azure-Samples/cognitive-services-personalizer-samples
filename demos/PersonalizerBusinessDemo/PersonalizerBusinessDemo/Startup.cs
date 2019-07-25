@@ -7,7 +7,9 @@ using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using PersonalizerBusinessDemo.ActionFeaturizer;
+using PersonalizerBusinessDemo.Repositories;
+using PersonalizerBusinessDemo.Services;
+using PersonalizerBusinessDemo.Services.ActionFeaturizer;
 
 namespace PersonalizerBusinessDemo
 {

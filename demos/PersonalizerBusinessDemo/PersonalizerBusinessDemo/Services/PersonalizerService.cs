@@ -1,11 +1,12 @@
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using PersonalizerBusinessDemo.Models;
+using PersonalizerBusinessDemo.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerBusinessDemo.Services
 {
     public class PersonalizerService : IPersonalizerService
     {

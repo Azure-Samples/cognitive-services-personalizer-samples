@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerBusinessDemo.Repositories
 {
     public class CognitiveTextAnalyzer
     {

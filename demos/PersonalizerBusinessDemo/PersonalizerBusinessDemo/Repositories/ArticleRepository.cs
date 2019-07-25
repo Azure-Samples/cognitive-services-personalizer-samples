@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 using PersonalizerBusinessDemo.Models;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerBusinessDemo.Repositories
 {
     public class ArticleRepository : IArticleRepository
     {

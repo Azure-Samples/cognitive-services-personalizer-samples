@@ -1,11 +1,11 @@
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using PersonalizerBusinessDemo.ActionFeaturizer;
+using PersonalizerBusinessDemo.Services.ActionFeaturizer;
 using PersonalizerBusinessDemo.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerBusinessDemo.Repositories
 {
     public class ActionsRepository : IActionsRepository
     {

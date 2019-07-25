@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PersonalizerBusinessDemo.ActionFeaturizer
+namespace PersonalizerBusinessDemo.Services.ActionFeaturizer
 {
     public interface IActionFeaturizer
     {
