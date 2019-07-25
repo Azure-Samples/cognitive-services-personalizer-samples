@@ -18,9 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let reward = 0;
 
     backstageBtn.addEventListener("click", function () {
-        $(this).text(function (i, old) {
-            return backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
-        });
+        backstageBtn.innerText = backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
     });
 
 
