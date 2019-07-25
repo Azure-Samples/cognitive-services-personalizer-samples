@@ -35,26 +35,25 @@
     }
 
     function getFinalValue(currentValue, withoutPersonalizer) {
-        //let finalValue = (Math.log(currentValue + 0.37) + 1)/1.5;
         let finalValue;
         if (withoutPersonalizer) {
             finalValue = currentValue;
         } else {
             finalValue = (Math.log(currentValue + 0.15) + 2) / 2.3;
             if (finalValue > maxValue) {
-                return maxValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
+                return (maxValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1)).toFixed(2);
             }
         }
 
-        return finalValue;
+        return finalValue.toFixed(2);
     }
 
     for (i = 1; i <= maxLoop / hoops; i++) {
         currentValue = getRandomValue(currentValue, 0.02, 0.01, false);
         decreasedValue = getRandomValue(0.25, 0.05, 0, true);
 
-        data.push(getFinalValue(currentValue, false).toFixed(2));
-        dataWithout.push(getFinalValue(decreasedValue, true).toFixed(2));
+        data.push(getFinalValue(currentValue, false));
+        dataWithout.push(getFinalValue(decreasedValue, true));
     }
 
     const startLearnBtnEle = document.getElementById("start-learn-btn");
