@@ -14,6 +14,8 @@
     const maxValue = 0.8;
     const maxWithoutValue = 0.6;
 
+    const mobileSize = 991;
+
     function getRandomValue(currentValue, maxDelta, minDelta, withoutPersonalizer) {
         let max = currentValue + maxDelta;
         let min = currentValue - minDelta;
@@ -28,7 +30,7 @@
                 return maxWithoutValue;
             }
         }
-        
+
         return newValue - (Math.random() > 0.5 ? Math.random() * 0.02 : Math.random() * 0.02 * -1);
     }
 
@@ -85,16 +87,16 @@
             responsive: true,
             maintainAspectRatio: false,
             legend: {
-                display: true,
+                display: false,
                 position: 'top',
                 labels: {
-                    boxWidth: 20,
+                    boxWidth: 10,
                     fontColor: 'black'
                 }
             },
             title: {
                 display: true,
-                text: ''
+                text: ' '
             },
             scales: {
                 yAxes: [{
@@ -123,7 +125,7 @@
             }
         }
     });
-    
+
     function updateData(avgLearnChart, data, dataWithout, currentTick) {
         avgLearnChart.data.datasets[0].data.push(data);
         avgLearnChart.data.datasets[1].data.push(dataWithout);
@@ -165,9 +167,27 @@
         }, 10);
     }
 
+    function setupChartResponsiveness() {
+        if ($(window).width() > mobileSize) {
+            avgLearnChart.options.legend.display = true;
+        }
+        else {
+            avgLearnChart.options.legend.display = false;
+        }
+
+        $(window).resize(function () {
+            if (jQuery(window).innerWidth() > mobileSize) {
+                avgLearnChart.options.legend.display = true;
+            } else {
+                avgLearnChart.options.legend.display = false;
+            }
+        });
+    }
+
     const graphModal = document.getElementById("learnModal");
     graphModal.addEventListener("transitionend", function () {
         if (graphModal.classList.contains('show')) {
+            setupChartResponsiveness();
             runAnimation();
         }
     });
