@@ -16,6 +16,8 @@
 
     const mobileSize = 991;
 
+
+
     function getRandomValue(currentValue, maxDelta, minDelta, withoutPersonalizer) {
         let max = currentValue + maxDelta;
         let min = currentValue - minDelta;
@@ -126,6 +128,7 @@
         }
     });
 
+
     function updateData(avgLearnChart, data, dataWithout, currentTick) {
         avgLearnChart.data.datasets[0].data.push(data);
         avgLearnChart.data.datasets[1].data.push(dataWithout);
@@ -167,7 +170,16 @@
         }, 10);
     }
 
+    
+
     function setupChartResponsiveness() {
+        if ($(window).width() > mobileSize) {
+            avgLearnChart.options.legend.display = true;
+        }
+        else {
+            avgLearnChart.options.legend.display = false;
+        }
+
         $(window).resize(function () {
             if (jQuery(window).innerWidth() > mobileSize) {
                 avgLearnChart.options.legend.display = true;
