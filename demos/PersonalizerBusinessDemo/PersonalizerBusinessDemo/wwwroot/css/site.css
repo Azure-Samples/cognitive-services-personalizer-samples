@@ -388,15 +388,12 @@ h1 {
 
 .chart-number {
     font-size: 4rem;
-    margin-bottom: 2rem;
-    padding-right: 2rem;
-    min-width:50vw;
-    max-width:50vw;
 }
 
 .chartplaybutton {
-    margin-bottom: 2rem;
-    max-width:40vw;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 40vw;
 }
 
 .chart-people {
@@ -412,7 +409,8 @@ h1 {
     min-height: 15rem;
     max-width: 50vw;
     min-width: 15vw;
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 @media (max-width: 480px) {
@@ -424,10 +422,6 @@ h1 {
 
 @media (min-width: 992px) and (max-width : 1200px) {
     .chart-learn {
-        height: 30rem;
-    }
-
-    .chart-people {
         height: 30rem;
     }
 }
@@ -531,6 +525,10 @@ h3.modal-title {
 .charts-modal-text {
     text-align: center;
     font-size: small;
+}
+
+#learnModal {
+    padding-right: 0px;
 }
 
 /* End Charts Modal */
