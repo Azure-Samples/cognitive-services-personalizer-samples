@@ -46,15 +46,15 @@
             }
         }
 
-        return finalValue.toFixed(2);
+        return finalValue;
     }
 
     for (i = 1; i <= maxLoop / hoops; i++) {
         currentValue = getRandomValue(currentValue, 0.02, 0.01, false);
         decreasedValue = getRandomValue(0.25, 0.05, 0, true);
 
-        data.push(getFinalValue(currentValue, false));
-        dataWithout.push(getFinalValue(decreasedValue, true));
+        data.push(getFinalValue(currentValue, false).toFixed(2));
+        dataWithout.push(getFinalValue(decreasedValue, true).toFixed(2));
     }
 
     const startLearnBtnEle = document.getElementById("start-learn-btn");
