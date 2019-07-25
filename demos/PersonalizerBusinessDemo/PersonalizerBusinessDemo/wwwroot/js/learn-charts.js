@@ -167,7 +167,7 @@
         }, 10);
     }
 
-    function refactorChart() {
+    function setupChartResponsiveness() {
         $(window).resize(function () {
             if (jQuery(window).innerWidth() > mobileSize) {
                 avgLearnChart.options.legend.display = true;
@@ -180,7 +180,7 @@
     const graphModal = document.getElementById("learnModal");
     graphModal.addEventListener("transitionend", function () {
         if (graphModal.classList.contains('show')) {
-            refactorChart();
+            setupChartResponsiveness();
             runAnimation();
         }
     });
