@@ -46,15 +46,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if ($(window).width() > mobileSize) {
+    if (document.documentElement.clientWidth > mobileSize) {
         currentSize = SCREEN_SIZE_BIG;
     }
     else {
         currentSize = SCREEN_SIZE_SMALL;
     }
 
-    $(window).resize(function () {
-        if (jQuery(window).innerWidth() > mobileSize) {
+    window.onresize = function () {
+        if (window.innerWidth > mobileSize) {
             if (currentSize === SCREEN_SIZE_SMALL) {
                 currentSize = SCREEN_SIZE_BIG;
                 setBigLayoutConfiguration();
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 setSmallLayoutConfiguration();
             }
         }
-    });
+    };
 
     goBtnEle.addEventListener("click", function () {
         getRecommendation().then(result => {
