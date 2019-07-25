@@ -1,0 +1,19 @@
+{
+  "id": "microsoft-executives-meet",
+  "enabled": false,
+  "title": "Microsoft's CEO meets with top execs every week to review AI projects",
+  "author": "Jordan Novet",
+  "authorLink": "https://www.cnbc.com/jordan-novet/",
+  "text": [
+    "Every week - generally on Thursdays - MIcrosoft CEO Satya Nadella and his top lieutenants convene to discuss the company's growing number of artificial intelligence projects.",
+    "Known as AI 365, the meetings started over a year ago and reflect Microsoft's increased emphasis on AI across the product portfolio, Chief Technology Officer Kevin Scott told CNBC in a recent interview. The meetings are in addition to the longstanding gathering of the senior leadership team each Friday.",
+    "'When there's friction and obstacles and inefficiencies in the system, people can raise their hands and say, 'I can't do this thing,''  Scott said. Having all the highest-ranking executives in the room at the same time means Microsoft can resolve those issues quickly, he said.",
+    "AI is one of the hottest trends in technology, and is a focus at the biggest companies, including Amazon, Google and Facebook. They're all building intelligence into the products they use internally as well as the things they sell and provide to users.",
+    "AI systems run behind the scenes in several Microsoft products, including the Bing search engine, which uses it to find images containing similar objects, and the Excel app for Android, which relies on AI to convert data on a page you photograph into a spreadsheet you can populate and edit. AI also powers the Cortana voice assistant and is used to figure out which PCs should receive the latest Windows 10 updates first."
+  ],
+  "imageName": "nadella.jpg",
+  "originalSourceURL": "https://www.cnbc.com/2019/04/07/microsoft-executives-meet-each-week-to-review-ai-projects.html",
+  "publishedAgo": "2-6Months",
+  "breakingNews": false,
+  "source": "cnbc.com"
+}
