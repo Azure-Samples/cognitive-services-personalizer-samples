@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 using PersonalizerBusinessDemo.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using PersonalizerBusinessDemo.Repositories;
+using PersonalizerBusinessDemo.Services;
 
 namespace PersonalizerBusinessDemo.Controllers
 {

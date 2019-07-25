@@ -1,7 +1,7 @@
 using PersonalizerBusinessDemo.Models;
 using System.Collections.Generic;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerBusinessDemo.Repositories
 {
     public interface IArticleRepository
     {
