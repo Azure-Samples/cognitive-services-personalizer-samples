@@ -2,14 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using PersonalizerBusinessDemo.Repositories;
 using PersonalizerBusinessDemo.Services;
-using PersonalizerBusinessDemo.Services.ActionFeaturizer;
 
 namespace PersonalizerBusinessDemo
 {
@@ -27,8 +25,6 @@ namespace PersonalizerBusinessDemo
         {
             var personalizationEndPoint = Configuration["PersonalizationEndpoint"];
             var personalizationApiKey = Configuration["PersonalizationApiKey"];
-            var cognitiveTextAnalyticsSubscriptionKey = Configuration["TextAnalyticsKey"];
-            var cognitiveTextAnalyticsEndpoint = Configuration["TextAnalyticsEndpoint"];
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -37,13 +33,6 @@ namespace PersonalizerBusinessDemo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddSingleton<ITextAnalyticsClient>(s => new TextAnalyticsClient(new ApiKeyServiceClientCredentials(cognitiveTextAnalyticsSubscriptionKey))
-            {
-                // Cognitive Service Endpoint
-                Endpoint = cognitiveTextAnalyticsEndpoint.Split("/text/analytics")[0]
-            });
-            services.AddSingleton<CognitiveTextAnalyzer, CognitiveTextAnalyzer>();
-            services.AddSingleton<IActionFeaturizer, CognitiveTextAnalyticsFeaturizer>();
             services.AddSingleton<IPersonalizerClient>(s => CreateClient(personalizationEndPoint, personalizationApiKey));
             services.AddSingleton<IActionsRepository, ActionsRepository>();
             services.AddSingleton<IPersonalizerService, PersonalizerService>();
