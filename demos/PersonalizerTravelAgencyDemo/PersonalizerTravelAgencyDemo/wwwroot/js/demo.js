@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
 
+    const costsOptions = ["allInclusive", "luxury"];
+    const additonalsOptions = ["boatTrip", "dinnerBreakfast"];
     let currentSize;
     const SCREEN_SIZE_SMALL = 0;
     const SCREEN_SIZE_BIG = 1;
@@ -226,6 +228,8 @@ document.addEventListener("DOMContentLoaded", function () {
 let context = {
     referrer: "social",
     device: "mobile",
+    packageAdditionals: getRandomOption(additonalsOptions),
+    costs: getRandomOption(costsOptions),
     userAgent: null,
     useTextAnalytics: false
 };
@@ -295,16 +299,22 @@ function setupContextControls() {
     updateContext(referrerSelectEle.value, deviceSelectEle.value);
 }
 
-function updateContext(referrer, device, removeUserAgent, userAgent) {
+function updateContext(referrer, device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
     context.referrer = referrer || context.referrer;
     context.device = device || context.device;
+    context.costs = currentCost || context.costs;
+    context.packageAdditionals = currentAdditionals || context.packageAdditionals;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
             referrer: context.referrer
         },
-        { device: context.device }
+        {
+            device: context.device,
+            costs: context.costs,
+            additionals: context.packageAdditionals
+        }
     ];
 
 
@@ -445,6 +455,8 @@ function getRecommendation() {
     const requestContext = {
         referrer: context.referrer,
         device: context.device,
+        costs: context.costs,
+        additionals: context.packageAdditionals,
         useTextAnalytics: context.useTextAnalytics,
         useUserAgent: !!context.userAgent
     };
@@ -486,4 +498,10 @@ function updateShowGraphbtn(shouldShow) {
 
     document.getElementById("learn-button").classList.replace(previousClass, actualClass);
     document.getElementById("mobile-learn-button").classList.replace(previousClass, actualClass);
+}
+
+function getRandomOption(options) {
+    var randomNumber = Math.floor(Math.random() * options.length);
+
+    return options[randomNumber];
 }
