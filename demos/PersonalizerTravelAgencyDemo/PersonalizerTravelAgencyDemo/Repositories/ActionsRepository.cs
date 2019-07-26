@@ -9,7 +9,6 @@ namespace PersonalizerTravelAgencyDemo.Repositories
     public class ActionsRepository : IActionsRepository
     {
         private IList<RankableActionWithMetadata> _actions = new List<RankableActionWithMetadata>();
-        private IList<RankableActionWithMetadata> _actionsWithTextAnalytics = new List<RankableActionWithMetadata>();
 
         public ActionsRepository(IArticleRepository articleRepository)
         {
@@ -36,16 +35,11 @@ namespace PersonalizerTravelAgencyDemo.Repositories
             }
 
             _actions = _actions.OrderBy(a => a.Id).ToList();
-            _actionsWithTextAnalytics = _actionsWithTextAnalytics.OrderBy(a => a.Id).ToList();
         }
 
         private async Task CreateRankableAction(Article article)
         {
             this._actions.Add(new RankableActionWithMetadata(article));
-
-            var rankableAction = new RankableActionWithMetadata(article);
-
-            this._actionsWithTextAnalytics.Add(rankableAction);
         }
     }
 }

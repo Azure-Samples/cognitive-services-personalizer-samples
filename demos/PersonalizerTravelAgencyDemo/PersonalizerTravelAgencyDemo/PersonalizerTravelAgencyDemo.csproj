@@ -13,7 +13,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Azure.CognitiveServices.Language.TextAnalytics" Version="2.8.0-preview" />
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Personalizer" Version="0.8.0-preview" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="UAParser" Version="3.1.36" />

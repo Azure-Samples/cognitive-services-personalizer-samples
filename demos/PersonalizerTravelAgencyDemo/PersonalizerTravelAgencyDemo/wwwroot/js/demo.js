@@ -230,8 +230,7 @@ let context = {
     device: "mobile",
     packageAdditionals: getRandomOption(additonalsOptions),
     costs: getRandomOption(costsOptions),
-    userAgent: null,
-    useTextAnalytics: false
+    userAgent: null
 };
 
 let userAgent = {};
@@ -258,13 +257,6 @@ function clearRewardmessage() {
 }
 
 function setupActionControls() {
-    const useTextAnalyticsEle = document.getElementById('text-analytics');
-    useTextAnalyticsEle.addEventListener('change', (event) => {
-        const checkbox = event.target;
-        context.useTextAnalytics = !!checkbox.checked;
-        getActions(context.useTextAnalytics).then(updateActionsTab);
-    });
-
     getActions(false).then(updateActionsTab);
 }
 
@@ -447,8 +439,8 @@ function updateArticle(result) {
     articleViewer.src = `/home/homesite?articleIds=${articleIds}`;
 }
 
-function getActions(useTextAnalytics) {
-    return fetch(`/api/Metadata/Actions?useTextAnalytics=${useTextAnalytics}`).then(r => r.json());
+function getActions() {
+    return fetch(`/api/Metadata/Actions`).then(r => r.json());
 }
 
 function getRecommendation() {
@@ -457,7 +449,6 @@ function getRecommendation() {
         device: context.device,
         costs: context.costs,
         additionals: context.packageAdditionals,
-        useTextAnalytics: context.useTextAnalytics,
         useUserAgent: !!context.userAgent
     };
 

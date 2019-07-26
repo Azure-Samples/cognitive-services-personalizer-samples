@@ -15,7 +15,7 @@ namespace PersonalizerTravelAgencyDemo.Controllers
         }
 
         [HttpGet("Actions")]
-        public JsonResult Actions(bool useTextAnalytics)
+        public JsonResult Actions()
         {
             return new JsonResult(_actionsRepository.GetActionsWithMetadata());
         }
