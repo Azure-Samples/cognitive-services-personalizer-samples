@@ -388,12 +388,12 @@ h1 {
 
 .chart-number {
     font-size: 4rem;
+    margin-bottom: 2rem;
+    padding-right: 2rem;
 }
 
 .chartplaybutton {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-    max-width: 40vw;
+    margin-bottom: 2rem;
 }
 
 .chart-people {
@@ -558,11 +558,17 @@ h3.modal-title {
 }
 /* End Top Bar */
 
-.privacy-padding{
-    padding-left:5rem;
+.privacy-padding {
+    padding-left: 5rem;
 }
 
 .homesite_button {
     background-color: #F57636;
-    color:white;
+    color: white;
+}
+
+.homesite_button:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #df7138;
 }
