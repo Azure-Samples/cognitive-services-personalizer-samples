@@ -550,10 +550,10 @@ h3.modal-title {
     line-height: 1.5;
 }
 
-#page-title {
-    font-size: 0.7rem;
-    font-weight: bolder;
-    margin-bottom: 0;
+.page-title {
+    font-weight:bold;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
     line-height: 1.5;
 }
 /* End Top Bar */
@@ -565,10 +565,23 @@ h3.modal-title {
 .homesite_button {
     background-color: #F57636;
     color: white;
+    margin-bottom:3rem;
+    margin-top:1rem;
+    margin-right:1.7rem;
 }
 
 .homesite_button:hover {
     color: white;
     text-decoration: none;
     background-color: #df7138;
+}
+
+.homesite_checks {
+    background-color: #edeef0;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.main_slot_card{
+    min-height: 65vh;
 }
