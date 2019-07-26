@@ -8,7 +8,7 @@ using UAParser;
 using System;
 using System.Collections.Generic;
 
-namespace PersonalizerBusinessDemo.Models
+namespace PersonalizerTravelAgencyDemo.Models
 {
     public class UserAgentInfo
     {

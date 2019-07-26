@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerTravelAgencyDemo
 {
     public class Program
     {

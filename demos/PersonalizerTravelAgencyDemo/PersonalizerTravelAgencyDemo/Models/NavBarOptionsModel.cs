@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace PersonalizerBusinessDemo.Models
+namespace PersonalizerTravelAgencyDemo.Models
 {
     public class NavBarOptionsModel
     {

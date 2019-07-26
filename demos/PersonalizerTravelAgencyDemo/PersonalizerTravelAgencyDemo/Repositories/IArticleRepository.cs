@@ -1,7 +1,7 @@
-using PersonalizerBusinessDemo.Models;
+using PersonalizerTravelAgencyDemo.Models;
 using System.Collections.Generic;
 
-namespace PersonalizerBusinessDemo.Repositories
+namespace PersonalizerTravelAgencyDemo.Repositories
 {
     public interface IArticleRepository
     {

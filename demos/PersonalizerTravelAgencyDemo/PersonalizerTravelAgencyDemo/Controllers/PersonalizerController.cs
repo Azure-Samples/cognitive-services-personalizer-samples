@@ -1,10 +1,10 @@
-using PersonalizerBusinessDemo.Models;
+using PersonalizerTravelAgencyDemo.Models;
 using Microsoft.AspNetCore.Mvc;
-using PersonalizerBusinessDemo.Services;
+using PersonalizerTravelAgencyDemo.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace PersonalizerBusinessDemo.Controllers
+namespace PersonalizerTravelAgencyDemo.Controllers
 {
     [Route("api/[controller]")]
     public class PersonalizerController : Controller

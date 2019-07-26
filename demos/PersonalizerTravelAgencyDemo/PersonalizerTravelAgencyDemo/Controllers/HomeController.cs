@@ -4,13 +4,13 @@ using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using PersonalizerBusinessDemo.Models;
+using PersonalizerTravelAgencyDemo.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
-using PersonalizerBusinessDemo.Repositories;
-using PersonalizerBusinessDemo.Services;
+using PersonalizerTravelAgencyDemo.Repositories;
+using PersonalizerTravelAgencyDemo.Services;
 
-namespace PersonalizerBusinessDemo.Controllers
+namespace PersonalizerTravelAgencyDemo.Controllers
 {
     public class HomeController : Controller
     {

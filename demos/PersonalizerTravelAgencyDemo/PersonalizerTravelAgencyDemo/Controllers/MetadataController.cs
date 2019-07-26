@@ -1,8 +1,8 @@
-using PersonalizerBusinessDemo.Models;
+using PersonalizerTravelAgencyDemo.Models;
 using Microsoft.AspNetCore.Mvc;
-using PersonalizerBusinessDemo.Repositories;
+using PersonalizerTravelAgencyDemo.Repositories;
 
-namespace PersonalizerBusinessDemo.Controllers
+namespace PersonalizerTravelAgencyDemo.Controllers
 {
     [Route("api/[controller]")]
     public class MetadataController : Controller
