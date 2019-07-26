@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 
-namespace PersonalizerBusinessDemo.Models
+namespace PersonalizerTravelAgencyDemo.Models
 {
     public class RankableActionWithMetadata : RankableAction
     {

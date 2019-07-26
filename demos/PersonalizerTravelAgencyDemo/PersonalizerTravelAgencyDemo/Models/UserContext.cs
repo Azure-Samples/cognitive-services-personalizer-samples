@@ -1,4 +1,4 @@
-namespace PersonalizerBusinessDemo.Models
+namespace PersonalizerTravelAgencyDemo.Models
 {
     public class UserContext
     {

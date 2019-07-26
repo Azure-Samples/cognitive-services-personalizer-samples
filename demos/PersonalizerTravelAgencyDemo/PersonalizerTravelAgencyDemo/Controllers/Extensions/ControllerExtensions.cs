@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PersonalizerBusinessDemo.Models;
+using PersonalizerTravelAgencyDemo.Models;
 using System.Collections.Generic;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerTravelAgencyDemo
 {
     public static class ControllerExtensions
     {

@@ -1,10 +1,10 @@
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using PersonalizerBusinessDemo.Models;
+using PersonalizerTravelAgencyDemo.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PersonalizerBusinessDemo.Repositories
+namespace PersonalizerTravelAgencyDemo.Repositories
 {
     public class ActionsRepository : IActionsRepository
     {

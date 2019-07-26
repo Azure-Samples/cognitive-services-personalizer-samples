@@ -6,10 +6,10 @@ using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using PersonalizerBusinessDemo.Repositories;
-using PersonalizerBusinessDemo.Services;
+using PersonalizerTravelAgencyDemo.Repositories;
+using PersonalizerTravelAgencyDemo.Services;
 
-namespace PersonalizerBusinessDemo
+namespace PersonalizerTravelAgencyDemo
 {
     public class Startup
     {

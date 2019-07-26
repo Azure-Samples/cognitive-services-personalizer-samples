@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
-using PersonalizerBusinessDemo.Models;
+using PersonalizerTravelAgencyDemo.Models;
 
-namespace PersonalizerBusinessDemo.Repositories
+namespace PersonalizerTravelAgencyDemo.Repositories
 {
     public class ArticleRepository : IArticleRepository
     {
