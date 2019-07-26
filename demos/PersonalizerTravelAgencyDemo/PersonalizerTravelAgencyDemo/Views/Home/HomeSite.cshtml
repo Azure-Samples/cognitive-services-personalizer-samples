@@ -8,64 +8,23 @@
 
 <div class="row">
     <div class="col-12 col-md-9">
-        @{
-            if (Model.Any())
-            {
-                <a href="/home/article/@Model.First().Id">
-                    <div class="main_slot_image container-img-text">
-                        <div class="article-img-container">
-                            <img src="~/img/@Model.First().ImageName" alt="News 1" />
-                        </div>
-                        <div class="bottom-left"><h2 class="hero-text">@Model.First().Title</h2></div>
+        <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
+            <div class="row mx-1 my-5 my-md-auto">
+                <div class="col-12">
+                    <div><h1>Shopping Cart - Vacation Builder
+                        </h1></div>
+                    <div class="row text-center justify-content-center">
+
                     </div>
-                </a>
-            }
-            else
-            {
-                if (siteConfig.StartWithBlankPage == "true")
-                {
-                    <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
-                        <div class="row my-5 my-md-auto">
-                            <div class="col-12">
-                                <div class="row text-center justify-content-center">
-                                   
-                                </div>
-                                <div class="row justify-content-center">
-                                    <button type="button" class="btn homesite_button" id="go-btn-iframe">
-                                        @siteConfig.RefreshButtonText
-                                    </button>
-                                </div>
-                                <div class="row justify-content-center mt-3">
-                                    <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-left"></div>
+                    <div class="row justify-content-end">
+                        <button type="button" class="btn homesite_button" id="go-btn-iframe">
+                            @siteConfig.RefreshButtonText
+                        </button>
                     </div>
-                }
-                else
-                {
-                    <div class="main_slot_image container-img-text card " style="height: 100%; visibility:hidden; color: black;">
-                        <div class="row my-5 my-md-auto">
-                            <div class="col-12"> 
-                                <div class="row text-center justify-content-center">
-                                   
-                                </div>
-                                <div class="row justify-content-center">
-                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
-                                        @siteConfig.RefreshButtonText
-                                    </button>
-                                </div>
-                                <div class="row justify-content-center mt-3">
-                                    <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom-left"></div>
-                    </div>
-                }
-            }
-        }
+                </div>
+            </div>
+            <div class="bottom-left"></div>
+        </div>
     </div>
 </div>
 
