@@ -45,7 +45,7 @@ namespace PersonalizerTravelAgencyDemo.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Article(string id)
+        public IActionResult Confirmation(string id)
         {
             ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 

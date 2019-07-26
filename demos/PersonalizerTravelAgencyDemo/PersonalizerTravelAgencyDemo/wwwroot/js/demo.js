@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
             boundSetIframeContentSize(!backstage.classList.contains('show'));
         });
 
-        if (articleViewer.contentWindow.location.href.indexOf("rticle/") > -1) {
+        if (articleViewer.contentWindow.location.href.indexOf("onfirmation/") > -1) {
 
             updateShowGraphbtn(true);
             if (intervalId >= 0) {
