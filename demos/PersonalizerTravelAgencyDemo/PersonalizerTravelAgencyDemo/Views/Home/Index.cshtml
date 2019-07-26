@@ -64,9 +64,9 @@
             <div class="modal-header">
                 <h5 class="col-md-12 modal-title text-center" id="about-modal-title">
                     About Personalizer Demo
-                <button type="button" class="close pr-0" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                    <button type="button" class="close pr-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </h5>
             </div>
             <div class="modal-body">
@@ -96,7 +96,7 @@
     <div class="col p-0" id="webpage-container">
 
         <nav class="navbar navbar-expand-md navbar-dark px-5 articleNavBar" id="navbar-container" style="background-color: @siteConfig.NavigationBar.BackgroundColor">
-            <a class="navbar-brand " id="brand-logo" href="#"><img src="~/@navigationBarOptions.LogoImageURL" class="brand-logo"/></a>
+            <a class="navbar-brand " id="brand-logo" href="#"><img src="~/@navigationBarOptions.LogoImageURL" class="brand-logo" /></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
@@ -231,7 +231,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row pt-2">
                     <div class="col-12">
                         <div class="card">
@@ -320,39 +320,33 @@
             <div class="modal-body">
                 <div class="learn-container" id="graph-container">
                     <div class="container-fluid">
-                        <div class="row d-block pt-5 pb-3 small-footer">
-                            <div class="row d-flex">
-                                <div class="col-md-12 col-sm-12 col-xl-12 d-inline-flex align-items-center justify-content-center">
-                                    <div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 align-items-center justify-content-center">
-                                        <div class="row align-items-center justify-content-center">
-                                            <div class="col-12 text-center">
-                                                <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2 align-items-center justify-content-center">
-                                            <div class="col-12 text-center text-capitalize">
-                                            <span class="charts-modal-text">See how Personalizer learns over time</span>
-                                            </div>
-                                        </div>
+                        <div class="row d-flex">
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-xl-6 align-items-center justify-content-center">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-6 text-center">
+                                        <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
                                     </div>
-                                    <div class="col-md-8 col-sm-8 col-xl-8 align-items-center justify-content-center">
-                                        <canvas id="avg-learn-chart" class="chart-learn" style="height:600px;"></canvas>
+                                </div>
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-10 text-center text-capitalize">
+                                        <span class="charts-modal-text">See how Personalizer learns over time</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row d-flex">
-                                <div class="col-md-12 col-sm-12 col-xl-12 d-flex align-items-center justify-content-center">
-                                    <div class="col-md-4 col-sm-4 col-xs-4 col-xl-4 px-0 mx-0 align-items-center justify-content-center text-center">
-                                        <div class="row align-items-center justify-content-center text-center">
-                                            <div id="current-avg-number" class="display-1 chart-number">0.0</div>
-                                        </div>
-                                        <div class="row align-items-center justify-content-center text-center">
-                                            <div class="col-10 text-center text-capitalize">
-                                        	<span id="current-avg-number-label" class="charts-modal-text">Average Engagement last 100 visits</span>
-                                            </div>
-                                        </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-xl-6 align-items-center justify-content-center">
+                                <div class="row align-items-center justify-content-center text-center">
+                                    <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                                </div>
+                                <div class="row align-items-center justify-content-center text-center">
+                                    <div class="col-10 text-center text-capitalize">
+                                        <span id="current-avg-number-label" class="charts-modal-text">Average Engagement last 100 visits</span>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col-md-12 col-sm-12 col-xl-12">
+                                <canvas id="avg-learn-chart" class="chart-learn mx-auto"></canvas>
                             </div>
                         </div>
                     </div>
@@ -364,7 +358,7 @@
 <div class="row my-2">
     <div class="mx-auto">
         <div class="row">
-            <span class="mx-auto"><i class="far fa-copyright"></i> 2019 - Demo of Personalizer, an Azure Cognitive Service <a href="https://privacy.microsoft.com/en-us/PrivacyStatement" target="_blank" class="privacy-padding" >Privacy</a></span>
+            <span class="mx-auto"><i class="far fa-copyright"></i> 2019 - Demo of Personalizer, an Azure Cognitive Service <a href="https://privacy.microsoft.com/en-us/PrivacyStatement" target="_blank" class="privacy-padding">Privacy</a></span>
         </div>
     </div>
 </div>
