@@ -278,16 +278,16 @@ function setupContextControls() {
     const deviceSelectEle = document.getElementById('device');
     deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
     deviceSelectEle.addEventListener('change', (event) => {
-        updateContext(null, null, event.target.value);
+        updateContext(null, event.target.value);
     });
 
     const UseUserAgentEle = document.getElementById('use-useragent');
     UseUserAgentEle.addEventListener('change', (event) => {
         const checkbox = event.target;
         if (checkbox.checked) {
-            updateContext(null, null, null, false, userAgent);
+            updateContext(null, null, false, userAgent);
         } else {
-            updateContext(null, null, null, true);
+            updateContext(null, null, true);
         }
     });
 
