@@ -21,19 +21,19 @@ namespace PersonalizerTravelAgencyDemo.Services
             _articleRepository = articleRepository;
         }
 
-        public RankResponse GetRecommendations(IList<object> context, bool useTextAnalytics = false)
+        public RankResponse GetRecommendations(IList<object> context)
         {
             var eventId = Guid.NewGuid().ToString();
-            var actions = _actionsRepository.GetActions(useTextAnalytics);
+            var actions = _actionsRepository.GetActions();
 
             var request = new RankRequest(actions, context, null, eventId);
             RankResponse response = _personalizerClient.Rank(request);
             return response;
         }
 
-        public IList<Article> GetRankedArticles(IList<object> context, bool useTextAnalytics = false)
+        public IList<Article> GetRankedArticles(IList<object> context)
         {
-            var recommendations = GetRecommendations(context, useTextAnalytics).Ranking.Select(x => x.Id).ToList();
+            var recommendations = GetRecommendations(context).Ranking.Select(x => x.Id).ToList();
             var articles = _articleRepository.GetArticles();
 
             return articles.OrderBy(article => recommendations.IndexOf(article.Id)).ToList();

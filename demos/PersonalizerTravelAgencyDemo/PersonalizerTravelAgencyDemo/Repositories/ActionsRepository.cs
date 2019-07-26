@@ -18,14 +18,14 @@ namespace PersonalizerTravelAgencyDemo.Repositories
             CreateRankableActions(articles);
         }
 
-        public IList<RankableAction> GetActions(bool useTextAnalytics)
+        public IList<RankableAction> GetActions()
         {
-            return useTextAnalytics ? _actionsWithTextAnalytics.Cast<RankableAction>().ToList() : _actions.Cast<RankableAction>().ToList();
+            return _actions.Cast<RankableAction>().ToList();
         }
 
-        public IList<RankableActionWithMetadata> GetActionsWithMetadata(bool useTextAnalytics)
+        public IList<RankableActionWithMetadata> GetActionsWithMetadata()
         {
-            return useTextAnalytics ? _actionsWithTextAnalytics : _actions;
+            return _actions;
         }
 
         private void CreateRankableActions(IEnumerable<Article> articles)

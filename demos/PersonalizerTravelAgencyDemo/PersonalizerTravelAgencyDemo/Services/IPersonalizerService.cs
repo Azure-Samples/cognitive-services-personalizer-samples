@@ -6,8 +6,8 @@ namespace PersonalizerTravelAgencyDemo.Services
 {
     public interface IPersonalizerService
     {
-        RankResponse GetRecommendations(IList<object> context, bool useTextAnalytics = false);
-        IList<Article> GetRankedArticles(IList<object> context, bool useTextAnalytics = false);
+        RankResponse GetRecommendations(IList<object> context);
+        IList<Article> GetRankedArticles(IList<object> context);
         void Reward(Reward reward);
     }
 }

@@ -11,7 +11,7 @@ namespace PersonalizerTravelAgencyDemo
         {
             var result = new List<object>
             {
-                new {context.Referrer, context.Device}
+                new {context.Device}
             };
 
             if (request != null)

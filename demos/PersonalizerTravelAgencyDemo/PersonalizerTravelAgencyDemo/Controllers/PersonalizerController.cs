@@ -22,7 +22,7 @@ namespace PersonalizerTravelAgencyDemo.Controllers
         {
             var currentContext = this.CreatePersonalizerContext(context, context.UseUserAgent ? Request : null);
 
-            return new JsonResult(_service.GetRecommendations(currentContext, context.UseTextAnalytics));
+            return new JsonResult(_service.GetRecommendations(currentContext));
         }
 
         // POST api/Personalizer/Reward
