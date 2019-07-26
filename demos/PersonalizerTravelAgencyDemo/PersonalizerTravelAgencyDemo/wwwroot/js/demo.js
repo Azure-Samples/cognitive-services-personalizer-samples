@@ -225,7 +225,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let context = {
     referrer: "social",
-    tournament: "wimbledon",
     device: "mobile",
     userAgent: null,
     useTextAnalytics: false
@@ -272,12 +271,6 @@ function setupContextControls() {
         updateContext(event.target.value);
     });
 
-    const currentTournamentSelectEle = document.getElementById('currentTournament');
-    currentTournamentSelectEle.selectedIndex = ramdomizeSelectedOption(currentTournamentSelectEle);
-    currentTournamentSelectEle.addEventListener('change', (event) => {
-        updateContext(null, event.target.value);
-    });
-
     const deviceSelectEle = document.getElementById('device');
     deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
     deviceSelectEle.addEventListener('change', (event) => {
@@ -296,22 +289,20 @@ function setupContextControls() {
 
     getUserAgent().then(userAgentResponse => {
         userAgent = userAgentResponse;
-        updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
+        updateContext(referrerSelectEle.value, deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
     });
 
-    updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value);
+    updateContext(referrerSelectEle.value, deviceSelectEle.value);
 }
 
-function updateContext(referrer, currentTournament, device, removeUserAgent, userAgent) {
+function updateContext(referrer, device, removeUserAgent, userAgent) {
     context.referrer = referrer || context.referrer;
-    context.tournament = currentTournament || context.tournament;
     context.device = device || context.device;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
-            referrer: context.referrer,
-            tournament: context.tournament
+            referrer: context.referrer
         },
         { device: context.device }
     ];
@@ -453,7 +444,6 @@ function getActions(useTextAnalytics) {
 function getRecommendation() {
     const requestContext = {
         referrer: context.referrer,
-        tournament: context.tournament,
         device: context.device,
         useTextAnalytics: context.useTextAnalytics,
         useUserAgent: !!context.userAgent
