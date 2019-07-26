@@ -575,8 +575,13 @@ h3.modal-title {
     text-decoration: none;
     background-color: #df7138;
 }
+
 .homesite_checks {
     background-color: #edeef0;
     padding-bottom: 1rem;
     padding-top: 1rem;
+}
+
+.main_slot_card{
+    min-height: 65vh;
 }
