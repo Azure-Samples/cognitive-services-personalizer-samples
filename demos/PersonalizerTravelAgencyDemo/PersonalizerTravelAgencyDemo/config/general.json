@@ -1,5 +1,5 @@
 {
-  "RefreshButtonText": "Show a Personalized Article",
+  "RefreshButtonText": "Confirm Purchase",
   "LogoImageURL": "~/img/logo.png",
   "PersonalizerSignUpLabel": "Sign up",
   "PersonalizerSignUpURL": "https://azure.microsoft.com/en-us/try/cognitive-services/?api=personalizer",

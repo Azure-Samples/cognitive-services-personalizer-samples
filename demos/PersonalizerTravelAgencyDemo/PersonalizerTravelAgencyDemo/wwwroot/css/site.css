@@ -561,3 +561,8 @@ h3.modal-title {
 .privacy-padding{
     padding-left:5rem;
 }
+
+.homesite_button {
+    background-color: #F57636;
+    color:white;
+}
