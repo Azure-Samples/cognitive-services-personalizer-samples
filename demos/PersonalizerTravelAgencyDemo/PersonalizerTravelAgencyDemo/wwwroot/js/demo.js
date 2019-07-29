@@ -176,17 +176,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             gaugeInterval = setInterval(function () {
                 const comment = articleDoc.getElementById('gauge-comment').innerText;
-                console.log("Comment", comment)
-                let newValue = comment - 0.1;
-                if (newValue <= 0.2) {
+                let newValue = comment - RewardDecreaseAmount;
+                if (newValue <= RewardDecreaseLimit) {
                     clearInterval(gaugeInterval);
                     gaugeInterval = -1;
-                    updateRewardValue(0.2, articleDoc)
+                    updateRewardValue(RewardDecreaseLimit, articleDoc);
                 } else {
                     updateRewardValue(newValue, articleDoc);
                 }
 
-            }, 1000);
+            }, RewardDecreaseInterval*100);
             
 
             var innerDoc = articleViewer.contentWindow.document;
