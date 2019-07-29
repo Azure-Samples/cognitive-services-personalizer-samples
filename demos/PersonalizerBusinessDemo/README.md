@@ -6,7 +6,7 @@ The solution is an [ASP.NET Core MVC 2.2](https://docs.microsoft.com/en-us/aspne
 
 On the left side there is a simulated news page that displays some article of interest when you click "Personalize", picking it out of five possible articles.
 
-The 3 articles are the 3 possible "actions" for Personalizer to take, and you can see what features that are being used for each in JSON format. The demo lets you simulate some context features such as time and weather, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article. The Rank API call returns the article the application should show in the rewardActionId attribute.
+The 3 articles are the 3 possible "actions" for Personalizer to take, and you can see what features that are being used for each in JSON format. The demo lets you simulate some context features such as Referrer, tournament and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article. The Rank API call returns the article the application should show in the rewardActionId attribute.
 
 In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches 1, or the application will wait up to one minute from the time the article was shown before a lower number gets used in a Reward API call.
 
