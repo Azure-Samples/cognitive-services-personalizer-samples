@@ -7,7 +7,7 @@ namespace PersonalizerTravelAgencyDemo.Repositories
 {
     public interface IActionRepository
     {
-        IList<Models.Action> GetArticles();
-        Models.Action GetArticle(string id);
+        IList<Models.Action> GetActions();
+        Models.Action GetAction(string id);
     }
 }
