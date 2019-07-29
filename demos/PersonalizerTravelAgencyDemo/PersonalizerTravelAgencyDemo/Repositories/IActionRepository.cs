@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PersonalizerTravelAgencyDemo.Repositories
 {
-    public class IActionRepository
+    public interface IActionRepository
     {
         IList<Models.Action> GetArticles();
         Models.Action GetArticle(string id);
