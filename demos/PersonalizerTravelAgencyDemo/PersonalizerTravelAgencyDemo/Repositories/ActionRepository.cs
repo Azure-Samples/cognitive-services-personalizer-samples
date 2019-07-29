@@ -21,12 +21,12 @@ namespace PersonalizerTravelAgencyDemo.Repositories
                             .ToList();
         }
 
-        public Action GetArticle(string id)
+        public Action GetAction(string id)
         {
             return _actions.FirstOrDefault(action => action.Id == id);
         }
 
-        public IList<Action> GetArticles()
+        public IList<Action> GetActions()
         {
             return _actions.ToList();
         }
