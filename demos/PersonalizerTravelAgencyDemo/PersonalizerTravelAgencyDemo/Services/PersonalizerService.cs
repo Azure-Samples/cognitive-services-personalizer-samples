@@ -12,13 +12,13 @@ namespace PersonalizerTravelAgencyDemo.Services
     {
         private readonly IPersonalizerClient _personalizerClient;
         private readonly IActionsRepository _actionsRepository;
-        private readonly IArticleRepository _articleRepository;
+        private readonly IActionRepository _actionRepository;
 
-        public PersonalizerService(IActionsRepository actionsRepository, IPersonalizerClient personalizerClient, IArticleRepository articleRepository)
+        public PersonalizerService(IActionsRepository actionsRepository, IPersonalizerClient personalizerClient, IActionRepository actionRepository)
         {
             _actionsRepository = actionsRepository;
             _personalizerClient = personalizerClient;
-            _articleRepository = articleRepository;
+            _actionRepository = actionRepository;
         }
 
         public RankResponse GetRecommendations(IList<object> context)
@@ -31,12 +31,12 @@ namespace PersonalizerTravelAgencyDemo.Services
             return response;
         }
 
-        public IList<Article> GetRankedArticles(IList<object> context)
+        public IList<Models.Action> GetRankedArticles(IList<object> context, bool useTextAnalytics = false)
         {
             var recommendations = GetRecommendations(context).Ranking.Select(x => x.Id).ToList();
-            var articles = _articleRepository.GetArticles();
+            var actions = _actionRepository.GetActions();
 
-            return articles.OrderBy(article => recommendations.IndexOf(article.Id)).ToList();
+            return actions.OrderBy(action => recommendations.IndexOf(action.Id)).ToList();
         }
 
         public void Reward(Reward reward)
