@@ -560,3 +560,9 @@ h3.modal-title {
 .privacy-padding{
     padding-left:5rem;
 }
+
+@media (min-width: 768px) {
+    .play-btn_lg_margin {
+        margin-right:7rem;
+    }
+}
