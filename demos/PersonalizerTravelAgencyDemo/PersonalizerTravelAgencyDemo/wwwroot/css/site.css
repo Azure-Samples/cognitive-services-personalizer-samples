@@ -585,3 +585,19 @@ h3.modal-title {
 .main_slot_card{
     min-height: 65vh;
 }
+
+.background-light-gray {
+    background-color: #edeef0;
+}
+
+.fa-coins {
+    color:#fbcd39;
+}
+
+.fa-check-circle {
+    color: darkorange;
+}
+
+.fa-umbrella-beach {
+    color: green;
+}
