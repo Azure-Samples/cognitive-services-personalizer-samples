@@ -561,7 +561,7 @@ h3.modal-title {
     padding-left:5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .play-btn_lg_margin {
         margin-right:7rem;
     }
