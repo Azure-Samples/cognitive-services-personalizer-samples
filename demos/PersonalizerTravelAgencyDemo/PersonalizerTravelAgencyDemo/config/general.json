@@ -43,6 +43,10 @@
     "RefreshButtonText": "Show Personalized Checkout",
     "RequestLabel": "API Request",
     "ResponseLabel": "API Response"
+  },
+  "RewardTimer": {
+    "DecreaseAmount": "0.1",
+    "DecreaseInterval": "10",
+    "DecreaseLimit":  "0.2"
   }
-
 }

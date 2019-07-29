@@ -28,6 +28,7 @@ namespace PersonalizerTravelAgencyDemo.Models
         public string MainArticleCloseBackstageLabel { get; set; }
 
         public string StartWithBlankPage { get; set; }
+        public RewardTimerModel RewardTimer { get; set; }
     }
 }
 

@@ -159,11 +159,11 @@ document.addEventListener("DOMContentLoaded", function () {
             clearRewardmessage();
 
             intervalId = setInterval(function () {
-                counter--;
+                counter -= RewardDecreaseAmount;
                 timeleftContainer.innerHTML = `<p class="col-12 px-4 py-2 m-0" style="font-size: 1.4rem;">
                         <i class="fas fa-hourglass-half"></i> ${counter}s left to get reward
                     </p>`;
-                if (counter <= 0) {
+                if (counter <= RewardDecreaseLimit) {
                     clearInterval(intervalId);
                     intervalId = -1;
                     sendReward(personalizerCallResult.eventId, reward).then(() => {
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                     timeleftContainer.innerHTML = '';
                 }
-            }, 1000);
+            }, RewardDecreaseInterval);
 
 
             const maxScrollFooter = Math.max(articleFooter.clientHeight, articleFooter.scrollHeight, articleFooter.offsetHeight);
