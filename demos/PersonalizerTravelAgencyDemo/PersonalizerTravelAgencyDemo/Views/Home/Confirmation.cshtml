@@ -6,28 +6,7 @@
         <div class="col-sm-12">
             <h2 class="text-capitalize">Your Dream Vacation Package Is Ready!</h2>
 
-            <div class="row">
-                @await Html.PartialAsync("./Partials/_Image.cshtml")
-            </div>
-
-            @await Html.PartialAsync("./Partials/_Confirm.cshtml")
-
-            <div class="row mt-4">
-
-                @await Html.PartialAsync("./Partials/_Costs.cshtml")
-
-                @await Html.PartialAsync("./Partials/_Package.cshtml")
-
-            </div>
-
-
-            <div class="row mt-4">
-                @await Html.PartialAsync("./Partials/_Discover.cshtml")
-            </div>
-
-            <div class="row mt-4">
-                @await Html.PartialAsync("./Partials/_Payment.cshtml")
-            </div>
+            @await Html.PartialAsync("./Partials/_LayoutA.cshtml")
 
             <div id="gauge-backbtn-section">
                 <button id="iframe-backBtn" title="Go to top">Back</button>
