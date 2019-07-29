@@ -550,6 +550,13 @@ h3.modal-title {
     line-height: 1.5;
 }
 
+#page-title {
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
 .page-title {
     font-weight:bold;
     margin-bottom: 1rem;
@@ -562,9 +569,12 @@ h3.modal-title {
     padding-left: 5rem;
 }
 
-.homesite_button {
+.homesite_button, .button_orange, .button_orange:hover {
     background-color: #F57636;
     color: white;
+}
+
+.homesite_button {
     margin-bottom:3rem;
     margin-top:1rem;
     margin-right:1.7rem;
