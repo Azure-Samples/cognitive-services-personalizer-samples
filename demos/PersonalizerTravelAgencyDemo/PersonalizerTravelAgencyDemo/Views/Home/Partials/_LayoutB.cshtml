@@ -6,6 +6,10 @@
 </div>
 
 <div class="row mt-4">
+    @await Html.PartialAsync("_Confirm.cshtml")
+</div>
+
+<div class="row mt-4">
     <div class="col-md-6 col-sm-12">
         <div class="row background-light-gray mr-md-2">
             <div class="col-12">
@@ -19,10 +23,6 @@
             @await Html.PartialAsync("_Costs.cshtml")
         </div>
     </div>
-</div>
-
-<div class="row mt-4">
-    @await Html.PartialAsync("_Confirm.cshtml")
 </div>
 
 <div class="row mt-4">
