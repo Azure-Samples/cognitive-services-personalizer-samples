@@ -186,7 +186,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
             }, RewardDecreaseInterval*1000);
-            
 
             var innerDoc = articleViewer.contentWindow.document;
             var iframeBackBtn = innerDoc.getElementById('iframe-backBtn');
@@ -236,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
             updateShowGraphbtn(false);
         }
     });
-
 });
 
 function updateRewardValue(value, articleDoc) {
