@@ -1,4 +1,4 @@
-# Personalizer Demo
+# Personalizer Business Demo
 
 This interactive demo shows how Personalizer chooses content, and how the application teaches the service to improve suggestions based on rewards.
 
@@ -6,7 +6,7 @@ The solution is an [ASP.NET Core MVC 2.2](https://docs.microsoft.com/en-us/aspne
 
 On the left side there is a simulated news page that displays some article of interest when you click "Personalize", picking it out of five possible articles.
 
-The 5 articles are the 5 possible "actions" for Personalizer to take, and you can see what features that are being used for each in JSON format. The demo lets you simulate some context features such as time and weather, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article. The Rank API call returns the article the application should show in the rewardActionId attribute.
+The 3 articles are the 3 possible "actions" for Personalizer to take, and you can see what features that are being used for each in JSON format. The demo lets you simulate some context features such as time and weather, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article. The Rank API call returns the article the application should show in the rewardActionId attribute.
 
 In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches 1, or the application will wait up to one minute from the time the article was shown before a lower number gets used in a Reward API call.
 
@@ -19,9 +19,9 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-- Navigate to _demos/PersonalizerDemo_.
+- Navigate to _demos/PersonalizerBusinessDemo_.
 
-- Open `PersonalizerDemo.sln`.
+- Open `PersonalizerBusinessDemo.sln`.
 
 
 ## Prerequisites
@@ -74,3 +74,22 @@ By doing this, Visual Studio will open a `secrets.json` file where you will need
 ## Running the demo
 
 Once you configure the secrets and the endpoints, in Visual Studio you can run the project by pressing `F5`. If you are using the .NET Core CLI, run `dotnet run` in the path where the `.csproj` file is.
+
+## Configurations
+
+The following settings can be easily modified from `config/general.json`:
+
+* Navigation Bar items
+
+* Backstage
+
+  * Sign Up label and link
+  * Documentation label and link
+  * Developer Docs label and link
+  * Code sample label and link
+  * Backstage button text
+  * Request and Response labels
+
+* Toggle to start with an article selected with Personalizer
+
+  
