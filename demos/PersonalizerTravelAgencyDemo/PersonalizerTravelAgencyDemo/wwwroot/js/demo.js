@@ -270,18 +270,18 @@ function setupContextControls() {
     UseUserAgentEle.addEventListener('change', (event) => {
         const checkbox = event.target;
         if (checkbox.checked) {
-            updateContext(null, null, false, userAgent);
+            updateContext(null, null, null, false, userAgent);
         } else {
-            updateContext(null, null, true, null);
+            updateContext(null, null, null, true, null);
         }
     });
 
     getUserAgent().then(userAgentResponse => {
         userAgent = userAgentResponse;
-        updateContext(deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
+        updateContext(deviceSelectEle.value, null, null, !UseUserAgentEle.checked, userAgent);
     });
 
-    updateContext(deviceSelectEle.value);
+    updateContext(deviceSelectEle.value, null, null, false, null);
 }
 
 function updateContext(device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
