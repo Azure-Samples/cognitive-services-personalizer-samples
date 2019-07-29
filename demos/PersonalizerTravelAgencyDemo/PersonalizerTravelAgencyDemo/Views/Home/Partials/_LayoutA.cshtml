@@ -1,0 +1,36 @@
+﻿@{
+}
+
+<div class="hero-container">
+    @await Html.PartialAsync("_Image.cshtml")
+</div>
+
+<div class="row mt-4">
+    @await Html.PartialAsync("_Confirm.cshtml")
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6 col-sm-12">
+        <div class="row background-light-gray mr-md-2">
+            @await Html.PartialAsync("_Package.cshtml")
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 mt-4 mt-md-0">
+        <div class="row background-light-gray ml-md-2">
+            @await Html.PartialAsync("_Costs.cshtml")
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12 background-light-gray">
+        @await Html.PartialAsync("_Discover.cshtml")
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12 background-light-gray">
+        @await Html.PartialAsync("_Payment.cshtml")
+    </div>
+</div>
