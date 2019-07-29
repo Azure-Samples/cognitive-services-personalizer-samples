@@ -57,7 +57,6 @@
 </div>
 
 <!-- Title modal -->
-
 <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
     <div class="modal-dialog about-modal modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -91,7 +90,6 @@
 </div>
 
 <!-- End Title modal -->
-
 <div class="row dropdownHover">
     <div class="col p-0" id="webpage-container">
 
@@ -321,40 +319,37 @@
                 <div class="learn-container" id="graph-container">
                     <div class="container-fluid">
                         <div class="row d-flex">
-                            <div class="col-md-6 col-sm-6 col-xs-6 col-xl-6 align-items-center justify-content-center">
-                                <div class="row align-items-center justify-content-center">
-                                    <div class="col-6 text-center">
-                                        <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center justify-content-center">
-                                    <div class="col-10 text-center text-capitalize">
-                                        <span class="charts-modal-text">See how Personalizer learns over time</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-6 col-xl-6 align-items-center justify-content-center">
-                                <div class="row align-items-center justify-content-center text-center">
-                                    <div id="current-avg-number" class="display-1 chart-number">0.0</div>
-                                </div>
-                                <div class="row align-items-center justify-content-center text-center">
-                                    <div class="col-10 text-center text-capitalize">
-                                        <span id="current-avg-number-label" class="charts-modal-text">Average Engagement last 100 visits</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row d-flex">
-                            <div class="col-md-12 col-sm-12 col-xl-12">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 align-items-center justify-content-center align-self-center">
                                 <canvas id="avg-learn-chart" class="chart-learn mx-auto"></canvas>
                             </div>
+                            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 align-items-center justify-content-center align-self-center">
+                                <div class="row align-items-center justify-content-center text-center align-self-center">
+                                    <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                                </div>
+                                <div class="col-12 text-center text-capitalize">
+                                    <span id="current-avg-number-label" class="charts-modal-text">Average Engagement last 100 visits</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="row d-flex align-self-center play-btn_lg_margin mt-3">
+                            <div class="col-md-6 col-sm-12 align-items-center justify-content-center justify-content-md-end align-self-center mt-2">
+                                <div class="row align-items-center justify-content-center justify-content-md-end  mr-1">
+                                    <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 align-items-center justify-content-center justify-content-md-start align-self-center">
+                                <div class="row align-items-center justify-content-center justify-content-md-start   mt-1">
+                                    <span class="charts-modal-text">See how Personalizer learns over time</span>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="row my-2">
     <div class="mx-auto">
         <div class="row">
