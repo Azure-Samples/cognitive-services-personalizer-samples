@@ -263,7 +263,7 @@ function setupContextControls() {
     const deviceSelectEle = document.getElementById('device');
     deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
     deviceSelectEle.addEventListener('change', (event) => {
-        updateContext(null, event.target.value);
+        updateContext(event.target.value, null, null, false, null);
     });
 
     const UseUserAgentEle = document.getElementById('use-useragent');
@@ -272,7 +272,7 @@ function setupContextControls() {
         if (checkbox.checked) {
             updateContext(null, null, false, userAgent);
         } else {
-            updateContext(null, null, true);
+            updateContext(null, null, true, null);
         }
     });
 
@@ -284,7 +284,7 @@ function setupContextControls() {
     updateContext(deviceSelectEle.value);
 }
 
-function updateContext( device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
+function updateContext(device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
     context.device = device || context.device;
     context.costs = currentCost || context.costs;
     context.packageAdditionals = currentAdditionals || context.packageAdditionals;
