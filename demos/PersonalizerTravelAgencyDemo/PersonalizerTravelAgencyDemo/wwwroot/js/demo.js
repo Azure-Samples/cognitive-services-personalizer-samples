@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
             boundSetIframeContentSize(!backstage.classList.contains('show'));
         });
 
-        if (articleViewer.contentWindow.location.href.indexOf("onfirmation/") > -1) {
+        if (articleViewer.contentWindow.location.href.indexOf("confirmation") > -1) {
 
             updateShowGraphbtn(true);
             if (intervalId >= 0) {
@@ -159,11 +159,11 @@ document.addEventListener("DOMContentLoaded", function () {
             clearRewardmessage();
 
             intervalId = setInterval(function () {
-                counter -= RewardDecreaseAmount;
+                counter--;
                 timeleftContainer.innerHTML = `<p class="col-12 px-4 py-2 m-0" style="font-size: 1.4rem;">
                         <i class="fas fa-hourglass-half"></i> ${counter}s left to get reward
                     </p>`;
-                if (counter <= RewardDecreaseLimit) {
+                if (counter <= 0) {
                     clearInterval(intervalId);
                     intervalId = -1;
                     sendReward(personalizerCallResult.eventId, reward).then(() => {
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
                     timeleftContainer.innerHTML = '';
                 }
-            }, RewardDecreaseInterval);
+            }, 1000);
 
 
             const maxScrollFooter = Math.max(articleFooter.clientHeight, articleFooter.scrollHeight, articleFooter.offsetHeight);
