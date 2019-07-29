@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     updateRewardValue(newValue, articleDoc);
                 }
 
-            }, RewardDecreaseInterval*100);
+            }, RewardDecreaseInterval*1000);
             
 
             var innerDoc = articleViewer.contentWindow.document;
