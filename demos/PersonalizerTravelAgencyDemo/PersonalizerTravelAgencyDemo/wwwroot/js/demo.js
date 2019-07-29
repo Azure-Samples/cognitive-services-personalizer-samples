@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const additionalOptions = ["boatTrip", "dinnerBreakfast"];
 
     let currentSize;
+    let gaugeInterval = -1;
     const SCREEN_SIZE_SMALL = 0;
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
@@ -154,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             let counter = 20;
-            reward = 0;
+            reward = 0.8;
             updateRewardValue(reward, articleDoc);
             clearRewardmessage();
 
@@ -173,20 +174,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }, 1000);
 
-
-            const maxScrollFooter = Math.max(articleFooter.clientHeight, articleFooter.scrollHeight, articleFooter.offsetHeight);
-            const maxScrollArticle = Math.max(articleDoc.body.scrollHeight, articleDoc.body.offsetHeight,
-                articleDoc.documentElement.clientHeight, articleDoc.documentElement.scrollHeight, articleDoc.documentElement.offsetHeight);
-            const maxScrollPosition = maxScrollArticle - articleViewer.contentWindow.innerHeight - maxScrollFooter;
-
-            articleDoc.addEventListener("scroll", function () {
-                const currentPosition = articleViewer.contentWindow.pageYOffset;
-                const newReward = Math.min(1, parseFloat((currentPosition / maxScrollPosition).toFixed(2)));
-                if (intervalId >= 0 && reward < newReward) {
-                    reward = newReward;
-                    updateRewardValue(reward, articleDoc);
+            gaugeInterval = setInterval(function () {
+                const comment = articleDoc.getElementById('gauge-comment').innerText;
+                console.log("Comment", comment)
+                let newValue = comment - 0.1;
+                if (newValue <= 0.2) {
+                    clearInterval(gaugeInterval);
+                    gaugeInterval = -1;
+                    updateRewardValue(0.2, articleDoc)
+                } else {
+                    updateRewardValue(newValue, articleDoc);
                 }
-            });
+
+            }, 1000);
+            
 
             var innerDoc = articleViewer.contentWindow.document;
             var iframeBackBtn = innerDoc.getElementById('iframe-backBtn');
@@ -236,6 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updateShowGraphbtn(false);
         }
     });
+
 });
 
 function updateRewardValue(value, articleDoc) {
