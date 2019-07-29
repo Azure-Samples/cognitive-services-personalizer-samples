@@ -67,11 +67,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    //goBtnEle.addEventListener("click", function () {
+    //    getRecommendation().then(result => {
+    //        personalizerCallResult = result;
+    //        updateBasedOnRecommendation(result);
+    //    });
+    //});
+
     goBtnEle.addEventListener("click", function () {
-        getRecommendation().then(result => {
-            personalizerCallResult = result;
-            updateBasedOnRecommendation(result);
-        });
+        const articleViewer = document.getElementById("article-viewer");
+        articleViewer.src = `/home/confirmation`;
     });
 
     function setIframeContentSize(mainContainer, isBackStageOpen) {
