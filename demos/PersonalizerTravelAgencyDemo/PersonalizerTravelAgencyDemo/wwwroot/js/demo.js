@@ -1,3 +1,12 @@
+let context = {
+    device: "mobile",
+    packageAdditionals: null,
+    costs: null,
+    userAgent: null
+};
+
+let userAgent = {};
+
 document.addEventListener("DOMContentLoaded", function () {
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
@@ -11,13 +20,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const backstageBtn = document.getElementById("backstage-btn");
 
     const costsOptions = ["allInclusive", "luxury"];
-    const additonalsOptions = ["boatTrip", "dinnerBreakfast"];
+    const additionalOptions = ["boatTrip", "dinnerBreakfast"];
+
     let currentSize;
     const SCREEN_SIZE_SMALL = 0;
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
     let intervalId = -1;
     let reward = 0;
+
+    context.costs = getRandomOption(costsOptions);
+    context.packageAdditionals = getRandomOption(additionalOptions);
 
     backstageBtn.addEventListener("click", function () {
         backstageBtn.innerText = backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
@@ -224,15 +237,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-let context = {
-    device: "mobile",
-    packageAdditionals: getRandomOption(additonalsOptions),
-    costs: getRandomOption(costsOptions),
-    userAgent: null
-};
-
-let userAgent = {};
 
 function updateRewardValue(value, articleDoc) {
     const percentageValue = Math.round(value * 100);
