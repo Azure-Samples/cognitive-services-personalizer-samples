@@ -40,8 +40,9 @@
     ]
   },
   "BackstageSection": {
-    "ResponseLabel": "API Response",
-    "RequestLabel":  "API Request"
+    "RefreshButtonText": "Show Personalized Checkout",
+    "RequestLabel": "API Request",
+    "ResponseLabel": "API Response"
   }
 
 }
