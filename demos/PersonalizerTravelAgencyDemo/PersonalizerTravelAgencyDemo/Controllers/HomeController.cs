@@ -45,11 +45,11 @@ namespace PersonalizerTravelAgencyDemo.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Action(string id)
+        public IActionResult Confirmation(string actionId)
         {
             ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
-            var model = _actionRepository.GetAction(id);
+            var model = _actionRepository.GetAction(actionId);
             return View(model);
         }
         public IActionResult HomeSite(string actionsIds)
