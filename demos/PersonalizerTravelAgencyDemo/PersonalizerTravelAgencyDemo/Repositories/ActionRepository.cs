@@ -14,7 +14,7 @@ namespace PersonalizerTravelAgencyDemo.Repositories
         {
             var fileProvider = hostingEnvironment.ContentRootFileProvider;
             var fileContent = System.IO.File.ReadAllText(fileProvider.GetFileInfo("Actions/actions.json").PhysicalPath);
-            _actions = JsonConvert.DeserializeObject<List<Action>>(fileContent);
+            _actions = JsonConvert.DeserializeObject<List<Action>>(fileContent).Where(a => a.Enabled).ToList<Action>();
         }
 
         public Action GetAction(string id)
