@@ -1,3 +1,4 @@
+@model PersonalizerTravelAgencyDemo.Models.Action
 @{
     Layout = "~/Views/Shared/_ArticleLayout.cshtml";
 }
@@ -6,7 +7,7 @@
         <div class="col-sm-12">
             <h2 class="text-capitalize">Your Dream Vacation Package Is Ready!</h2>
 
-            @await Html.PartialAsync("./Partials/_LayoutA.cshtml")
+            @await Html.PartialAsync("./Partials/_LayoutA.cshtml", Model)
 
             <div id="gauge-backbtn-section">
                 <button id="iframe-backBtn" title="Go to top">Back</button>
