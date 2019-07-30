@@ -47,6 +47,7 @@
   "RewardTimer": {
     "DecreaseAmount": "0.1",
     "DecreaseInterval": "10",
-    "DecreaseLimit":  "0.2"
+    "DecreaseLimit": "0.2",
+    "InitValue":  "0.8"
   }
 }

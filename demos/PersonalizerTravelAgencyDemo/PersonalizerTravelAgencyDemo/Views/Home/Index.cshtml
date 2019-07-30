@@ -365,13 +365,16 @@
 
 @section Scripts {
     <script src="~/lib/chartjs/Chart.bundle.js"></script>
-    <script> const startDemoWithBlankPage = @siteConfig.StartWithBlankPage; </script>
-    <script>const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';</script>
-    <script>const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';</script>
-
-    <script>const RewardDecreaseAmount = @siteConfig.RewardTimer.DecreaseAmount; </script>
-    <script>const RewardDecreaseInterval = @siteConfig.RewardTimer.DecreaseInterval; </script>
-    <script>const RewardDecreaseLimit = @siteConfig.RewardTimer.DecreaseLimit; </script>
+    <script> 
+        const startDemoWithBlankPage = @siteConfig.StartWithBlankPage;
+        const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';
+        const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';
+        //Reward Gauge Values
+        const RewardDecreaseAmount = @siteConfig.RewardTimer.DecreaseAmount; 
+        const RewardDecreaseInterval = @siteConfig.RewardTimer.DecreaseInterval;
+        const RewardDecreaseLimit = @siteConfig.RewardTimer.DecreaseLimit; 
+        const RewardInitValue = @siteConfig.RewardTimer.InitValue;
+    </script>
 
     <script src="~/js/demo.js" asp-append-version="true"></script>
     <script src="~/js/learn-charts.js" asp-append-version="true"></script>

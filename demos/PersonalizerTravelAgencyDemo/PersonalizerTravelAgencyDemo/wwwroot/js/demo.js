@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
     let intervalId = -1;
-    let reward = 0;
+    let reward = RewardInitValue;
 
     context.costs = getRandomOption(costsOptions);
     context.packageAdditionals = getRandomOption(additionalOptions);
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             let counter = 20;
-            reward = 0.8;
+            
             updateRewardValue(reward, articleDoc);
             clearRewardmessage();
 
@@ -175,14 +175,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }, 1000);
 
             gaugeInterval = setInterval(function () {
-                const comment = articleDoc.getElementById('gauge-comment').innerText;
-                let newValue = comment - RewardDecreaseAmount;
-                if (newValue <= RewardDecreaseLimit) {
+                reward -= RewardDecreaseAmount;
+                if (reward <= RewardDecreaseLimit) {
                     clearInterval(gaugeInterval);
                     gaugeInterval = -1;
                     updateRewardValue(RewardDecreaseLimit, articleDoc);
                 } else {
-                    updateRewardValue(newValue, articleDoc);
+                    updateRewardValue(reward, articleDoc);
                 }
 
             }, RewardDecreaseInterval*1000);
