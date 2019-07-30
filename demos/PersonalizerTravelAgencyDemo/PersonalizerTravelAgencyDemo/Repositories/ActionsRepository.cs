@@ -31,19 +31,15 @@ namespace PersonalizerTravelAgencyDemo.Repositories
         {
             foreach (var action in actions)
             {
-                CreateRankableAction(action).Wait();
+                CreateRankableAction(action);
             }
 
             _actions = _actions.OrderBy(a => a.Id).ToList();
-            _actionsWithTextAnalytics = _actionsWithTextAnalytics.OrderBy(a => a.Id).ToList();
         }
 
-        private async Task CreateRankableAction(Action action)
+        private void CreateRankableAction(Action action)
         {
             this._actions.Add(new RankableActionWithMetadata(action));
-            var rankableAction = new RankableActionWithMetadata(action);
-
-            this._actionsWithTextAnalytics.Add(rankableAction);
         }
     }
 }
