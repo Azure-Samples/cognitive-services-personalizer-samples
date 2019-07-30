@@ -229,10 +229,9 @@ let context = {
 let userAgent = {};
 
 function updateRewardValue(value, articleDoc) {
-    const percentageValue = Math.round(value * 100);
-    const turnValue = Math.round(percentageValue * 5 / 100);
+    const turnValue = value/2;
     const rewardEle = articleDoc.getElementById('gauge');
-    rewardEle.setAttribute('style', `transform:rotate(.${turnValue}turn)`);
+    rewardEle.setAttribute('style', `transform:rotate(${turnValue}turn)`);
     const comment = articleDoc.getElementById('gauge-comment');
     comment.innerText = `${value.toFixed(1)}`;
 }
