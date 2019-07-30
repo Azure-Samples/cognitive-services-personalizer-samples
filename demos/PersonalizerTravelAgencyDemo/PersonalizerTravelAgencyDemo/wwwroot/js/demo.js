@@ -418,7 +418,7 @@ function createActionTab(actionObj, active) {
 
 function updateArticle(result) {
     const articleViewer = document.getElementById("article-viewer");
-    articleViewer.src = `/home/Confirmation/${result.rewardActionId}`;
+    articleViewer.src = `/home/Confirmation?actionId=${result.rewardActionId}`;
 }
 
 function getActions() {
