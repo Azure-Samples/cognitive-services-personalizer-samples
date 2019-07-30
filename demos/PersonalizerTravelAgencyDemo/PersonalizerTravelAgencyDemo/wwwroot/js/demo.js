@@ -83,16 +83,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    //goBtnEle.addEventListener("click", function () {
-    //    getRecommendation().then(result => {
-    //        personalizerCallResult = result;
-    //        updateBasedOnRecommendation(result);
-    //    });
-    //});
-
     goBtnEle.addEventListener("click", function () {
-        const articleViewer = document.getElementById("article-viewer");
-        articleViewer.src = `/home/confirmation`;
+        getRecommendation().then(result => {
+            personalizerCallResult = result;
+            updateBasedOnRecommendation(result);
+        });
     });
 
     function setIframeContentSize(mainContainer, isBackStageOpen) {
@@ -146,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             boundSetIframeContentSize(!backstage.classList.contains('show'));
         });
 
-        if (articleViewer.contentWindow.location.href.indexOf("confirmation") > -1) {
+        if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
 
             updateShowGraphbtn(true);
             if (intervalId >= 0) {
@@ -424,11 +419,8 @@ function createActionTab(actionObj, active) {
 }
 
 function updateArticle(result) {
-    let articleIds = result.ranking.map(function (ranking) {
-        return ranking.id;
-    }).join(",");
     const articleViewer = document.getElementById("article-viewer");
-    articleViewer.src = `/home/homesite?articleIds=${articleIds}`;
+    articleViewer.src = `/home/Confirmation/${result.rewardActionId}`;
 }
 
 function getActions() {
