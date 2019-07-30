@@ -1,7 +1,7 @@
 [
   {
     "Id": 1,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "A",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -9,7 +9,7 @@
   },
   {
     "Id": 2,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "A",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -17,7 +17,7 @@
   },
   {
     "Id": 3,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "A",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -25,7 +25,7 @@
   },
   {
     "Id": 4,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "A",
     "ToneFont": "formal",
     "ButtonColor": "B",
@@ -33,7 +33,7 @@
   },
   {
     "Id": 5,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "B",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -41,7 +41,7 @@
   },
   {
     "Id": 6,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "B",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -49,7 +49,7 @@
   },
   {
     "Id": 7,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "B",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -57,7 +57,7 @@
   },
   {
     "Id": 8,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "B",
     "ToneFont": "formal",
     "ButtonColor": "B",
@@ -65,7 +65,7 @@
   },
   {
     "Id": 9,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "C",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -73,7 +73,7 @@
   },
   {
     "Id": 10,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "C",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -81,7 +81,7 @@
   },
   {
     "Id": 11,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "C",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -89,106 +89,106 @@
   },
   {
     "Id": 12,
-    "Image": "A",
+    "Image": "elephant",
     "Layout": "C",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 13,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "A",
     "ToneFont": "casual",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 14,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "A",
     "ToneFont": "casual",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 15,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "A",
     "ToneFont": "formal",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 16,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "A",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 17,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "B",
     "ToneFont": "casual",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 18,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "B",
     "ToneFont": "casual",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 19,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "B",
     "ToneFont": "formal",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 20,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "B",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 21,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "C",
     "ToneFont": "casual",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 22,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "C",
     "ToneFont": "casual",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 23,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "C",
     "ToneFont": "formal",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 24,
-    "Image": "B",
+    "Image": "caribbean-placeholder",
     "Layout": "C",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   }
 ]
