@@ -34,9 +34,9 @@ namespace PersonalizerTravelAgencyDemo
             });
 
             services.AddSingleton<IPersonalizerClient>(s => CreateClient(personalizationEndPoint, personalizationApiKey));
-            services.AddSingleton<IActionsRepository, ActionsRepository>();
+            services.AddSingleton<IRankableActionRepository, RankableActionRepository>();
             services.AddSingleton<IPersonalizerService, PersonalizerService>();
-            services.AddSingleton<IArticleRepository, ArticleRepository>();
+            services.AddSingleton<IActionRepository, ActionRepository>();
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
