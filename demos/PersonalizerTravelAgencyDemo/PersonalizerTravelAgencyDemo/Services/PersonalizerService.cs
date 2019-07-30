@@ -11,10 +11,10 @@ namespace PersonalizerTravelAgencyDemo.Services
     public class PersonalizerService : IPersonalizerService
     {
         private readonly IPersonalizerClient _personalizerClient;
-        private readonly IActionsRepository _actionsRepository;
+        private readonly IRankableActionRepository _actionsRepository;
         private readonly IActionRepository _actionRepository;
 
-        public PersonalizerService(IActionsRepository actionsRepository, IPersonalizerClient personalizerClient, IActionRepository actionRepository)
+        public PersonalizerService(IRankableActionRepository actionsRepository, IPersonalizerClient personalizerClient, IActionRepository actionRepository)
         {
             _actionsRepository = actionsRepository;
             _personalizerClient = personalizerClient;

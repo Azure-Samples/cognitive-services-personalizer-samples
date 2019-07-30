@@ -13,12 +13,8 @@ namespace PersonalizerTravelAgencyDemo.Repositories
         public ActionRepository(IHostingEnvironment hostingEnvironment)
         {
             var fileProvider = hostingEnvironment.ContentRootFileProvider;
-            var contents = fileProvider.GetDirectoryContents("Actions/Layouts");
-            _actions = contents
-                            .Select(file => System.IO.File.ReadAllText(file.PhysicalPath))
-                            .Select(fileContent => JsonConvert.DeserializeObject<Action>(fileContent))
-                            .Where(a => a.Enabled)
-                            .ToList();
+            var fileContent = System.IO.File.ReadAllText(fileProvider.GetFileInfo("Actions/actions.json").PhysicalPath);
+            _actions = JsonConvert.DeserializeObject<List<Action>>(fileContent);
         }
 
         public Action GetAction(string id)

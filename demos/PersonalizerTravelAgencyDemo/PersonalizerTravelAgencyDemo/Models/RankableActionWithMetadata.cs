@@ -10,12 +10,18 @@ namespace PersonalizerTravelAgencyDemo.Models
         public RankableActionWithMetadata(Action action)
         {
             Id = action.Id;
-            Image = action.Image;
+
+            Features = new List<object>()
+            {
+                new {action.ButtonColor},
+                new {action.Image},
+                new {action.Layout},
+                new {action.ToneFont},
+            };
+
             
         }
 
-        public string Title { get; set; }
 
-        public string Image { get; set; }
     }
 }
