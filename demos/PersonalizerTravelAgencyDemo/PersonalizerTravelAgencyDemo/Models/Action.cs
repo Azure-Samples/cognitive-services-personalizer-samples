@@ -9,7 +9,7 @@ namespace PersonalizerTravelAgencyDemo.Models
     {
         public string Id { get; set; }
         public string ButtonColor { get; set; }
-        public string Image { get; set; }
+        public PartialImageModal Image { get; set; }
         public string ToneFont { get; set; }
         public string Layout { get; set; }
         public bool Enabled { get; set; }
