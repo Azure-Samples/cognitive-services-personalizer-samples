@@ -8,7 +8,6 @@ let context = {
 let userAgent = {};
 
 document.addEventListener("DOMContentLoaded", function () {
-    const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
     const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const SCREEN_SIZE_SMALL = 0;
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
-    let intervalId = -1;
     let reward = RewardInitValue;
 
     context.costs = getRandomOption(costsOptions);
@@ -144,30 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
 
             updateShowGraphbtn(true);
-            if (intervalId >= 0) {
-                clearInterval(intervalId);
-                intervalId = -1;
-            }
-
-            let counter = 20;
             
             updateRewardValue(reward, articleDoc);
-            clearRewardmessage();
-
-            intervalId = setInterval(function () {
-                counter--;
-                timeleftContainer.innerHTML = `<p class="col-12 px-4 py-2 m-0" style="font-size: 1.4rem;">
-                        <i class="fas fa-hourglass-half"></i> ${counter}s left to get reward
-                    </p>`;
-                if (counter <= 0) {
-                    clearInterval(intervalId);
-                    intervalId = -1;
-                    sendReward(personalizerCallResult.eventId, reward).then(() => {
-                        showRewardMessage(reward);
-                    });
-                    timeleftContainer.innerHTML = '';
-                }
-            }, 1000);
 
             gaugeInterval = setInterval(function () {
                 reward -= RewardDecreaseAmount;
@@ -188,38 +164,16 @@ document.addEventListener("DOMContentLoaded", function () {
             if (iframeBackBtn !== undefined) {
                 iframeBackBtn.style.display = "block";
                 iframeBackBtn.addEventListener("click", function () {
-                    clearInterval(intervalId);
-                    intervalId = -1;
-                    timeleftContainer.innerHTML = '';
-
-                    if (counter > 0) {
-                        sendReward(personalizerCallResult.eventId, reward).then(() => {
-                            showRewardMessage(reward);
-                        });
-                    }
-
                     gaugeContainerEle.style.display = 'none';
                     updateRewardValue(0, articleDoc);
-                    clearRewardmessage();
-                    counter = 0;
                     articleViewer.contentWindow.history.back();
                 });
             }
 
             brandLogoImg.addEventListener("click", function () {
                 if (iframeBackBtn !== undefined) {
-                    clearInterval(intervalId);
-                    intervalId = -1;
-                    if (counter > 0) {
-                        sendReward(personalizerCallResult.eventId, reward).then(() => {
-                            showRewardMessage(reward);
-                        });
-                    }
-                    timeleftContainer.innerHTML = '';
                     gaugeContainerEle.style.display = 'none';
                     updateRewardValue(0, articleDoc);
-                    clearRewardmessage();
-                    counter = 0;
                 }
 
                 articleViewer.contentWindow.history.back();
@@ -237,18 +191,6 @@ function updateRewardValue(value, articleDoc) {
     rewardEle.setAttribute('style', `transform:rotate(${turnValue}turn)`);
     const comment = articleDoc.getElementById('gauge-comment');
     comment.innerText = `${value.toFixed(1)}`;
-}
-
-function showRewardMessage(reward) {
-    const alertContainerEle = document.getElementById('alert-container');
-    alertContainerEle.innerHTML = `<div class="alert alert-success col-12" role="alert">
-        Reward of <strong>${reward}</strong> was sent to Personalizer
-    </div>`;
-}
-
-function clearRewardmessage() {
-    const alertContainerEle = document.getElementById('alert-container');
-    cleanChilds(alertContainerEle);
 }
 
 function setupActionControls() {
