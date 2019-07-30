@@ -31,7 +31,7 @@ namespace PersonalizerTravelAgencyDemo.Services
             return response;
         }
 
-        public IList<Models.Action> GetRankedArticles(IList<object> context, bool useTextAnalytics = false)
+        public IList<Models.Action> GetRankedArticles(IList<object> context)
         {
             var recommendations = GetRecommendations(context).Ranking.Select(x => x.Id).ToList();
             var actions = _actionRepository.GetActions();
