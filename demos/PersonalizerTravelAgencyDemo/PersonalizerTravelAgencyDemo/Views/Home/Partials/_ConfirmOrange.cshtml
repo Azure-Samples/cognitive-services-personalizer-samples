@@ -1,6 +1,9 @@
-﻿@model PersonalizerTravelAgencyDemo.Models.Action
+﻿@{ PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel; }
 
-@if (Model.ButtonColor == "#F57636"){
+@model PersonalizerTravelAgencyDemo.Models.Action
+
+@if (Model.ButtonColor == @siteConfig.OrangeButton)
+{
     <div class="row mt-4">
         <div class="col-md-4 offset-md-4 col-sm-12 text-center">
             <button class="btn text-capitalize button_orange" style="background: @Model.ButtonColor;">Confirm Purchase</button>
@@ -9,5 +12,5 @@
             <a href="#">Save for Later</a>
         </div>
     </div>
-    }
-        
+}
+

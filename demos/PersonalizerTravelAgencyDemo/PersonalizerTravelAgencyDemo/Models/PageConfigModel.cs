@@ -29,6 +29,10 @@ namespace PersonalizerTravelAgencyDemo.Models
 
         public string StartWithBlankPage { get; set; }
         public RewardTimerModel RewardTimer { get; set; }
+
+        public string BlueButton { get; set; }
+
+        public string OrangeButton { get; set; }
     }
 }
 

@@ -12,6 +12,8 @@
   "MainArticleShowBackstageLabel": "Show How It Works",
   "MainArticleCloseBackstageLabel": "Hide How It Works",
   "StartWithBlankPage": "true",
+  "BlueButton": "#0078D4",
+  "OrangeButton": "#F57636",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
     "BackstageLabelBtn": "Show how it works",
@@ -48,6 +50,6 @@
     "DecreaseAmount": "0.1",
     "DecreaseInterval": "10",
     "DecreaseLimit": "0.2",
-    "InitValue":  "0.8"
+    "InitValue": "0.8"
   }
 }
