@@ -6,6 +6,7 @@ let context = {
 };
 
 let userAgent = {};
+let selectedView = 'HTML';
 
 document.addEventListener("DOMContentLoaded", function () {
     const goBtnEle = document.getElementById("go-btn");
@@ -17,9 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const graphContainer = document.getElementById('graph-container');
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
+    const showActionJsonBtn = document.getElementById("showActionsJson");
+    const showActionHtmlBtn = document.getElementById('showActionsHtml');
 
     const costsOptions = ["allInclusive", "luxuryPackage"];
     const additionalOptions = ["boatTrip", "dinnerAndBreakfast"];
+
+    showActionHtmlBtn.style.display = 'none';
 
     let currentSize;
     let gaugeInterval = -1;
@@ -29,6 +34,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     context.costs = getRandomOption(costsOptions);
     context.packageAdditionals = getRandomOption(additionalOptions);
+
+    showActionJsonBtn.addEventListener('click', function () {
+        selectedView = 'JSON';
+        showActionHtmlBtn.style.display = 'flex';
+        showActionJsonBtn.style.display = 'none';
+        setupActionControls();
+    });
+
+    showActionHtmlBtn.addEventListener("click", function () {
+        selectedView = 'HTML';
+        showActionJsonBtn.style.display = 'flex';
+        showActionHtmlBtn.style.display = 'none';
+        setupActionControls();
+    });
 
     backstageBtn.addEventListener("click", function () {
         backstageBtn.innerText = backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
@@ -152,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
             articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(SaveForLaterReward); });
 
             updateShowGraphbtn(true);
-            
+
             updateRewardValue(reward, articleDoc);
 
             gauge.addEventListener("transitionend", function gaugeTransitionEndHandler(event) {
@@ -196,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function updateRewardValue(value, articleDoc) {
-    const turnValue = value/2;
+    const turnValue = value / 2;
     const rewardEle = articleDoc.getElementById('gauge');
     rewardEle.setAttribute('style', `transform:rotate(${turnValue}turn)`);
     const comment = articleDoc.getElementById('gauge-comment');
@@ -350,32 +369,53 @@ function updateActionsTab(actions) {
     let actionsTabHeadersString = "";
     let actionsTabContentString = "";
 
-    for (var i = 0; i < actions.length; i++) {
+    if (selectedView == 'HTML') {
         let actionTabContent = createActionTab(actions[i], i === 0);
-        actionsTabHeadersString += actionTabContent.tabHeader;
         actionsTabContentString += actionTabContent.tabContent;
+    } else {
+        for (var i = 0; i < actions.length; i++) {
+            let actionTabContent = createActionTab(actions[i], i === 0);
+            actionsTabContentString += actionTabContent.tabContent;
+        }
     }
-
-    actionsHeaderTab.innerHTML = actionsTabHeadersString;
     actionsTabContent.innerHTML = actionsTabContentString;
 }
 
 function createActionTab(actionObj, active) {
     let action = {};
-    for (var attr in actionObj) {
-        if (actionObj.hasOwnProperty(attr) && attr !== "title" && attr !== "imageName") action[attr] = actionObj[attr];
-    }
+   
 
-    return {
-        tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
-                        <div class="mx-auto"></div>
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.title}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
-                    </a>`,
-        tabContent: `<div class="tab-pane fade ${active ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
+    if (selectedView == 'JSON') {
+        for (var attr in actionObj) {
+            if (actionObj.hasOwnProperty(attr) && attr !== "title" && attr !== "imageName") action[attr] = actionObj[attr];
+        }
+        return {
+            tabContent: `<div class="tab-pane fade ${active ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                         <p class="h6 p-1 pt-2 mb-0"><strong>Title:</strong> ${actionObj.title}</p>
                         <pre class="pre-scrollable border m-0 actionsjson"><code>${JSON.stringify(action, null, 2)}</code></pre>
                     </div>`
-    };
+        }
+    }
+    else {
+        return {
+            tabContent: `<div container><div class="row mx-auto">
+                <div class="col-3"><div class="row pr-3"><p class="">Image</p></div><div class="row h-100 pr-3">
+                        <div class="row py-2 pl-2 mb-3 align-items-end"><div class="col-12"><img id="beach" src="/img/beach.jpg" alt="Beach" /></div></div>
+                        <div class="row py-2 pl-2 align-items-start"><div class="col-12"><img id="pool" src="/img/pool.jpg" alt="Pool" /></div></div></div></div>
+                <div class="col-3"><div class="row pr-1"><p>Layout</p></div><div class="row h-75 pr-1">
+                        <div class="row align-items-center"><div class="col-12"><img id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div></div>
+                        <div class="row align-items-center"><div class="col-12"><img id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div></div>
+                        <div class="row align-items-center"><div class="col-12"><img id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div></div>
+                    </div></div>
+                <div class="col-3"><div class="row pr-1"><p>Tone & Font</p></div><div class="row h-100 pr-1">
+                        <div class="row mb-3 align-items-end pl-1"><div class="col-12"><img id="casual" src="/img/casual.jpg" alt="Casual" /></div></div>
+                        <div class="row align-items-start pl-1"><div class="col-12"><img id="formal" src="/img/formal.jpg" alt="Formal" /></div></div></div></div>
+                <div class="col-3"><div class="row pr-1"><p>Buy Button</p></div><div class="row h-100 pr-1">
+                        <div class="row mb-3 align-items-end mx-1"><div class="col-12"><img class="border border-dark" id="blue" src="/img/buybutton-blue.jpg" alt="Blue" /> </div></div>
+                        <div class="row align-items-start mx-1"><div class="col-12"><img class="border border-dark" id="orange" src="/img/buybutton-orange.jpg" alt="Orange" /></div></div>
+                    </div></div></div></div>`
+        }
+    }
 }
 
 function updateArticle(result) {
