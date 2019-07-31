@@ -14,6 +14,8 @@
   "StartWithBlankPage": "true",
   "BlueButton": "#0078D4",
   "OrangeButton": "#F57636",
+  "ConfirmationLabelBlueButton": "Confirm Purchase",
+  "ConfirmationLabelOrangeButton": "Confirm Purchase",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
     "BackstageLabelBtn": "Show how it works",

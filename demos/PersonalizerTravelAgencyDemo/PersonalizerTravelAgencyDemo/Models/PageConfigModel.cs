@@ -33,6 +33,11 @@ namespace PersonalizerTravelAgencyDemo.Models
         public string BlueButton { get; set; }
 
         public string OrangeButton { get; set; }
+
+        public string ConfirmationLabelBlueButton { get; set; }
+
+        public string ConfirmationLabelOrangeButton { get; set; }
+
     }
 }
 
