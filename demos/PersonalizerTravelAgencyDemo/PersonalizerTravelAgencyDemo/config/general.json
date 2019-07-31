@@ -18,19 +18,19 @@
     "BackgroundColor": "#F57636",
     "OptionsList": [
       {
-        "label": "Tournaments",
+        "label": "Packages",
         "items": ""
       },
       {
-        "label": "Players",
+        "label": "Tours",
         "items": ""
       },
       {
-        "label": "Watch",
+        "label": "Car Rentals",
         "item": ""
       },
       {
-        "label": "Gear",
+        "label": "Cruises",
         "item": ""
       },
       {
