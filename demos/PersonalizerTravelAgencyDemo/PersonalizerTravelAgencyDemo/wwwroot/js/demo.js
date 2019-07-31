@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const SCREEN_SIZE_SMALL = 0;
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
-    let reward = RewardInitValue;
 
     context.costs = getRandomOption(costsOptions);
     context.packageAdditionals = getRandomOption(additionalOptions);
@@ -133,6 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const articleFooter = articleViewer.contentWindow.document.getElementById("article-footer");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
 
+        let reward = RewardInitValue;
+
         boundSetIframeContentSize(backstage.classList.contains('show'));
 
         backstageBtn.addEventListener('click', function () {
@@ -165,17 +166,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.style.display = "block";
                 iframeBackBtn.addEventListener("click", function () {
                     gaugeContainerEle.style.display = 'none';
-                    updateRewardValue(0, articleDoc);
                     articleViewer.contentWindow.history.back();
+                    clearInterval(gaugeInterval);
+                    gaugeInterval = -1;
                 });
             }
 
             brandLogoImg.addEventListener("click", function () {
                 if (iframeBackBtn !== undefined) {
                     gaugeContainerEle.style.display = 'none';
-                    updateRewardValue(0, articleDoc);
                 }
-
+                clearInterval(gaugeInterval);
+                gaugeInterval = -1;
                 articleViewer.contentWindow.history.back();
             });
         }
