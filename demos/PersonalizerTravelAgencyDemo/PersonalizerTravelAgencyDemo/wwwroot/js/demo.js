@@ -147,7 +147,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
             updateRewardValue(reward, articleDoc);
 
-            gauge.addEventListener("transitionend", function (event) {
+            gauge.addEventListener("transitionend", function gaugeTransitionEndHandler(event) {
+                gauge.removeEventListener("transitionend", gaugeTransitionEndHandler);
                 gaugeInterval = setInterval(function () {
                     reward -= RewardDecreaseAmount;
                     if (reward <= RewardDecreaseLimit) {
