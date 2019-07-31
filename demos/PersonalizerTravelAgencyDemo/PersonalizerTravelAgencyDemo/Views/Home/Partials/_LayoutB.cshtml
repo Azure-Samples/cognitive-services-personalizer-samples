@@ -4,9 +4,7 @@
     @await Html.PartialAsync("_Image.cshtml", Model)
 </div>
 
-<div class="row mt-4">
-    @await Html.PartialAsync("_Confirm.cshtml", Model)
-</div>
+@await Html.PartialAsync("_ConfirmOrange.cshtml", Model)
 
 <div class="row mt-4">
     <div class="col-md-6 col-sm-12">
@@ -23,6 +21,8 @@
         </div>
     </div>
 </div>
+
+@await Html.PartialAsync("_ConfirmBlue.cshtml", Model)
 
 <div class="row mt-4">
     <div class="col-12 background-light-gray">
