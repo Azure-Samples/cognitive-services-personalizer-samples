@@ -134,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
 
         let reward = RewardInitValue;
-        const saveForLaterReward = 0.2;
 
         function sendRewardHandler(reward) {
             clearInterval(gaugeInterval);
@@ -150,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
 
             articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(reward); });
-            articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(saveForLaterReward); });
+            articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(SaveForLaterReward); });
 
             updateShowGraphbtn(true);
             
