@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const articleDoc = articleViewer.contentDocument;
         const mainContainer = articleViewer.contentWindow.document.getElementById("main-container");
         const articleFooter = articleViewer.contentWindow.document.getElementById("article-footer");
+        const gauge = articleViewer.contentWindow.document.getElementById("gauge");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
 
         let reward = RewardInitValue;
@@ -146,17 +147,19 @@ document.addEventListener("DOMContentLoaded", function () {
             
             updateRewardValue(reward, articleDoc);
 
-            gaugeInterval = setInterval(function () {
-                reward -= RewardDecreaseAmount;
-                if (reward <= RewardDecreaseLimit) {
-                    clearInterval(gaugeInterval);
-                    gaugeInterval = -1;
-                    updateRewardValue(RewardDecreaseLimit, articleDoc);
-                } else {
-                    updateRewardValue(reward, articleDoc);
-                }
+            gauge.addEventListener("transitionend", function (event) {
+                gaugeInterval = setInterval(function () {
+                    reward -= RewardDecreaseAmount;
+                    if (reward <= RewardDecreaseLimit) {
+                        clearInterval(gaugeInterval);
+                        gaugeInterval = -1;
+                        updateRewardValue(RewardDecreaseLimit, articleDoc);
+                    } else {
+                        updateRewardValue(reward, articleDoc);
+                    }
 
-            }, RewardDecreaseInterval*1000);
+                }, RewardDecreaseInterval * 1000);
+            }, false);            
 
             var innerDoc = articleViewer.contentWindow.document;
             var iframeBackBtn = innerDoc.getElementById('iframe-backBtn');

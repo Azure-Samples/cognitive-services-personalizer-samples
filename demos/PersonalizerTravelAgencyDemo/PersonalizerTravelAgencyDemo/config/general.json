@@ -49,9 +49,9 @@
     "ResponseLabel": "API Response"
   },
   "RewardTimer": {
-    "DecreaseAmount": "0.1",
-    "DecreaseInterval": "10",
-    "DecreaseLimit": "0.2",
-    "InitValue": "0.8"
+    "DecreaseAmount": "0.00050",
+    "DecreaseInterval": "0.02",
+    "DecreaseLimit": "0.5",
+    "InitValue": "1"
   }
 }
