@@ -11,5 +11,6 @@ namespace PersonalizerTravelAgencyDemo.Models
         public double DecreaseInterval { get; set; }
         public double DecreaseLimit { get; set; }
         public double InitValue { get; set; }
+        public double SaveForLaterReward { get; set; }
     }
 }

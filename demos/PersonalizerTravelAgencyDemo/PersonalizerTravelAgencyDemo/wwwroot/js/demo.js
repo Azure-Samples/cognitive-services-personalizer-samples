@@ -135,6 +135,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let reward = RewardInitValue;
 
+        function sendRewardHandler(reward) {
+            clearInterval(gaugeInterval);
+            sendReward(personalizerCallResult.eventId, reward);
+        }
+
         boundSetIframeContentSize(backstage.classList.contains('show'));
 
         backstageBtn.addEventListener('click', function () {
@@ -142,6 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
+
+            articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(reward); });
+            articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(SaveForLaterReward); });
 
             updateShowGraphbtn(true);
             
