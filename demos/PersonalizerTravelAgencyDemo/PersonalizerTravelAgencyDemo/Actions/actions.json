@@ -5,7 +5,7 @@
       "FileName": "elephant",
       "AltName":  "Desert"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -16,7 +16,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -27,7 +27,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -38,7 +38,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
@@ -49,7 +49,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -60,7 +60,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -71,7 +71,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -82,7 +82,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
@@ -93,7 +93,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -104,7 +104,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -115,7 +115,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -126,7 +126,7 @@
       "FileName": "elephant",
       "AltName": "Desert"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
@@ -137,7 +137,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -148,7 +148,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -159,7 +159,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -170,7 +170,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
@@ -181,7 +181,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -192,7 +192,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -203,7 +203,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -214,7 +214,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
@@ -225,7 +225,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -236,7 +236,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -247,7 +247,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -258,7 +258,7 @@
       "FileName": "caribbean-placeholder",
       "AltName": "Caribbean"
     },
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
