@@ -370,26 +370,33 @@ function updateActionsTab(actions) {
     let actionsTabContentString = "";
 
     if (selectedView == 'HTML') {
-        let actionTabContent = createActionTab(actions[i], i === 0);
+        let actionTabContent = createActionTab(actions[0], 0);
+        actionsTabHeadersString += actionTabContent.tabHeader;
         actionsTabContentString += actionTabContent.tabContent;
     } else {
         for (var i = 0; i < actions.length; i++) {
             let actionTabContent = createActionTab(actions[i], i === 0);
+            actionsTabHeadersString += actionTabContent.tabHeader;
             actionsTabContentString += actionTabContent.tabContent;
         }
     }
+
+    actionsHeaderTab.innerHTML = actionsTabHeadersString;
     actionsTabContent.innerHTML = actionsTabContentString;
 }
 
 function createActionTab(actionObj, active) {
     let action = {};
-   
+    for (var attr in actionObj) {
+        if (actionObj.hasOwnProperty(attr) && attr !== "title" && attr !== "imageName") action[attr] = actionObj[attr];
+    }
 
     if (selectedView == 'JSON') {
-        for (var attr in actionObj) {
-            if (actionObj.hasOwnProperty(attr) && attr !== "title" && attr !== "imageName") action[attr] = actionObj[attr];
-        }
         return {
+            tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
+                        <div class="mx-auto"></div>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.title}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
+                    </a>`,
             tabContent: `<div class="tab-pane fade ${active ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                         <p class="h6 p-1 pt-2 mb-0"><strong>Title:</strong> ${actionObj.title}</p>
                         <pre class="pre-scrollable border m-0 actionsjson"><code>${JSON.stringify(action, null, 2)}</code></pre>
@@ -398,6 +405,10 @@ function createActionTab(actionObj, active) {
     }
     else {
         return {
+            tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
+                        <div class="mx-auto"></div>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.title}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
+                    </a>`,
             tabContent: `<div container><div class="row mx-auto">
                 <div class="col-3"><div class="row pr-3"><p class="">Image</p></div><div class="row h-100 pr-3">
                         <div class="row py-2 pl-2 mb-3 align-items-end"><div class="col-12"><img id="beach" src="/img/beach.jpg" alt="Beach" /></div></div>
