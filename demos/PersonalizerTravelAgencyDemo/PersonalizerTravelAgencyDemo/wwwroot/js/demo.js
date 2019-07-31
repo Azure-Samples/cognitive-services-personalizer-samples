@@ -87,6 +87,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    function sendRewardHandler(reward) {
+        clearInterval(gaugeInterval);
+        sendReward(personalizerCallResult.eventId, reward);
+    }
+
     function setIframeContentSize(mainContainer, isBackStageOpen) {
         if (isBackStageOpen) {
             mainContainer.className = "col-12";
@@ -134,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
 
         let reward = RewardInitValue;
+        const maxReward = 1;
 
         boundSetIframeContentSize(backstage.classList.contains('show'));
 
@@ -142,6 +148,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
+
+            articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(maxReward); });
+            articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(reward); });
 
             updateShowGraphbtn(true);
             
