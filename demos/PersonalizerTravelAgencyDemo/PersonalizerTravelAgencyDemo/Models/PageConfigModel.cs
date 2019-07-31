@@ -2,7 +2,7 @@ namespace PersonalizerTravelAgencyDemo.Models
 {
     public class PageConfigModel
     {
-        public string RefreshButtonText { get; set; }
+        public string CheckoutButtonText { get; set; }
 
         public string PersonalizerSignUpURL { get; set; }
 

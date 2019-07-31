@@ -1,5 +1,5 @@
 {
-  "RefreshButtonText": "Go To Checkout",
+  "CheckoutButtonText": "Go To Checkout",
   "LogoImageURL": "~/img/logo.png",
   "PersonalizerSignUpLabel": "Sign up",
   "PersonalizerSignUpURL": "https://azure.microsoft.com/en-us/try/cognitive-services/?api=personalizer",
