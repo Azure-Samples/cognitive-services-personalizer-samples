@@ -399,28 +399,31 @@ function createActionTab(actionObj, active) {
     return {
         tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" onclick="showAction(${actionObj.id})" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj.id}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
                         <div class="mx-auto"></div>
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/gray-placeholder.jpg" style="max-width:4rem;"></img>
                     </a>`,
         tabContent: `<div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.JSON ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.JSON}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
-                        <pre class="pre-scrollable border m-0 actionsjson"><code>${JSON.stringify(action, null, 2)}</code></pre>
+                        <pre class="pre-scrollable border m-0 actions-height"><code>${JSON.stringify(action, null, 2)}</code></pre>
                     </div>
                     <div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.HTML ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.HTML}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
-                <div class="row mx-auto">
-                <div class="col-3"><div class="row pr-3"><p class="">Image</p></div><div class="row h-100 pr-3">
-                        <div class="row py-2 pl-2 mb-3 align-items-end"><div class="col-12"><img id="beach" src="/img/beach.jpg" alt="Beach" /></div></div>
-                        <div class="row py-2 pl-2 align-items-start"><div class="col-12"><img id="pool" src="/img/pool.jpg" alt="Pool" /></div></div></div></div>
-                <div class="col-3"><div class="row pr-1"><p>Layout</p></div><div class="row h-75 pr-1">
-                        <div class="row align-items-center"><div class="col-12"><img id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div></div>
-                        <div class="row align-items-center"><div class="col-12"><img id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div></div>
-                        <div class="row align-items-center"><div class="col-12"><img id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div></div>
-                    </div></div>
-                <div class="col-3"><div class="row pr-1"><p>Tone & Font</p></div><div class="row h-100 pr-1">
-                        <div class="row mb-3 align-items-end pl-1"><div class="col-12"><img id="casual" src="/img/casual.jpg" alt="Casual" /></div></div>
-                        <div class="row align-items-start pl-1"><div class="col-12"><img id="formal" src="/img/formal.jpg" alt="Formal" /></div></div></div></div>
-                <div class="col-3"><div class="row pr-1"><p>Buy Button</p></div><div class="row h-100 pr-1">
-                        <div class="row mb-3 align-items-end mx-1"><div class="col-12"><img class="border border-dark" id="blue" src="/img/buybutton-blue.jpg" alt="Blue" /> </div></div>
-                        <div class="row align-items-start mx-1"><div class="col-12"><img class="border border-dark" id="orange" src="/img/buybutton-orange.jpg" alt="Orange" /></div></div>
-                    </div></div></div></div>`
+                       <div class="m-1 actions-grid">
+                          <div class="gr-1 gc-1">Layout</div>
+                          <div class="gr-2 gc-1"><img id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div>
+                          <div class="gr-3 gc-1"><img id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div>
+                          <div class="gr-4 gc-1"><img id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div>
+                          
+                          <div class="gr-1 gc-2">Image</div>
+                          <div class="gr-2 gc-2"><img id="beach" src="/img/beach.jpg" alt="Beach" /></div>
+                          <div class="gr-3 gc-2"><img id="pool" src="/img/pool.jpg" alt="Pool" /></div>
+                          
+                          <div class="gr-1 gc-3">Tone & Font </div>
+                          <div class="gr-2 gc-3"><img id="casual" src="/img/casual.jpg" alt="Casual" /></div>
+                          <div class="gr-3 gc-3"><img id="formal" src="/img/formal.jpg" alt="Formal" /></div>
+                          
+                          <div class="gr-1 gc-4">Buy Button</div>
+                          <div class="gr-2 gc-4"><img id="blue" src="/img/buybutton-blue.jpg" alt="Blue" /></div>
+                          <div class="gr-3 gc-4"><img id="orange" src="/img/buybutton-orange.jpg" alt="Orange" /></div>
+                       </div>
+                    </div>`
     };
 }
 
