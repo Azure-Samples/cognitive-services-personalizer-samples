@@ -1,0 +1,568 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+    font-size: 1em;
+    font-size: calc(0.5em + 1vmin);
+}
+
+.footer {
+    width: 100%;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+/* Bottom left text */
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    padding-right: 16px;
+    text-shadow: 0 0 15px #000000;
+}
+
+img {
+    width: 100%;
+}
+
+/* Container holding the image and the text */
+.container-img-text {
+    position: relative;
+    text-align: left;
+    color: white;
+    text-overflow: ellipsis;
+    float: none;
+}
+
+.article-img-container {
+    max-height: 30rem;
+    overflow: hidden;
+}
+
+.small_slot_wrapper {
+    font-size: 0.7rem;
+}
+
+    .small_slot_wrapper table td {
+        padding: 0.3rem 0rem;
+    }
+
+        .small_slot_wrapper table td.player-name {
+            padding: 0.3rem;
+        }
+
+.player-name {
+    font-style: italic;
+    max-width: 80px;
+}
+
+    .player-name img {
+        filter: grayscale(1) contrast(0.5)
+    }
+
+.small_slot_cols_item {
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
+.small_slot_cols_item_image {
+    display: inline-block;
+    position: relative;
+    object-fit: cover;
+}
+
+#iframe-backBtn {
+    display: none;
+    position: fixed;
+    bottom: 5rem;
+    right: 4rem;
+    z-index: 1000;
+    border: none;
+    outline: none;
+    background-color: #0078d4;
+    color: white;
+    cursor: pointer;
+    padding: 1.1rem;
+    border-radius: 0.5rem;
+}
+
+    #iframe-backBtn:hover {
+        background-color: #555;
+    }
+
+.progress {
+    font-size: 2rem;
+}
+
+#timeleft {
+    font-size: 1.2rem;
+    text-align: center;
+    height: 58px;
+}
+
+.article-container {
+    min-height: calc(100vh - 4rem);
+    max-height: calc(100vh - 4rem);
+}
+
+#collapseBackstage.collapsing {
+    width: 0;
+    transition: width 0.05s ease;
+}
+
+#collapseBackstage .backstage-container {
+    max-height: 100vh;
+    font-size: 0.7rem;
+}
+
+.footer.learn-container {
+    height: 30rem;
+    max-height: 30rem;
+}
+
+.btn-circle {
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 1rem;
+    line-height: 1.428571429;
+    border-radius: 2rem;
+}
+
+    .btn-circle.btn-lg {
+        width: 3rem;
+        height: 3rem;
+        padding: 10px 16px;
+        font-size: 1rem;
+        line-height: 1.33;
+        border-radius: 2rem;
+    }
+
+    .btn-circle.btn-xl {
+        width: 3rem;
+        height: 3rem;
+        padding: 10px 16px;
+        font-size: 1rem;
+        line-height: 1.33;
+        border-radius: 2rem;
+    }
+
+#collapseBackstage .backstageNavBar {
+    min-height: 4rem;
+    height: 4rem;
+}
+
+.articleNavBar {
+    min-height: 4rem;
+    height: 4rem;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+.gauge-container {
+    display: block;
+    position: fixed;
+    top: 8rem;
+    right: -18.5rem;
+    z-index: 99;
+    width: 25rem;
+    height: 25rem;
+    font-size: 4rem;
+    line-height: 4rem;
+    overflow: hidden;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    border-color: #007bff;
+}
+
+.gauge-background {
+    z-index: 1;
+    position: absolute;
+    background-color: #007bff;
+    width: 42%;
+    height: 42%;
+    left: 29%;
+    top: 19%;
+    border-radius: 300px 300px 300px 300px;
+}
+
+/* the grey bar that will be filled*/
+.gauge-a {
+    z-index: 1;
+    position: absolute;
+    background-color: rgba(200, 200, 200, 1);
+    width: 40%;
+    height: 40%;
+    left: 30%;
+    top: 20%;
+    border-radius: 250px 250px 250px 250px;
+}
+
+/* the bottom semicircle area white */
+.gauge-cover {
+    z-index: 10;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    width: 40%;
+    height: 20%;
+    left: 30%;
+    top: 40%;
+    border-radius: 0px 0px 250px 250px;
+}
+
+/* the semicircle area containing the percentage*/
+.gauge-b {
+    z-index: 3;
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 25%;
+    height: 13%;
+    left: 34%;
+    top: 29%;
+    margin-left: 3.75%;
+    margin-right: auto;
+    border-radius: 250px 250px 0px 0px;
+}
+
+/* the green measure bar that moves*/
+.gauge-c {
+    z-index: 2;
+    position: absolute;
+    background-color: #009900;
+    width: 40%;
+    height: 20%;
+    left: 30%;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px 0px 200px 200px;
+    transform-origin: center top;
+    transition: all 0.2s ease-in-out;
+}
+
+.gauge-container:hover .gauge-data {
+    color: rgba(0, 0, 0, 1);
+}
+
+.gauge-data {
+    z-index: 10;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: calibri;
+    padding-top: 0.1vw;
+    position: absolute;
+    font-size: 1rem;
+    width: 40%;
+    height: 20%;
+    left: 30%;
+    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gauge-comment > h1 {
+    z-index: 10;
+    color: rgba(30, 30, 30, 1);
+    font-family: calibri;
+    font-size: 3rem;
+    line-height: normal;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homeNavBarFont > b {
+    color: white;
+    font-weight: lighter;
+    text-transform: uppercase;
+    font-family: "Open Sans";
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
+.row .py-2 > table {
+    color: #333;
+    font-family: "Open Sans";
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: -.03px;
+    line-height: 10px;
+}
+
+.hero-text {
+    text-shadow: 0px 0px 10px #000;
+    color: #fff;
+    font-family: "Open Sans";
+    font-style: italic;
+    font-weight: 800;
+    line-height: 2rem;
+}
+
+.dropdownHover > a, b {
+    cursor: default;
+    pointer-events: none;
+}
+
+
+.latest-photo {
+    height: 18rem;
+    object-fit: cover;
+}
+
+.responseRequestContainers > .pre-scrollable, pre {
+    max-height: 30vh !important;
+    min-height: 10vh;
+    height: 10vh;
+    overflow-y: scroll;
+}
+
+.contextjson {
+    height: 16vh;
+    min-height: 13rem;
+}
+
+.responsejson {
+    min-height: 8rem;
+}
+
+.actionsjson {
+    min-height: 9rem;
+}
+
+.exploring-content {
+    padding: 0px !important;
+}
+
+.table-borderless {
+    border-collapse: separate;
+    border-spacing: 1Vw;
+}
+
+.btn {
+    font-size: 0.7rem;
+}
+
+.custom-select {
+    font-size: 0.7rem;
+}
+
+.chart-number {
+    font-size: 4rem;
+}
+
+.chartplaybutton {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 40vw;
+}
+
+.chart-people {
+    max-height: 20rem;
+    min-height: 15rem;
+    min-width: 15vw;
+    max-width: 45vw;
+    margin-right: 1rem;
+}
+
+.chart-learn {
+    max-height: 20rem;
+    min-height: 15rem;
+    max-width: 65vw;
+    min-width: 15vw;
+    margin-top: 1rem;
+}
+
+@media (max-width: 480px) {
+    .small-footer {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width : 1200px) {
+    .chart-learn {
+        height: 30rem;
+    }
+}
+
+.align-icon-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-height {
+    height: 20rem;
+}
+
+.custom-control-input {
+    position: static;
+    margin: 0 .5rem -0.1rem 0;
+}
+
+.custom-control-description {
+    line-height: 80%;
+    padding-top: 0.4rem;
+}
+
+.section-image {
+    filter: grayscale(100%) contrast(50%);
+}
+
+#article-render {
+    background: linear-gradient(180deg, rgba(237,238,240,1) 60%, rgba(247,248,250,1) 80%, rgba(255,255,255,1) 100%);
+}
+
+#article-body-layout {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+}
+
+/* NavBar */
+
+.brand-logo {
+    width: 2.2rem;
+    height: 2rem;
+}
+
+/* End NavBar */
+
+/* Backstage */
+
+.exploring-icon {
+    color: #c8c8c8;
+}
+
+.exploiting-icon {
+    color: #c8c8c8;
+}
+
+#backstage-title {
+    margin-bottom: 0;
+    font-weight: inherit;
+}
+
+/* End Backstage */
+
+#about-modal-title {
+    font-size: 1rem;
+}
+
+.about-modal {
+    max-width: 50%;
+    font-size: 0.8rem;
+    padding-right: 0px;
+}
+
+/* About Modal Mobile */
+@media screen and (max-width: 600px) {
+    .about-modal {
+        max-width: 100%;
+    }
+}
+
+/* About Modal 4K screens */
+@media screen and (min-width: 2000px) {
+    .about-modal {
+        max-width: 30%;
+    }
+}
+
+
+h3.modal-title {
+    font-size: 1rem;
+}
+
+.modal-header .close {
+    font-size: 1.25rem;
+}
+
+/* Charts Modal */
+
+.charts-modal-text {
+    text-align: center;
+    font-size: small;
+}
+
+#learnModal {
+    padding-right: 0px;
+}
+
+/* End Charts Modal */
+
+/* Score section */
+
+.flag-image {
+    max-height: 15%;
+    max-width: 15%
+}
+
+/* End Score Section */
+
+/* Top Bar */
+
+.subtitle-topbar {
+    font-size: 0.6rem;
+    margin-bottom: 0px;
+    line-height: 1.5;
+}
+
+#page-title {
+    font-size: 0.7rem;
+    font-weight: bolder;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+/* End Top Bar */
+
+.privacy-padding{
+    padding-left:5rem;
+}
+
+@media (min-width: 992px) {
+    .play-btn_lg_margin {
+        margin-right:7rem;
+    }
+}

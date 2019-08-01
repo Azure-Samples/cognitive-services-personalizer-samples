@@ -1,0 +1,368 @@
+@model PersonalizerBusinessDemo.Models.PageConfigModel
+
+@{
+    ViewData["Title"] = "Personalizer Interactive Demo";
+
+    PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
+    NavBarOptionsModel navigationBarOptions = siteConfig.NavigationBar as NavBarOptionsModel;
+
+    Func<List<NavBarItemModel>, Microsoft.AspNetCore.Html.IHtmlContent> displayMenuItems = null;
+
+    displayMenuItems =
+
+    @<ul class="navbar-nav mr-auto dropdownHover">
+        @foreach (NavBarItemModel menuItem in @item)
+        {
+            if (menuItem.Items != null)
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle dropdownHover" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b class="homeNavBarFont">@menuItem.Label </b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @foreach (var subItem in menuItem.Items)
+                        {
+                            <span class="dropdown-item homeNavBarFont">@subItem.Label</span>
+                        }
+                    </div>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item dropdownHover">
+                    <span class="nav-link homeNavBarFont"><b>@menuItem.Label</b></span>
+                </li>
+            }
+
+        }
+        <li class="nav-item dropdownHover">
+            <span class="nav-link homeNavBarFont mx-2"><b><i class="fas fa-search dropdownHover"></i></b></span>
+        </li>
+
+    </ul>;
+}
+
+<div class="row my-2">
+    <div class="mx-auto">
+        <div class="row">
+            <h1 class="mx-auto" id="page-title">Personalizer Interactive Demo</h1>
+        </div>
+        <div class="row">
+            <p class="mx-auto subtitle-topbar"><a href="@siteConfig.PersonalizerDocumentationURL" target="_blank">Learn more</a> about Personalizer</p>
+        </div>
+        <div class="row">
+            <p class="mx-auto subtitle-topbar"><a href="#" data-toggle="modal" data-target="#about-modal" target="_blank">About</a> this demo</p>
+        </div>
+    </div>
+</div>
+
+<!-- Title modal -->
+<div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
+    <div class="modal-dialog about-modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="col-md-12 modal-title text-center" id="about-modal-title">
+                    About Personalizer Demo
+                    <button type="button" class="close pr-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Personalizer to improve suggestions based on rewards.
+                </p>
+                <p>
+                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
+                </p>
+                <p>
+                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
+                </p>
+                <p>
+                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait up to fifteen seconds from the time the article was first shown.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Title modal -->
+<div class="row dropdownHover">
+    <div class="col p-0" id="webpage-container">
+
+        <nav class="navbar navbar-expand-md navbar-dark px-5 articleNavBar" id="navbar-container" style="background-color: @siteConfig.NavigationBar.BackgroundColor">
+            <a class="navbar-brand " id="brand-logo" href="#"><img src="~/@navigationBarOptions.LogoImageURL" class="brand-logo" /></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
+
+                <button class="btn btn-light d-lg-block invisible mx-2 text-capitalize" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                    Show Learning Graph
+                </button>
+
+                <button class="btn btn-light d-none d-lg-block text-capitalize" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
+                    @siteConfig.MainArticleShowBackstageLabel
+                </button>
+            </div>
+            <div>
+                <button class="btn btn-light d-md-none invisible mx-2 text-capitalize" id="mobile-learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                    Show Learning Graph
+                </button>
+                <button class="btn btn-light d-lg-none float-right text-capitalize" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleShowBackstageLabel</button>
+            </div>
+        </nav>
+
+        <div class="embed-responsive embed-responsive-1by1 article-container" id="article-container">
+            <iframe id="article-viewer" class="embed-responsive-item" src="/Home/HomeSite" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4 collapse border-left-lg p-lg-0" id="collapseBackstage">
+        <div class="overflow-auto backstage-container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary backstageNavBar">
+                <h2 id="backstage-title" class="navbar-brand">See Personalizer in Action</h2>
+                <button class="btn btn-light d-lg-none text-capitalize" type="button" id="mobile-hide-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleCloseBackstageLabel</button>
+            </nav>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <form class="form-inline py-3">
+                            <div class="mr-2">
+                                <label for="referrer">Referrer</label>
+                                <select class="custom-select my-1" id="referrer">
+                                    <option value="social" selected>Social</option>
+                                    <option value="direct">Direct</option>
+                                    <option value="email">Email</option>
+                                    <option value="search">Search</option>
+                                </select>
+                            </div>
+                            <div class="mr-2">
+                                <label for="currentTournament">Ongoing Tournament</label>
+                                <select class="custom-select my-1" id="currentTournament">
+                                    <option value="wimbledon" selected>Wimbledon</option>
+                                    <option value="mutuaMadridOpen">Mutua Madrid Open</option>
+                                    <option value="australiaOpen">Australia Open</option>
+                                </select>
+                            </div>
+                            <div class="mr-2">
+                                <label for="device">Device</label>
+                                <select class="custom-select my-1" id="device">
+                                    <option value="mobile" selected>Mobile</option>
+                                    <option value="desktop">Desktop</option>
+                                    <option value="tablet">Tablet</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary mt-4 mt-md-3" id="go-btn">
+                                    @siteConfig.RefreshButtonText
+                                </button>
+                            </div>
+                        </form>
+
+                        <div class="card">
+                            <div class="card-body p-0 pt-0">
+                                <h5 class="card-title ml-2 mt-2">@siteConfig.BackstageSection.RequestLabel</h5>
+                                <div class="card">
+                                    <div class="card-header pt-1">
+                                        <ul class="nav nav-tabs card-header-tabs" id="response-action-tab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="context-tab" data-toggle="tab" href="#context" role="tab" aria-controls="context" aria-selected="true">Context</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="actions-container-tab" data-toggle="tab" href="#actions-container" role="tab" aria-controls="actions-container" aria-selected="false">Possible actions</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-body p-0 pt-1">
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="context" role="tabpanel" aria-labelledby="context-tab">
+                                                <div class="card">
+                                                    <div class="card-body p-0">
+                                                        <div class="card-title mt-2 ml-2">
+                                                            <h5 class="d-inline pr-2">Context JSON</h5>
+                                                            <div class="custom-control custom-checkbox d-inline-flex align-items-end">
+                                                                <input type="checkbox" class="custom-control-input" id="use-useragent">
+                                                                <label class="custom-control-label custom-control-description" for="use-useragent"><small>Use User Agent</small></label>
+                                                            </div>
+                                                        </div>
+                                                        <pre class="pre-scrollable responseRequestContainers m-0 p-1 border-top contextjson"><code id="context-code"></code></pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="actions-container" role="tabpanel" aria-labelledby="actions-container-tab">
+                                                <div class="row justify-content-between">
+                                                    <div class="col-5 pr-0">
+                                                        <div class="card">
+                                                            <div class="card-header p-2">
+                                                                <strong>Action list</strong>
+                                                                <p class="mb-0"><small>Articles to choose from</small></p>
+                                                            </div>
+                                                            <div class="card-body p-0">
+                                                                <div class="nav flex-column nav-pills" id="actions-tab" role="tablist" aria-orientation="vertical">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-7 pl-1">
+                                                        <div class="card">
+                                                            <div class="card-header p-2">
+                                                                <strong>Action JSON</strong>
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="text-analytics">
+                                                                    <label class="custom-control-label custom-control-description" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-body p-0">
+                                                                <div class="tab-content" id="actions-tabContent">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body p-0">
+                                <h5 class="card-title ml-2 mt-2">@siteConfig.BackstageSection.ResponseLabel</h5>
+                                <div class="alert alert-secondary m-2" role="alert" id="result-alert">
+                                    When you click the button, the Personalizer Rank will be called with the arguments above and outputs will be shown here.
+                                </div>
+                                <pre class="d-none pre-scrollable responseRequestContainers border mb-3 p-1 responsejson" id="result-container"><code id="result-code"></code></pre>
+
+                                <h6 class="card-subtitle ml-2 mt-2">For this Rank call, Personalizer was</h6>
+                                <div class="card-group p-3">
+                                    <div id="exploring-box" class="card-flex col-md-6">
+                                        <div class="card-body exploring-content" data-toggle="tooltip" data-placement="top" data-html="true" title="To discover patterns and keep up with trends, Personalizer returned a <i>rewardActionId</i> that is different than the one that the learned model predicted would get the highest reward.">
+
+                                            <table class="table-borderless">
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div><i class="fas fa-search fa-4x exploring-icon"></i></div>
+                                                    </td>
+                                                    <td>
+                                                        <h5>Exploring</h5>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div id="exploiting-box" class="card-flex col-md-6">
+                                        <div class="card-body exploring-content" data-toggle="tooltip" data-placement="top" data-html="true" title="Personalizer returned a <i>rewardActionId</i> that was predicted by the model as the most likely to get a high reward for this context ('Exploiting' in RL terminology).">
+                                            <table class="table-borderless">
+                                                <tr class="align-middle">
+                                                    <td>
+                                                        <div class="card-text text-center"><i class="fas fa-chart-line fa-4x exploiting-icon"></i></div>
+                                                    </td>
+                                                    <td>
+                                                        <h5 class="card-title text-center">Using Learned Model</h5>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr />
+
+                <div class="row" id="alert-container"></div>
+                <div class="row" id="timeleft-container"></div>
+
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href=@siteConfig.PersonalizerSignUpURL target="_blank">@siteConfig.PersonalizerSignUpLabel</a> to try Personalizer
+                    </div>
+                    <div class="col-md-12">
+                        <a href=@siteConfig.PersonalizerDocumentationURL target="_blank">@siteConfig.PersonalizerDocumentationLabel</a> about Personalizer
+                    </div>
+                    <div class="col-md-12">
+                        See Personalizer <a href=@siteConfig.PersonalizerDeveloperDocsURL target="_blank">@siteConfig.PersonalizerDeveloperDocsLabel</a>
+                    </div>
+                    <div class="col-md-12 pb-4">
+                        Get Personalizer <a href=@siteConfig.PersonalizerCodeSamplesURL target="_blank">@siteConfig.PersonalizerCodeSampleLabel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="learnModal" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document" id="learnModalContent">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="col-md-12 modal-title text-center" id="about-modal-title">
+                    Learning Simulator
+                    <button type="button" class="close pr-0" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="learn-container" id="graph-container">
+                    <div class="container-fluid">
+                        <div class="row d-flex">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 align-items-center justify-content-center align-self-center">
+                                <canvas id="avg-learn-chart" class="chart-learn mx-auto"></canvas>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12 align-items-center justify-content-center align-self-center">
+                                <div class="row align-items-center justify-content-center text-center align-self-center">
+                                    <div id="current-avg-number" class="display-1 chart-number">0.0</div>
+                                </div>
+                                <div class="col-12 text-center text-capitalize">
+                                    <span id="current-avg-number-label" class="charts-modal-text">Average Engagement last 100 visits</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex align-self-center play-btn_lg_margin mt-3">
+                            <div class="col-lg-6 col-md-12 align-items-center justify-content-center justify-content-lg-end align-self-center mt-2">
+                                <div class="row align-items-center justify-content-center justify-content-lg-end  mr-1">
+                                    <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl chartplaybutton"><i class="fas fa-play align-icon-center"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 align-items-center justify-content-center justify-content-lg-start align-self-center">
+                                <div class="row align-items-center justify-content-center justify-content-lg-start   mt-1">
+                                    <span class="charts-modal-text">See how Personalizer learns over time</span>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row my-2">
+    <div class="mx-auto">
+        <div class="row">
+            <span class="mx-auto"><i class="far fa-copyright"></i> 2019 - Demo of Personalizer, an Azure Cognitive Service <a href="https://privacy.microsoft.com/en-us/PrivacyStatement" target="_blank" class="privacy-padding">Privacy</a></span>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/chartjs/Chart.bundle.js"></script>
+    <script> const startDemoWithBlankPage = @siteConfig.StartWithBlankPage; </script>
+    <script>const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';</script>
+    <script>const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';</script>
+    <script src="~/js/demo.js" asp-append-version="true"></script>
+    <script src="~/js/learn-charts.js" asp-append-version="true"></script>
+}

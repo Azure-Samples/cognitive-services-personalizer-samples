@@ -1,0 +1,20 @@
+{
+  "id": "microsoft-ai-chief",
+  "enabled": false,
+  "title": "Microsoft AI chief warns of coming AI challenges and ethics risks",
+  "author": "Dan Thorp-Lancaster",
+  "authorLink": "https://www.windowscentral.com/author/Dan%20Thorp-Lancaster",
+  "text": [
+    "Speaking at MIT Technology Review's EmTech Digital event, Microsoft's Vice President of AI & Research, Harry Shum, drew attention to the risks associated with AI as it becomes more creative in the future. In particular, Shum called on tech companies to 'engineer responsibility into the very fabric of the technology.'",
+    "As MIT's Technology Review points out, we've already seen some of the fallout from the tech industry failing to anticipate flaws in AI. One such flaw is AI's difficulty thus far with identifying faces with dark skin tones, something Microsoft has been working to improve. But AI is also being used by China in alarming ways for surveillance, while, more recently, an Uber self-driving car killed a pedestrian in early 2018.",
+    "According to Shum, AI's challenges will only ramp up as it becomes more complex, adding the ability to produce art, maintain near-human-like conversations, and accurately read human emotions. These abilities will pave the way for AI to more easily create propaganda or misinformation to be spread online, including fake audio and video.",
+    "Microsoft is working to take these challenges into account. The company has created an AI ethics committee and is working with others in the industry to address problems posed by AI. Shum also told MIT Technology Review that Microsoft plans to add an ethics review step to its audit list before products hit the market 'one day very soon,'  joining other steps such as privacy, security, and accessibility.",
+    "'We are working hard to get ahead of the challenges posed by AI creation,' Shum told MIT Technology Review. 'But these are hard problems that can't be solved with technology alone, so we really need the cooperation across academia and industry. We also need to educate consumers about where the content comes from that they are seeing and using.'"
+
+  ],
+  "imageName": "microsoft_billboard.jpg",
+  "originalSourceURL": "https://www.windowscentral.com/microsoft-ai-chief-warns-coming-ai-challenges-and-ethics-risks",
+  "publishedAgo": "3Days",
+  "breakingNews": true,
+  "source": "windowscentral.com"
+}

@@ -1,0 +1,230 @@
+@model IList<Article>
+
+@{
+    PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
+    ViewData["Title"] = "HomeSite";
+    Layout = "~/Views/Shared/_ArticleLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12 col-md-9">
+        @{
+            if (Model.Any())
+            {
+                <a href="/home/article/@Model.First().Id">
+                    <div class="main_slot_image container-img-text">
+                        <div class="article-img-container">
+                            <img src="~/img/@Model.First().ImageName" alt="News 1" />
+                        </div>
+                        <div class="bottom-left"><h2 class="hero-text">@Model.First().Title</h2></div>
+                    </div>
+                </a>
+            }
+            else
+            {
+                if (siteConfig.StartWithBlankPage == "true")
+                {
+                    <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
+                        <div class="row my-5 my-md-auto">
+                            <div class="col-12">
+                                <div class="row text-center justify-content-center">
+                                    <p>
+                                        Personalizer will recommend the content to show here,<br />
+                                        based on real-time context.
+                                    </p>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                        @siteConfig.RefreshButtonText
+                                    </button>
+                                </div>
+                                <div class="row justify-content-center mt-3">
+                                    <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-left"></div>
+                    </div>
+                }
+                else
+                {
+                    <div class="main_slot_image container-img-text card " style="height: 100%; visibility:hidden; color: black;">
+                        <div class="row my-5 my-md-auto">
+                            <div class="col-12">
+                                <div class="row text-center justify-content-center">
+                                    <p>
+                                        Personalizer will recommend the content to show here,<br />
+                                        based on real-time context.
+                                    </p>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <button type="button" class="btn btn-primary" id="go-btn-iframe">
+                                        @siteConfig.RefreshButtonText
+                                    </button>
+                                </div>
+                                <div class="row justify-content-center mt-3">
+                                    <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bottom-left"></div>
+                    </div>
+                }
+            }
+        }
+    </div>
+    <div class="col-12 col-md-3 mt-3 mt-lg-0 small_slot_wrapper d-lg-flex flex-column justify-content-between">
+        <h5 class="font-weight-light">Latest Scores</h5>
+
+        <table class="table table-sm bg-light">
+            <tr>
+                <th colspan="4">Wimbledon</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td class="text-truncate player-name"><img src="~/img/flags/gb.svg" alt="GB Flag" class="flag-image"> Ann Jones</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td class="text-truncate player-name"><img src="~/img/flags/au.svg" alt="AU Flag" class="flag-image"> Margaret Court</td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm bg-light">
+            <tr>
+                <th colspan="4">US Open</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td class="text-truncate player-name"><img src="~/img/flags/de.svg" alt="DE Flag" class="flag-image"> Steffi Graf</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td class="text-truncate player-name"><img src="~/img/flags/in.svg" alt="IN Flag" class="flag-image"> Sania Mirza</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>4</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm bg-light d-none d-md-table mb-0">
+            <tr>
+                <th colspan="4">French Open</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td class="text-truncate player-name"><img src="~/img/flags/rs.svg" alt="RS Flag" class="flag-image"> Monica Seles</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td class="text-truncate player-name"><img src="~/img/flags/ch.svg" alt="CH Flag" class="flag-image"> Martina Hingis</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<hr class="mt-5" />
+
+<div class="row py-2">
+    <div class="col-12">
+        <h5>Latest Photos</h5>
+        <div class="row card-deck">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo1.jpg" class="card-img section-image">
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo2.jpg" class="card-img section-image">
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo3.jpg" class="card-img section-image">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 d-none d-md-block m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/latest-photos/photo4.jpg" class="card-img section-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="mt-5" />
+
+<div class="row py-2">
+    <div class="col-12">
+        <h5>Other News</h5>
+        <div class="row card-deck text-white">
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/other-news/photo1.jpg" class="card-img section-image">
+                    <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                        <p class="card-text">Serena battle-tested for Strycova showdown</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/other-news/photo2.jpg" class="card-img section-image">
+                    <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                        <p class="card-text">Hsieh, Strycova soar past</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/other-news/photo3.jpg" class="card-img section-image">
+                    <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                        <p class="card-text">Larsson keeps run going on home soil in Bastad</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 d-none d-md-block m-0 px-4 py-2 p-md-0">
+                <div class="card">
+                    <img src="~/img/other-news/photo4.jpg" class="card-img section-image">
+                    <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                        <p class="card-text">Doi delivers Krunic win in Bastad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const goBtnIframe = document.getElementById('go-btn-iframe');
+        if (goBtnIframe) {
+            goBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("go-btn").click()
+            })
+        }
+
+        const backstageBtnIframe = document.getElementById('backstage-btn-iframe');
+        if (backstageBtnIframe) {
+            backstageBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("backstage-btn").click();
+
+                backstageBtnIframe.innerHTML = backstageBtnIframe.innerHTML === `@siteConfig.MainArticleCloseBackstageLabel` ? `@siteConfig.MainArticleShowBackstageLabel` : `@siteConfig.MainArticleCloseBackstageLabel`;
+            })
+        }
+    });
+</script>

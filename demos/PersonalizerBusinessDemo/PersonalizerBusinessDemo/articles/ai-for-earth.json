@@ -1,0 +1,22 @@
+{
+  "id": "ai-for-earth",
+  "enabled": false,
+  "title": "AI for Earth: How Microsoft is using Azure to build a more sustainable world",
+  "author": " Brandon Vigliarolo",
+  "authorLink": "https://www.techrepublic.com/meet-the-team/us/brandon-vigliarolo/",
+  "text": [
+    "Data, Microsoft President Brad Smith wrote in an April 2019 blog post, 'is a critical part of our work and a global transition to a low-carbon future.'",
+    "All of the signs point to Earth facing a climate crisis; fortunately, there are tools and technology that could help. Big data, along with the machine learning and artificial intelligence needed to transform it into actionable information, can give us a leg up on our environmental problems-provided we use it.",
+    "Grants come in two forms: Data labeling services, which help get large datasets ready for AI processing, and Microsoft Azure computer credits. Grant applicants are able to apply for one or both forms of grants.",
+    "Microsoft has built two APIs specifically for AI for Earth, and has stated that it continues to work on more. Currently available is a land coverage mapping API and a species classification API. The APIs are available to anyone who wants to use them.",
+    "With over 230 grants being awarded, there's a huge number of projects going on around the globe. From apps average citizens can use to take pictures of wildlife for AI to classify to anti-poaching measures in Africa, the uses for AI in protecting natural resources is vast.",
+    "FarmBeats, a project that has been ongoing since 2015, is working on ways to improve agriculture using AI, edge computing, and IoT technology. FarmBeats wants to establish an end-to-end platform that takes the manual tech work and know-how out of the farmer's hands. By using sensors and automated drones, FarmBeats wants to give farmers the tools they need to plant more efficiently, using less resources and getting higher yields.",
+    "Project Premonition aims to use drones and other automated robots to find, trap, and gene sequence mosquitoes to prevent the spread of diseases like malaria, Zika, and Ebola. It uses drones to map possible mosquito locations and deploys robots to trap the mosquitoes and deliver them to a lab, where scientists can sequence their genes. The data gathered by gene sequencing doesn't focus on a particular pathogen, and instead gives scientists data like the types of animals they've bitten and any possible pathogen exposure.",
+    "SilviaTerra used its AI for Earth grant to develop a number of tools for forestry professionals looking to conserve woodlands more efficiently. Built on the back of satellite imaging that predicts tree populations, SilviaTerra's software makes forestry mapping trips more efficient by improving routes and equipment inventories for scientists in the field."
+  ],
+  "imageName": "elephant.jpg",
+  "originalSourceURL": "https://www.techrepublic.com/article/ai-for-earth-how-microsoft-is-using-azure-to-build-a-more-sustainable-world/",
+  "publishedAgo": "3Days",
+  "breakingNews": false,
+  "source": "techrepublic.com"
+}
