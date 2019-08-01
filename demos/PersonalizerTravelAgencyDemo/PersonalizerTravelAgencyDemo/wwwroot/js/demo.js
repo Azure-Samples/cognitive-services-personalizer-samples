@@ -264,7 +264,7 @@ function updateContext(device, currentCost, currentAdditionals, removeUserAgent,
         {
             device: context.device,
             costs: context.costs,
-            additionals: context.packageAdditionals
+            packageAdditionals: context.packageAdditionals
         }
     ];
 
@@ -403,7 +403,7 @@ function getRecommendation() {
     const requestContext = {
         device: context.device,
         costs: context.costs,
-        additionals: context.packageAdditionals,
+        packageAdditionals: context.packageAdditionals,
         useUserAgent: !!context.userAgent
     };
 
