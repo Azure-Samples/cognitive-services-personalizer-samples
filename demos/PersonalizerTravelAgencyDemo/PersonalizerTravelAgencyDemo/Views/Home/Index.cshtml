@@ -33,7 +33,6 @@
                     <span class="nav-link homeNavBarFont"><b>@menuItem.Label</b></span>
                 </li>
             }
-
         }
         <li class="nav-item dropdownHover">
             <span class="nav-link homeNavBarFont mx-2"><b><i class="fas fa-search dropdownHover"></i></b></span>
@@ -360,14 +359,14 @@
 
 @section Scripts {
     <script src="~/lib/chartjs/Chart.bundle.js"></script>
-    <script> 
+    <script>
         const startDemoWithBlankPage = @siteConfig.StartWithBlankPage;
         const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';
         const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';
         //Reward Gauge Values
-        const RewardDecreaseAmount = @siteConfig.RewardTimer.DecreaseAmount; 
+        const RewardDecreaseAmount = @siteConfig.RewardTimer.DecreaseAmount;
         const RewardDecreaseInterval = @siteConfig.RewardTimer.DecreaseInterval;
-        const RewardDecreaseLimit = @siteConfig.RewardTimer.DecreaseLimit; 
+        const RewardDecreaseLimit = @siteConfig.RewardTimer.DecreaseLimit;
         const RewardInitValue = @siteConfig.RewardTimer.InitValue;
         const SaveForLaterReward = @siteConfig.RewardTimer.SaveForLaterReward;
     </script>
