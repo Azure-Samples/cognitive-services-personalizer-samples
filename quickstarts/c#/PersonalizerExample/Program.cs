@@ -1,19 +1,24 @@
-﻿using Microsoft.Azure.CognitiveServices.Personalizer;
+﻿// <Dependencies>
+using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+// </Dependencies>
 
 namespace PersonalizerExample
 {
     class Program
     {
-        // The key specific to your personalizer service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-        private const string ApiKey = "";
+        // <classVariables>
+        // The key specific to your personalizer resource instance; e.g. "0123456789abcdef0123456789ABCDEF"
+        private const string ApiKey = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_KEY");
 
-        // The endpoint specific to your personalizer service instance; e.g. https://westus2.api.cognitive.microsoft.com/
-        private const string ServiceEndpoint = "";
+        // The endpoint specific to your personalizer resource instance; e.g. https://westus2.api.cognitive.microsoft.com/
+        private const string ServiceEndpoint = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_ENDPOINT");
+        // </classVariables>
 
+        // <mainLoop>
         static void Main(string[] args)
         {
             int iteration = 1;
@@ -29,6 +34,7 @@ namespace PersonalizerExample
             {
                 Console.WriteLine("\nIteration: " + iteration++);
 
+                // <rank>
                 // Get context information from the user.
                 string timeOfDayFeature = GetUsersTimeOfDay();
                 string tasteFeature = GetUsersTastePreference();
@@ -50,9 +56,11 @@ namespace PersonalizerExample
                 // Rank the actions
                 var request = new RankRequest(actions, currentContext, excludeActions, eventId);
                 RankResponse response = client.Rank(request);
+                // </rank>
 
                 Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
 
+                // <reward>
                 float reward = 0.0f;
                 string answer = GetKey();
 
@@ -79,13 +87,16 @@ namespace PersonalizerExample
 
                 // Send the reward for the action based on user response.
                 client.Reward(response.EventId, new RewardRequest(reward));
+                // </reward>
 
                 Console.WriteLine("\nPress q to break, any other key to continue:");
                 runLoop = !(GetKey() == "Q");
 
             } while (runLoop);
         }
-
+        // <//mainLoop>
+        
+        // <authorization>
         /// <summary>
         /// Initializes the personalizer client.
         /// </summary>
@@ -98,7 +109,9 @@ namespace PersonalizerExample
 
             return client;
         }
+        // </authorization>
 
+        // <createUserFeatureTimeOfDay>
         /// <summary>
         /// Get users time of the day context.
         /// </summary>
@@ -116,7 +129,9 @@ namespace PersonalizerExample
 
             return timeOfDayFeatures[timeIndex - 1];
         }
+        // </createUserFeatureTimeOfDay>
 
+        // <createUserFeatureTastePreference>
         /// <summary>
         /// Gets user food preference.
         /// </summary>
@@ -134,7 +149,9 @@ namespace PersonalizerExample
 
             return tasteFeatures[tasteIndex - 1];
         }
+        // </createUserFeatureTastePreference>
 
+        // <createAction>
         /// <summary>
         /// Creates personalizer actions feature list.
         /// </summary>
@@ -174,10 +191,13 @@ namespace PersonalizerExample
 
             return actions;
         }
+        // </createAction>
 
+        // <readCommandLine>
         private static string GetKey()
         {
             return Console.ReadKey().Key.ToString().Last().ToString().ToUpper();
         }
+        // </readCommandLine>
     }
 }
