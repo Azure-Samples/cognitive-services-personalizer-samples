@@ -81,10 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     goBtnEle.addEventListener("click", function () {
-        getRecommendation().then(result => {
-            personalizerCallResult = result;
-            updateBasedOnRecommendation(result);
-        });
+        updateRecommendation();
     });
 
     function setIframeContentSize(mainContainer, isBackStageOpen) {
@@ -231,19 +228,13 @@ function setupContextControls() {
     const costSelectEle = document.getElementById('costs');
     costSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value, null, false, null);
-        getRecommendation().then(result => {
-            personalizerCallResult = result;
-            updateBasedOnRecommendation(result);
-        });
+        updateRecommendation();
     });
 
     const packageSelectEle = document.getElementById('packageAdditionals');
     packageSelectEle.addEventListener('change', (event) => {
         updateContext(null, null, event.target.value, false, null);
-        getRecommendation().then(result => {
-            personalizerCallResult = result;
-            updateBasedOnRecommendation(result);
-        });
+        updateRecommendation();
     });
 
     getUserAgent().then(userAgentResponse => {
@@ -450,4 +441,11 @@ function getRandomOption(options) {
     var randomNumber = Math.floor(Math.random() * options.length);
 
     return options[randomNumber];
+}
+
+function updateRecommendation() {
+    getRecommendation().then(result => {
+        personalizerCallResult = result;
+        updateBasedOnRecommendation(result);
+    });
 }
