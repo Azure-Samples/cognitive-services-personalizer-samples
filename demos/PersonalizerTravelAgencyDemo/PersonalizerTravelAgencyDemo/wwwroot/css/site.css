@@ -393,7 +393,9 @@ h1 {
 }
 
 .chartplaybutton {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 40vw;
 }
 
 .chart-people {
@@ -407,9 +409,8 @@ h1 {
 .chart-learn {
     max-height: 20rem;
     min-height: 15rem;
-    max-width: 50vw;
+    max-width: 65vw;
     min-width: 15vw;
-    margin-bottom: 1rem;
     margin-top: 1rem;
 }
 
@@ -623,4 +624,10 @@ h3.modal-title {
 
 .font-casual {
     font-family: 'Open Sans', sans-serif;
+}
+
+@media (min-width: 992px) {
+    .play-btn_lg_margin {
+        margin-right: 7rem;
+    }
 }
