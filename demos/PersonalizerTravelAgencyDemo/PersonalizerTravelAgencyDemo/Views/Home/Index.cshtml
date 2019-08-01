@@ -195,9 +195,8 @@
                                                         <div class="card">
                                                             <div class="card-header p-2">
                                                                 <strong>Action list</strong>
-                                                                <p class="mb-0"><small>Articles to choose from</small></p>
                                                             </div>
-                                                            <div class="card-body p-0">
+                                                            <div class="card-body p-0 overflow-auto actions-height">
                                                                 <div class="nav flex-column nav-pills" id="actions-tab" role="tablist" aria-orientation="vertical">
                                                                 </div>
                                                             </div>
@@ -206,15 +205,17 @@
                                                     <div class="col-7 pl-1">
                                                         <div class="card">
                                                             <div class="card-header p-2">
-                                                                <strong>Action JSON</strong>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" class="custom-control-input" id="text-analytics">
-                                                                    <label class="custom-control-label custom-control-description" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
-                                                                </div>
+                                                                <strong>Action</strong>
                                                             </div>
                                                             <div class="card-body p-0">
                                                                 <div class="tab-content" id="actions-tabContent">
                                                                 </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class"row">
+                                                            <div class="col-12">
+                                                                <a href="#" id="showActionsJson"><span>@siteConfig.BackstageSection.ShowJSONLabel</span></a>
+                                                                <a href="#" id="showActionsHtml"><span>@siteConfig.BackstageSection.ShowHTMLLabel</span></a>
                                                             </div>
                                                         </div>
                                                     </div>

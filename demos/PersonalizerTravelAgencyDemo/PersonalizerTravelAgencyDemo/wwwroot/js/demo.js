@@ -5,7 +5,17 @@ let context = {
     userAgent: null
 };
 
+const ACTION_VIEWS = {
+    HTML: "HTML",
+    JSON: "JSON"
+};
+
 let userAgent = {};
+
+let actionDisplayState = {
+    selectedView: ACTION_VIEWS.HTML,
+    currentActionId: ""
+};
 
 document.addEventListener("DOMContentLoaded", function () {
     const goBtnEle = document.getElementById("go-btn");
@@ -17,9 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const graphContainer = document.getElementById('graph-container');
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
+    const showActionJsonBtn = document.getElementById("showActionsJson");
+    const showActionHtmlBtn = document.getElementById('showActionsHtml');
 
     const costsOptions = ["allInclusive", "luxuryPackage"];
     const additionalOptions = ["boatTrip", "dinnerAndBreakfast"];
+
+    showActionHtmlBtn.style.display = 'none';
 
     let currentSize;
     let gaugeInterval = -1;
@@ -29,6 +43,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     context.costs = getRandomOption(costsOptions);
     context.packageAdditionals = getRandomOption(additionalOptions);
+
+    showActionJsonBtn.addEventListener('click', function () {
+        actionDisplayState.selectedView = ACTION_VIEWS.JSON;
+        showActionHtmlBtn.style.display = 'flex';
+        showActionJsonBtn.style.display = 'none';
+        showAction(actionDisplayState.currentActionId, ACTION_VIEWS.HTML);
+    });
+
+    showActionHtmlBtn.addEventListener("click", function () {
+        actionDisplayState.selectedView = ACTION_VIEWS.HTML;
+        showActionJsonBtn.style.display = 'flex';
+        showActionHtmlBtn.style.display = 'none';
+        showAction(actionDisplayState.currentActionId, ACTION_VIEWS.JSON);
+    });
 
     backstageBtn.addEventListener("click", function () {
         backstageBtn.innerText = backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
@@ -152,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
             articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(SaveForLaterReward); });
 
             updateShowGraphbtn(true);
-            
+
             updateRewardValue(reward, articleDoc);
 
             gauge.addEventListener("transitionend", function gaugeTransitionEndHandler(event) {
@@ -196,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function updateRewardValue(value, articleDoc) {
-    const turnValue = value/2;
+    const turnValue = value / 2;
     const rewardEle = articleDoc.getElementById('gauge');
     rewardEle.setAttribute('style', `transform:rotate(${turnValue}turn)`);
     const comment = articleDoc.getElementById('gauge-comment');
@@ -350,6 +378,8 @@ function updateActionsTab(actions) {
     let actionsTabHeadersString = "";
     let actionsTabContentString = "";
 
+    actionDisplayState.currentActionId = actions[0].id;
+
     for (var i = 0; i < actions.length; i++) {
         let actionTabContent = createActionTab(actions[i], i === 0);
         actionsTabHeadersString += actionTabContent.tabHeader;
@@ -367,15 +397,47 @@ function createActionTab(actionObj, active) {
     }
 
     return {
-        tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
+        tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" onclick="showAction(${actionObj.id})" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj.id}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
                         <div class="mx-auto"></div>
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.title}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/gray-placeholder.jpg" style="max-width:4rem;"></img>
                     </a>`,
-        tabContent: `<div class="tab-pane fade ${active ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
-                        <p class="h6 p-1 pt-2 mb-0"><strong>Title:</strong> ${actionObj.title}</p>
-                        <pre class="pre-scrollable border m-0 actionsjson"><code>${JSON.stringify(action, null, 2)}</code></pre>
+        tabContent: `<div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.JSON ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.JSON}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
+                        <pre class="pre-scrollable border m-0 actions-height"><code>${JSON.stringify(action, null, 2)}</code></pre>
+                    </div>
+                    <div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.HTML ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.HTML}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
+                       <div class="m-1 actions-grid">
+                          <div class="gr-1 gc-1">Layout</div>
+                          <div class="gr-2 gc-1"><img id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div>
+                          <div class="gr-3 gc-1"><img id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div>
+                          <div class="gr-4 gc-1"><img id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div>
+                          
+                          <div class="gr-1 gc-2">Image</div>
+                          <div class="gr-2 gc-2"><img id="beach" src="/img/beach.jpg" alt="Beach" /></div>
+                          <div class="gr-3 gc-2"><img id="pool" src="/img/pool.jpg" alt="Pool" /></div>
+                          
+                          <div class="gr-1 gc-3">Tone & Font </div>
+                          <div class="gr-2 gc-3"><img id="casual" src="/img/casual.jpg" alt="Casual" /></div>
+                          <div class="gr-3 gc-3"><img id="formal" src="/img/formal.jpg" alt="Formal" /></div>
+                          
+                          <div class="gr-1 gc-4">Buy Button</div>
+                          <div class="gr-2 gc-4"><img id="blue" src="/img/buybutton-blue.jpg" alt="Blue" /></div>
+                          <div class="gr-3 gc-4"><img id="orange" src="/img/buybutton-orange.jpg" alt="Orange" /></div>
+                       </div>
                     </div>`
     };
+}
+
+function showAction(id, activeActionView) {
+    id = id ? id : actionDisplayState.currentActionId;
+    activeActionView = activeActionView ? activeActionView : actionDisplayState.selectedView;
+
+    const activeAction = document.getElementById(`${actionDisplayState.currentActionId}-article-${activeActionView}`);
+    activeAction.classList.remove("show", "active");
+
+    actionDisplayState.currentActionId = id;
+
+    const actionToActivate = document.getElementById(`${actionDisplayState.currentActionId}-article-${actionDisplayState.selectedView}`);
+    actionToActivate.classList.add("show", "active");
 }
 
 function updateArticle(result) {
