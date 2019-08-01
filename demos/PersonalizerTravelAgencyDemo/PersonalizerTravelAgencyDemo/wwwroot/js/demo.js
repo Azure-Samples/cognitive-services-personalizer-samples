@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
 
-    const costsOptions = ["allInclusive", "luxury"];
-    const additionalOptions = ["boatTrip", "dinnerBreakfast"];
+    const costsOptions = ["allInclusive", "luxuryPackage"];
+    const additionalOptions = ["boatTrip", "dinnerAndBreakfast"];
 
     let currentSize;
     let gaugeInterval = -1;
@@ -213,7 +213,7 @@ function setupActionControls() {
 
 function setupContextControls() {
     const deviceSelectEle = document.getElementById('device');
-    deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
+
     deviceSelectEle.addEventListener('change', (event) => {
         updateContext(event.target.value, null, null, false, null);
     });
@@ -226,6 +226,24 @@ function setupContextControls() {
         } else {
             updateContext(null, null, null, true, null);
         }
+    });
+
+    const costSelectEle = document.getElementById('costs');
+    costSelectEle.addEventListener('change', (event) => {
+        updateContext(null, event.target.value, null, false, null);
+        getRecommendation().then(result => {
+            personalizerCallResult = result;
+            updateBasedOnRecommendation(result);
+        });
+    });
+
+    const packageSelectEle = document.getElementById('packageAdditionals');
+    packageSelectEle.addEventListener('change', (event) => {
+        updateContext(null, null, event.target.value, false, null);
+        getRecommendation().then(result => {
+            personalizerCallResult = result;
+            updateBasedOnRecommendation(result);
+        });
     });
 
     getUserAgent().then(userAgentResponse => {
