@@ -5,8 +5,17 @@ let context = {
     userAgent: null
 };
 
+const ACTION_VIEWS = {
+    HTML: "HTML",
+    JSON: "JSON"
+};
+
 let userAgent = {};
-let selectedView = 'HTML';
+
+let actionDisplayState = {
+    selectedView: ACTION_VIEWS.HTML,
+    currentActionId: ""
+};
 
 document.addEventListener("DOMContentLoaded", function () {
     const goBtnEle = document.getElementById("go-btn");
@@ -36,17 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
     context.packageAdditionals = getRandomOption(additionalOptions);
 
     showActionJsonBtn.addEventListener('click', function () {
-        selectedView = 'JSON';
+        actionDisplayState.selectedView = ACTION_VIEWS.JSON;
         showActionHtmlBtn.style.display = 'flex';
         showActionJsonBtn.style.display = 'none';
-        setupActionControls();
+        showAction(actionDisplayState.currentActionId, ACTION_VIEWS.HTML);
     });
 
     showActionHtmlBtn.addEventListener("click", function () {
-        selectedView = 'HTML';
+        actionDisplayState.selectedView = ACTION_VIEWS.HTML;
         showActionJsonBtn.style.display = 'flex';
         showActionHtmlBtn.style.display = 'none';
-        setupActionControls();
+        showAction(actionDisplayState.currentActionId, ACTION_VIEWS.JSON);
     });
 
     backstageBtn.addEventListener("click", function () {
@@ -369,16 +378,12 @@ function updateActionsTab(actions) {
     let actionsTabHeadersString = "";
     let actionsTabContentString = "";
 
-    if (selectedView == 'HTML') {
-        let actionTabContent = createActionTab(actions[0], 0);
+    actionDisplayState.currentActionId = actions[0].id;
+
+    for (var i = 0; i < actions.length; i++) {
+        let actionTabContent = createActionTab(actions[i], i === 0);
         actionsTabHeadersString += actionTabContent.tabHeader;
         actionsTabContentString += actionTabContent.tabContent;
-    } else {
-        for (var i = 0; i < actions.length; i++) {
-            let actionTabContent = createActionTab(actions[i], i === 0);
-            actionsTabHeadersString += actionTabContent.tabHeader;
-            actionsTabContentString += actionTabContent.tabContent;
-        }
     }
 
     actionsHeaderTab.innerHTML = actionsTabHeadersString;
@@ -391,25 +396,16 @@ function createActionTab(actionObj, active) {
         if (actionObj.hasOwnProperty(attr) && attr !== "title" && attr !== "imageName") action[attr] = actionObj[attr];
     }
 
-    if (selectedView == 'JSON') {
-        return {
-            tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
+    return {
+        tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" onclick="showAction(${actionObj.id})" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj.id}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
                         <div class="mx-auto"></div>
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.title}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
                     </a>`,
-            tabContent: `<div class="tab-pane fade ${active ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
-                        <p class="h6 p-1 pt-2 mb-0"><strong>Title:</strong> ${actionObj.title}</p>
+        tabContent: `<div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.JSON ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.JSON}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                         <pre class="pre-scrollable border m-0 actionsjson"><code>${JSON.stringify(action, null, 2)}</code></pre>
-                    </div>`
-        }
-    }
-    else {
-        return {
-            tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
-                        <div class="mx-auto"></div>
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.title}" src="img/${actionObj.imageName}" style="max-width:4rem;"></img>
-                    </a>`,
-            tabContent: `<div container><div class="row mx-auto">
+                    </div>
+                    <div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.HTML ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.HTML}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
+                <div class="row mx-auto">
                 <div class="col-3"><div class="row pr-3"><p class="">Image</p></div><div class="row h-100 pr-3">
                         <div class="row py-2 pl-2 mb-3 align-items-end"><div class="col-12"><img id="beach" src="/img/beach.jpg" alt="Beach" /></div></div>
                         <div class="row py-2 pl-2 align-items-start"><div class="col-12"><img id="pool" src="/img/pool.jpg" alt="Pool" /></div></div></div></div>
@@ -425,8 +421,20 @@ function createActionTab(actionObj, active) {
                         <div class="row mb-3 align-items-end mx-1"><div class="col-12"><img class="border border-dark" id="blue" src="/img/buybutton-blue.jpg" alt="Blue" /> </div></div>
                         <div class="row align-items-start mx-1"><div class="col-12"><img class="border border-dark" id="orange" src="/img/buybutton-orange.jpg" alt="Orange" /></div></div>
                     </div></div></div></div>`
-        }
-    }
+    };
+}
+
+function showAction(id, activeActionView) {
+    id = id ? id : actionDisplayState.currentActionId;
+    activeActionView = activeActionView ? activeActionView : actionDisplayState.selectedView;
+
+    const activeAction = document.getElementById(`${actionDisplayState.currentActionId}-article-${activeActionView}`);
+    activeAction.classList.remove("show", "active");
+
+    actionDisplayState.currentActionId = id;
+
+    const actionToActivate = document.getElementById(`${actionDisplayState.currentActionId}-article-${actionDisplayState.selectedView}`);
+    actionToActivate.classList.add("show", "active");
 }
 
 function updateArticle(result) {
