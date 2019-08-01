@@ -228,13 +228,11 @@ function setupContextControls() {
     const costSelectEle = document.getElementById('costs');
     costSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value, null, false, null);
-        updateRecommendation();
     });
 
     const packageSelectEle = document.getElementById('packageAdditionals');
     packageSelectEle.addEventListener('change', (event) => {
         updateContext(null, null, event.target.value, false, null);
-        updateRecommendation();
     });
 
     getUserAgent().then(userAgentResponse => {
