@@ -46,7 +46,9 @@
   "BackstageSection": {
     "RefreshButtonText": "Show Personalized Checkout",
     "RequestLabel": "API Request",
-    "ResponseLabel": "API Response"
+    "ResponseLabel": "API Response",
+    "ShowJSONLabel": "Show Code",
+    "ShowHTMLLabel": "Show Visual Representation"
   },
   "RewardTimer": {
     "DecreaseAmount": "0.00050",
