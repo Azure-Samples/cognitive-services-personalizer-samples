@@ -405,21 +405,21 @@ function createActionTab(actionObj, active) {
                     <div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.HTML ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.HTML}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                        <div class="m-1 actions-grid">
                           <div class="gr-1 gc-1">Layout</div>
-                          <div class="gr-2 gc-1"><img id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div>
-                          <div class="gr-3 gc-1"><img id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div>
-                          <div class="gr-4 gc-1"><img id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div>
+                          <div class="gr-2 gc-1"><img class="${action.layout.toLowerCase().indexOf('layouta') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div>
+                          <div class="gr-3 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutb') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div>
+                          <div class="gr-4 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutc') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div>
                           
                           <div class="gr-1 gc-2">Image</div>
-                          <div class="gr-2 gc-2"><img id="beach" src="/img/beach.jpg" alt="Beach" /></div>
-                          <div class="gr-3 gc-2"><img id="pool" src="/img/pool.jpg" alt="Pool" /></div>
+                          <div class="gr-2 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('caribbean') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="beach" src="/img/caribbean-thumbnail.jpg" alt="Beach" /></div>
+                          <div class="gr-3 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('elephant') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="pool" src="/img/elephant-thumbnail.jpg" alt="Desert" /></div>
                           
                           <div class="gr-1 gc-3">Tone & Font </div>
-                          <div class="gr-2 gc-3"><img id="casual" src="/img/casual.jpg" alt="Casual" /></div>
-                          <div class="gr-3 gc-3"><img id="formal" src="/img/formal.jpg" alt="Formal" /></div>
+                          <div class="gr-2 gc-3"><img class="${action.toneFont.toLowerCase().indexOf('casual') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="casual" src="/img/casual.jpg" alt="Casual" /></div>
+                          <div class="gr-3 gc-3"><img class="${action.toneFont.toLowerCase().indexOf('formal') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="formal" src="/img/formal.jpg" alt="Formal" /></div>
                           
                           <div class="gr-1 gc-4">Buy Button</div>
-                          <div class="gr-2 gc-4"><img id="blue" src="/img/buybutton-blue.jpg" alt="Blue" /></div>
-                          <div class="gr-3 gc-4"><img id="orange" src="/img/buybutton-orange.jpg" alt="Orange" /></div>
+                          <div class="gr-2 gc-4"><img class="${action.buttonColor.indexOf(BlueButtonColor) > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="blue" src="/img/buybutton-blue.jpg" alt="Blue" /></div>
+                          <div class="gr-3 gc-4"><img class="${action.buttonColor.indexOf(OrangeButtonColor) > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="orange" src="/img/buybutton-orange.jpg" alt="Orange" /></div>
                        </div>
                     </div>`
     };
