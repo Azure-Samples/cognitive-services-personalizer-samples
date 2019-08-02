@@ -1,12 +1,22 @@
 ﻿@model PersonalizerTravelAgencyDemo.Models.Action
+@{ var confirmationPageText = ViewData["confirmationPageText"] as CheckoutPageText; }
 
 <div class="mx-2 my-auto">
     <i class="fas fa-coins color-gold fa-5x"></i>
 </div>
 <div>
-    <h5>Costs</h5>
+    <h5>@confirmationPageText.CostsTitle</h5>
     <p>
-        $4000 All Inclusive<br />
-        + $500 Luxury Package
+        @{
+            var lastItem = confirmationPageText.CostsItems.LastOrDefault();
+            foreach (var item in confirmationPageText.CostsItems)
+            {
+                @item
+                @if (item != lastItem)
+                {
+                    <br />
+                }
+            }
+        }
     </p>
 </div>

@@ -50,6 +50,8 @@ namespace PersonalizerTravelAgencyDemo.Controllers
             ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
             var model = _actionRepository.GetAction(actionId);
+
+            ViewData["confirmationPageText"] = JsonConvert.DeserializeObject<CheckoutPageText>(LoadJson($"Actions/Text/{model.ToneFont}.json"));
             return View(model);
         }
         public IActionResult HomeSite(string actionsIds)
