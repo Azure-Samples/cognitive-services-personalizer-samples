@@ -170,7 +170,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
 
             articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(reward); });
-            articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(SaveForLaterReward); });
+            articleDoc.getElementById("link-save-later").addEventListener("click", function () {
+                sendRewardHandler(SaveForLaterReward);
+                updateRewardValue(SaveForLaterReward, articleDoc);
+            });
 
             updateShowGraphbtn(true);
 
