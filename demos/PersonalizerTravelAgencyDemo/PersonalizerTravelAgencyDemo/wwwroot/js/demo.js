@@ -163,6 +163,8 @@ document.addEventListener("DOMContentLoaded", function () {
         function sendRewardHandler(reward) {
             clearInterval(gaugeInterval);
             sendReward(personalizerCallResult.eventId, reward);
+            var modalRewardText = articleViewer.contentWindow.document.getElementById("modal-reward");
+            modalRewardText.textContent = Math.round(reward * 10) / 10;
         }
 
         clearInterval(gaugeInterval);
