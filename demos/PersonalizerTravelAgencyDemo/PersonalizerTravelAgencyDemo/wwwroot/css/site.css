@@ -192,17 +192,17 @@ img {
 }
 
 h1 {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
 }
 
 .gauge-container {
     display: block;
     position: fixed;
-    top: 8rem;
-    right: -18.5rem;
+    top: 6rem;
+    right: -5.5rem;
     z-index: 99;
-    width: 25rem;
-    height: 25rem;
+    width: 10rem;
+    height: 10rem;
     font-size: 4rem;
     line-height: 4rem;
     overflow: hidden;
@@ -215,11 +215,11 @@ h1 {
     z-index: 1;
     position: absolute;
     background-color: #007bff;
-    width: 42%;
-    height: 42%;
-    left: 29%;
-    top: 19%;
-    border-radius: 300px 300px 300px 300px;
+    width: 8.5rem;
+    height: 8.5rem;
+    left: 0.24rem;
+    top: 0.74rem;
+    border-radius: 330px 330px 330px 330px;
 }
 
 /* the grey bar that will be filled*/
@@ -227,11 +227,11 @@ h1 {
     z-index: 1;
     position: absolute;
     background-color: rgba(200, 200, 200, 1);
-    width: 40%;
-    height: 40%;
-    left: 30%;
-    top: 20%;
-    border-radius: 250px 250px 250px 250px;
+    width: 8rem;
+    height: 8rem;
+    left: 0.5rem;
+    top: 1rem;
+    border-radius: 300px 300px 300px 300px;
 }
 
 /* the bottom semicircle area white */
@@ -239,10 +239,10 @@ h1 {
     z-index: 10;
     position: absolute;
     background-color: rgba(255, 255, 255, 1);
-    width: 40%;
-    height: 20%;
-    left: 30%;
-    top: 40%;
+    width: 8rem;
+    height: 4rem;
+    left: 0.5rem;
+    top: 5rem;
     border-radius: 0px 0px 250px 250px;
 }
 
@@ -251,13 +251,13 @@ h1 {
     z-index: 3;
     position: absolute;
     background-color: #FFFFFF;
-    width: 25%;
-    height: 13%;
-    left: 34%;
-    top: 29%;
-    margin-left: 3.75%;
+    width: 6rem;
+    height: 3rem;
+    left: 0.5rem;
+    top: 2rem;
+    margin-left: 1rem;
     margin-right: auto;
-    border-radius: 250px 250px 0px 0px;
+    border-radius: 300px 300px 0px 0px;
 }
 
 /* the green measure bar that moves*/
@@ -265,13 +265,13 @@ h1 {
     z-index: 2;
     position: absolute;
     background-color: #009900;
-    width: 40%;
-    height: 20%;
-    left: 30%;
-    top: 40%;
+    width: 8rem;
+    height: 4rem;
+    left: 0.5rem;
+    top: 5rem;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 0px 0px 200px 200px;
+    border-radius: 0px 0px 400px 400px;
     transform-origin: center top;
     transition: all 0.2s ease-in-out;
 }
@@ -287,10 +287,10 @@ h1 {
     padding-top: 0.1vw;
     position: absolute;
     font-size: 1rem;
-    width: 40%;
-    height: 20%;
-    left: 30%;
-    top: 40%;
+    width: 7rem;
+    height: 3rem;
+    left: 1rem;
+    top: 5rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -302,10 +302,10 @@ h1 {
     font-size: 3rem;
     line-height: normal;
     position: absolute;
-    width: 20%;
-    height: 20%;
-    left: 40%;
-    top: 30%;
+    width: 5rem;
+    height: 5rem;
+    left: 2rem;
+    top: 2.2rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
