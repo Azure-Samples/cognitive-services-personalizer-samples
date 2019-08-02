@@ -7,7 +7,7 @@
         <div class="col-sm-12 font-@Model.ToneFont">
             <h2 class="text-capitalize">Your Dream Vacation Package Is Ready!</h2>
 
-            @await Html.PartialAsync("./Partials/"+ Model.Layout + ".cshtml", Model)
+            @await Html.PartialAsync("./Partials/" + Model.Layout + ".cshtml", Model)
 
             <div id="gauge-backbtn-section">
                 <button id="iframe-backBtn" title="Go to top">Back</button>
@@ -29,3 +29,5 @@
         </div>
     </div>
 </div>
+
+@await Html.PartialAsync("Partials/_CheckoutModal.cshtml", Model)
