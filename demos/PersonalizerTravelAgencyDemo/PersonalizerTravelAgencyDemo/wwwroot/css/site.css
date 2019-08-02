@@ -668,3 +668,8 @@ h3.modal-title {
 .gr-4 {
     grid-row: 4;
 }
+
+.actionItemsStyleLabel {
+    padding-left: 1rem;
+    text-transform: capitalize;
+}
