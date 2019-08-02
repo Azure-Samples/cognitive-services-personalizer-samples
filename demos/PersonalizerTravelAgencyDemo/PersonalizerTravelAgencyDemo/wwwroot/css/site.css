@@ -673,3 +673,7 @@ h3.modal-title {
     padding-left: 1rem;
     text-transform: capitalize;
 }
+
+.action-border {
+    border: 0.2rem solid;
+}
