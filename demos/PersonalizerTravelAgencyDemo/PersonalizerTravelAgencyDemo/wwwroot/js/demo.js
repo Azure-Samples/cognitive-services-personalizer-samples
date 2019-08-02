@@ -80,12 +80,10 @@ document.addEventListener("DOMContentLoaded", function () {
     setupActionControls();
     setupContextControls();
 
-    if (!startDemoWithBlankPage) {
-        getRecommendation().then(result => {
-            personalizerCallResult = result;
-            updateBasedOnRecommendation(result);
-        });
-    }
+    getRecommendation().then(result => {
+        personalizerCallResult = result;
+        updateBasedOnRecommendation(result);
+    });
 
     if (document.documentElement.clientWidth > mobileSize) {
         currentSize = SCREEN_SIZE_BIG;
