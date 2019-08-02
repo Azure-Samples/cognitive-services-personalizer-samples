@@ -397,9 +397,9 @@ function createActionTab(actionObj, active) {
                     <div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.HTML ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.HTML}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                        <div class="m-1 actions-grid">
                           <div class="gr-1 gc-1">Layout</div>
-                          <div class="gr-2 gc-1"><img class="${action.layout.toLowerCase().indexOf('layouta') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div>
-                          <div class="gr-3 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutb') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div>
-                          <div class="gr-4 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutc') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div>
+                          <div class="gr-2 gc-1"><img class="${action.layout.toLowerCase().indexOf('layouta') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-a" src="/img/layout-a.png" alt="Layout A" /></div>
+                          <div class="gr-3 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutb') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-b" src="/img/layout-b.png" alt="Layout B" /></div>
+                          <div class="gr-4 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutc') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-c" src="/img/layout-c.png" alt="Layout C" /></div>
                           
                           <div class="gr-1 gc-2">Image</div>
                           <div class="gr-2 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('caribbean') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="beach" src="/img/caribbean-thumbnail.jpg" alt="Beach" /></div>
