@@ -151,6 +151,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const gauge = articleViewer.contentWindow.document.getElementById("gauge");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
 
+        getRecommendation().then(result => {
+            personalizerCallResult = result;
+        });
+
         let reward = RewardInitValue;
 
         function sendRewardHandler(reward) {
