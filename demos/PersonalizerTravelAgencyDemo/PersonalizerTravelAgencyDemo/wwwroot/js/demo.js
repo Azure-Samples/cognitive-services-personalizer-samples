@@ -80,11 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setupActionControls();
     setupContextControls();
 
-    getRecommendation().then(result => {
-        personalizerCallResult = result;
-        updateBasedOnRecommendation(result);
-    });
-
     if (document.documentElement.clientWidth > mobileSize) {
         currentSize = SCREEN_SIZE_BIG;
     }
@@ -155,6 +150,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const articleFooter = articleViewer.contentWindow.document.getElementById("article-footer");
         const gauge = articleViewer.contentWindow.document.getElementById("gauge");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
+
+        getRecommendation().then(result => {
+            personalizerCallResult = result;
+        });
 
         let reward = RewardInitValue;
 
