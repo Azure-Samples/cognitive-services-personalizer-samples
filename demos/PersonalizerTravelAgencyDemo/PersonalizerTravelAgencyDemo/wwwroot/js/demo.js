@@ -395,11 +395,10 @@ function createActionTab(actionObj, active) {
     for (var attr in actionObj) {
         if (actionObj.hasOwnProperty(attr) && attr !== "title" && attr !== "imageName") action[attr] = actionObj[attr];
     }
-
     return {
         tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" onclick="showAction(${actionObj.id})" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj.id}-article" aria-selected="${active ? "true" : "false"}"> ${actionObj.id}
                         <div class="mx-auto"></div>
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/gray-placeholder.jpg" style="max-width:4rem;"></img>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/actions-thumbnails/${actionObj.id}.png" style="max-width:4rem;"></img>
                     </a>`,
         tabContent: `<div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.JSON ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.JSON}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                         <pre class="pre-scrollable border m-0 actions-height"><code>${JSON.stringify(action, null, 2)}</code></pre>
