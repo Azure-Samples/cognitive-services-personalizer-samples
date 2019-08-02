@@ -1,4 +1,5 @@
 ﻿@model PersonalizerTravelAgencyDemo.Models.Action
+@{ var confirmationPageText = ViewData["confirmationPageText"] as CheckoutPageText; }
 
-<h6>Payment</h6>
-<p>Your credit card ending in 1234</p>
+<h6>@confirmationPageText.PaymentTitle</h6>
+<p>@confirmationPageText.PaymentText</p>

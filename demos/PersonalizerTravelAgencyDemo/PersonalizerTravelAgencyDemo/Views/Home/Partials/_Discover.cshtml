@@ -1,14 +1,20 @@
 ﻿@model PersonalizerTravelAgencyDemo.Models.Action
+@{ var confirmationPageText = ViewData["confirmationPageText"] as CheckoutPageText; }
 
 <div class="row">
     <div class="mx-2 my-auto">
         <i class="fas fa-umbrella-beach color-green fa-5x"></i>
     </div>
     <div class="flex-grow-1">
-        <h5>Discover</h5>
+        <h5>@confirmationPageText.DiscoverTitle</h5>
         <ul>
-            <li>Pristine Beaches</li>
-            <li>High End Experiences</li>
+            @{
+                var lastItem = confirmationPageText.DiscoverItems.LastOrDefault();
+                foreach (var item in confirmationPageText.DiscoverItems)
+                {
+                    <li>@item</li>
+                }
+            }
         </ul>
     </div>
 </div>

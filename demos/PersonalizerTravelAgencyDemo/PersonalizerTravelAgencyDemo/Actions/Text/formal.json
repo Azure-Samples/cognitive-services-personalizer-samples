@@ -1,0 +1,22 @@
+{
+  "Title": "Your Vacation Package",
+  "PackageTitle": "Package Includes",
+  "PackageItems": [
+    "Boat Trip",
+    "Dinner and Breakfast"
+  ],
+  "CostsTitle": "Costs",
+  "CostsItems": [
+    "$4000 All Inclusive",
+    "+ $500 Luxury Package"
+  ],
+  "DiscoverTitle": "Discover",
+  "DiscoverItems": [
+    "Pristine Beaches",
+    "High End Experiences"
+  ],
+  "PaymentTitle": "Payment",
+  "PaymentText": "Your credit card ending in 1234",
+  "ConfirmButtonLabel": "Confirm Purchase",
+  "SaveForLaterLinkLabel": "Save for Later"
+}
