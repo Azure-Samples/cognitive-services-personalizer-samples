@@ -389,8 +389,7 @@ function createActionTab(actionObj, active) {
 
     return {
         tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" onclick="showAction(${actionObj.id})" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj.id}-article" aria-selected="${active ? "true" : "false"}">
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/actions-thumbnails/${actionObj.id}.png" style="max-width:4rem;"></img>
-                        <div class="actionItemsStyleLabel">Tone & Font: ${action.toneFont}</div>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/actions-thumbnails/${actionObj.id}.png"></img>
                     </a>`,
         tabContent: `<div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.JSON ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.JSON}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                         <pre class="pre-scrollable border m-0 actions-height"><code>${JSON.stringify(actionObj, null, 2)}</code></pre>
