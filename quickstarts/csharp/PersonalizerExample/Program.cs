@@ -12,10 +12,10 @@ namespace PersonalizerExample
     {
         // <classVariables>
         // The key specific to your personalizer resource instance; e.g. "0123456789abcdef0123456789ABCDEF"
-        private const string ApiKey = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_KEY");
+        private static readonly string ApiKey = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_KEY");
 
         // The endpoint specific to your personalizer resource instance; e.g. https://westus2.api.cognitive.microsoft.com/
-        private const string ServiceEndpoint = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_ENDPOINT");
+        private static readonly string ServiceEndpoint = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_ENDPOINT");
         // </classVariables>
 
         // <mainLoop>
