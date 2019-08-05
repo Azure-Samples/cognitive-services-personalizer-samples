@@ -147,9 +147,10 @@ document.addEventListener("DOMContentLoaded", function () {
     articleViewer.addEventListener("load", function () {
         const articleDoc = articleViewer.contentDocument;
         const mainContainer = articleViewer.contentWindow.document.getElementById("main-container");
-        const articleFooter = articleViewer.contentWindow.document.getElementById("article-footer");
         const gauge = articleViewer.contentWindow.document.getElementById("gauge");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
+        const modalButton = articleViewer.contentWindow.document.getElementById('endModal-close-button');
+        const modalIcon = articleViewer.contentWindow.document.getElementById('endModal-close-icon');
 
         getRecommendation().then(result => {
             personalizerCallResult = result;
@@ -181,6 +182,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateRewardValue(SaveForLaterReward, articleDoc);
             });
 
+            modalButton.addEventListener('click', goToHomeSite);
+
+            modalIcon.addEventListener('click', goToHomeSite);
+
             updateShowGraphbtn(true);
 
             updateRewardValue(reward, articleDoc);
@@ -198,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                 }, RewardDecreaseInterval * 1000);
-            }, false);            
+            }, false);
 
             var innerDoc = articleViewer.contentWindow.document;
             var iframeBackBtn = innerDoc.getElementById('iframe-backBtn');
@@ -506,4 +511,9 @@ function updateRecommendation() {
         personalizerCallResult = result;
         updateBasedOnRecommendation(result);
     });
+}
+
+function goToHomeSite() {
+    const articleViewer = document.getElementById("article-viewer");
+    articleViewer.src = '/home/HomeSite';
 }

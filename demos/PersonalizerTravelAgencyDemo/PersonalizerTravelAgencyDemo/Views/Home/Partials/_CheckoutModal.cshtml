@@ -1,12 +1,12 @@
 ﻿@model PersonalizerTravelAgencyDemo.Models.Action
 
-<div class="modal fade" id="checkout-modal" tabindex="-1" role="dialog" aria-labelledby="checkout-modal-title" aria-hidden="true">
+<div class="modal fade" id="checkout-modal" tabindex="-1" role="dialog" aria-labelledby="checkout-modal-title" data-backdrop="static" data-keyboard="false" aria-hidden="true">
     <div class="modal-dialog about-modal modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="col-md-12 modal-title text-center" id="about-modal-title">
                     This is the checkout page
-                    <button type="button" class="close pr-0" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close pr-0" id="endModal-close-icon" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </h5>
@@ -24,7 +24,7 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="endModal-close-button" class="btn btn-secondary" data-dismiss="modal">Try Again</button>
             </div>
         </div>
     </div>
