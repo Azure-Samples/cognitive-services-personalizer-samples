@@ -94,7 +94,7 @@ namespace PersonalizerExample
 
             } while (runLoop);
         }
-        // <//mainLoop>
+        // </mainLoop>
         
         // <authorization>
         /// <summary>
