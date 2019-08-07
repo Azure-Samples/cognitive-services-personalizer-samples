@@ -407,9 +407,8 @@ h1 {
 .chart-learn {
     max-height: 20rem;
     min-height: 15rem;
-    max-width: 50vw;
+    max-width: 65vw;
     min-width: 15vw;
-    margin-bottom: 1rem;
     margin-top: 1rem;
 }
 
@@ -531,6 +530,10 @@ h3.modal-title {
     padding-right: 0px;
 }
 
+#learnModal {
+    padding-right: 0px;
+}
+
 /* End Charts Modal */
 
 /* Score section */
@@ -560,4 +563,10 @@ h3.modal-title {
 
 .privacy-padding{
     padding-left:5rem;
+}
+
+@media (min-width: 992px) {
+    .play-btn_lg_margin {
+        margin-right:7rem;
+    }
 }

@@ -1,6 +1,5 @@
 {
   "RefreshButtonText": "Show a Personalized Article",
-  "LogoImageURL": "~/img/logo.png",
   "PersonalizerSignUpLabel": "Sign up",
   "PersonalizerSignUpURL": "https://azure.microsoft.com/en-us/try/cognitive-services/?api=personalizer",
   "PersonalizerDocumentationURL": "https://azure.microsoft.com/en-us/services/cognitive-services/personalizer/",
@@ -14,7 +13,6 @@
   "StartWithBlankPage": "true",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
-    "BackstageLabelBtn": "Show how it works",
     "BackgroundColor": "#F57636",
     "OptionsList": [
       {

@@ -1,4 +1,5 @@
 const COG_SVC_KEY = "";
+const COG_SVC_ENDPOINT = "https://westus2.api.cognitive.microsoft.com/";
 
 // https://openweathermap.org/api
 const OPEN_WEATHER_MAP_KEY= "";
