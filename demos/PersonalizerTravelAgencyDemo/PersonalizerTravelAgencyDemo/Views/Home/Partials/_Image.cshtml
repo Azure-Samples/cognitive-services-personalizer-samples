@@ -1,0 +1,14 @@
+﻿@model PersonalizerTravelAgencyDemo.Models.Action
+@{
+    var imagePath = "";
+    if (Model != null)
+    {
+        imagePath = "/img/" + Model.Image.FileName + ".jpg";
+    }
+}
+<div class="main_slot_image container-img-text">
+    <div class="article-img-container">
+        <img src="@imagePath" alt="@Model.Image.AltName" />
+    </div>
+</div>
+

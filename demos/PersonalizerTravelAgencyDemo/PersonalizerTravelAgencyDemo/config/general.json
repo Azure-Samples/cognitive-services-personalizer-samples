@@ -1,0 +1,59 @@
+{
+  "CheckoutButtonText": "Go To Checkout",
+  "LogoImageURL": "~/img/logo.png",
+  "PersonalizerSignUpLabel": "Sign up",
+  "PersonalizerSignUpURL": "https://azure.microsoft.com/en-us/try/cognitive-services/?api=personalizer",
+  "PersonalizerDocumentationURL": "https://azure.microsoft.com/en-us/services/cognitive-services/personalizer/",
+  "PersonalizerDocumentationLabel": "Learn more",
+  "PersonalizerDeveloperDocsURL": "https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/",
+  "PersonalizerDeveloperDocsLabel": "Developer Docs",
+  "PersonalizerCodeSamplesURL": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
+  "PersonalizerCodeSampleLabel": "Code Samples",
+  "MainArticleShowBackstageLabel": "Show How It Works",
+  "MainArticleCloseBackstageLabel": "Hide How It Works",
+  "BlueButton": "#0078D4",
+  "OrangeButton": "#F57636",
+  "ConfirmationLabelBlueButton": "Confirm Purchase",
+  "ConfirmationLabelOrangeButton": "Confirm Purchase",
+  "NavigationBar": {
+    "LogoImageURL": "img/logo.png",
+    "BackstageLabelBtn": "Show how it works",
+    "BackgroundColor": "#F57636",
+    "OptionsList": [
+      {
+        "label": "Packages",
+        "items": ""
+      },
+      {
+        "label": "Tours",
+        "items": ""
+      },
+      {
+        "label": "Car Rentals",
+        "item": ""
+      },
+      {
+        "label": "Cruises",
+        "item": ""
+      },
+      {
+        "label": "Log In",
+        "item": ""
+      }
+    ]
+  },
+  "BackstageSection": {
+    "RefreshButtonText": "Show Personalized Checkout",
+    "RequestLabel": "API Request",
+    "ResponseLabel": "API Response",
+    "ShowJSONLabel": "Show Code",
+    "ShowHTMLLabel": "Show Visual Representation"
+  },
+  "RewardTimer": {
+    "DecreaseAmount": "0.00050",
+    "DecreaseInterval": "0.02",
+    "DecreaseLimit": "0.5",
+    "InitValue": "1",
+    "SaveForLaterReward": "0.2"
+  }
+}

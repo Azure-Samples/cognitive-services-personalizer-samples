@@ -1,0 +1,34 @@
+@model PersonalizerTravelAgencyDemo.Models.Action
+@{
+    Layout = "~/Views/Shared/_ArticleLayout.cshtml";
+    var confirmationPageText = ViewData["confirmationPageText"] as CheckoutPageText;
+}
+<div class="row column py-3">
+    <div class="card col-12 col-md-10 offset-md-1 p-4">
+        <div class="col-sm-12 font-@Model.ToneFont">
+            <h2 class="text-capitalize">@confirmationPageText.Title</h2>
+
+            @await Html.PartialAsync("./Partials/" + Model.Layout + ".cshtml", Model)
+
+            <div id="gauge-backbtn-section">
+                <button id="iframe-backBtn" title="Go to top">Back</button>
+
+                <div class="gauge-container" id="gauge-container">
+                    <div class="gauge-background"></div>
+                    <div class="gauge-a"></div>
+                    <div class="gauge-b"></div>
+                    <div class="gauge-c" id="gauge"></div>
+                    <div class="gauge-cover"></div>
+                    <div class="gauge-data">
+                        <h1 id="percent">Conversion Reward</h1>
+                    </div>
+                    <div class="gauge-comment">
+                        <h1 id="gauge-comment"></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("Partials/_CheckoutModal.cshtml", Model)

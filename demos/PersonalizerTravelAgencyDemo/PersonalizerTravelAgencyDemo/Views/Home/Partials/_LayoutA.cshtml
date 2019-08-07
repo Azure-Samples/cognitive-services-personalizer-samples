@@ -1,0 +1,35 @@
+﻿@model PersonalizerTravelAgencyDemo.Models.Action
+
+<div class="hero-container">
+    @await Html.PartialAsync("_Image.cshtml", Model)
+</div>
+
+@await Html.PartialAsync("_ConfirmOrange.cshtml", Model)
+
+<div class="row mt-4">
+    <div class="col-md-6 col-sm-12">
+        <div class="row background-light-gray mr-md-2 pt-2">
+            @await Html.PartialAsync("_Package.cshtml", Model)
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12 mt-4 mt-md-0">
+        <div class="row background-light-gray ml-md-2 pt-2">
+            @await Html.PartialAsync("_Costs.cshtml", Model)
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("_ConfirmBlue.cshtml", Model)
+
+<div class="row mt-4">
+    <div class="col-12 background-light-gray pt-2">
+        @await Html.PartialAsync("_Discover.cshtml", Model)
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12 background-light-gray pt-2">
+        @await Html.PartialAsync("_Payment.cshtml", Model)
+    </div>
+</div>

@@ -1,0 +1,89 @@
+@{
+    PageConfigModel siteConfig = ViewData["siteConfig"] as PageConfigModel;
+    ViewData["Title"] = "HomeSite";
+    Layout = "~/Views/Shared/_ArticleLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="main_slot_card card" style="height: 100%; color: black;">
+            <div class="row mx-1 my-md-auto main_slot_card">
+                <div class="col-12">
+                    <div>
+                        <h1 class="mt-3 page-title">
+                            Shopping Cart - Vacation Builder
+                        </h1>
+                    </div>
+                    <div class="row justify-content-start mx-3 homesite_checks">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row ml-3"><p> Package Includes: </p></div>
+                                <div class="row ml-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input homesite_checks" id="BoatTripcheck" disabled>
+                                        <label class="form-check-label" for="">Boat Trip</label>
+                                    </div>
+                                </div>
+                                <div class="row ml-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input homesite_checks" id="AmenitiesCheck" disabled>
+                                        <label class="form-check-label" for="">Dinner and BreakFast</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-3" />
+                    <div class="row justify-content-start mx-3 homesite_checks">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row ml-3"><p> Costs: </p></div>
+                                <div class="row ml-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input homesite_checks" id="costAllInclusive" disabled>
+                                        <label class="form-check-label" for="">+ $4000 All Inclusive</label>
+                                    </div>
+                                </div>
+                                <div class="row ml-3">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input homesite_checks" id="costLuxuryPackage" disabled>
+                                        <label class="form-check-label" for="">+ $500 Luxury Package</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 d-flex justify-content-end align-content-end">
+                    <div class="row justify-content-end align-content-end">
+                        <button type="button" class="btn homesite_button" id="go-btn-iframe">
+                            @siteConfig.CheckoutButtonText
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const goBtnIframe = document.getElementById('go-btn-iframe');
+        if (goBtnIframe) {
+            goBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("go-btn").click()
+            })
+        }
+
+        const backstageBtnIframe = document.getElementById('backstage-btn-iframe');
+        if (backstageBtnIframe) {
+            backstageBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("backstage-btn").click();
+
+                backstageBtnIframe.innerHTML = backstageBtnIframe.innerHTML === `@siteConfig.MainArticleCloseBackstageLabel` ? `@siteConfig.MainArticleShowBackstageLabel` : `@siteConfig.MainArticleCloseBackstageLabel`;
+            })
+        }
+    });
+
+</script>

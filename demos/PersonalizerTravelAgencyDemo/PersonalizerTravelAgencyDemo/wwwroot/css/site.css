@@ -192,17 +192,17 @@ img {
 }
 
 h1 {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
 }
 
 .gauge-container {
     display: block;
     position: fixed;
-    top: 8rem;
-    right: -18.5rem;
+    top: 6rem;
+    right: -4.5rem;
     z-index: 99;
-    width: 25rem;
-    height: 25rem;
+    width: 10rem;
+    height: 10rem;
     font-size: 4rem;
     line-height: 4rem;
     overflow: hidden;
@@ -215,11 +215,11 @@ h1 {
     z-index: 1;
     position: absolute;
     background-color: #007bff;
-    width: 42%;
-    height: 42%;
-    left: 29%;
-    top: 19%;
-    border-radius: 300px 300px 300px 300px;
+    width: 8.5rem;
+    height: 8.5rem;
+    left: 0.24rem;
+    top: 0.74rem;
+    border-radius: 330px 330px 330px 330px;
 }
 
 /* the grey bar that will be filled*/
@@ -227,11 +227,11 @@ h1 {
     z-index: 1;
     position: absolute;
     background-color: rgba(200, 200, 200, 1);
-    width: 40%;
-    height: 40%;
-    left: 30%;
-    top: 20%;
-    border-radius: 250px 250px 250px 250px;
+    width: 8rem;
+    height: 8rem;
+    left: 0.5rem;
+    top: 1rem;
+    border-radius: 300px 300px 300px 300px;
 }
 
 /* the bottom semicircle area white */
@@ -239,10 +239,10 @@ h1 {
     z-index: 10;
     position: absolute;
     background-color: rgba(255, 255, 255, 1);
-    width: 40%;
-    height: 20%;
-    left: 30%;
-    top: 40%;
+    width: 8rem;
+    height: 4.2rem;
+    left: 0.5rem;
+    top: 4.8rem;
     border-radius: 0px 0px 250px 250px;
 }
 
@@ -251,13 +251,13 @@ h1 {
     z-index: 3;
     position: absolute;
     background-color: #FFFFFF;
-    width: 25%;
-    height: 13%;
-    left: 34%;
-    top: 29%;
-    margin-left: 3.75%;
+    width: 6rem;
+    height: 3rem;
+    left: 0.5rem;
+    top: 2rem;
+    margin-left: 1rem;
     margin-right: auto;
-    border-radius: 250px 250px 0px 0px;
+    border-radius: 300px 300px 0px 0px;
 }
 
 /* the green measure bar that moves*/
@@ -265,13 +265,13 @@ h1 {
     z-index: 2;
     position: absolute;
     background-color: #009900;
-    width: 40%;
-    height: 20%;
-    left: 30%;
-    top: 40%;
+    width: 8rem;
+    height: 4rem;
+    left: 0.5rem;
+    top: 5rem;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 0px 0px 200px 200px;
+    border-radius: 0px 0px 400px 400px;
     transform-origin: center top;
     transition: all 0.2s ease-in-out;
 }
@@ -287,10 +287,10 @@ h1 {
     padding-top: 0.1vw;
     position: absolute;
     font-size: 1rem;
-    width: 40%;
-    height: 20%;
-    left: 30%;
-    top: 40%;
+    width: 7rem;
+    height: 3rem;
+    left: 1rem;
+    top: 5rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -302,10 +302,10 @@ h1 {
     font-size: 3rem;
     line-height: normal;
     position: absolute;
-    width: 20%;
-    height: 20%;
-    left: 40%;
-    top: 30%;
+    width: 5rem;
+    height: 5rem;
+    left: 2rem;
+    top: 2.2rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -388,6 +388,8 @@ h1 {
 
 .chart-number {
     font-size: 4rem;
+    margin-bottom: 2rem;
+    padding-right: 2rem;
 }
 
 .chartplaybutton {
@@ -530,10 +532,6 @@ h3.modal-title {
     padding-right: 0px;
 }
 
-#learnModal {
-    padding-right: 0px;
-}
-
 /* End Charts Modal */
 
 /* Score section */
@@ -559,14 +557,123 @@ h3.modal-title {
     margin-bottom: 0;
     line-height: 1.5;
 }
+
+.page-title {
+    font-weight:bold;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    line-height: 1.5;
+}
 /* End Top Bar */
 
-.privacy-padding{
-    padding-left:5rem;
+.privacy-padding {
+    padding-left: 5rem;
+}
+
+.homesite_button, .button_orange, .button_orange:hover {
+    background-color: #F57636;
+    color: white;
+}
+
+.homesite_button {
+    margin-bottom:3rem;
+    margin-top:1rem;
+    margin-right:1.7rem;
+}
+
+.homesite_button:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #df7138;
+}
+
+.homesite_checks {
+    background-color: #edeef0;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.main_slot_card{
+    min-height: 65vh;
+}
+
+.background-light-gray {
+    background-color: #edeef0;
+}
+
+.color-gold {
+    color:#fbcd39;
+}
+
+.color-darkorange {
+    color: darkorange;
+}
+
+.color-green {
+    color: green;
+}
+
+.hero-container {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.font-formal {
+    font-family: 'Merriweather', serif;
+}
+
+.font-casual {
+    font-family: 'Comic Sans MS', sans-serif;
 }
 
 @media (min-width: 992px) {
     .play-btn_lg_margin {
-        margin-right:7rem;
+        margin-right: 7rem;
     }
+}
+
+.actions-height {
+    height: 20rem;
+}
+
+.actions-grid {
+    display: grid;
+    grid-gap: 0.5rem;
+    align-items: center;
+    justify-items: center;
+}
+
+.gc-1{
+    grid-column: 1;
+}
+.gc-2 {
+    grid-column: 2;
+}
+.gc-3 {
+    grid-column: 3;
+}
+.gc-4 {
+    grid-column: 4;
+}
+
+.gr-1 {
+    grid-row: 1;
+}
+.gr-2 {
+    grid-row: 2;
+}
+.gr-3 {
+    grid-row: 3;
+}
+.gr-4 {
+    grid-row: 4;
+}
+
+.actionItemsStyleLabel {
+    padding-left: 1rem;
+    text-transform: capitalize;
+}
+
+.action-border {
+    border: 0.2rem solid;
 }

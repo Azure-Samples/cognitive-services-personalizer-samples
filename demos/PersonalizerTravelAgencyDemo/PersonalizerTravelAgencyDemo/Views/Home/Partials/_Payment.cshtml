@@ -1,0 +1,5 @@
+﻿@model PersonalizerTravelAgencyDemo.Models.Action
+@{ var confirmationPageText = ViewData["confirmationPageText"] as CheckoutPageText; }
+
+<h6>@confirmationPageText.PaymentTitle</h6>
+<p>@confirmationPageText.PaymentText</p>

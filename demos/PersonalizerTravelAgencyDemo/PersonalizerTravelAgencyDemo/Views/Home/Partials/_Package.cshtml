@@ -1,0 +1,18 @@
+﻿@model PersonalizerTravelAgencyDemo.Models.Action
+@{ var confirmationPageText = ViewData["confirmationPageText"] as CheckoutPageText; }
+
+<div class="mx-2 my-auto">
+    <i class="fas fa-check-circle color-darkorange fa-5x"></i>
+</div>
+<div class="flex-grow-1">
+    <h5>@confirmationPageText.PackageTitle</h5>
+    <ul>
+        @{
+            var lastItem = confirmationPageText.PackageItems.LastOrDefault();
+            foreach (var item in confirmationPageText.PackageItems)
+            {
+                <li>@item</li>
+            }
+        }
+    </ul>
+</div>
