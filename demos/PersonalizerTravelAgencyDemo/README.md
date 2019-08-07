@@ -19,9 +19,9 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
     git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
     ```
 
-- Navigate to _demos/PersonalizerDemo_.
+- Navigate to _demos/PersonalizerTravelAgencyDemo_.
 
-- Open `PersonalizerDemo.sln`.
+- Open `PersonalizerTravelAgencyDemo.sln`.
 
 
 ## Prerequisites
@@ -41,21 +41,6 @@ In this demo, reward is computed by seeing how far down the user scrolls. This r
 
 1. Open the `appsettings.json` file and replace the value of the `PersonalizationEndpoint` property with your Personalizer Service Endpoint URL.
 
-
-### Set up Cognitive Services Text Analytics
-
-1. Navigate to [Microsoft Azure Cognitive Services](https://azure.microsoft.com/en-us/try/cognitive-services/).
-
-1. Click on `Language APIs` tab.
-
-1. Click on `Get API Key` button and select the account you want to sign in with.
-
-1. Configure the `TextAnalyticsKey` with on of the `Key` from your service as [app secrets](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets).
-
-    > **Note:** if you are using the .NET Core CLI, you can use the `dotnet user-secrets set "TextAnalyticsKey" "<API Key>"` command.
-
-1. Open the `appsettings.json` file and replace the value of the `TextAnalyticsEndpoint` property with your Text Analytics Endpoint URL.
-
 ### Using Visual Studio to configure the secrets
 
 If you are using Visual Studio for running this project, you can right-click the project and select the **Manage User Secrets** menu option to configure the Personalizer and Text Analytics keys.
@@ -66,11 +51,32 @@ By doing this, Visual Studio will open a `secrets.json` file where you will need
 
 ```JSON
 {
-  "PersonalizationApiKey": "<your personalizer key here>",
-  "TextAnalyticsKey": "<your text analytics key here>"
+  "PersonalizationApiKey": "<your personalizer key here>"
 }
 ```
 
 ## Running the demo
 
 Once you configure the secrets and the endpoints, in Visual Studio you can run the project by pressing `F5`. If you are using the .NET Core CLI, run `dotnet run` in the path where the `.csproj` file is.
+
+## Deploying the demo
+
+Once you managed to run the demo locally, you can right-click on the Visual Studio project and select the **Publish** menu option to deploy the demo to a new or and existing Azure App Service. You can also pick from one of the given options.
+
+![Selecting the Publish option in VS](./imgs/vs-publishproject.png)
+
+The different options from the publish menu will guide you to the publishing proccess. You can also choose to import a publishing profile from Azure.
+
+![Publish process in VS](./imgs/vs-publishprocess.png)
+
+After a successful publish, the final step is setting up the Personalizer API key. From the screen that opened up after deployment, click on **Edit Azure App Service settings**.
+
+![Selecting the Edit Azure App Service settings option in VS](./imgs/vs-postpublish-screen.png)
+
+Then, click on **Add** to create a new key-value pair.
+
+![Adding a new App Service setting in VS](./imgs/vs-add-appsetting.png)
+
+On the new key-value pair, set the name to `PersonalizationApiKey` and your Personalizer API key as the value. Finally, click **OK** to save the changes and you should have a fully functional deployment.
+
+![Configuring the Personalizer API key in VS](./imgs/vs-add-appsetting-personalizer.png)
