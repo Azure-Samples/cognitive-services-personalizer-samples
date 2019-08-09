@@ -1,21 +1,39 @@
-from swagger import personalization_client
-from swagger.models.rank_request import RankRequest
-from swagger.models.rankable_action import RankableAction
-from swagger.models.reward_request import RewardRequest
+# <Dependencies>
+from azure.cognitiveservices.personalizer import PersonalizerClient
+from azure.cognitiveservices.personalizer.models import RankableAction, RewardRequest, RankRequest
 from msrest.authentication import CognitiveServicesCredentials
-import uuid
 
-key = '<<<YOUR KEY>>>'
-endpoint = '<<<YOUR ENDPOINT>>>'
-client = personalization_client.PersonalizationClient(CognitiveServicesCredentials(key), endpoint)
+import datetime, json, os, time, uuid
+# </Dependencies>
 
+# <AuthorizationVariables>
+key_var_name = 'PERSONALIZER_KEY'
+if not key_var_name in os.environ:
+	raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+personalizer_key = os.environ[key_var_name]
+
+# For example: https://westus2.api.cognitive.microsoft.com/
+endpoint_var_name = 'PERSONALIZER_ENDPOINT'
+if not endpoint_var_name in os.environ:
+	raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+personalizer_endpoint = os.environ[endpoint_var_name]
+# </AuthorizationVariables>
+
+# <Client>
+# Instantiate a LUIS client
+client = PersonalizerClient(personalizer_endpoint, CognitiveServicesCredentials(personalizer_key))
+# </Client>
+
+# <getActions>
 def get_actions():
-    action1 = RankableAction('pasta',[{"taste":"salty", "spice_level":"medium"},{"nutrition_level":5,"cuisine":"italian"}])
-    action2 = RankableAction('ice cream', [{"taste":"sweet", "spice_level":"none"}, { "nutritional_level": 2 }])
-    action3 = RankableAction('juice',[{"taste":"sweet", 'spice_level':'none'}, {'nutritional_level': 5}, {'drink':True}])
-    action4 = RankableAction('salad', [{'taste':'salty', 'spice_level':'none'},{'nutritional_level': 2}])
+    action1 = RankableAction(id='pasta', features=[{"taste":"salty", "spice_level":"medium"},{"nutrition_level":5,"cuisine":"italian"}])
+    action2 = RankableAction(id='ice cream', features=[{"taste":"sweet", "spice_level":"none"}, { "nutritional_level": 2 }])
+    action3 = RankableAction(id='juice', features=[{"taste":"sweet", 'spice_level':'none'}, {'nutritional_level': 5}, {'drink':True}])
+    action4 = RankableAction(id='salad', features=[{'taste':'salty', 'spice_level':'none'},{'nutritional_level': 2}])
     return [action1, action2, action3, action4]
+# </getActions>
 
+# <createUserFeatureTastePreference>
 def get_user_preference():
     res = {}
     taste_features = ['salty','sweet']
@@ -30,7 +48,9 @@ def get_user_preference():
         print("Entered value is invalid. Setting feature value to", taste_features[0]+ ".")
         res['taste_preference'] = taste_features[0]
     return res
+# </createUserFeatureTastePreference>
 
+# <createUserFeatureTimeOfDay>
 def get_user_timeofday():
     res={}
     time_features = ["morning", "afternoon", "evening", "night"]
@@ -44,33 +64,45 @@ def get_user_timeofday():
         print("Entered value is invalid. Setting feature value to", time_features[0] + ".")
         res['time_of_day'] = time_features[0]
     return res
+# </createUserFeatureTimeOfDay>
 
+# <mainLoop>
 keep_going = True
 while keep_going:
-    eventid = uuid.uuid4()
+
+    eventid = str(uuid.uuid4())
+
     context = [get_user_preference(), get_user_timeofday()]
     actions = get_actions()
-    rank_request = RankRequest(actions,context_features=context,excluded_actions=['juice'],event_id=eventid)
-    response = client.rank(rank_request)
 
+    # <rank>
+    rank_request = RankRequest( actions=actions, context_features=context, excluded_actions=['juice'], event_id=eventid)
+    response = client.rank(rank_request=rank_request)
+    # </rank>
+    
     print("Personalizer service ranked the actions with the probabilities listed below:")
+    
     rankedList = response.ranking
     for ranked in rankedList:
         print(ranked.id, ':',ranked.probability)
 
     print("Personalizer thinks you would like to have", response.reward_action_id+".")
     answer = input("Is this correct?(y/n)\n")[0]
-    reward_val = 0.0
+
+    # <reward>
+    reward_val = "0.0"
     if(answer.lower()=='y'):
-        reward_val = 1.0
+        reward_val = "1.0"
     elif(answer.lower()=='n'):
-        reward_val = 0.0
+        reward_val = "0.0"
     else:
         print("Entered choice is invalid. Service assumes that you didn't like the recommended food choice.")
 
-    reward = RewardRequest(reward_val)
-    client.reward(eventid, reward=reward)
+    client.events.reward(event_id=eventid, value=reward_val)
+    # </reward>
 
     br = input("Press Q to exit, any other key to continue: ")[0]
     if(br.lower()=='q'):
         keep_going = False
+
+# </mainLoop>
