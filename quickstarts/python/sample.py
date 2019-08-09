@@ -24,14 +24,14 @@ personalizer_endpoint = os.environ[endpoint_var_name]
 client = PersonalizerClient(personalizer_endpoint, CognitiveServicesCredentials(personalizer_key))
 # </Client>
 
-# <getActions
+# <getActions>
 def get_actions():
     action1 = RankableAction(id='pasta', features=[{"taste":"salty", "spice_level":"medium"},{"nutrition_level":5,"cuisine":"italian"}])
     action2 = RankableAction(id='ice cream', features=[{"taste":"sweet", "spice_level":"none"}, { "nutritional_level": 2 }])
     action3 = RankableAction(id='juice', features=[{"taste":"sweet", 'spice_level':'none'}, {'nutritional_level': 5}, {'drink':True}])
     action4 = RankableAction(id='salad', features=[{'taste':'salty', 'spice_level':'none'},{'nutritional_level': 2}])
     return [action1, action2, action3, action4]
-# </getActions
+# </getActions>
 
 # <createUserFeatureTastePreference>
 def get_user_preference():
@@ -78,7 +78,7 @@ while keep_going:
     # <rank>
     rank_request = RankRequest( actions=actions, context_features=context, excluded_actions=['juice'], event_id=eventid)
     response = client.rank(rank_request=rank_request)
-    # <rank>
+    # </rank>
     
     print("Personalizer service ranked the actions with the probabilities listed below:")
     
