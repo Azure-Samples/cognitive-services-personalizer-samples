@@ -1,16 +1,16 @@
 'use strict';
 const uuidv1 = require('uuid/v1');
 const Personalizer = require('@azure/cognitiveservices-personalizer');
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
 const readline = require('readline-sync');
 
 async function main() {
 
   // The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-  let serviceKey = "24df52132b8946f5abf248b1e4e66760";
+  let serviceKey = "";
 
   // The endpoint specific to your personalization service instance; e.g. https://westus2.api.cognitive.microsoft.com
-  let baseUri = "https://westus2.api.cognitive.microsoft.com/";
+  let baseUri = "";
 
   let credentials = new CognitiveServicesCredentials(serviceKey);
 
@@ -19,37 +19,28 @@ async function main() {
 
   let runLoop = true;
 
-
-
   do {
 
     // this isn't correct - it looks like it is off of mappers instead of models
-
     /*
     let rankRequest = new Personalizer.PersonalizerModels.RankRequest();
+     */
 
-    
-    let contextFeatures= getContextFeaturesList();
-    let actions= getActionsList();
-    let excludedActions= getExcludedActionsList();
-    */
+    let rankRequest = {}
 
-    // Create a rank request.
-    
-    const eventId = uuidv1();
+    // Generate an ID to associate with the request.
+    rankRequest.eventId = uuidv1();
 
-    let rankRequest = {
-      eventId: eventId,
-      contextFeatures:[],
-      actions:[],
-      excludedActions: [
-        "juice"
-      ],
-      deferActivation: false
-    };
-    
+    // Get context information from the user.
+    rankRequest.contextFeatures = getContextFeaturesList();
 
-    console.log(JSON.stringify(rankRequest));
+    // Get the actions list to choose from personalization with their features.
+    rankRequest.actions = getActionsList();
+
+    // Exclude an action for personalization ranking. This action will be held at its current position.
+    rankRequest.excludedActions = getExcludedActionsList();
+
+    rankRequest.deferActivation = false;
 
     // Rank the actions
     let rankResponse = await personalizerClient.rank(rankRequest);
@@ -66,11 +57,19 @@ async function main() {
     }
 
     // Send the reward for the action based on user response.
+
+    // this isn't correct - it looks like it is off of mappers instead of models
+    /*
     let rewardRequest = Personalizer.PersonalizerModels.RewardRequest = {
       value: reward
     };
+    */
 
-    await personalizerClient.reward(rankRequest.eventId, { reward: rewardRequest });
+    let rewardRequest = {
+      value: reward
+    }
+
+    await personalizerClient.events.reward(rankRequest.eventId, rewardRequest);
 
     runLoop = continueLoop();
 
