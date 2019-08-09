@@ -24,28 +24,35 @@ async function main() {
   do {
 
     // this isn't correct - it looks like it is off of mappers instead of models
+
+    /*
     let rankRequest = new Personalizer.PersonalizerModels.RankRequest();
 
-    const eventId= uuidv1();
+    
     let contextFeatures= getContextFeaturesList();
     let actions= getActionsList();
     let excludedActions= getExcludedActionsList();
+    */
 
     // Create a rank request.
-    /*
+    
+    const eventId = uuidv1();
+
     let rankRequest = {
-      eventId,
-      contextFeatures,
-      actions,
-      excludedActions,
+      eventId: eventId,
+      contextFeatures:[],
+      actions:[],
+      excludedActions: [
+        "juice"
+      ],
       deferActivation: false
     };
-    */
+    
 
     console.log(JSON.stringify(rankRequest));
 
     // Rank the actions
-    let rankResponse = await personalizerClient.rank(rankRequest,{});
+    let rankResponse = await personalizerClient.rank(rankRequest);
 
     console.log("\nPersonalization service thinks you would like to have:\n")
     console.log(rankResponse.rewardActionId);
