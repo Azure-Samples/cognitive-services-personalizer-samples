@@ -14,6 +14,7 @@
     "@azure/cognitiveservices-personalizer": "^1.0.0",
     "@azure/ms-rest-azure-js": "^2.0.1",
     "@azure/ms-rest-js": "^2.0.4",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "uuid": "^3.3.2"
   }
 }
