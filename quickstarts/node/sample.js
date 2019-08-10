@@ -7,10 +7,10 @@ const readline = require('readline-sync');
 async function main() {
 
   // The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-  let serviceKey = "";
+  let serviceKey = process.env["personalizer_key"];
 
   // The endpoint specific to your personalization service instance; e.g. https://westus2.api.cognitive.microsoft.com
-  let baseUri = "";
+  let baseUri = process.env["personalizer_host"];
 
   let credentials = new CognitiveServicesCredentials(serviceKey);
 
