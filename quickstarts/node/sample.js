@@ -1,172 +1,202 @@
 'use strict';
+
+// <Dependencies>
 const uuidv1 = require('uuid/v1');
-const Personalization = require('./AzurePersonalizationServiceAPINodejs'); //todo: change to use sdk package
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+const Personalizer = require('@azure/cognitiveservices-personalizer');
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
 const readline = require('readline-sync');
+// </Dependencies>
 
 async function main() {
 
-// The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-let serviceKey = "";
+  // <AuthorizationVariables>
+  // The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
+  let serviceKey = process.env.PERSONALIZER_KEY;
 
-// The endpoint specific to your personalization service instance; e.g. https://westus2.api.cognitive.microsoft.com
-let baseUri = "";
+  // The endpoint specific to your personalization service instance; 
+  // e.g. https://westus2.api.cognitive.microsoft.com
+  let baseUri = process.env.PERSONALIZER_ENDPOINT;
+  // </AuthorizationVariables>
 
-let credentials = new CognitiveServicesCredentials(serviceKey);
+  // <Client>
+  let credentials = new CognitiveServicesCredentials(serviceKey);
 
-// Initialize Personalization client.
-let personalizationClient = new Personalization.PersonalizationClient(credentials, baseUri);
+  // Initialize Personalization client.
+  let personalizerClient = new Personalizer.PersonalizerClient(credentials, baseUri);
+  // </Client>
 
-let runLoop = true;
 
-do {
+  // <mainLoop>
+  let runLoop = true;
 
-  // Create a rank request.
-  let rankRequest = new Personalization.PersonalizationModels.RankRequest();
+  do {
 
-  // Generate an ID to associate with the request.
-  rankRequest.eventId = uuidv1();
+    // <rank>
+    let rankRequest = {}
 
-  // Get context information from the user.
-  rankRequest.contextFeatures = getContextFeaturesList();
+    // Generate an ID to associate with the request.
+    rankRequest.eventId = uuidv1();
 
-  // Get the actions list to choose from personalization with their features.
-  rankRequest.actions = getActionsList();
+    // Get context information from the user.
+    rankRequest.contextFeatures = getContextFeaturesList();
 
-  // Exclude an action for personalization ranking. This action will be held at its current position.
-  rankRequest.excludedActions = getExcludedActionsList();
+    // Get the actions list to choose from personalization with their features.
+    rankRequest.actions = getActionsList();
 
-  rankRequest.deferActivation = false;
+    // Exclude an action for personalization ranking. This action will be held at its current position.
+    rankRequest.excludedActions = getExcludedActionsList();
 
-  // Rank the actions
-  let rankResponse = await personalizationClient.rank(rankRequest);
-  
-  console.log("\nPersonalization service thinks you would like to have:\n")
-  console.log(rankResponse.rewardActionId);
+    rankRequest.deferActivation = false;
 
-  let reward = getReward();
+    // Rank the actions
+    let rankResponse = await personalizerClient.rank(rankRequest);
+    // </rank>
 
-  console.log("\nPersonalization service ranked the actions with the probabilities as below:\n");
-  for (var i = 0; i < rankResponse.ranking.length; i++) { 
-    console.log(JSON.stringify(rankResponse.ranking[i]) + "\n");
-  }
+    console.log("\nPersonalization service thinks you would like to have:\n")
+    console.log(rankResponse.rewardActionId);
 
-  // Send the reward for the action based on user response.
-  let rewardRequest = new Personalization.PersonalizationModels.RewardRequest();
-  rewardRequest.value = reward;
+    // Display top choice to user, user agrees or disagrees with top choice
+    let reward = getReward();
 
-  await personalizationClient.reward(rankRequest.eventId, {reward: rewardRequest});
-      
-  runLoop = continueLoop();
+    console.log("\nPersonalization service ranked the actions with the probabilities as below:\n");
+    for (var i = 0; i < rankResponse.ranking.length; i++) {
+      console.log(JSON.stringify(rankResponse.ranking[i]) + "\n");
+    }
 
-  } while(runLoop);
+    // Send the reward for the action based on user response.
+
+    // <reward>
+    let rewardRequest = {
+      value: reward
+    }
+
+    await personalizerClient.events.reward(rankRequest.eventId, rewardRequest);
+    // </reward>
+
+    runLoop = continueLoop();
+
+  } while (runLoop);
+  // </mainLoop>
 }
 
+// <continueLoop>
 function continueLoop() {
   var answer = readline.question("\nPress q to break, any other key to continue.\n")
-  if(answer.toLowerCase() === 'q') {
+  if (answer.toLowerCase() === 'q') {
     return false;
   }
   return true;
 }
+// </continueLoop>
 
-function getReward()  {
+// <getReward>
+function getReward() {
   var answer = readline.question("\nIs this correct (y/n)\n");
-  if(answer.toLowerCase() === 'y') {
+  if (answer.toLowerCase() === 'y') {
     console.log("\nGreat| Enjoy your food.");
     return 1;
   }
   console.log("\nYou didn't like the recommended food choice.");
   return 0;
 }
+// </getReward>
 
+
+// <createUserFeatureTimeOfDay>
 function getContextFeaturesList() {
   var timeOfDayFeatures = ['morning', 'afternoon', 'evening', 'night'];
   var tasteFeatures = ['salty', 'sweet'];
 
   var answer = readline.question("\nWhat time of day is it (enter number)? 1. morning 2. afternoon 3. evening 4. night\n");
   var selection = parseInt(answer);
-  var timeOfDay = selection >=1 && selection <=4 ? timeOfDayFeatures[selection-1] : timeOfDayFeatures[0];
-  
+  var timeOfDay = selection >= 1 && selection <= 4 ? timeOfDayFeatures[selection - 1] : timeOfDayFeatures[0];
+
   answer = readline.question("\nWhat type of food would you prefer (enter number)? 1. salty 2. sweet\n");
   selection = parseInt(answer);
-  var taste = selection >=1 && selection <=2 ? tasteFeatures[selection-1] : tasteFeatures[0];
- 
+  var taste = selection >= 1 && selection <= 2 ? tasteFeatures[selection - 1] : tasteFeatures[0];
+
   console.log("Selected features:\n");
   console.log("Time of day: " + timeOfDay + "\n");
   console.log("Taste: " + taste + "\n");
 
-    return [
-        {
-          "time": timeOfDay
-        },
-        {
-          "taste": taste
-        }
-    ];
+  return [
+    {
+      "time": timeOfDay
+    },
+    {
+      "taste": taste
+    }
+  ];
 }
+// </createUserFeatureTimeOfDay>
 
 function getExcludedActionsList() {
-    return [
-        "juice"
-    ];
+  return [
+    "juice"
+  ];
 }
 
+// <getActions>
 function getActionsList() {
-    return [
+  return [
+    {
+      "id": "pasta",
+      "features": [
         {
-          "id": "pasta",
-          "features": [
-            {
-              "taste": "salty",
-              "spiceLevel": "medium"
-            },
-            {
-              "nutritionLevel": 5,
-              "cuisine": "italian"
-            }
-          ]
+          "taste": "salty",
+          "spiceLevel": "medium"
         },
         {
-          "id": "ice cream",
-          "features": [
-            {
-              "taste": "sweet",
-              "spiceLevel": "none"
-            },
-            {
-              "nutritionalLevel": 2
-            }
-          ]
-        },
-        {
-          "id": "juice",
-          "features": [
-            {
-              "taste": "sweet",
-              "spiceLevel": "none"
-            },
-            {
-              "nutritionLevel": 5
-            },
-            {
-              "drink": true
-            }
-          ]
-        },
-        {
-          "id": "salad",
-          "features": [
-            {
-              "taste": "salty",
-              "spiceLevel": "low"
-            },
-            {
-              "nutritionLevel": 8
-            }
-          ]
+          "nutritionLevel": 5,
+          "cuisine": "italian"
         }
-      ];
+      ]
+    },
+    {
+      "id": "ice cream",
+      "features": [
+        {
+          "taste": "sweet",
+          "spiceLevel": "none"
+        },
+        {
+          "nutritionalLevel": 2
+        }
+      ]
+    },
+    {
+      "id": "juice",
+      "features": [
+        {
+          "taste": "sweet",
+          "spiceLevel": "none"
+        },
+        {
+          "nutritionLevel": 5
+        },
+        {
+          "drink": true
+        }
+      ]
+    },
+    {
+      "id": "salad",
+      "features": [
+        {
+          "taste": "salty",
+          "spiceLevel": "low"
+        },
+        {
+          "nutritionLevel": 8
+        }
+      ]
+    }
+  ];
 }
+// </getActions>
 
-var program = main();
+// <callMain>
+var program = main()
+.then(result => console.log("done"))
+.catch(err=> console.log(err));
+// </callMain>
