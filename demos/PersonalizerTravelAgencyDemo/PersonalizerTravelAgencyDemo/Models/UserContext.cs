@@ -4,9 +4,9 @@ namespace PersonalizerTravelAgencyDemo.Models
     {
         public bool UseUserAgent { get; set; }
 
-        public string PackageAdditionals { get; set; }
+        public string TripType { get; set; }
 
-        public string Costs { get; set; }
+        public string TravelerHistory { get; set; }
 
         public string Device { get; set; }
     }

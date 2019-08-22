@@ -11,7 +11,7 @@ namespace PersonalizerTravelAgencyDemo
         {
             var result = new List<object>
             {
-                new {context.Device,context.Costs, context.PackageAdditionals}
+                new {context.Device, context.TripType, context.TravelerHistory}
             };
 
             if (request != null)

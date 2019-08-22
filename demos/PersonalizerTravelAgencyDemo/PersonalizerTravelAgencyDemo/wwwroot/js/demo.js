@@ -1,7 +1,7 @@
 let context = {
     device: "mobile",
-    packageAdditionals: null,
-    costs: null,
+    travelerHistory: null,
+    tripType: null,
     userAgent: null
 };
 
@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const showActionJsonBtn = document.getElementById("showActionsJson");
     const showActionHtmlBtn = document.getElementById('showActionsHtml');
 
-    const costsOptions = ["allInclusive", "luxuryPackage"];
-    const additionalOptions = ["boatTrip", "dinnerAndBreakfast"];
+    const tripTypeOptions = ["business", "personal"];
+    const travelerHistorylOptions = ["economy", "luxury"];
 
     showActionHtmlBtn.style.display = 'none';
 
@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
 
-    context.costs = getRandomOption(costsOptions);
-    context.packageAdditionals = getRandomOption(additionalOptions);
+    context.tripType = getRandomOption(tripTypeOptions);
+    context.travelerHistory = getRandomOption(travelerHistorylOptions);
 
     showActionJsonBtn.addEventListener('click', function () {
         actionDisplayState.selectedView = ACTION_VIEWS.JSON;
@@ -251,13 +251,13 @@ function setupContextControls() {
         }
     });
 
-    const costSelectEle = document.getElementById('costs');
-    costSelectEle.addEventListener('change', (event) => {
+    const tripTypeSelectEle = document.getElementById('tripType');
+    tripTypeSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value, null, false, null);
     });
 
-    const packageSelectEle = document.getElementById('packageAdditionals');
-    packageSelectEle.addEventListener('change', (event) => {
+    const travelerHistorySelectEle = document.getElementById('travelerHistory');
+    travelerHistorySelectEle.addEventListener('change', (event) => {
         updateContext(null, null, event.target.value, false, null);
     });
 
@@ -269,17 +269,17 @@ function setupContextControls() {
     updateContext(deviceSelectEle.value, null, null, false, null);
 }
 
-function updateContext(device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
+function updateContext(device, currentTripType, currentTravelerHistory, removeUserAgent, userAgent) {
     context.device = device || context.device;
-    context.costs = currentCost || context.costs;
-    context.packageAdditionals = currentAdditionals || context.packageAdditionals;
+    context.tripType = currentTripType || context.tripType;
+    context.travelerHistory = currentTravelerHistory || context.travelerHistory;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
             device: context.device,
-            costs: context.costs,
-            packageAdditionals: context.packageAdditionals
+            tripType: context.tripType,
+            travelerHistory: context.travelerHistory
         }
     ];
 
@@ -448,8 +448,8 @@ function getActions() {
 function getRecommendation() {
     const requestContext = {
         device: context.device,
-        costs: context.costs,
-        packageAdditionals: context.packageAdditionals,
+        tripType: context.tripType,
+        travelerHistory: context.travelerHistory,
         useUserAgent: !!context.userAgent
     };
 
