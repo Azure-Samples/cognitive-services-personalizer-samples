@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
     const navbar = document.getElementById('navbar-container');
     const articleContainer = document.getElementById('article-container');
-    const graphContainer = document.getElementById('graph-container');
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
     const showActionJsonBtn = document.getElementById("showActionsJson");
@@ -133,14 +132,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function showPageContent() {
         navbar.style.display = 'flex';
         articleContainer.style.display = 'block';
-        graphContainer.style.display = 'flex';
     }
 
     // Makes the page content visible except for the backstage which will remain unchanged
     function hidePageContent() {
         navbar.style.display = 'none';
         articleContainer.style.display = 'none';
-        graphContainer.style.display = 'none';
     }
 
     const articleViewer = document.getElementById("article-viewer");
@@ -186,8 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             modalIcon.addEventListener('click', goToHomeSite);
 
-            updateShowGraphbtn(true);
-
             updateRewardValue(reward, articleDoc);
 
             gauge.addEventListener("transitionend", function gaugeTransitionEndHandler(event) {
@@ -223,9 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 articleViewer.contentWindow.history.back();
             });
-        }
-        else {
-            updateShowGraphbtn(false);
         }
     });
 });
@@ -485,19 +477,6 @@ function sendReward(eventid, value) {
             value: value
         })
     });
-}
-
-function updateShowGraphbtn(shouldShow) {
-    let previousClass = "visible";
-    let actualClass = "invisible";
-
-    if (shouldShow) {
-        previousClass = "invisible";
-        actualClass = "visible";
-    }
-
-    document.getElementById("learn-button").classList.replace(previousClass, actualClass);
-    document.getElementById("mobile-learn-button").classList.replace(previousClass, actualClass);
 }
 
 function getRandomOption(options) {

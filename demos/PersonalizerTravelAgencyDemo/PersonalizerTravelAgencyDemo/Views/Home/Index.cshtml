@@ -99,18 +99,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
-                <button class="btn btn-light d-lg-block invisible mx-2 text-capitalize" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
-                    Show Learning Graph
-                </button>
-
                 <button class="btn btn-light d-none d-lg-block text-capitalize" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                     @siteConfig.MainArticleShowBackstageLabel
                 </button>
             </div>
             <div>
-                <button class="btn btn-light d-md-none invisible mx-2 text-capitalize" id="mobile-learn-button" type="button" data-toggle="modal" data-target="#learnModal">
-                    Show Learning Graph
-                </button>
                 <button class="btn btn-light d-lg-none float-right text-capitalize" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleShowBackstageLabel</button>
             </div>
         </nav>
@@ -123,8 +116,13 @@
     <div class="col-12 col-lg-4 collapse border-left-lg p-lg-0" id="collapseBackstage">
         <div class="overflow-auto backstage-container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary backstageNavBar">
-                <h2 id="backstage-title" class="navbar-brand">See Personalizer in Action</h2>
+                <h2 id="backstage-title" class="navbar-brand mr-auto">See Personalizer in Action</h2>
                 <button class="btn btn-light d-lg-none text-capitalize" type="button" id="mobile-hide-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleCloseBackstageLabel</button>
+
+                <button class="btn btn-light d-lg-block mx-2 text-capitalize" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                    Show Learning Graph
+                </button>
+
             </nav>
             <div class="container-fluid">
                 <div class="row">
