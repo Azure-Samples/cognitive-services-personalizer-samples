@@ -70,16 +70,34 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Personalizer to improve suggestions based on rewards.
+                    Welcome to the layout demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses which layout to suggest , and how user actions teach Personalizer to improve suggestions based on rewards.
                 </p>
                 <p>
-                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
+                    Once you select the "Show How It Works" button, you will see a split screen.
                 </p>
                 <p>
-                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
+                    On the left side, there is a simulated shopping cart that will display the selected page layout when you click the "Go To Checkout" button -- picking the layout out of 24 possible layouts.
                 </p>
                 <p>
-                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait up to fifteen seconds from the time the article was first shown.
+                    The 24 layouts are the 24 possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as Costs and Device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to recommend the best layout, based on Exploit or Explore. The Rank API call returns the layout the application should show in the rewardActionId attribute.
+                </p>
+
+                <p>
+                    In this demo, the reward is computed by a combination of time on page and whether the user completes the purchase or saves the cart for a later purchase decision. This reward score will be assigned when the user takes an action or abandons the page, as follows:
+                    <ul>
+                        <li>
+                            Purchase completed: Assign a reward of 0.5 to 1, with faster confirmation yielding a higher reward
+                        </li>
+                        <li>
+                            Save for later: Assign a reward of 0.2
+                        </li>
+                        <li>
+                            Abandon the page: Assign a reward of 0 (not shown)
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    To restart the demo, refresh the Web page.
                 </p>
             </div>
             <div class="modal-footer">
