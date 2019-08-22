@@ -2,8 +2,8 @@
   {
     "Id": 1,
     "Image": {
-      "FileName": "elephant",
-      "AltName":  "Desert"
+      "FileName": "sports",
+      "AltName":  "Sports"
     },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
@@ -13,8 +13,8 @@
   {
     "Id": 2,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
@@ -24,8 +24,8 @@
   {
     "Id": 3,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
@@ -35,8 +35,8 @@
   {
     "Id": 4,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
@@ -46,8 +46,8 @@
   {
     "Id": 5,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
@@ -57,8 +57,8 @@
   {
     "Id": 6,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
@@ -68,8 +68,8 @@
   {
     "Id": 7,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
@@ -79,8 +79,8 @@
   {
     "Id": 8,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
@@ -90,8 +90,8 @@
   {
     "Id": 9,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
@@ -101,8 +101,8 @@
   {
     "Id": 10,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
@@ -112,8 +112,8 @@
   {
     "Id": 11,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutC",
     "ToneFont": "formal",
@@ -123,8 +123,8 @@
   {
     "Id": 12,
     "Image": {
-      "FileName": "elephant",
-      "AltName": "Desert"
+      "FileName": "sports",
+      "AltName": "Sports"
     },
     "Layout": "_LayoutC",
     "ToneFont": "formal",
@@ -134,8 +134,8 @@
   {
     "Id": 13,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
@@ -145,8 +145,8 @@
   {
     "Id": 14,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
@@ -156,8 +156,8 @@
   {
     "Id": 15,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
@@ -167,8 +167,8 @@
   {
     "Id": 16,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
@@ -178,8 +178,8 @@
   {
     "Id": 17,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
@@ -189,8 +189,8 @@
   {
     "Id": 18,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
@@ -200,8 +200,8 @@
   {
     "Id": 19,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
@@ -211,8 +211,8 @@
   {
     "Id": 20,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
@@ -222,8 +222,8 @@
   {
     "Id": 21,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
@@ -233,8 +233,8 @@
   {
     "Id": 22,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
@@ -244,8 +244,8 @@
   {
     "Id": 23,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutC",
     "ToneFont": "formal",
@@ -255,8 +255,8 @@
   {
     "Id": 24,
     "Image": {
-      "FileName": "caribbean-placeholder",
-      "AltName": "Caribbean"
+      "FileName": "beach",
+      "AltName": "Beach"
     },
     "Layout": "_LayoutC",
     "ToneFont": "formal",

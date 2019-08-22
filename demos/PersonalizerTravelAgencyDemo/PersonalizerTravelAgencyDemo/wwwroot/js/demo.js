@@ -416,8 +416,8 @@ function createActionTab(actionObj, active) {
                           <div class="gr-4 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutc') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-c" src="/img/layout-c.png" alt="Layout C" /></div>
                           
                           <div class="gr-1 gc-2">Image</div>
-                          <div class="gr-2 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('caribbean') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="beach" src="/img/caribbean-thumbnail.jpg" alt="Beach" /></div>
-                          <div class="gr-3 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('elephant') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="pool" src="/img/elephant-thumbnail.jpg" alt="Desert" /></div>
+                          <div class="gr-2 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('beach') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="beach" src="/img/beach-thumbnail.jpg" alt="Beach" /></div>
+                          <div class="gr-3 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('sports') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="pool" src="/img/sports-thumbnail.jpg" alt="Desert" /></div>
                           
                           <div class="gr-1 gc-3">Tone & Font </div>
                           <div class="gr-2 gc-3"><img class="${action.toneFont.toLowerCase().indexOf('casual') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="casual" src="/img/casual.jpg" alt="Casual" /></div>
