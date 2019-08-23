@@ -1,0 +1,31 @@
+﻿@model PersonalizerTravelAgencyDemo.Models.Action
+
+<div class="modal fade checkout-modal" id="saveforlater-modal" tabindex="-1" role="dialog" aria-labelledby="checkout-modal-title" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+    <div class="modal-dialog about-modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="col-md-12 modal-title text-center" id="about-modal-title">
+                    Reward Earned -- by User’s Action to Save for Later
+                    <button type="button" class="close pr-0" id="endModal-close-icon" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="row mt-2 mx-1">
+                    <p>The reward sent to personalizer was:&nbsp;</p>
+                    <p id="saveforlater-modal-reward"></p>
+                </div>
+                <p class="row mx-1">
+                    Based on the user’s time on the page and the user’s action to save the package for later, Personalizer has assigned a reward for the displayed layout. This reward will be used by Personalizer to learn which layout to suggest the next time it sees similar context features.
+                </p>
+                <p class="row mx-1">
+                    If the user had abandoned the page, the reward would have been 0.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="endModal-close-button" class="btn btn-secondary" data-dismiss="modal">Restart Demo</button>
+            </div>
+        </div>
+    </div>
+</div>

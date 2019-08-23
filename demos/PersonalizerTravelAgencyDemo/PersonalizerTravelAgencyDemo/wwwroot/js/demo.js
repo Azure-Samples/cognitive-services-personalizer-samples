@@ -155,10 +155,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let reward = RewardInitValue;
 
-        function sendRewardHandler(reward) {
+        function sendRewardHandler(reward, saveForLater) {
             clearInterval(gaugeInterval);
             sendReward(personalizerCallResult.eventId, reward);
-            var modalRewardText = articleViewer.contentWindow.document.getElementById("modal-reward");
+            var elementId = saveForLater ? "saveforlater-modal-reward" : "modal-reward";
+            var modalRewardText = articleViewer.contentWindow.document.getElementById(elementId);
             modalRewardText.textContent = Math.round(reward * 10) / 10;
         }
 
@@ -175,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(reward); });
             articleDoc.getElementById("link-save-later").addEventListener("click", function () {
-                sendRewardHandler(SaveForLaterReward);
+                sendRewardHandler(SaveForLaterReward, true);
                 updateRewardValue(SaveForLaterReward, articleDoc);
             });
 
