@@ -70,16 +70,34 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Welcome to the demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses content, and how user actions teach Personalizer to improve suggestions based on rewards.
+                    Welcome to the layout demo for Personalizer, an Azure Cognitive Service. By interacting with this demo, you will see how Personalizer chooses which layout to suggest , and how user actions teach Personalizer to improve suggestions based on rewards.
                 </p>
                 <p>
-                    On the left side, there is a simulated news page that will display the selected article when you click "Show a Personalized Article", picking it out of three possible articles.
+                    Once you select the "Show How It Works" button, you will see a split screen.
                 </p>
                 <p>
-                    The three articles are the three possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as referrer and device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to choose the best article, based on Exploit or Explore. The Rank API call returns the article the application should show in the rewardActionId attribute.
+                    On the left side, there is a simulated shopping cart that will display the selected page layout when you click the "Go To Checkout" button -- picking the layout out of 24 possible layouts.
                 </p>
                 <p>
-                    In this demo, reward is computed by seeing how far down the user scrolls. This reward score will be sent when it reaches the value of 1, or the application will wait up to fifteen seconds from the time the article was first shown.
+                    The 24 layouts are the 24 possible "actions" for Personalizer to take, and you can see what features are being used for each in JSON format. The demo lets you simulate three context features such as Costs and Device, which are also shown in JSON format. Features of actions and context will be used by Personalizer to recommend the best layout, based on Exploit or Explore. The Rank API call returns the layout the application should show in the rewardActionId attribute.
+                </p>
+
+                <p>
+                    In this demo, the reward is computed by a combination of time on page and whether the user completes the purchase or saves the cart for a later purchase decision. This reward score will be assigned when the user takes an action or abandons the page, as follows:
+                    <ul>
+                        <li>
+                            Purchase completed: Assign a reward of 0.5 to 1, with faster confirmation yielding a higher reward
+                        </li>
+                        <li>
+                            Save for later: Assign a reward of 0.2
+                        </li>
+                        <li>
+                            Abandon the page: Assign a reward of 0 (not shown)
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    To restart the demo, refresh the Web page.
                 </p>
             </div>
             <div class="modal-footer">
@@ -99,18 +117,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
-                <button class="btn btn-light d-lg-block invisible mx-2 text-capitalize" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
-                    Show Learning Graph
-                </button>
-
                 <button class="btn btn-light d-none d-lg-block text-capitalize" id="backstage-btn" type="button" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">
                     @siteConfig.MainArticleShowBackstageLabel
                 </button>
             </div>
             <div>
-                <button class="btn btn-light d-md-none invisible mx-2 text-capitalize" id="mobile-learn-button" type="button" data-toggle="modal" data-target="#learnModal">
-                    Show Learning Graph
-                </button>
                 <button class="btn btn-light d-lg-none float-right text-capitalize" type="button" id="mobile-show-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleShowBackstageLabel</button>
             </div>
         </nav>
@@ -123,25 +134,30 @@
     <div class="col-12 col-lg-4 collapse border-left-lg p-lg-0" id="collapseBackstage">
         <div class="overflow-auto backstage-container">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary backstageNavBar">
-                <h2 id="backstage-title" class="navbar-brand">See Personalizer in Action</h2>
+                <h2 id="backstage-title" class="navbar-brand mr-auto">See Personalizer in Action</h2>
                 <button class="btn btn-light d-lg-none text-capitalize" type="button" id="mobile-hide-backstage-btn" data-toggle="collapse" data-target="#collapseBackstage" aria-expanded="false" aria-controls="collapseBackstage">@siteConfig.MainArticleCloseBackstageLabel</button>
+
+                <button class="btn btn-light d-lg-block mx-2 text-capitalize" id="learn-button" type="button" data-toggle="modal" data-target="#learnModal">
+                    Show Learning Graph
+                </button>
+
             </nav>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <form class="form-inline py-3">
                             <div class="mr-2">
-                                <label for="costs">Costs</label>
-                                <select class="custom-select my-1" id="costs">
-                                    <option value="allInclusive" selected>All Inclusive</option>
-                                    <option value="luxuryPackage">Luxury Package</option>
+                                <label for="tripType">Trip Type</label>
+                                <select class="custom-select my-1" id="tripType">
+                                    <option value="personal" selected>Personal</option>
+                                    <option value="business">Business</option>
                                 </select>
                             </div>
                             <div class="mr-2">
-                                <label for="packageAdditionals">Package Additionals</label>
-                                <select class="custom-select my-1" id="packageAdditionals">
-                                    <option value="boatTrip" selected>Boat Trip</option>
-                                    <option value="dinnerAndBreakfast">Dinner & Breakfast</option>
+                                <label for="travelerHistory">Traveler History</label>
+                                <select class="custom-select my-1" id="travelerHistory">
+                                    <option value="economy" selected>Economy</option>
+                                    <option value="luxury">Luxury</option>
                                 </select>
                             </div>
                             <div class="mr-2">

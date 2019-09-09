@@ -591,6 +591,7 @@ h3.modal-title {
     background-color: #edeef0;
     padding-bottom: 1rem;
     padding-top: 1rem;
+    color: #6c757d;
 }
 
 .main_slot_card{
@@ -676,4 +677,13 @@ h3.modal-title {
 
 .action-border {
     border: 0.2rem solid;
+}
+
+.checkout-modal .modal-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.checkout-modal .close {
+    color: #fff;
 }
