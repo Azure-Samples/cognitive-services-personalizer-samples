@@ -20,7 +20,7 @@ personalizer_endpoint = os.environ[endpoint_var_name]
 # </AuthorizationVariables>
 
 # <Client>
-# Instantiate a LUIS client
+# Instantiate a Personalizer client
 client = PersonalizerClient(personalizer_endpoint, CognitiveServicesCredentials(personalizer_key))
 # </Client>
 
