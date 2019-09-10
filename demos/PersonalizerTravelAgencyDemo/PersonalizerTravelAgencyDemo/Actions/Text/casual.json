@@ -1,5 +1,5 @@
 {
-  "Title": "Your Dream Vacation Package Is Ready!",
+  "Title": "Ready to Go!",
   "PackageTitle": "Package Includes",
   "PackageItems": [
     "Boat Trip",
@@ -17,6 +17,6 @@
   ],
   "PaymentTitle": "Payment",
   "PaymentText": "Your credit card ending in 1234",
-  "ConfirmButtonLabel": "Confirm Purchase",
+  "ConfirmButtonLabel": "Buy Now!",
   "SaveForLaterLinkLabel": "Save for Later"
 }

@@ -1,7 +1,7 @@
 let context = {
     device: "mobile",
-    packageAdditionals: null,
-    costs: null,
+    travelerHistory: null,
+    tripType: null,
     userAgent: null
 };
 
@@ -24,14 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileHideBackstageBtn = document.getElementById("mobile-hide-backstage-btn");
     const navbar = document.getElementById('navbar-container');
     const articleContainer = document.getElementById('article-container');
-    const graphContainer = document.getElementById('graph-container');
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
     const showActionJsonBtn = document.getElementById("showActionsJson");
     const showActionHtmlBtn = document.getElementById('showActionsHtml');
 
-    const costsOptions = ["allInclusive", "luxuryPackage"];
-    const additionalOptions = ["boatTrip", "dinnerAndBreakfast"];
+    const tripTypeOptions = ["business", "personal"];
+    const travelerHistorylOptions = ["economy", "luxury"];
 
     showActionHtmlBtn.style.display = 'none';
 
@@ -41,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
 
-    context.costs = getRandomOption(costsOptions);
-    context.packageAdditionals = getRandomOption(additionalOptions);
+    context.tripType = getRandomOption(tripTypeOptions);
+    context.travelerHistory = getRandomOption(travelerHistorylOptions);
 
     showActionJsonBtn.addEventListener('click', function () {
         actionDisplayState.selectedView = ACTION_VIEWS.JSON;
@@ -133,14 +132,12 @@ document.addEventListener("DOMContentLoaded", function () {
     function showPageContent() {
         navbar.style.display = 'flex';
         articleContainer.style.display = 'block';
-        graphContainer.style.display = 'flex';
     }
 
     // Makes the page content visible except for the backstage which will remain unchanged
     function hidePageContent() {
         navbar.style.display = 'none';
         articleContainer.style.display = 'none';
-        graphContainer.style.display = 'none';
     }
 
     const articleViewer = document.getElementById("article-viewer");
@@ -158,10 +155,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let reward = RewardInitValue;
 
-        function sendRewardHandler(reward) {
+        function sendRewardHandler(reward, saveForLater) {
             clearInterval(gaugeInterval);
             sendReward(personalizerCallResult.eventId, reward);
-            var modalRewardText = articleViewer.contentWindow.document.getElementById("modal-reward");
+            var elementId = saveForLater ? "saveforlater-modal-reward" : "modal-reward";
+            var modalRewardText = articleViewer.contentWindow.document.getElementById(elementId);
             modalRewardText.textContent = Math.round(reward * 10) / 10;
         }
 
@@ -178,15 +176,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(reward); });
             articleDoc.getElementById("link-save-later").addEventListener("click", function () {
-                sendRewardHandler(SaveForLaterReward);
+                sendRewardHandler(SaveForLaterReward, true);
                 updateRewardValue(SaveForLaterReward, articleDoc);
             });
 
             modalButton.addEventListener('click', goToHomeSite);
 
             modalIcon.addEventListener('click', goToHomeSite);
-
-            updateShowGraphbtn(true);
 
             updateRewardValue(reward, articleDoc);
 
@@ -224,9 +220,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 articleViewer.contentWindow.history.back();
             });
         }
-        else {
-            updateShowGraphbtn(false);
-        }
     });
 });
 
@@ -259,13 +252,13 @@ function setupContextControls() {
         }
     });
 
-    const costSelectEle = document.getElementById('costs');
-    costSelectEle.addEventListener('change', (event) => {
+    const tripTypeSelectEle = document.getElementById('tripType');
+    tripTypeSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value, null, false, null);
     });
 
-    const packageSelectEle = document.getElementById('packageAdditionals');
-    packageSelectEle.addEventListener('change', (event) => {
+    const travelerHistorySelectEle = document.getElementById('travelerHistory');
+    travelerHistorySelectEle.addEventListener('change', (event) => {
         updateContext(null, null, event.target.value, false, null);
     });
 
@@ -277,17 +270,17 @@ function setupContextControls() {
     updateContext(deviceSelectEle.value, null, null, false, null);
 }
 
-function updateContext(device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
+function updateContext(device, currentTripType, currentTravelerHistory, removeUserAgent, userAgent) {
     context.device = device || context.device;
-    context.costs = currentCost || context.costs;
-    context.packageAdditionals = currentAdditionals || context.packageAdditionals;
+    context.tripType = currentTripType || context.tripType;
+    context.travelerHistory = currentTravelerHistory || context.travelerHistory;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
             device: context.device,
-            costs: context.costs,
-            packageAdditionals: context.packageAdditionals
+            tripType: context.tripType,
+            travelerHistory: context.travelerHistory
         }
     ];
 
@@ -416,8 +409,8 @@ function createActionTab(actionObj, active) {
                           <div class="gr-4 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutc') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-c" src="/img/layout-c.png" alt="Layout C" /></div>
                           
                           <div class="gr-1 gc-2">Image</div>
-                          <div class="gr-2 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('caribbean') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="beach" src="/img/caribbean-thumbnail.jpg" alt="Beach" /></div>
-                          <div class="gr-3 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('elephant') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="pool" src="/img/elephant-thumbnail.jpg" alt="Desert" /></div>
+                          <div class="gr-2 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('beach') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="beach" src="/img/beach-thumbnail.jpg" alt="Beach" /></div>
+                          <div class="gr-3 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('sports') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="pool" src="/img/sports-thumbnail.jpg" alt="Desert" /></div>
                           
                           <div class="gr-1 gc-3">Tone & Font </div>
                           <div class="gr-2 gc-3"><img class="${action.toneFont.toLowerCase().indexOf('casual') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="casual" src="/img/casual.jpg" alt="Casual" /></div>
@@ -456,8 +449,8 @@ function getActions() {
 function getRecommendation() {
     const requestContext = {
         device: context.device,
-        costs: context.costs,
-        packageAdditionals: context.packageAdditionals,
+        tripType: context.tripType,
+        travelerHistory: context.travelerHistory,
         useUserAgent: !!context.userAgent
     };
 
@@ -485,19 +478,6 @@ function sendReward(eventid, value) {
             value: value
         })
     });
-}
-
-function updateShowGraphbtn(shouldShow) {
-    let previousClass = "visible";
-    let actualClass = "invisible";
-
-    if (shouldShow) {
-        previousClass = "invisible";
-        actualClass = "visible";
-    }
-
-    document.getElementById("learn-button").classList.replace(previousClass, actualClass);
-    document.getElementById("mobile-learn-button").classList.replace(previousClass, actualClass);
 }
 
 function getRandomOption(options) {
