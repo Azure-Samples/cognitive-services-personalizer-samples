@@ -1,3 +1,17 @@
+---
+page_type: sample
+languages:
+- java
+- csharp
+- javascript
+- python
+- php
+products:
+- azure
+description: "Repository for samples, tutorial, snippets and utilities that will help you understand and make great use of the Cognitive Services Personalizer."
+urlFragment: cognitive-services-personalizer-samples
+---
+
 # Azure Cognitive Services - Personalizer Samples
 
 Repository for samples, tutorial, snippets and utilities that will help you understand and make great use of the Cognitive Services Personalizer.
