@@ -12,7 +12,7 @@ if not key_var_name in os.environ:
 	raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
 personalizer_key = os.environ[key_var_name]
 
-# For example: https://westus2.api.cognitive.microsoft.com/
+# Replace <your-resource-name>: https://<your-resource-name>.api.cognitive.microsoft.com/
 endpoint_var_name = 'PERSONALIZER_ENDPOINT'
 if not endpoint_var_name in os.environ:
 	raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
