@@ -11,7 +11,7 @@ Run the system again, but for 2,000 requests and again create the graph showing 
 ## Prerequisites
 
 * [Azure notebooks](https://notebooks.azure.com/) account
-* Personalizer loop
+* [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)
 
 ## How to use this sample
 
@@ -25,3 +25,8 @@ All the instructions are in the notebook. Here is an abbreviated explanation.
     * The value for `<your-resource-key>` variable to one of the Personalizer resource keys. 
 
 1. Run each cell from top to bottom. Wait until each cell is complete before running the next cell. 
+
+## References
+
+* [Full sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook)
+* [Tutorial on docs.microsoft.com](https://docs.microsoft.com/azure/cognitive-services/personalizer/tutorial-use-azure-notebook-generate-loop-data)
