@@ -1,0 +1,70 @@
+{
+  "Alice": {
+    "Sunny": {
+      "Morning": "Cold brew",
+      "Afternoon": "Iced mocha",
+      "Evening": "Cold brew"
+    },
+    "Rainy": {
+      "Morning": "Latte",
+      "Afternoon": "Cappucino",
+      "Evening": "Latte"
+    },
+    "Snowy": {
+      "Morning": "Cappucino",
+      "Afternoon": "Cappucino",
+      "Evening": "Cappucino"
+    }
+  },
+  "Bob": {
+    "Sunny": {
+      "Morning": "Cappucino",
+      "Afternoon": "Iced mocha",
+      "Evening": "Cold brew"
+    },
+    "Rainy": {
+      "Morning": "Latte",
+      "Afternoon": "Latte",
+      "Evening": "Latte"
+    },
+    "Snowy": {
+      "Morning": "Iced mocha",
+      "Afternoon": "Iced mocha",
+      "Evening": "Iced mocha"
+    }
+  },
+  "Cathy": {
+    "Sunny": {
+      "Morning": "Latte",
+      "Afternoon": "Cold brew",
+      "Evening": "Cappucino"
+    },
+    "Rainy": {
+      "Morning": "Cappucino",
+      "Afternoon": "Latte",
+      "Evening": "Iced mocha"
+    },
+    "Snowy": {
+      "Morning": "Cold brew",
+      "Afternoon": "Iced mocha",
+      "Evening": "Cappucino"
+    }
+  },
+  "Dave": {
+    "Sunny": {
+      "Morning": "Iced mocha",
+      "Afternoon": "Iced mocha",
+      "Evening": "Iced mocha"
+    },
+    "Rainy": {
+      "Morning": "Latte",
+      "Afternoon": "Latte",
+      "Evening": "Latte"
+    },
+    "Snowy": {
+      "Morning": "Cappucino",
+      "Afternoon": "Cappucino",
+      "Evening": "Cappucino"
+    }
+  }
+}
