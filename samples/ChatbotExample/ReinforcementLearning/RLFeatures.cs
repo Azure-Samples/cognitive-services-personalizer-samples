@@ -33,6 +33,6 @@ namespace LuisBot.ReinforcementLearning
         /// </value>
         public DayOfWeek DayOfWeek { get; private set; }
 
-        public Uri HostName => new Uri("https://localhost:5001");
+        public Uri HostName => new Uri("<Personalizer Azure Service Endpoint>");
     }
 }

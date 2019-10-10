@@ -42,6 +42,10 @@ namespace LuisBot.ReinforcementLearning
         /// </value>
         public IList<RankedAction> CurrentPreference { get; set; }
 
+        public RLContextManager()
+        {
+            SubscriptionKey = "<Your Personalizer Service Key from Azure>";
+        }
         public void GenerateRLFeatures()
         {
             var index = new Random().Next(0, 3);
