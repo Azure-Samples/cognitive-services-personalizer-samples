@@ -78,14 +78,14 @@ def main():
                 ([Anna, Monday], 'sports'),
                 ([Anna, Sunday], 'politics')]
 
-    run(scenario, actions, client, 5400)
+    run(scenario, actions, client, 10 * 60)
 
     # Olympics started and both Tom and Anna are following sport news during weekend
     scenario = [([Tom, Monday], 'politics'),
                 ([Tom, Sunday], 'sports'),
                 ([Anna, Monday], 'sports'),
                 ([Anna, Sunday], 'sports')]
-    run(scenario, actions, client, 5400)
+    run(scenario, actions, client, 10 * 60)
 
 if __name__== '__main__':
   main()
