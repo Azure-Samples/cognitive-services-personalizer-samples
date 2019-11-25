@@ -101,7 +101,7 @@ while keep_going:
     client.events.reward(event_id=eventid, value=reward_val)
     # </reward>
 
-    br = input("Press Q to exit, any other key to continue: ")[0]
+    br = input("Press Q to exit, any other key to continue: ")
     if(br.lower()=='q'):
         keep_going = False
 
