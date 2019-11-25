@@ -9,7 +9,7 @@ In this workshop you will learn the theory behind contextual bandits and how thi
 1. Provision a free instance of Personalizer
     1. Go to [Azure Portal](https://portal.azure.com)
     1. Click "Create a resource"
-    1. Search the market place for "**Cogitive Services Personalizer**" or "**Personalizer**" (make sure it's not the one that only says 'Cognitive Services')
+    1. Search the market place for "**Cognitive Services Personalizer**" or "**Personalizer**" (make sure it's not the one that only says 'Cognitive Services')
     1. Click the "Personalizer" panel
     1. Click the "Create" button
     1. Fill out the form and click "Create"
