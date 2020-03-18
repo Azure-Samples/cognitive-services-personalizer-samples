@@ -18,6 +18,7 @@ namespace PersonalizerExample
         private static readonly string ServiceEndpoint = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_ENDPOINT");
         // </classVariables>
 
+
         // <mainLoop>
         static void Main(string[] args)
         {
