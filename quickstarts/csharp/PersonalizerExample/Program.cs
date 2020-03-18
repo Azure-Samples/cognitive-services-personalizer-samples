@@ -18,7 +18,6 @@ namespace PersonalizerExample
         private static readonly string ServiceEndpoint = Environment.GetEnvironmentVariable("PERSONALIZER_RESOURCE_ENDPOINT");
         // </classVariables>
 
-
         // <mainLoop>
         static void Main(string[] args)
         {
@@ -96,7 +95,7 @@ namespace PersonalizerExample
             } while (runLoop);
         }
         // </mainLoop>
-        
+
         // <authorization>
         /// <summary>
         /// Initializes the personalizer client.
@@ -106,7 +105,8 @@ namespace PersonalizerExample
         static PersonalizerClient InitializePersonalizerClient(string url)
         {
             PersonalizerClient client = new PersonalizerClient(
-                new ApiKeyServiceClientCredentials(ApiKey)) {Endpoint = url};
+                new ApiKeyServiceClientCredentials(ApiKey))
+            { Endpoint = url };
 
             return client;
         }

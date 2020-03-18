@@ -32,7 +32,7 @@ namespace HttpRequestFeaturesExample
             {
                 string serviceEndpoint = Configuration.GetSection("PersonalizerConfiguration:ServiceEndpoint").Value;
                 string serviceApiKey = Configuration.GetSection("PersonalizerConfiguration:ServiceApiKey").Value;
-                if(string.IsNullOrEmpty(serviceEndpoint) || string.IsNullOrEmpty(serviceApiKey))
+                if (string.IsNullOrEmpty(serviceEndpoint) || string.IsNullOrEmpty(serviceApiKey))
                 {
                     throw new ArgumentException("Missing Azure Personalizer endpoint or api key.");
                 }
