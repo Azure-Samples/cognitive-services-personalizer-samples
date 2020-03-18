@@ -4,11 +4,10 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System.Globalization;
 
-namespace Microsoft.Azure.CognitiveServices.Personalization.Featurizers
+namespace Microsoft.Azure.CognitiveServices.Personalizer.Featurizers
 {
     public class GeoLocation
     {

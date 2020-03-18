@@ -7,7 +7,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Microsoft.Azure.CognitiveServices.Personalization.Featurizers
+namespace Microsoft.Azure.CognitiveServices.Personalizer.Featurizers
 {
     public class GeoIP
     {

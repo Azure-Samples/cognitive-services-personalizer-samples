@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace HttpRequestFeaturesExample
 {
@@ -31,6 +28,19 @@ namespace HttpRequestFeaturesExample
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton(client =>
+            {
+                string serviceEndpoint = Configuration.GetSection("PersonalizerConfiguration:ServiceEndpoint").Value;
+                string serviceApiKey = Configuration.GetSection("PersonalizerConfiguration:ServiceApiKey").Value;
+                if(string.IsNullOrEmpty(serviceEndpoint) || string.IsNullOrEmpty(serviceApiKey))
+                {
+                    throw new ArgumentException("Missing Azure Personalizer endpoint or api key.");
+                }
+                return new PersonalizerClient(new ApiKeyServiceClientCredentials(serviceApiKey))
+                {
+                    Endpoint = serviceEndpoint
+                };
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

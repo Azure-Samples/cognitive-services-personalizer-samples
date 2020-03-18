@@ -4,11 +4,9 @@
 // </copyright>
 //------------------------------------------------------------------------------
 
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 
-namespace Microsoft.Azure.CognitiveServices.Personalization.Featurizers
+namespace Microsoft.Azure.CognitiveServices.Personalizer.Featurizers
 {
     public class Refer
     {

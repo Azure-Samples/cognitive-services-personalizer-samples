@@ -6,7 +6,7 @@
 
 using Newtonsoft.Json;
 
-namespace Microsoft.Azure.CognitiveServices.Personalization.Featurizers
+namespace Microsoft.Azure.CognitiveServices.Personalizer.Featurizers
 {
     public class HttpRequestFeatures
     {
@@ -25,7 +25,7 @@ namespace Microsoft.Azure.CognitiveServices.Personalization.Featurizers
 
         public HttpRequestFeatures()
         {
-        
+
         }
     }
 }
