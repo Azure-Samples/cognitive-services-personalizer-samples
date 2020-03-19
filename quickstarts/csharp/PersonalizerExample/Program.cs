@@ -105,8 +105,7 @@ namespace PersonalizerExample
         static PersonalizerClient InitializePersonalizerClient(string url)
         {
             PersonalizerClient client = new PersonalizerClient(
-                new ApiKeyServiceClientCredentials(ApiKey))
-            { Endpoint = url };
+                new ApiKeyServiceClientCredentials(ApiKey)) { Endpoint = url };
 
             return client;
         }

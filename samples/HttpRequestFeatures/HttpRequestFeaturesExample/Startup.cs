@@ -21,6 +21,13 @@ namespace HttpRequestFeaturesExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string personalizerApiKey = Configuration.GetSection("PersonalizerApiKey").Value;
+            string personalizerEndpoint = Configuration.GetSection("PersonalizerConfiguration:ServiceEndpoint").Value;
+            if (string.IsNullOrEmpty(personalizerEndpoint) || string.IsNullOrEmpty(personalizerApiKey))
+            {
+                throw new ArgumentException("Missing Azure Personalizer endpoint and/or api key.");
+            }
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -30,15 +37,9 @@ namespace HttpRequestFeaturesExample
 
             services.AddSingleton(client =>
             {
-                string serviceEndpoint = Configuration.GetSection("PersonalizerConfiguration:ServiceEndpoint").Value;
-                string serviceApiKey = Configuration.GetSection("PersonalizerConfiguration:ServiceApiKey").Value;
-                if (string.IsNullOrEmpty(serviceEndpoint) || string.IsNullOrEmpty(serviceApiKey))
+                return new PersonalizerClient(new ApiKeyServiceClientCredentials(personalizerApiKey))
                 {
-                    throw new ArgumentException("Missing Azure Personalizer endpoint or api key.");
-                }
-                return new PersonalizerClient(new ApiKeyServiceClientCredentials(serviceApiKey))
-                {
-                    Endpoint = serviceEndpoint
+                    Endpoint = personalizerEndpoint
                 };
             });
 
