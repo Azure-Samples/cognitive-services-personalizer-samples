@@ -1,23 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Featurizers;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using Microsoft.Azure.CognitiveServices.Personalization.Featurizers;
 
 namespace HttpRequestFeaturesExample.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly static string serviceEndpoint = "http://localhost:5000";
-        private readonly static string subscriptionKey = "";
-        private static readonly string url = serviceEndpoint;
+        PersonalizerClient client;
 
-        // Initialize Personalization client
-        PersonalizerClient client = InitializePersonalizationClient(url, subscriptionKey);
+        public HomeController(PersonalizerClient personalizerClient)
+        {
+            this.client = personalizerClient;
+        }
 
         public IActionResult Index()
         {
@@ -101,21 +100,6 @@ namespace HttpRequestFeaturesExample.Controllers
             string[] tasteFeatures = new string[] { "salty", "sweet" };
             int tasteIndex = rnd.Next(tasteFeatures.Length);
             return tasteFeatures[tasteIndex];
-        }
-
-        /// <summary>
-        /// Initializes the personalization client.
-        /// </summary>
-        /// <param name="url">Azure endpoint</param>
-        /// <param name="serviceKey">subscription key</param>
-        /// <returns>Personalization client instance</returns>
-        private static PersonalizerClient InitializePersonalizationClient(string url, string serviceKey)
-        {
-            PersonalizerClient client = new PersonalizerClient(
-                new ApiKeyServiceClientCredentials(serviceKey))
-            { Endpoint = url };
-
-            return client;
         }
 
         /// <summary>

@@ -7,7 +7,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
 
-namespace Microsoft.Azure.CognitiveServices.Personalization.Featurizers
+namespace Microsoft.Azure.CognitiveServices.Personalizer.Featurizers
 {
     public class Utils
     {

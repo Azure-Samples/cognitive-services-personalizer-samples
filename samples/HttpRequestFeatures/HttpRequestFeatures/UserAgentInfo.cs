@@ -3,14 +3,12 @@
 //     Copyright (c) Microsoft Corporation. All rights reserved.
 // </copyright>
 //------------------------------------------------------------------------------
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
-using UAParser;
 using System;
 using System.Collections.Generic;
+using UAParser;
 
-namespace Microsoft.Azure.CognitiveServices.Personalization.Featurizers
+namespace Microsoft.Azure.CognitiveServices.Personalizer.Featurizers
 {
     public class UserAgentInfo
     {
