@@ -1,13 +1,13 @@
-﻿# Cognitive Service Personalization
+﻿# Personalizer
 
-This sample shows how Cognitive Service Personalization can be integrated with a chat bot.
+This sample shows how Personalizer can be integrated with a chat bot.
 
-## Run Personalization Chatbot
+## Run Personalizer Chatbot
 
 In order to run this example:
 
 1. Read through [README-LuisBot.md](./README-LuisBot.md) to setup LuisBot
-2. In [RLFeatures.cs](./ReinforcementLearning/RLFeatures.cs), modify HostName to a deployed Personalization Service
+2. In [RLFeatures.cs](./ReinforcementLearning/RLFeatures.cs), modify HostName to a deployed Personalizer service; in [RLContextManager.cs](./ReinforcementLearning/RLContextManager.cs), modify SubscriptionKey to that service's
 3. Follow the instructions in [README-LuisBot.md](./README-LuisBot.md) to run the bot
 
 ## Interact with Chatbot

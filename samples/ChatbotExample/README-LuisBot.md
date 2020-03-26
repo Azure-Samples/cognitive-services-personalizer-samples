@@ -1,4 +1,4 @@
-﻿﻿This sample shows how to integrate LUIS to a bot with ASP.Net Core 2. 
+﻿﻿This sample shows how to integrate LUIS with a bot using ASP.Net Core 2. 
 
 # To try this sample
 - Clone the samples repository
@@ -6,25 +6,35 @@
 git clone https://github.com/Azure-Samples/cognitive-services-personalizer-samples.git
 ```
 - [Optional] Update the `appsettings.json` file under `cognitive-services-personalizer-samples/samples/ChatbotExample/` with your botFileSecret.  For Azure Bot Service bots, you can find the botFileSecret under application settings.
-## Prerequisites
-### Set up LUIS
+# Prerequisites
+
+## Necessary resources
+- Create both a Personalizer and a Language Understanding (LUIS) resource in the Azure portal. These will be used to power the reinforcement learning and NLP cababilities of the bot, respectively.
+- NOTE: when creating a LUIS resource in the portal, you can choose between creating both a prediction and an authoring resource, or one or the other. Only an authoring resource is needed for this sample. More on the two [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-keys#azure-resources-for-luis)
+## Set up LUIS
 - Navigate to [LUIS portal](https://www.luis.ai).
 
 - Click the `Sign in` button.
 
 - Click on `My Apps`.
 
+- Select the LUIS authoring resource you created earlier.
+
 - Click on the `Import new app` button.
 
 - Click on the `Choose File` and select [coffeebot.json](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/CognitiveModels/coffeebot.json) from the `cognitive-services-personalizer-samples/samples/ChatbotExample/CognitiveModels` folder.
 
-- Update [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot) file with your AppId, SubscriptionKey, Region and Version. 
-    You can find this information under "Manage" tab for your LUIS application at [LUIS portal](https://www.luis.ai).
+- Click on the [`Train`](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) button on the top right of the page; this will train your app on the model inside of chatbot.json.
+
+- Once this is done, press the [`Publish`](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-publish-app) button and select "Production". NOTE: Once you publish your app on LUIS portal for the first time, it takes some time for the endpoint to become available, about 5 minutes of wait should be sufficient.
+
+- Update [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot) file with your AppId, AuthoringKey, Region and Version. 
+    You can find this information under the `Manage` tab.
 
     - The `AppID` can be found in "Application Information"
-    - The `AuthoringKey` can be found in "Keys and Endpoints"
-    - The `SubscriptionKey` can be found in "Keys and Endpoints", under the `Key 1` column
-    - The `region` can be found in "Keys and Endpoints", under the `Region` column
+    - The `AuthoringKey` can be found in "Azure Resources" > "Authoring Resource" > "Primary key"
+    - The `Region` is listed above the primary key (authoring key)
+    - The `Version` is located next to the name of your app in the top left corner
 
     You will have something similar to this in the services section of your .bot file to run this sample:
 
@@ -32,29 +42,24 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
     {
         "type":"luis",
         "name":"<some name>",
-        "appId":"<an app id>",
-        "version":"<a version number>",
+        "appId":"<your app id>",
+        "version":"<your version number>",
         "authoringKey":"<your authoring key>",
-        "subscriptionKey":"<your subscription key>",
-        "region":"<region>",
+        "region":"<your region>",
         "id":"<some number>"
     },
     ```
 
-    The Version is listed on the page.
-    Note: Enter the either `authoringKey` OR `subscriptionKey`, not both
-
-- Update [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot) file with your Authoring Key.  
-    You can find this under your user settings at [luis.ai](https://www.luis.ai).  Click on your name in the upper right hand corner of the portal, and click on the "Settings" menu option.
-    NOTE: Once you publish your app on LUIS portal for the first time, it takes some time for the endpoint to become available, about 5 minutes of wait should be sufficient.
-### (Optional) Install LUDown
-- (Optional) Install the LUDown [here](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) to help describe language understanding components for your bot.
+# Running and using the bot
 
 ## Visual Studio
+- Right click on the LuisBot project file > Properties > Debug and change the App URL to match the base URL of the endpoint listed in [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot)
 - Navigate to the samples folder (`cognitive-services-personalizer-samples/samples/ChatbotExample/`) and open `LuisBot.csproj` in Visual Studio 
 - Run the project (press `F5` key)
 
 ## Visual Studio Code
+- Open the `launch.json`file and add the `--urls` argument to the `-args` parameter along with the base URL of the endpoint listed in [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot)
+  For example: `"args": ["--urls","https://localhost:4034"]`
 - Open `cognitive-services-personalizer-samples/samples/ChatbotExample/` sample folder
 - Bring up a terminal, navigate to `cognitive-services-personalizer-samples/samples/ChatbotExample/` folder.
 - Type `dotnet run`.
@@ -68,18 +73,11 @@ their bots on localhost or running remotely through a tunnel.
 - Launch the Bot Framework Emulator
 - File -> Open bot and navigate to `cognitive-services-personalizer-samples/samples/ChatbotExample/` folder
 - Select `nlp-with-luis.bot` file
-# Deploy this bot to Azure
 
-You can use the [MSBot](https://github.com/microsoft/botbuilder-tools) Bot Builder CLI tool to clone and configure any services this sample depends on. In order to install this and other tools, you can read [Installing CLI Tools](../../../Installing_CLI_tools.md).
+## Deploy this bot to Azure (optional)
 
-To clone this bot, run
-
-```bash
-msbot clone services -f deploymentScripts/msbotClone -n <BOT-NAME> -l <Azure-location> --subscriptionId <Azure-subscription-id> --appId <YOUR APP ID> --appSecret <YOUR APP SECRET PASSWORD>
-```
-
-**NOTE**: You can obtain your `appId` and `appSecret` at the Microsoft's [Application Registration Portal](https://apps.dev.microsoft.com/)
-
+Follow [this tutorial](https://aka.ms/bot-framework-emulator-publish-Azure) if you want to deploy your bot to Azure.
+Additionally, if you would like to register your bot with Azure Bot Service, you can follow the steps at [this link](https://dev.botframework.com/bots/provision).
 
 # Further reading
 - [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)

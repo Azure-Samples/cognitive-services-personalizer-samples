@@ -82,13 +82,13 @@ namespace Microsoft.BotBuilderSamples
                     switch (intent)
                     {
                         case Intents.ShowMenu:
-                            await turnContext.SendActivityAsync($"Here is our menu: \n Coffee {CoffeesMethods.DisplayCoffees()}\n Tea {TeaMethods.DisplayTeas()}", cancellationToken: cancellationToken);
+                            await turnContext.SendActivityAsync($"Here is our menu: \n Coffee: {CoffeesMethods.DisplayCoffees()}\n Tea: {TeaMethods.DisplayTeas()}", cancellationToken: cancellationToken);
                             break;
                         case Intents.ChooseRank:
                             // Here we generate the event ID for this Rank.
                             var response = await ChooseRankAsync(turnContext, _rlFeaturesManager.GenerateEventId(), cancellationToken);
                             _rlFeaturesManager.CurrentPreference = response.Ranking;
-                            await turnContext.SendActivityAsync($"What about {response.RewardActionId}?", cancellationToken: cancellationToken);
+                            await turnContext.SendActivityAsync($"How about {response.RewardActionId}?", cancellationToken: cancellationToken);
                             break;
                         case Intents.RewardLike:
                             if (!string.IsNullOrEmpty(_rlFeaturesManager.CurrentEventId))
@@ -99,7 +99,7 @@ namespace Microsoft.BotBuilderSamples
                             }
                             else
                             {
-                                await turnContext.SendActivityAsync($"Not sure what you like about. Did you ask a suggestion?", cancellationToken: cancellationToken);
+                                await turnContext.SendActivityAsync($"Not sure what you like. Did you ask for a suggestion?", cancellationToken: cancellationToken);
                             }
 
                             break;
@@ -112,7 +112,7 @@ namespace Microsoft.BotBuilderSamples
                             }
                             else
                             {
-                                await turnContext.SendActivityAsync($"Not sure what you dislike about. Did you ask a suggestion?", cancellationToken: cancellationToken);
+                                await turnContext.SendActivityAsync($"Not sure what you dislike. Did you ask for a suggestion?", cancellationToken: cancellationToken);
                             }
 
                             break;
@@ -248,13 +248,13 @@ namespace Microsoft.BotBuilderSamples
         private async Task SendResetMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
         {
             await turnContext.SendActivityAsync(
-                $"This is a simple chatbot exmaple that illustrate how to use Cognitive services personalization.\n" +
+                $"This is a simple chatbot example that illustrates how to use Personalizer.\n" +
                 "The bot learns what coffee or tea order is preferred by customers given some context information (such as weather, temperature, and day of the week) and information about the user.", cancellationToken: cancellationToken);
             await turnContext.SendActivityAsync(
                 "To use the bot, just follow the prompts.\n" +
                 "To try out a new imaginary context, type \"Reset\" and a new one will be randomly generated.", cancellationToken: cancellationToken);
             await turnContext.SendActivityAsync(
-                $"Welcome to the coffee bot, please tell me if you want to see the menu or get a coffee or tea suggestion for today. It's {_rlFeaturesManager.RLFeatures.DayOfWeek} today and the weather is {_rlFeaturesManager.RLFeatures.Weather}.\n",
+                $"Welcome to the coffee bot, please tell me if you want to see the menu or get a coffee or tea suggestion for today. Once I've given you a suggestion, you can reply with 'like' or 'dislike'. It's {_rlFeaturesManager.RLFeatures.DayOfWeek} today and the weather is {_rlFeaturesManager.RLFeatures.Weather}.\n",
                 cancellationToken: cancellationToken);
         }
 

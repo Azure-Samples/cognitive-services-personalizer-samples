@@ -27,7 +27,7 @@ namespace LuisBot.ReinforcementLearning
         public string CurrentEventId { get; private set; }
 
         /// <summary>
-        /// Gets subscription key used by personalization client.
+        /// Gets subscription key used by personalizer client.
         /// </summary>
         /// <value>
         /// subscription key string.
