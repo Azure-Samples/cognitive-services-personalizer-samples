@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Featurizers;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,11 @@ namespace HttpRequestFeaturesExample.Controllers
 
             ViewData["UserAgent"] = JsonConvert.SerializeObject(httpRequestFeatures, Formatting.Indented);
 
-            Tuple<string, string> personalizationobj = callPersonalizationService(httpRequestFeatures);
-            ViewData["Personalization Rank Request"] = personalizationobj.Item1;
-            ViewData["Personalization Reward Request"] = personalizationobj.Item2;
+            Tuple<string, string, string> personalizationobj = callPersonalizationService(httpRequestFeatures);
+            ViewData["Personalizer Rank Request"] = personalizationobj.Item1;
+            ViewData["Personalizer Rank Response"] = personalizationobj.Item2;
+            ViewData["Personalizer rewardActionId"] = personalizationobj.Item3;
+
             return View();
         }
 
@@ -47,7 +50,7 @@ namespace HttpRequestFeaturesExample.Controllers
             return httpRequestFeatures;
         }
 
-        private Tuple<string, string> callPersonalizationService(HttpRequestFeatures httpRequestFeatures)
+        private Tuple<string, string, string> callPersonalizationService(HttpRequestFeatures httpRequestFeatures)
         {
             // Generate an ID to associate with the request.
             string eventId = Guid.NewGuid().ToString();
@@ -75,7 +78,9 @@ namespace HttpRequestFeaturesExample.Controllers
 
             string rankjson = JsonConvert.SerializeObject(request, Formatting.Indented);
             string rewardjson = JsonConvert.SerializeObject(response, Formatting.Indented);
-            return Tuple.Create(rankjson, rewardjson);
+            string rewardActionId = response.RewardActionId;
+
+            return Tuple.Create(rankjson, rewardjson, rewardActionId);
         }
 
         /// <summary>

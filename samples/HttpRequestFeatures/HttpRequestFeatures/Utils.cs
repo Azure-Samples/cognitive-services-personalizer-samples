@@ -62,6 +62,9 @@ namespace Microsoft.Azure.CognitiveServices.Personalizer.Featurizers
                 {
                     UserAgentInfo userAgentInfo = new UserAgentInfo();
                     userAgentInfo.UseUserAgent(userAgent);
+
+                    // Do not use such a specific string as a feature
+                    userAgentInfo.UserAgent = string.Empty;
                     return userAgentInfo;
                 }
             }
