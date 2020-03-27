@@ -128,16 +128,16 @@ namespace Microsoft.BotBuilderSamples
                 options.State.Add(conversationState);
             });
 
-            string personalizerApiKey = Configuration.GetSection("PersonalizerSubscriptionKey").Value;
+            string personalizerEndpointKey = Configuration.GetSection("PersonalizerEndpointKey").Value;
             string personalizerEndpoint = Configuration.GetSection("PersonalizerServiceEndpoint").Value;
-            if (string.IsNullOrEmpty(personalizerEndpoint) || string.IsNullOrEmpty(personalizerApiKey))
+            if (string.IsNullOrEmpty(personalizerEndpoint) || string.IsNullOrEmpty(personalizerEndpointKey))
             {
-                throw new ArgumentException("Missing Azure Personalizer endpoint and/or subscription key.");
+                throw new ArgumentException("Missing Azure Personalizer endpoint and/or endpoint key.");
             }
 
             services.AddSingleton(client =>
             {
-                return new PersonalizerClient(new ApiKeyServiceClientCredentials(personalizerApiKey))
+                return new PersonalizerClient(new ApiKeyServiceClientCredentials(personalizerEndpointKey))
                 {
                     Endpoint = personalizerEndpoint,
                 };
