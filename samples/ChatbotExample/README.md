@@ -73,8 +73,12 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 - Run the project (press `F5` key)
 
 ## Visual Studio Code
-- Open the `launch.json`file and add the `--urls` argument to the `-args` parameter along with the base URL of the endpoint listed in [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot)
-  For example: `"args": ["--urls","https://localhost:4034"]`
+- Open the `launch.json`file generated for you inside `./vscode`; inside of `Configurations.env`, add an entry with key `"ASPNETCORE_URLS: <your bot endpoint>`, where your bot endpoint is the base URL of the endpoint listed in [nlp-with-luis.bot](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/ChatbotExample/nlp-with-luis.bot)
+  For example: ``` Json
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:4034"
+            },```
 - Bring up a terminal, navigate to `cognitive-services-personalizer-samples/samples/ChatbotExample/` folder.
 - Type `dotnet run`.
 
