@@ -1,12 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
 using LuisBot.Model;
 using LuisBot.ReinforcementLearning;
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -14,6 +8,11 @@ using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Microsoft.BotBuilderSamples
 {
@@ -46,13 +45,20 @@ namespace Microsoft.BotBuilderSamples
         private readonly RLContextManager _rlFeaturesManager;
 
         /// <summary>
+        /// Client used to rank suggestions for user/reward good suggestions.
+        /// </summary>
+        private readonly PersonalizerClient _personalizerClient;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="LuisBot"/> class.
         /// </summary>
         /// <param name="services">Services configured from the ".bot" file.</param>
-        public LuisBot(BotServices services)
+        /// <param name="personalizerClient">Client used to rank suggestions for user/reward good suggestions</param>
+        public LuisBot(BotServices services, PersonalizerClient personalizerClient)
         {
-            _services = services ?? throw new System.ArgumentNullException(nameof(services));
+            _services = services ?? throw new ArgumentNullException(nameof(services));
             _rlFeaturesManager = services.RLContextManager;
+            _personalizerClient = personalizerClient;
             if (!_services.LuisServices.ContainsKey(LuisKey))
             {
                 throw new ArgumentException($"Invalid configuration. Please check your '.bot' file for a LUIS service named '{LuisKey}'.");
@@ -170,10 +176,6 @@ namespace Microsoft.BotBuilderSamples
 
         private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, string eventId, CancellationToken cancellationToken)
         {
-            var client = new PersonalizerClient(
-                new ApiKeyServiceClientCredentials(_rlFeaturesManager.SubscriptionKey))
-            { Endpoint = _rlFeaturesManager.RLFeatures.HostName.ToString() };
-
             IList<object> contextFeature = new List<object>
             {
                 new { weather = _rlFeaturesManager.RLFeatures.Weather.ToString() },
@@ -222,7 +224,7 @@ namespace Microsoft.BotBuilderSamples
                 "This is what is getting sent to Rank:\n" +
                 $"{JsonConvert.SerializeObject(request, Formatting.Indented)}\n",
                 cancellationToken: cancellationToken);
-            var response = await client.RankAsync(request, cancellationToken);
+            var response = await _personalizerClient.RankAsync(request, cancellationToken);
             await turnContext.SendActivityAsync(
                 $"===== DEBUG MESSAGE RETURN FROM RANK =====\n" +
                 "This is what Rank returned:\n" +
@@ -239,10 +241,7 @@ namespace Microsoft.BotBuilderSamples
                 $"eventId = {eventId}, reward = {reward}\n",
                 cancellationToken: cancellationToken);
 
-            var client = new PersonalizerClient(
-                new ApiKeyServiceClientCredentials(_rlFeaturesManager.SubscriptionKey))
-            { Endpoint = _rlFeaturesManager.RLFeatures.HostName.ToString() };
-            await client.RewardAsync(eventId, new RewardRequest(reward), cancellationToken);
+            await _personalizerClient.RewardAsync(eventId, new RewardRequest(reward), cancellationToken);
         }
 
         private async Task SendResetMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
@@ -254,7 +253,7 @@ namespace Microsoft.BotBuilderSamples
                 "To use the bot, just follow the prompts.\n" +
                 "To try out a new imaginary context, type \"Reset\" and a new one will be randomly generated.", cancellationToken: cancellationToken);
             await turnContext.SendActivityAsync(
-                $"Welcome to the coffee bot, please tell me if you want to see the menu or get a coffee or tea suggestion for today. Once I've given you a suggestion, you can reply with 'like' or 'dislike'. It's {_rlFeaturesManager.RLFeatures.DayOfWeek} today and the weather is {_rlFeaturesManager.RLFeatures.Weather}.\n",
+                $"Welcome to the coffee bot, please tell me if you want to see the menu or get a coffee or tea suggestion for today. Once I've given you a suggestion, you can reply with 'like' or 'don't like'. It's {_rlFeaturesManager.RLFeatures.DayOfWeek} today and the weather is {_rlFeaturesManager.RLFeatures.Weather}.\n",
                 cancellationToken: cancellationToken);
         }
 

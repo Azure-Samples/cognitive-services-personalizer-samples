@@ -27,14 +27,6 @@ namespace LuisBot.ReinforcementLearning
         public string CurrentEventId { get; private set; }
 
         /// <summary>
-        /// Gets subscription key used by personalizer client.
-        /// </summary>
-        /// <value>
-        /// subscription key string.
-        /// </value>
-        public string SubscriptionKey { get; private set; }
-
-        /// <summary>
         /// Gets or sets current user preference from last Rank call.
         /// </summary>
         /// <value>
@@ -44,8 +36,8 @@ namespace LuisBot.ReinforcementLearning
 
         public RLContextManager()
         {
-            SubscriptionKey = "<Your Personalizer Service Key from Azure>";
         }
+
         public void GenerateRLFeatures()
         {
             var index = new Random().Next(0, 3);
