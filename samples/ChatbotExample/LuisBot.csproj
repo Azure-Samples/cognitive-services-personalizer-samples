@@ -6,6 +6,7 @@
 	  <Platforms>AnyCPU;x64</Platforms>
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <UserSecretsId>896f8253-c42d-4cff-80ef-6068396356f7</UserSecretsId>
   </PropertyGroup>
 
  <ItemGroup>

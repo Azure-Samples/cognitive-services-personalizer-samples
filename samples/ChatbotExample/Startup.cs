@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Bot.Configuration;
@@ -31,6 +32,7 @@ namespace Microsoft.BotBuilderSamples
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddUserSecrets<Startup>()
                 .AddEnvironmentVariables();
 
             Configuration = builder.Build();
@@ -57,6 +59,16 @@ namespace Microsoft.BotBuilderSamples
 
             // Loads .bot configuration file and adds a singleton that your Bot can access through dependency injection.
             var botConfig = BotConfiguration.Load(botFilePath ?? @".\nlp-with-luis.bot", secretKey);
+
+            // Set authoring key inside of bot config to be the key stored in user secrets
+            string luisAuthoringKey = Configuration.GetSection("LUISAuthoringKey").Value;
+            if (string.IsNullOrEmpty(luisAuthoringKey))
+            {
+                throw new ArgumentNullException("LUIS authoring key is missing");
+            }
+
+            botConfig.Services.OfType<LuisService>().First().AuthoringKey = luisAuthoringKey;
+
             services.AddSingleton(sp => botConfig ?? throw new InvalidOperationException($"The .bot configuration file could not be loaded. ({botConfig})"));
 
             // Initialize Bot Connected Services clients.
@@ -114,6 +126,21 @@ namespace Microsoft.BotBuilderSamples
                 var conversationState = new ConversationState(dataStore);
 
                 options.State.Add(conversationState);
+            });
+
+            string personalizerEndpointKey = Configuration.GetSection("PersonalizerEndpointKey").Value;
+            string personalizerEndpoint = Configuration.GetSection("PersonalizerServiceEndpoint").Value;
+            if (string.IsNullOrEmpty(personalizerEndpoint) || string.IsNullOrEmpty(personalizerEndpointKey))
+            {
+                throw new ArgumentException("Missing Azure Personalizer endpoint and/or endpoint key.");
+            }
+
+            services.AddSingleton(client =>
+            {
+                return new PersonalizerClient(new ApiKeyServiceClientCredentials(personalizerEndpointKey))
+                {
+                    Endpoint = personalizerEndpoint,
+                };
             });
         }
 

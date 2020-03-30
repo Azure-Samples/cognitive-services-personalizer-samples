@@ -32,7 +32,5 @@ namespace LuisBot.ReinforcementLearning
         /// integer.
         /// </value>
         public DayOfWeek DayOfWeek { get; private set; }
-
-        public Uri HostName => new Uri("<Personalizer Azure Service Endpoint>");
     }
 }
