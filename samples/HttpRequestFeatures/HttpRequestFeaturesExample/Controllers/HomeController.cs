@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Featurizers;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,11 +23,18 @@ namespace HttpRequestFeaturesExample.Controllers
             HttpRequestFeatures httpRequestFeatures = GetHttpRequestFeaturesFromRequest(Request);
 
             ViewData["UserAgent"] = JsonConvert.SerializeObject(httpRequestFeatures, Formatting.Indented);
+            
+            // Generate an ID to associate with the request.
+            string eventId = Guid.NewGuid().ToString();
+            ViewData["EventId"] = eventId;
 
-            Tuple<string, string, string> personalizationobj = callPersonalizationService(httpRequestFeatures);
-            ViewData["Personalizer Rank Request"] = personalizationobj.Item1;
-            ViewData["Personalizer Rank Response"] = personalizationobj.Item2;
-            ViewData["Personalizer rewardActionId"] = personalizationobj.Item3;
+            Tuple<string, string, string> personalizerRank = callPersonalizerRank(httpRequestFeatures, eventId);
+            ViewData["Personalizer Rank Request"] = personalizerRank.Item1;
+            ViewData["Personalizer Rank Response"] = personalizerRank.Item2;
+            ViewData["Personalizer rewardActionId"] = personalizerRank.Item3;
+
+            string personalizerReward = callPersonalizerReward(eventId);
+            ViewData["Personalizer Reward Request"] = personalizerReward;
 
             return View();
         }
@@ -50,12 +56,9 @@ namespace HttpRequestFeaturesExample.Controllers
             return httpRequestFeatures;
         }
 
-        private Tuple<string, string, string> callPersonalizationService(HttpRequestFeatures httpRequestFeatures)
+        private Tuple<string, string, string> callPersonalizerRank(HttpRequestFeatures httpRequestFeatures, string eventId)
         {
-            // Generate an ID to associate with the request.
-            string eventId = Guid.NewGuid().ToString();
-
-            // Get the actions list to choose from personalization with their features.
+            // Get the actions list to choose from personalizer with their features.
             IList<RankableAction> actions = GetActions();
 
             // Get context information from the user.
@@ -69,18 +72,28 @@ namespace HttpRequestFeaturesExample.Controllers
                     new { httpRequestFeatures }
             };
 
-            // Exclude an action for personalization ranking. This action will be held at its current position.
+            // Exclude an action for personalizer ranking. This action will be held at its current position.
             IList<string> excludeActions = new List<string> { "juice" };
 
             // Rank the actions
             var request = new RankRequest(actions, currentContext, excludeActions, eventId);
             RankResponse response = client.Rank(request);
 
-            string rankjson = JsonConvert.SerializeObject(request, Formatting.Indented);
-            string rewardjson = JsonConvert.SerializeObject(response, Formatting.Indented);
+            string requestJson = JsonConvert.SerializeObject(request, Formatting.Indented);
+            string responseJson = JsonConvert.SerializeObject(response, Formatting.Indented);
             string rewardActionId = response.RewardActionId;
 
-            return Tuple.Create(rankjson, rewardjson, rewardActionId);
+            return Tuple.Create(requestJson, responseJson, rewardActionId);
+        }
+
+        private string callPersonalizerReward(string eventId)
+        {
+            var request = new RewardRequest();
+            string requestJson = JsonConvert.SerializeObject(request, Formatting.Indented);
+
+            client.Reward(eventId, request);
+
+            return requestJson;
         }
 
         /// <summary>
@@ -108,9 +121,9 @@ namespace HttpRequestFeaturesExample.Controllers
         }
 
         /// <summary>
-        /// Creates personalization actions feature list.
+        /// Creates personalizer actions feature list.
         /// </summary>
-        /// <returns>List of actions for personalization.</returns>
+        /// <returns>List of actions for personalizer.</returns>
         private IList<RankableAction> GetActions()
         {
             IList<RankableAction> actions = new List<RankableAction>

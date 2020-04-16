@@ -2,25 +2,32 @@
 <h2>Loading this app:</h2>
 <ul>
     <li>Displays user agent information extracted from the http request.</li>
-    <li>Sends a personalization rank request to the service.</li>
+    <li>Sends a personalizer rank request to the service.</li>
     <li>Displays rank request and the response received for the request.</li>
+    <li>Sends a personalizer reward request with a default reward value for the rank response.</li>
 </ul>
-<p> Click 'Send Request' in the nav bar to send a new rank request.</p>
+<p> Click 'Send Request' in the nav bar to send a new rank and then reward request.</p>
 <p> Returned rewardActionId: <b>@ViewData["Personalizer rewardActionId"]</p>
 <asp:table >
-    <asp:TableRow >
+    <asp:TableRow>
         <asp:TableCell>
-            <h3>Request</h3>
+            <h3>Rank Request</h3>
             <p>User Agent</p>
             <pre>@ViewData["UserAgent"]</pre>
 
-            <p>Content of a personalization rank request:</p>
+            <p>Content of a personalizer rank request:</p>
             <pre>@ViewData["Personalizer Rank Request"]</pre>
         </asp:TableCell>
         <asp:TableCell>
-            <h3>Response:</h3>
+            <h3>Rank Response:</h3>
             <p>rewardActionId: <b>@ViewData["Personalizer rewardActionId"]</b></p>
             <pre>@ViewData["Personalizer Rank Response"]</pre>
+        </asp:TableCell>
+        <asp:TableCell>
+            <h3>Reward Request:</h3>
+            <p>Event Id: <b>@ViewData["EventId"]</b></b></p>
+            <p>Content of a personalizer reward request: </p>
+            <pre>@ViewData["Personalizer Reward Request"]</pre>
         </asp:TableCell>
     </asp:TableRow>
 </asp:table>
