@@ -1,7 +1,7 @@
 # About this sample
-This sample extracts HTTP request features and adds them as context feature to a Rank requests that are sent to an Azure Personalizer instance.
+This sample extracts HTTP request features and adds them as context features to a Rank request that is sent to an Azure Personalizer instance. A default Reward of 0 is then sent for that event.
 
-This is a [ASP.NET Core MVC 2.1](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-2.1) solution. When run, it displays a single page with a **Send Request** button on the top bar. When clicked, a Rank request is sent to your Personalizer instance with HTTP information gathered from the featurizer as part of the context features. The entire Rank request body is displayed, as well as the response returned by the instance.
+This is a [ASP.NET Core MVC 2.1](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview?view=aspnetcore-2.1) solution. When run, it displays a single page with a **Send Request** button on the top bar. When clicked, a Rank request followed by a Reward request is sent to your Personalizer instance with HTTP information gathered from the featurizer as part of the context features. The entire Rank and Reward request bodies are displayed, as well as the Rank response returned by the instance.
 
 # To try this sample
 
@@ -40,4 +40,4 @@ This is a [ASP.NET Core MVC 2.1](https://docs.microsoft.com/en-us/aspnet/core/mv
 
 ## Run the sample
 
-Build and run HttpRequestFeaturesExample. Press **F5** if using Visual Studio, or `dotnet build` then `dotnet run` if using .NET Core CLI. Through the UI, you will be able to send a Rank request and see the http request features extracted from your environment, as well as the response.
+Build and run HttpRequestFeaturesExample. Press **F5** if using Visual Studio, or `dotnet build` then `dotnet run` if using .NET Core CLI. Through the UI, you will be able to send a Rank and Reward request and see the http request features extracted from your environment, as well as the Rank response.
