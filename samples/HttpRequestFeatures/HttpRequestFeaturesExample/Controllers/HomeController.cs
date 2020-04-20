@@ -88,7 +88,7 @@ namespace HttpRequestFeaturesExample.Controllers
 
         private string callPersonalizerReward(string eventId)
         {
-            var request = new RewardRequest();
+            var request = new RewardRequest(0);
             string requestJson = JsonConvert.SerializeObject(request, Formatting.Indented);
 
             client.Reward(eventId, request);
