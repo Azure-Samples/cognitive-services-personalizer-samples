@@ -53,7 +53,7 @@ namespace HttpRequestFeaturesExample.Controllers
         /// <summary>
         /// Sends a rank to the personalizer client
         /// </summary>
-        /// <param name="rankRequest"></param>
+        /// <param name="rankRequest">The RankRequest to be sent</param>
         /// <returns>RankResponse from request</returns>
         [HttpPost("PostRank")]
         public RankResponse PostRank([FromBody]RankRequest rankRequest)
@@ -62,21 +62,20 @@ namespace HttpRequestFeaturesExample.Controllers
         }
 
         /// <summary>
-        /// Creates a RewardRequest with value of 0
+        /// Creates a RewardRequest with value of 1
         /// </summary>
-        /// <returns>RewardRequest with value of 0</returns>
+        /// <returns>RewardRequest with value of 1</returns>
         [HttpGet("GenerateReward")]
         public RewardRequest GenerateReward()
         {
-            // Create reward request with value of 0
-            return new RewardRequest(0);
+            return new RewardRequest(1);
         }
 
         /// <summary>
         /// Sends reward for event with eventId to the personalizer client
         /// </summary>
-        /// <param name="eventId"></param>
-        /// <param name="rewardRequest"></param>
+        /// <param name="eventId">Id of the event </param>
+        /// <param name="rewardRequest">The RewardRequest to be sent</param>
         /// <returns>Status of POST request</returns>
         [HttpPost("PostReward/{eventId}")]
         public string PostReward([FromRoute]string eventId, [FromBody]RewardRequest rewardRequest)
@@ -95,7 +94,7 @@ namespace HttpRequestFeaturesExample.Controllers
         /// <summary>
         /// Retrieve features from the http request
         /// </summary>
-        /// <param name="httpRequest"></param>
+        /// <param name="httpRequest">User's HTTP request info</param>
         /// <returns></returns>
         private HttpRequestFeatures GetHttpRequestFeaturesFromRequest(HttpRequest httpRequest)
         {

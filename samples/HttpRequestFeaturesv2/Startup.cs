@@ -21,7 +21,7 @@ namespace HttpRequestFeaturesExample
         public void ConfigureServices(IServiceCollection services)
         {
             string personalizerApiKey = Configuration.GetSection("PersonalizerApiKey").Value;
-            string personalizerEndpoint = Configuration.GetSection("PersonalizerConfiguration:ServiceEndpoint").Value;
+            string personalizerEndpoint = Configuration.GetSection("PersonalizerConfiguration:PersonalizerEndpoint").Value;
             if (string.IsNullOrEmpty(personalizerEndpoint) || string.IsNullOrEmpty(personalizerApiKey))
             {
                 throw new ArgumentException("Missing Azure Personalizer endpoint and/or api key.");
