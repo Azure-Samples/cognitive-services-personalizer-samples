@@ -1,0 +1,48 @@
+<p> </p>
+<h2>Loading this app:</h2>
+<ul>
+    <li>Displays user agent information extracted from the http request.</li>
+    <li>Creates a personalizer rank request with that information, as well as randomized user taste info.</li>
+    <li>Creates a reward request with a reward value of 0.</li>
+</ul>
+<h2>Interacting with this page:</h2>
+<ul>
+    <li>To send the rank request, press the "Send request" button above the rank request body.</li>
+    <li>Once you do so, the rank response will be displayed below the request.</li>
+    <li>After sending a rank, you can send a corresponding reward. Use the "Send Request" button above the reward request body.</li>
+    <li>You can generate a new request with different taste info at any time by pressing the "Generate request" button next to Rank Request. 
+    This will reset the rank and reward responses to be empty.</li>
+</ul>
+
+<asp:table>
+    <asp:TableRow>
+        <asp:TableCell>
+            <h3>Rank Request</h3>
+            <p>User Agent</p>
+            <pre data-bind="text: userAgent()"></pre>
+            <p>
+                Content of a personalizer rank request:
+                <button data-bind="click: GenerateRankRequest">Generate new request</button>
+                <button data-bind="click: SendRankRequest, enable: rankRequest">Send Request</button>
+
+            </p>
+            <pre data-bind="text: prettify(rankRequest()) || 'Loading...'"></pre>
+        </asp:TableCell>
+        <asp:TableCell>
+            <h3>Rank Response:</h3>
+            <p>rewardActionId: <b data-bind="text: rewardActionId()"></b></p>
+            <pre data-bind="text: prettify(rankResponse()) || 'Click the button above to send a rank request'"></pre>
+        </asp:TableCell>
+        <asp:TableCell>
+            <h3>Reward Request:</h3>
+            <p>Event Id: <b data-bind="text: eventId()"></b></p>
+            <p>
+                Content of a personalizer reward request:
+                <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Request</button>
+            </p>
+            <pre data-bind="text: prettify(rewardRequest())"></pre>
+            <p>Reward response status:</p>
+            <pre data-bind="text: rewardResponse() || 'Click the button above to send a reward request (you must send a rank request first)'"></pre>
+        </asp:TableCell>
+    </asp:TableRow>
+</asp:table>
