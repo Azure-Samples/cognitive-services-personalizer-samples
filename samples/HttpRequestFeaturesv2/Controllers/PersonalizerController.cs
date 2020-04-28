@@ -88,7 +88,7 @@ namespace HttpRequestFeaturesExample.Controllers
             {
                 return e.ToString();
             }
-            return "OK";
+            return "204: No content (Success!)";
         }
 
         /// <summary>
