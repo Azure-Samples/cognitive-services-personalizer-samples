@@ -6,10 +6,10 @@
 </ul>
 <h2>Interacting with this page:</h2>
 <ul>
-    <li>To send the rank request, press the "Send request" button above the rank request body.</li>
-    <li>Once you do so, the rank response will be displayed below the request.</li>
-    <li>After sending a rank, you can send a corresponding reward. Use the "Send Request" button above the reward request body.</li>
-    <li>You can generate a new request with different taste info at any time by pressing the "Generate request" button next to Rank Request. 
+    <li>To send the rank request, click the "Send Rank Request" button.</li>
+    <li>Once executed, the rank response will be displayed below the request.</li>
+    <li>After sending a rank, you can send a corresponding reward using the "Send Reward Request" button.</li>
+    <li>You can generate a new request with different taste info at any time by pressing the "Generate new Rank Request" button. 
     This will reset the rank and reward responses to be empty.</li>
 </ul>
 
@@ -21,8 +21,8 @@
             <pre data-bind="text: userAgent()"></pre>
             <p>
                 Content of a personalizer rank request:
-                <button data-bind="click: GenerateRankRequest">Generate new request</button>
-                <button data-bind="click: SendRankRequest, enable: rankRequest">Send Request</button>
+                <button data-bind="click: GenerateRankRequest">Generate new Rank Request</button>
+                <button data-bind="click: SendRankRequest, enable: rankRequest">Send Rank Request</button>
 
             </p>
             <pre data-bind="text: prettify(rankRequest()) || 'Loading...'"></pre>
@@ -37,7 +37,7 @@
             <p>Event Id: <b data-bind="text: eventId()"></b></p>
             <p>
                 Content of a personalizer reward request:
-                <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Request</button>
+                <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Reward Request</button>
             </p>
             <pre data-bind="text: prettify(rewardRequest())"></pre>
             <p>Reward response status:</p>
