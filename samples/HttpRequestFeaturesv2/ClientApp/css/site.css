@@ -1,7 +1,7 @@
 button {
     background-color: #44c767;
     border-radius: 28px;
-    display: inline-block;
+    display: inline-flex;
     cursor: pointer;
     color: #ffffff;
     font-family: Arial;
@@ -15,6 +15,11 @@ button:disabled {
     color: #444;
 }
 
+.button-group {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -25,4 +30,16 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    content: "-"; /* adjust as needed, taken from bootstrap.css */
+    float: right; /* adjust as needed */
+    color: grey; /* adjust as needed */
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "+"; /* adjust as needed, taken from bootstrap.css */
 }

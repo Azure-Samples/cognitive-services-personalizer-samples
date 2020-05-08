@@ -9,39 +9,87 @@
     <li>To send the rank request, click the "Send Rank Request" button.</li>
     <li>Once executed, the rank response will be displayed below the request.</li>
     <li>After sending a rank, you can send a corresponding reward using the "Send Reward Request" button.</li>
-    <li>You can generate a new request with different taste info at any time by pressing the "Generate new Rank Request" button. 
-    This will reset the rank and reward responses to be empty.</li>
+    <li>
+        You can generate a new request with different taste info at any time by pressing the "Generate new Rank Request" button.
+        This will reset the rank and reward responses to be empty.
+    </li>
 </ul>
 
-<asp:table>
-    <asp:TableRow>
-        <asp:TableCell>
-            <h3>Rank Request</h3>
-            <p>User Agent</p>
+
+<h3>Rank Request</h3>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" href="#userAgent">User Agent:</a>
+        </h4>
+    </div>
+    <div id="userAgent" class="panel-collapse collapse in">
+        <div class="panel-body">
             <pre data-bind="text: userAgent()"></pre>
-            <p>
-                Content of a personalizer rank request:
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" href="#rankRequestBody">Content of a personalizer rank request:</a>
+        </h4>
+    </div>
+    <div id="rankRequestBody" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <p class="button-group">
                 <button data-bind="click: GenerateRankRequest">Generate new Rank Request</button>
                 <button data-bind="click: SendRankRequest, enable: rankRequest">Send Rank Request</button>
-
             </p>
             <pre data-bind="text: prettify(rankRequest()) || 'Loading...'"></pre>
-        </asp:TableCell>
-        <asp:TableCell>
-            <h3>Rank Response:</h3>
-            <p>rewardActionId: <b data-bind="text: rewardActionId()"></b></p>
+        </div>
+    </div>
+</div>
+
+<h3>Rank Response:</h3>
+<p>rewardActionId: <b data-bind="text: rewardActionId()"></b></p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" href="#rankResponseBody">Content of a Rank Response:</a>
+        </h4>
+    </div>
+    <div id="rankResponseBody" class="panel-collapse collapse in">
+        <div class="panel-body">
             <pre data-bind="text: prettify(rankResponse()) || 'Click the button above to send a rank request'"></pre>
-        </asp:TableCell>
-        <asp:TableCell>
-            <h3>Reward Request:</h3>
-            <p>Event Id: <b data-bind="text: eventId()"></b></p>
-            <p>
-                Content of a personalizer reward request:
+        </div>
+    </div>
+</div>
+
+<h3>Reward Request:</h3>
+<p>Event Id: <b data-bind="text: eventId()"></b></p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" href="#rewardResponseBody">Content of a Reward Request:</a>
+        </h4>
+    </div>
+    <div id="rewardRequestBody" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <p class="button-group">
                 <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Reward Request</button>
             </p>
             <pre data-bind="text: prettify(rewardRequest())"></pre>
-            <p>Reward response status:</p>
-            <pre data-bind="text: rewardResponse() || 'Click the button above to send a reward request (you must send a rank request first)'"></pre>
-        </asp:TableCell>
-    </asp:TableRow>
-</asp:table>
+        </div>
+    </div>
+</div>
+
+<p>Reward response status:</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="accordion-toggle" data-toggle="collapse" href="#rewardResponseBody">Reward Response Status:</a>
+        </h4>
+    </div>
+    <div id="rewardRequestBody" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <pre data-bind="text: rewardResponse() || 'Click the button in the panel above to send a reward request (you must send a rank request first)'"></pre>
+        </div>
+    </div>
+</div>
