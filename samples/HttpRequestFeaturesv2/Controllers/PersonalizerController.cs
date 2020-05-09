@@ -62,19 +62,20 @@ namespace HttpRequestFeaturesExample.Controllers
         }
 
         /// <summary>
-        /// Creates a RewardRequest with value of 1
+        /// Creates a RewardRequest with the given value
         /// </summary>
-        /// <returns>RewardRequest with value of 1</returns>
-        [HttpGet("GenerateReward")]
-        public RewardRequest GenerateReward()
+        /// <param name="rewardValue">Value to assign to the reward</param>
+        /// <returns>RewardRequest with value given</returns>
+        [HttpPost("GenerateReward")]
+        public RewardRequest GenerateReward([FromBody]double rewardValue)
         {
-            return new RewardRequest(1);
+            return new RewardRequest(rewardValue);
         }
 
         /// <summary>
         /// Sends reward for event with eventId to the personalizer client
         /// </summary>
-        /// <param name="eventId">Id of the event </param>
+        /// <param name="eventId">Id of the event</param>
         /// <param name="rewardRequest">The RewardRequest to be sent</param>
         /// <returns>Status of POST request</returns>
         [HttpPost("PostReward/{eventId}")]
@@ -95,7 +96,7 @@ namespace HttpRequestFeaturesExample.Controllers
         /// Retrieve features from the http request
         /// </summary>
         /// <param name="httpRequest">User's HTTP request info</param>
-        /// <returns></returns>
+        /// <returns>User's HTTP Request features</returns>
         private HttpRequestFeatures GetHttpRequestFeaturesFromRequest(HttpRequest httpRequest)
         {
             HttpRequestFeatures httpRequestFeatures = new HttpRequestFeatures

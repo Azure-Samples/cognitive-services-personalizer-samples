@@ -67,11 +67,13 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" href="#rewardResponseBody">Content of a Reward Request:</a>
+            <a class="accordion-toggle" data-toggle="collapse" href="#rewardRequestBody">Content of a Reward Request:</a>
         </h4>
     </div>
     <div id="rewardRequestBody" class="panel-collapse collapse in">
         <div class="panel-body">
+            <input type="number" data-bind="value: rewardValue" step="0.1"/>
+            <div data-bind="text: rewardValueWarning"></div>
             <p class="button-group">
                 <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Reward Request</button>
             </p>
@@ -80,14 +82,13 @@
     </div>
 </div>
 
-<p>Reward response status:</p>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="panel-title">
             <a class="accordion-toggle" data-toggle="collapse" href="#rewardResponseBody">Reward Response Status:</a>
         </h4>
     </div>
-    <div id="rewardRequestBody" class="panel-collapse collapse in">
+    <div id="rewardResponseBody" class="panel-collapse collapse in">
         <div class="panel-body">
             <pre data-bind="text: rewardResponse() || 'Click the button in the panel above to send a reward request (you must send a rank request first)'"></pre>
         </div>

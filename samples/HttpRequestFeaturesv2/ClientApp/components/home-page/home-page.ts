@@ -23,8 +23,27 @@ interface RewardRequest {
 class HomePageViewModel {
     public rankRequest = ko.observable<RankRequest>();
     public rankResponse = ko.observable<RankResponse>();
+    public rewardValue = ko.observable<number>(1);
+    //public rewardRequest = ko.computed({
+    //    owner: this,
+    //    read: () => {
+    //        return { value: this.rewardValue };
+    //    }
+    //});
     public rewardRequest = ko.observable<RewardRequest>();
     public rewardResponse = ko.observable<string>();
+
+    public rewardValueWarning = ko.computed(() => {
+        if (this.rewardValue() > 1) {
+            return "Warning: a reward value of greater than 1 is not recommended"
+        }
+        else if (this.rewardValue() < 0) {
+            return "Warning: a reward value of less than 0 is not recommended"
+        }
+        else {
+            return "";
+        }
+    })
 
     public userAgent() {
         return this.rankRequest() ? this.prettify(this.rankRequest().contextFeatures[2]) : "Loading...";
@@ -45,6 +64,10 @@ class HomePageViewModel {
     constructor() {
         this.GenerateRankRequest();
         this.GenerateRewardRequest();
+
+        this.rewardValue.subscribe(() => {
+            this.GenerateRewardRequest()
+        })
     }
 
     public GenerateRankRequest() {
@@ -71,7 +94,12 @@ class HomePageViewModel {
     }
 
     public GenerateRewardRequest() {
-        fetch('api/Personalizer/GenerateReward')
+        fetch('api/Personalizer/GenerateReward',
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.rewardValue())
+            })
             .then(response => response.json() as Promise<RewardRequest>)
             .then(data => {
                 this.rewardRequest(data);
