@@ -18,42 +18,45 @@
 
 <h3>Rank Request</h3>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" href="#userAgent">User Agent:</a>
+    <div class="panel-heading clearfix" style="vertical-align: middle">
+        <h4 class="pull-left">
+            <a data-toggle="collapse" href="#userAgent">User Agent:</a>
         </h4>
+        <a class="panel-toggle pull-right" data-toggle="collapse" href="#userAgent"></a>
     </div>
     <div id="userAgent" class="panel-collapse collapse in">
         <div class="panel-body">
-            <pre data-bind="text: userAgent()"></pre>
+            <pre data-bind="text: userAgent"></pre>
         </div>
     </div>
 </div>
 
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" href="#rankRequestBody">Content of a personalizer rank request:</a>
+    <div class="panel-heading clearfix">
+        <h4 class="pull-left">
+            <a data-toggle="collapse" href="#rankRequestBody">Content of a personalizer rank request:</a>
         </h4>
+        <div class="pull-right">
+            <button data-bind="click: GenerateRankRequest">Generate new Rank Request</button>
+            <button data-bind="click: SendRankRequest, enable: rankRequest">Send Rank Request</button>
+            <a class="panel-toggle" data-toggle="collapse" href="#rankRequestBody"></a>
+        </div>
     </div>
     <div id="rankRequestBody" class="panel-collapse collapse in">
         <div class="panel-body">
-            <p class="button-group">
-                <button data-bind="click: GenerateRankRequest">Generate new Rank Request</button>
-                <button data-bind="click: SendRankRequest, enable: rankRequest">Send Rank Request</button>
-            </p>
             <pre data-bind="text: prettify(rankRequest()) || 'Loading...'"></pre>
         </div>
     </div>
 </div>
 
 <h3>Rank Response:</h3>
-<p>rewardActionId: <b data-bind="text: rewardActionId()"></b></p>
+<p>rewardActionId: <b data-bind="text: rewardActionId"></b></p>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" href="#rankResponseBody">Content of a Rank Response:</a>
+    <div class="panel-heading clearfix">
+        <h4 class="pull-left">
+            <a data-toggle="collapse" href="#rankResponseBody">Content of a Rank Response:</a>
         </h4>
+        <a class="panel-toggle pull-right" data-toggle="collapse" href="#rankResponseBody"></a>
     </div>
     <div id="rankResponseBody" class="panel-collapse collapse in">
         <div class="panel-body">
@@ -63,30 +66,37 @@
 </div>
 
 <h3>Reward Request:</h3>
-<p>Event Id: <b data-bind="text: eventId()"></b></p>
+<p>Event Id: <b data-bind="text: eventId"></b></p>
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" href="#rewardRequestBody">Content of a Reward Request:</a>
+    <div class="panel-heading clearfix">
+        <h4 class="pull-left">
+            <a data-toggle="collapse" href="#rewardRequestBody">Content of a Reward Request:</a>
         </h4>
+        <div class="pull-right">
+            <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Reward Request</button>
+            <a class="panel-toggle" data-toggle="collapse" href="#rewardRequestBody"></a>
+        </div>
     </div>
     <div id="rewardRequestBody" class="panel-collapse collapse in">
         <div class="panel-body">
-            <input type="number" data-bind="value: rewardValue" step="0.1"/>
-            <div data-bind="text: rewardValueWarning"></div>
-            <p class="button-group">
-                <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Reward Request</button>
-            </p>
+            <div style="display: inline-flex; flex-direction: row">
+                <div>Input a reward value:</div>
+                <input type="number" data-bind="value: rewardValue" step="0.1" />
+                <div data-bind="text: rewardValueWarning"></div>
+            </div>
             <pre data-bind="text: prettify(rewardRequest())"></pre>
         </div>
     </div>
 </div>
 
 <div class="panel panel-default">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" href="#rewardResponseBody">Reward Response Status:</a>
+    <div class="panel-heading clearfix">
+        <h4 class="pull-left">
+            <a data-toggle="collapse" href="#rewardResponseBody">Reward Response Status:</a>
         </h4>
+        <div class="pull-right">
+            <a class="panel-toggle" data-toggle="collapse" href="#rewardResponseBody"></a>
+        </div>
     </div>
     <div id="rewardResponseBody" class="panel-collapse collapse in">
         <div class="panel-body">

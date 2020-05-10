@@ -1,13 +1,19 @@
-button {
-    background-color: #44c767;
-    border-radius: 28px;
-    display: inline-flex;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 14px;
-    padding: 10px 20px;
+a:hover, a:visited, a:link, a:active {
+    color: inherit; 
+    font-size: inherit;
     text-decoration: none;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
 }
 
 button:disabled {
@@ -32,14 +38,15 @@ body {
     padding-right: 15px;
 }
 
-.panel-heading .accordion-toggle:after {
-    /* symbol for "opening" panels */
-    content: "-"; /* adjust as needed, taken from bootstrap.css */
-    float: right; /* adjust as needed */
-    color: grey; /* adjust as needed */
+.panel-heading .panel-toggle:after {
+    font-family: 'Glyphicons Halflings';
+    font-size: 16px;
+    content: "\2212";
+    padding-left: 60px;
+    padding-right: 10px;
+    vertical-align: middle;
 }
 
-.panel-heading .accordion-toggle.collapsed:after {
-    /* symbol for "collapsed" panels */
-    content: "+"; /* adjust as needed, taken from bootstrap.css */
+.panel-heading .panel-toggle.collapsed:after {
+    content: "\2b";
 }

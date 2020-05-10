@@ -43,23 +43,19 @@ class HomePageViewModel {
         else {
             return "";
         }
-    })
+    });
 
-    public userAgent() {
+    public userAgent = ko.computed(() => {
         return this.rankRequest() ? this.prettify(this.rankRequest().contextFeatures[2]) : "Loading...";
-    };
+    });
 
-    public eventId() {
+    public eventId = ko.computed(() => {
         return this.rankRequest() ? this.rankRequest().eventId : "n/a";
-    };
+    });
 
-    public rewardActionId() {
+    public rewardActionId = ko.computed(() => {
         return this.rankResponse() ? this.rankResponse().rewardActionId : "n/a";
-    }
-
-    public prettify(o: object): string {
-        return o ? JSON.stringify(o, null, 4) : '';
-    }
+    });
 
     constructor() {
         this.GenerateRankRequest();
@@ -70,13 +66,17 @@ class HomePageViewModel {
         })
     }
 
+    public prettify(o: object): string {
+        return o ? JSON.stringify(o, null, 4) : "";
+    }
+
     public GenerateRankRequest() {
         fetch('api/Personalizer/GenerateRank')
             .then(response => response.json() as Promise<RankRequest>)
             .then(data => this.rankRequest(data))
             .then(() => {
                 this.rankResponse(null);
-                this.rewardResponse('');
+                this.rewardResponse("");
             })
     }
 
