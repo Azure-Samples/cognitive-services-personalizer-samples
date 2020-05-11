@@ -2,15 +2,16 @@
 <ul>
     <li>Displays user agent information extracted from the http request.</li>
     <li>Creates a personalizer rank request with that information, as well as randomized user taste info.</li>
-    <li>Creates a reward request with a reward value of 1.</li>
+    <li>Creates a reward request with a reward value specified by the user (default is 1).</li>
 </ul>
 <h2>Interacting with this page:</h2>
 <ul>
     <li>To send the rank request, click the "Send Rank Request" button.</li>
     <li>Once executed, the rank response will be displayed below the request.</li>
     <li>After sending a rank, you can send a corresponding reward using the "Send Reward Request" button.</li>
+    <li>You can change the value of this reward using the input box inside the reward request panel.</li>
     <li>
-        You can generate a new request with different taste info at any time by pressing the "Generate new Rank Request" button.
+        You can also generate a new request with different taste info at any time by pressing the "Generate new Rank Request" button.
         This will reset the rank and reward responses to be empty.
     </li>
 </ul>

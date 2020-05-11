@@ -116,7 +116,7 @@ namespace HttpRequestFeaturesExample.Controllers
         private string GetUsersTimeOfDay()
         {
             Random rnd = new Random();
-            string[] timeOfDayFeatures = new string[] { "morning", "afternoon", "evening", "night" };
+            string[] timeOfDayFeatures = new string[] { "morning", "noon", "afternoon", "evening", "night", "midnight" };
             int timeIndex = rnd.Next(timeOfDayFeatures.Length);
             return timeOfDayFeatures[timeIndex];
         }
@@ -128,7 +128,7 @@ namespace HttpRequestFeaturesExample.Controllers
         private string GetUsersTastePreference()
         {
             Random rnd = new Random();
-            string[] tasteFeatures = new string[] { "salty", "sweet" };
+            string[] tasteFeatures = new string[] { "salty", "bitter", "sour", "savory", "sweet" };
             int tasteIndex = rnd.Next(tasteFeatures.Length);
             return tasteFeatures[tasteIndex];
         }
@@ -145,7 +145,7 @@ namespace HttpRequestFeaturesExample.Controllers
                 {
                     Id = "pasta",
                     Features =
-                    new List<object>() { new { taste = "salty", spiceLevel = "medium" }, new { nutritionLevel = 5, cuisine = "italian" } }
+                    new List<object>() { new { taste = "savory", spiceLevel = "medium" }, new { nutritionLevel = 5, cuisine = "italian" } }
                 },
 
                 new RankableAction
@@ -166,7 +166,28 @@ namespace HttpRequestFeaturesExample.Controllers
                 {
                     Id = "salad",
                     Features =
-                    new List<object>() { new { taste = "salty", spiceLevel = "low" }, new { nutritionLevel = 8 } }
+                    new List<object>() { new { taste = "sour", spiceLevel = "low" }, new { nutritionLevel = 8 } }
+                },
+
+                new RankableAction
+                {
+                    Id = "popcorn",
+                    Features =
+                    new List<object>() { new { taste = "salty", spiceLevel = "none" }, new { nutritionLevel = 3 } }
+                },
+
+                new RankableAction
+                {
+                    Id = "coffee",
+                    Features =
+                    new List<object>() { new { taste = "bitter", spiceLevel = "none" }, new { nutritionLevel = 3 }, new { drink = true } }
+                },
+
+                new RankableAction
+                {
+                    Id = "soup",
+                    Features =
+                    new List<object>() { new { taste = "sour", spiceLevel = "high" }, new { nutritionLevel =  7} }
                 }
             };
 
