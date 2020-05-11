@@ -12,18 +12,12 @@ button {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 14px;
 }
 
 button:disabled {
     background-color: #dedad9;
     color: #444;
-}
-
-.button-group {
-    display: flex;
-    flex-direction: row-reverse;
 }
 
 body {
@@ -38,6 +32,18 @@ body {
     padding-right: 15px;
 }
 
+input {
+    width: 10%;
+    margin: 20px
+}
+
+.panel-heading {
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+}
+
 .panel-heading .panel-toggle:after {
     font-family: 'Glyphicons Halflings';
     font-size: 16px;
@@ -49,4 +55,12 @@ body {
 
 .panel-heading .panel-toggle.collapsed:after {
     content: "\2b";
+}
+
+.warning-text {
+    color: darkgray;
+}
+
+.warning-text a:link {
+    text-decoration: underline;
 }

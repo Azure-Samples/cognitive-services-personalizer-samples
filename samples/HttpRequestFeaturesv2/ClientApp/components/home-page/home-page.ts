@@ -34,11 +34,12 @@ class HomePageViewModel {
     public rewardResponse = ko.observable<string>();
 
     public rewardValueWarning = ko.computed(() => {
+        var rewardLink = 'https://docs.microsoft.com/en-us/azure/cognitive-services/personalizer/concept-rewards'
         if (this.rewardValue() > 1) {
-            return "Warning: a reward value of greater than 1 is not recommended"
+            return `<div>Warning: a reward value of greater than 1 is <a href='${rewardLink}' target='_blank'>not recommended</a><div>`
         }
         else if (this.rewardValue() < 0) {
-            return "Warning: a reward value of less than 0 is not recommended"
+            return `<div>Warning: a reward value of less than 0 is <a href='${rewardLink}' target='_blank'>not recommended</a><div>`
         }
         else {
             return "";
