@@ -1,0 +1,66 @@
+a:hover, a:visited, a:link, a:active {
+    color: inherit; 
+    font-size: inherit;
+    text-decoration: none;
+}
+
+button {
+    background-color: #32a81d;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+button:disabled {
+    background-color: #dedad9;
+    color: #444;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+input {
+    width: 10%;
+    margin: 20px
+}
+
+.panel-heading {
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel-heading .panel-toggle:after {
+    font-family: 'Glyphicons Halflings';
+    font-size: 16px;
+    content: "\2212";
+    padding-left: 60px;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+.panel-heading .panel-toggle.collapsed:after {
+    content: "\2b";
+}
+
+.warning-text {
+    color: darkgray;
+}
+
+.warning-text a:link {
+    text-decoration: underline;
+}

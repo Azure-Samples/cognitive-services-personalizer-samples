@@ -1,0 +1,107 @@
+<h2>Loading this app:</h2>
+<ul>
+    <li>Displays user agent information extracted from the http request.</li>
+    <li>Creates a personalizer rank request with that information, as well as randomized user taste info.</li>
+    <li>Creates a reward request with a reward value specified by the user (default is 1).</li>
+</ul>
+<h2>Interacting with this page:</h2>
+<ul>
+    <li>To send the rank request, click the "Send Rank Request" button.</li>
+    <li>Once executed, the rank response will be displayed below the request.</li>
+    <li>After sending a rank, you can send a corresponding reward using the "Send Reward Request" button.</li>
+    <li>You can change the value of this reward using the input box inside the reward request panel.</li>
+    <li>
+        You can also generate a new request with different taste info at any time by pressing the "Generate new Rank Request" button.
+        This will reset the rank and reward responses to be empty.
+    </li>
+</ul>
+
+
+<h3>Rank Request</h3>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            <a data-toggle="collapse" href="#userAgent">User Agent:</a>
+        </h4>
+        <a class="panel-toggle" data-toggle="collapse" href="#userAgent"></a>
+    </div>
+    <div id="userAgent" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <pre data-bind="text: userAgent"></pre>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            <a data-toggle="collapse" href="#rankRequestBody">Content of a personalizer rank request:</a>
+        </h4>
+        <div>
+            <button data-bind="click: GenerateRankRequest">Generate new Rank Request</button>
+            <button data-bind="click: SendRankRequest, enable: rankRequest">Send Rank Request</button>
+            <a class="panel-toggle" data-toggle="collapse" href="#rankRequestBody"></a>
+        </div>
+    </div>
+    <div id="rankRequestBody" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <pre data-bind="text: prettify(rankRequest()) || 'Loading...'"></pre>
+        </div>
+    </div>
+</div>
+
+<h3>Rank Response:</h3>
+<p>rewardActionId: <b data-bind="text: rewardActionId"></b></p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            <a data-toggle="collapse" href="#rankResponseBody">Content of a Rank Response:</a>
+        </h4>
+        <a class="panel-toggle pull-right" data-toggle="collapse" href="#rankResponseBody"></a>
+    </div>
+    <div id="rankResponseBody" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <pre data-bind="text: prettify(rankResponse()) || 'Click the button above to send a rank request'"></pre>
+        </div>
+    </div>
+</div>
+
+<h3>Reward Request:</h3>
+<p>Event Id: <b data-bind="text: eventId"></b></p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            <a data-toggle="collapse" href="#rewardRequestBody">Content of a Reward Request:</a>
+        </h4>
+        <div>
+            <button data-bind="click: SendRewardRequest, enable: rankResponse">Send Reward Request</button>
+            <a class="panel-toggle" data-toggle="collapse" href="#rewardRequestBody"></a>
+        </div>
+    </div>
+    <div id="rewardRequestBody" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <div style="align-items: center; display: flex;">
+                <div>Input a reward value:</div>
+                <input type="number" data-bind="value: rewardValue" step="0.1" />
+                <div class="warning-text" data-bind="html: rewardValueWarning"></div>
+            </div>
+            <pre data-bind="text: prettify(rewardRequest())"></pre>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>
+            <a data-toggle="collapse" href="#rewardResponseBody">Reward Response Status:</a>
+        </h4>
+        <div>
+            <a class="panel-toggle" data-toggle="collapse" href="#rewardResponseBody"></a>
+        </div>
+    </div>
+    <div id="rewardResponseBody" class="panel-collapse collapse in">
+        <div class="panel-body">
+            <pre data-bind="text: rewardResponse() || 'Click the button in the panel above to send a reward request (you must send a rank request first)'"></pre>
+        </div>
+    </div>
+</div>
