@@ -6,7 +6,7 @@ using CrawlFeaturizer.Model;
 using CrawlFeaturizer.Util;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using Newtonsoft.Json;
+using System.Text.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -108,7 +108,13 @@ namespace CrawlFeaturizer
 
                 Console.WriteLine("Personalization service thinks you would like to read: ");
                 Console.WriteLine("Id: " + recommendedAction.Id);
-                Console.WriteLine("Features : " + JsonConvert.SerializeObject(recommendedAction.Features, Formatting.Indented));
+
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                };
+                Console.WriteLine("Features : " + JsonSerializer.Serialize(recommendedAction.Features, options));
+
                 Console.WriteLine("Do you like this article ?(y/n)");
 
                 float reward = 0.0f;
