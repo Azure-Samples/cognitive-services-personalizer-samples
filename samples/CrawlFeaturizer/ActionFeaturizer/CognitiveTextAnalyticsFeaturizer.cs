@@ -32,11 +32,11 @@ namespace CrawlFeaturizer.ActionFeaturizer
                     string content = $"{metadata.Title ?? string.Empty} {metadata.Description ?? string.Empty}";
 
                     // Get key phrases from the article title and description
-                    IList<string> keyPhrases = await cognitiveTextAnalyzer.GetKeyPhrasesAsync(content);
-                    
+                    IReadOnlyCollection<string> keyPhrases = await cognitiveTextAnalyzer.GetKeyPhrasesAsync(content);
+
                     // Create a dictionary of key phrases (with a constant values) since at this time we do not support list of strings features.
-                    var keyPhrasesWithConstValues = keyPhrases.ToDictionary(x => x, x=>1);
-                    a.Features.Add(new { keyPhrases = keyPhrasesWithConstValues});
+                    var keyPhrasesWithConstValues = keyPhrases.ToDictionary(x => x, x => 1);
+                    a.Features.Add(new { keyPhrases = keyPhrasesWithConstValues });
 
                     // Get sentiment score for the article
                     double? sentiment = await cognitiveTextAnalyzer.GetSentimentAsync(content);

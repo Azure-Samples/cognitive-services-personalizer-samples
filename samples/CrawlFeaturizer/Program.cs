@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using Azure;
+using Azure.AI.TextAnalytics;
 using CrawlFeaturizer.ActionFeaturizer;
 using CrawlFeaturizer.ActionProvider;
 using CrawlFeaturizer.Model;
 using CrawlFeaturizer.Util;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CrawlFeaturizer
 {
@@ -21,24 +21,24 @@ namespace CrawlFeaturizer
         // The endpoint specific to your personalization service instance; e.g. https://westus2.api.cognitive.microsoft.com/
         private const string ServiceEndpoint = "";
 
-        // Cognitive Service Endpoint
-        private const string cognitiveTextAnalyticsEndpoint = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0";
+        // Cognitive Service TextAnalytics Endpoint
+        private const string CognitiveTextAnalyticsEndpoint = "";
 
-        // Subscription Key for the Cognitive Service for Text Analytics e.g 1325eb544363468ba3de1f25e2e11246
-        private const string cognitiveTextAnalyticsSubscriptionKey = "";
+        // API Key for the Cognitive Service for Text Analytics. See this Azure CLI Link to get the key: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list-examples
+        private const string CognitiveTextAnalyticsAPIKey = "";
 
         /// <summary>
         /// RSS feeds for different news topics
         /// </summary>
         private static readonly Dictionary<string, string> newsRSSFeeds = new Dictionary<string, string>()
-            {
-                { "World" , "http://rss.cnn.com/rss/cnn_world.rss" },
-                { "Business", "http://rss.cnn.com/rss/money_latest.rss"},
-                { "Technology", "http://rss.cnn.com/rss/cnn_tech.rss"},
-                { "Health", "http://rss.cnn.com/rss/cnn_health.rss"},
-                { "Entertainment", "http://rss.cnn.com/rss/cnn_showbiz.rss"},
-                { "Travel", "http://rss.cnn.com/rss/cnn_travel.rss"}
-            };
+        {
+            { "World" , "http://rss.cnn.com/rss/cnn_world.rss" },
+            { "Business", "http://rss.cnn.com/rss/money_latest.rss"},
+            { "Technology", "http://rss.cnn.com/rss/cnn_tech.rss"},
+            { "Health", "http://rss.cnn.com/rss/cnn_health.rss"},
+            { "Entertainment", "http://rss.cnn.com/rss/cnn_showbiz.rss"},
+            { "Travel", "http://rss.cnn.com/rss/cnn_travel.rss"}
+        };
 
         private static void Main(string[] args)
         {
@@ -56,11 +56,8 @@ namespace CrawlFeaturizer
             });
 
             // Initialize the Cognitive Services TextAnalyticsClient for featurizing the crawled action articles
-            ITextAnalyticsClient textAnalyticsClient = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(cognitiveTextAnalyticsSubscriptionKey))
-            {
-                // Cognitive Service Endpoint
-                Endpoint = cognitiveTextAnalyticsEndpoint.Split("/text/analytics")[0]
-            };
+            TextAnalyticsClient textAnalyticsClient = new TextAnalyticsClient(new Uri(CognitiveTextAnalyticsEndpoint), new AzureKeyCredential(CognitiveTextAnalyticsAPIKey));
+
             // Initialize the Cognitive Text Analytics actions featurizer
             IActionFeaturizer actionFeaturizer = new CognitiveTextAnalyticsFeaturizer(new CognitiveTextAnalyzer(textAnalyticsClient));
 
@@ -211,7 +208,7 @@ namespace CrawlFeaturizer
 
         private static string GetKey()
         {
-            string key =  Console.ReadKey().Key.ToString().Last().ToString().ToUpper();
+            string key = Console.ReadKey().Key.ToString().Last().ToString().ToUpper();
             Console.WriteLine();
             return key;
         }
