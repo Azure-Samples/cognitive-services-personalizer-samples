@@ -1,0 +1,130 @@
+{
+  "intents": [
+    {
+      "name": "ChooseRank"
+    },
+    {
+      "name": "RewardLike"
+    },
+    {
+      "name": "RewardDislike"
+    },
+    {
+      "name": "ShowMenu"
+    },
+    {
+      "name": "Reset"
+    }
+  ],
+  "entities": [],
+  "composites": [],
+  "closedLists": [],
+  "regex_entities": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "propose",
+      "intent": "ChooseRank",
+      "entities": []
+    },
+    {
+      "text": "suggestion",
+      "intent": "ChooseRank",
+      "entities": []
+    },
+    {
+      "text": "suggest",
+      "intent": "ChooseRank",
+      "entities": []
+    },
+    {
+      "text": "what do you suggest",
+      "intent": "ChooseRank",
+      "entities": []
+    },
+    {
+      "text": "choose rank",
+      "intent": "ChooseRank",
+      "entities": []
+    },
+    {
+      "text": "show menu",
+      "intent": "ShowMenu",
+      "entities": []
+    },
+    {
+      "text": "show me menu",
+      "intent": "ShowMenu",
+      "entities": []
+    },
+    {
+      "text": "could you show me the menu",
+      "intent": "ShowMenu",
+      "entities": []
+    },
+    {
+      "text": "perfect",
+      "intent": "RewardLike",
+      "entities": []
+    },
+    {
+      "text": "good",
+      "intent": "RewardLike",
+      "entities": []
+    },
+    {
+      "text": "nice",
+      "intent": "RewardLike",
+      "entities": []
+    },
+    {
+      "text": "i like it",
+      "intent": "RewardLike",
+      "entities": []
+    },
+    {
+      "text": "not good",
+      "intent": "RewardDislike",
+      "entities": []
+    },
+    {
+      "text": "i don't like it",
+      "intent": "RewardDislike",
+      "entities": []
+    },
+    {
+      "text": "no",
+      "intent": "RewardDislike",
+      "entities": []
+    },
+    {
+      "text": "reset",
+      "intent": "Reset",
+      "entities": []
+    },
+    {
+      "text": "RESET",
+      "intent": "Reset",
+      "entities": []
+    },
+    {
+      "text": "I'd like to reset",
+      "intent": "Reset",
+      "entities": []
+    },
+    {
+      "text": "I want to reset",
+      "intent": "Reset",
+      "entities": []
+    }
+  ],
+  "patterns": [],
+  "patternAnyEntities": [],
+  "prebuiltEntities": [],
+  "luis_schema_version": "3.0.0",
+  "versionId": "0.1",
+  "name": "coffeebot",
+  "desc": "",
+  "culture": "en-us"
+}
