@@ -4,7 +4,7 @@
 using System;
 using System.Text;
 
-namespace LuisBot.Model
+namespace PersonalizerChatbot.Model
 {
     /// <summary>
     /// Method ultilities for Coffee <see cref="Coffees"/>.

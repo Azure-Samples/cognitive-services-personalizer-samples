@@ -1,8 +1,8 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using LuisBot.Model;
-using LuisBot.ReinforcementLearning;
+using PersonalizerChatbot.Model;
+using PersonalizerChatbot.ReinforcementLearning;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Microsoft.Bot.Builder;
@@ -14,7 +14,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Chatbot2.Bots
+namespace PersonalizerChatbot.Bots
 {
     /// <summary>
     /// For each interaction from the user, an instance of this class is created and
@@ -26,7 +26,7 @@ namespace Chatbot2.Bots
     /// </summary>
     /// <seealso cref="!:https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.1"/>
     /// <seealso cref="!:https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.ibot?view=botbuilder-dotnet-preview"/>
-    public class LuisBot : ActivityHandler
+    public class PersonalizerChatbot : ActivityHandler
     {
 
         private readonly CoffeeRecognizer _coffeeRecognizer;
@@ -42,15 +42,15 @@ namespace Chatbot2.Bots
         private readonly PersonalizerClient _personalizerClient;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="LuisBot"/> class.
+        /// Initializes a new instance of the <see cref="PersonalizerChatbot"/> class.
         /// </summary>
         /// <param name="services">Services configured from the ".bot" file.</param>
         /// <param name="personalizerClient">Client used to rank suggestions for user/reward good suggestions</param>
-        public LuisBot(CoffeeRecognizer coffeeRecognizer, RLContextManager rLContextManager, PersonalizerClient personalizerClient)
+        public PersonalizerChatbot(CoffeeRecognizer coffeeRecognizer, RLContextManager rLContextManager, PersonalizerClient personalizerClient)
         {
-            this._coffeeRecognizer = coffeeRecognizer;
-            this._rlFeaturesManager = rLContextManager;
-            this._personalizerClient = personalizerClient;
+            _coffeeRecognizer = coffeeRecognizer;
+            _rlFeaturesManager = rLContextManager;
+            _personalizerClient = personalizerClient;
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Chatbot2.Bots
             if (turnContext.Activity.Type == ActivityTypes.Message)
             {
                 // Check LUIS model
-                var recognizerResult = await this._coffeeRecognizer.RecognizeAsync(turnContext, cancellationToken);
+                var recognizerResult = await _coffeeRecognizer.RecognizeAsync(turnContext, cancellationToken);
                 var topIntent = recognizerResult?.GetTopScoringIntent();
                 if (topIntent != null && topIntent.HasValue && topIntent.Value.intent != "None")
                 {

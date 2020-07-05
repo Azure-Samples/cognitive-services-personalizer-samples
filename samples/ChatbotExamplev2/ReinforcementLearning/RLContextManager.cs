@@ -1,9 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using LuisBot.Model;
-using Microsoft.Azure.CognitiveServices.Personalizer.Models;
+﻿// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License
 
-namespace LuisBot.ReinforcementLearning
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
+using PersonalizerChatbot.Model;
+using System;
+using System.Collections.Generic;
+
+namespace PersonalizerChatbot.ReinforcementLearning
 {
     /// <summary>
     /// A instance manages reinforement features and tracks current event ID used in this demo.

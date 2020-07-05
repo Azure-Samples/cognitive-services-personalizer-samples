@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License
 
-namespace LuisBot.Model
+namespace PersonalizerChatbot.Model
 {
     /// <summary>
     /// Represents Luis Intent types defined in Luis Portal.

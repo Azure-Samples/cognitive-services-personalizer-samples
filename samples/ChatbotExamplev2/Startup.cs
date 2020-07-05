@@ -1,9 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-//
-// Generated with Bot Builder V4 SDK Template for Visual Studio EchoBot v4.9.2
 
-using LuisBot.ReinforcementLearning;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -12,9 +9,10 @@ using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PersonalizerChatbot.ReinforcementLearning;
 using System;
 
-namespace Chatbot2
+namespace PersonalizerChatbot
 {
     public class Startup
     {
@@ -39,7 +37,7 @@ namespace Chatbot2
             services.AddSingleton<RLContextManager>();
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
-            services.AddTransient<IBot, Bots.LuisBot>();
+            services.AddTransient<IBot, Bots.PersonalizerChatbot>();
 
 
             string personalizerApiKey = Configuration.GetSection("PersonalizerAPIKey").Value;
