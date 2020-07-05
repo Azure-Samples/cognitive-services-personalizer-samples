@@ -34,11 +34,11 @@ namespace PersonalizerChatbot
             // Create the LUIS recognizer
             services.AddSingleton<CoffeeRecognizer>();
 
+            // Create the reinforcement learning feature manager
             services.AddSingleton<RLContextManager>();
 
             // Create the bot as a transient. In this case the ASP Controller is expecting an IBot.
             services.AddTransient<IBot, Bots.PersonalizerChatbot>();
-
 
             string personalizerApiKey = Configuration.GetSection("PersonalizerAPIKey").Value;
             string personalizerEndpoint = Configuration.GetSection("PersonalizerServiceEndpoint").Value;

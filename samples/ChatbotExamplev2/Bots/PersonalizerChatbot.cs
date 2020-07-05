@@ -28,7 +28,9 @@ namespace PersonalizerChatbot.Bots
     /// <seealso cref="!:https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.ibot?view=botbuilder-dotnet-preview"/>
     public class PersonalizerChatbot : ActivityHandler
     {
-
+        /// <summary>
+        /// LuisRecognizer wrapper for this demo that helps discern user intent.
+        /// </summary>
         private readonly CoffeeRecognizer _coffeeRecognizer;
 
         /// <summary>
@@ -44,7 +46,8 @@ namespace PersonalizerChatbot.Bots
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonalizerChatbot"/> class.
         /// </summary>
-        /// <param name="services">Services configured from the ".bot" file.</param>
+        /// <param name="coffeeRecognizer">LuisRecognizer wrapper for this demo that helps discern user intent</param>
+        /// <param name="rLContextManager"><see cref="RLContextManager"/> object used in this demo.</param>
         /// <param name="personalizerClient">Client used to rank suggestions for user/reward good suggestions</param>
         public PersonalizerChatbot(CoffeeRecognizer coffeeRecognizer, RLContextManager rLContextManager, PersonalizerClient personalizerClient)
         {
@@ -54,7 +57,7 @@ namespace PersonalizerChatbot.Bots
         }
 
         /// <summary>
-        /// Every conversation turn for our LUIS Bot will call this method.
+        /// Every conversation turn for our Personalizer chatbot will call this method.
         /// There are no dialogs used, the sample only uses "single turn" processing,
         /// meaning a single request and response, with no stateful conversation.
         /// </summary>
@@ -152,7 +155,7 @@ namespace PersonalizerChatbot.Bots
         /// <param name="turnContext">Provides the <see cref="ITurnContext"/> for the turn of the bot.</param>
         /// <param name="cancellationToken" >(Optional) A <see cref="CancellationToken"/> that can be used by other objects
         /// or threads to receive notice of cancellation.</param>
-        /// <returns>>A <see cref="Task"/> representing the operation result of the Turn operation.</returns>
+        /// <returns>A <see cref="Task"/> representing the operation result of the Turn operation.</returns>
         private async Task SendWelcomeMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
         {
             foreach (var member in turnContext.Activity.MembersAdded)
@@ -164,6 +167,16 @@ namespace PersonalizerChatbot.Bots
             }
         }
 
+        /// <summary>
+        /// Sends a rank request to Personalizer using randomly selected weather/date as the context features
+        /// and the available coffees and teas as the actions
+        /// </summary>
+        /// <param name="turnContext">A <see cref="ITurnContext"/> containing all the data needed
+        /// for processing this conversation turn.</param>
+        /// <param name="eventId">EventId for this particular rank request</param>
+        /// <param name="cancellationToken">Optional) A <see cref="CancellationToken"/> that can be used by other objects
+        /// or threads to receive notice of cancellation.</param>
+        /// <returns>A <see cref="Task"/> representing the rank response from Personalizer.</returns>
         private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, string eventId, CancellationToken cancellationToken)
         {
             IList<object> contextFeature = new List<object>
@@ -223,6 +236,16 @@ namespace PersonalizerChatbot.Bots
             return response;
         }
 
+        /// <summary>
+        /// Sends a reward request to Personalizer
+        /// </summary>
+        /// <param name="turnContext">A <see cref="ITurnContext"/> containing all the data needed
+        /// for processing this conversation turn.</param>
+        /// <param name="eventId">EventId for the rank call being rewarded</param>
+        /// <param name="reward">Value of the reward that will be sent</param>
+        /// <param name="cancellationToken">Optional) A <see cref="CancellationToken"/> that can be used by other objects
+        /// or threads to receive notice of cancellation.</param>
+        /// <returns>A <see cref="Task"/> representing the reward response from Personalizer.</returns>
         private async Task RewardAsync(ITurnContext turnContext, string eventId, double reward, CancellationToken cancellationToken)
         {
             await turnContext.SendActivityAsync(
@@ -234,6 +257,14 @@ namespace PersonalizerChatbot.Bots
             await _personalizerClient.RewardAsync(eventId, new RewardRequest(reward), cancellationToken);
         }
 
+        /// <summary>
+        /// Sends a welcome message to the user explaining the chatbot
+        /// </summary>
+        /// <param name="turnContext">A <see cref="ITurnContext"/> containing all the data needed
+        /// for processing this conversation turn.</param>
+        /// <param name="cancellationToken">Optional) A <see cref="CancellationToken"/> that can be used by other objects
+        /// or threads to receive notice of cancellation.</param>
+        /// <returns>A <see cref="Task"/> representing the operation result of the Turn operation.</returns>
         private async Task SendResetMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
         {
             await turnContext.SendActivityAsync(
@@ -247,6 +278,13 @@ namespace PersonalizerChatbot.Bots
                 cancellationToken: cancellationToken);
         }
 
+        /// <summary>
+        /// Sends a message to the user prompting them to get a new suggestion or regenerate the context
+        /// </summary>A <see cref="ITurnContext"/> containing all the data needed
+        /// for processing this conversation turn.</param>
+        /// <param name="cancellationToken">Optional) A <see cref="CancellationToken"/> that can be used by other objects
+        /// or threads to receive notice of cancellation.</param>
+        /// <returns>A <see cref="Task"/> representing the operation result of the Turn operation.</returns>
         private async Task SendByebyeMessageAsync(ITurnContext turnContext, CancellationToken cancellationToken)
         {
             await turnContext.SendActivityAsync(

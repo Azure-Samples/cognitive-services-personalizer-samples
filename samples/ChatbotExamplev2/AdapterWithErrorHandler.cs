@@ -20,7 +20,7 @@ namespace PersonalizerChatbot
 
                 // Send a message to the user
                 await turnContext.SendActivityAsync("The bot encountered an error or bug.");
-                await turnContext.SendActivityAsync("To continue to run this bot, please fix the bot source code.");
+                await turnContext.SendActivityAsync("Check that your configuration values for LUIS and Personalizer are correct.");
                 await turnContext.SendActivityAsync(exception.InnerException.ToString());
 
                 // Send a trace activity, which will be displayed in the Bot Framework Emulator
