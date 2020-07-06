@@ -1,10 +1,16 @@
-﻿# Chatbot2
+﻿# Chatbot with Cognitive Services Personalizer
 
-Bot Framework v4 echo bot sample.
-
-This bot has been created using [Bot Framework](https://dev.botframework.com), it shows how to create a simple bot that accepts input from the user and echoes it back.
+This sample shows how two Cognitive Services, LUIS and Personalizer, can be integrated into a coffee recommendation chat bot using ASP.NET Core 3.1
 
 ## Prerequisites
+
+This sample **requires** prerequisites in order to run.
+
+### Overview
+
+This bot uses [LUIS](https://www.luis.ai), an AI based cognitive service, to implement language understanding.
+
+### Install .NET Core CLI
 
 - [.NET Core SDK](https://dotnet.microsoft.com/download) version 3.1
 
@@ -13,13 +19,28 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
   dotnet --version
   ```
 
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+- Install the latest version of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) tool. Version 2.0.54 or higher.
+
+### Create a LUIS Application to enable language understanding
+
+The LUIS model for this example can be found under `CognitiveModels/Coffee.json` and the LUIS language model setup, training, and application configuration steps can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0&tabs=cs).
+
+Once you created the LUIS model, update `appsettings.json` with your `LuisAppId`, `LuisAPIKey` and `LuisAPIHostName`.
+
+```json
+  "LuisAppId": "Your LUIS App Id",
+  "LuisAPIKey": "Your LUIS Subscription key here",
+  "LuisAPIHostName": "Your LUIS App region here (i.e: westus.api.cognitive.microsoft.com)"
+```
+
 ## To try this sample
 
-- In a terminal, navigate to `Chatbot2`
+- In a terminal, navigate to `Chatbot`
 
     ```bash
     # change into project folder
-    cd # Chatbot2
+    cd Chatbot
     ```
 
 - Run the bot from a terminal or from Visual Studio, choose option A or B.
@@ -35,8 +56,8 @@ This bot has been created using [Bot Framework](https://dev.botframework.com), i
 
   - Launch Visual Studio
   - File -> Open -> Project/Solution
-  - Navigate to `Chatbot2` folder
-  - Select `Chatbot2.csproj` file
+  - Navigate to `Chatbot` folder
+  - Select `Chatbot.csproj` file
   - Press `F5` to run the project
 
 ## Testing the bot using Bot Framework Emulator
@@ -59,6 +80,8 @@ To learn more about deploying a bot to Azure, see [Deploy your bot to Azure](htt
 
 - [Bot Framework Documentation](https://docs.botframework.com)
 - [Bot Basics](https://docs.microsoft.com/azure/bot-service/bot-builder-basics?view=azure-bot-service-4.0)
+- [Dialogs](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-dialog?view=azure-bot-service-4.0)
+- [Gathering Input Using Prompts](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-prompts?view=azure-bot-service-4.0&tabs=csharp)
 - [Activity processing](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-activity-processing?view=azure-bot-service-4.0)
 - [Azure Bot Service Introduction](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 - [Azure Bot Service Documentation](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)

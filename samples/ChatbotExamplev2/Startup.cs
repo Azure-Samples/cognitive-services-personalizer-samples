@@ -9,7 +9,9 @@ using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PersonalizerChatbot.Bots;
 using PersonalizerChatbot.ReinforcementLearning;
+using PersonalizerChatbot.Services;
 using System;
 
 namespace PersonalizerChatbot

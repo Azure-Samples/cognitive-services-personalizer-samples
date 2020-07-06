@@ -1,13 +1,14 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using PersonalizerChatbot.Model;
-using PersonalizerChatbot.ReinforcementLearning;
 using Microsoft.Azure.CognitiveServices.Personalizer;
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 using Newtonsoft.Json;
+using PersonalizerChatbot.Model;
+using PersonalizerChatbot.ReinforcementLearning;
+using PersonalizerChatbot.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
