@@ -2,11 +2,11 @@
 // Licensed under the MIT License
 
 using Microsoft.Azure.CognitiveServices.Personalizer.Models;
-using PersonalizerChatbot.Model;
+using ChatbotExample.Model;
 using System;
 using System.Collections.Generic;
 
-namespace PersonalizerChatbot.ReinforcementLearning
+namespace ChatbotExample.ReinforcementLearning
 {
     /// <summary>
     /// Manages reinforcement features and tracks current event ID used in this demo.

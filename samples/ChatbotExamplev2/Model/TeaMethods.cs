@@ -4,7 +4,7 @@
 using System;
 using System.Text;
 
-namespace PersonalizerChatbot.Model
+namespace ChatbotExample.Model
 {
     /// <summary>
     /// Method ultilities for Teas <see cref="Teas"/>.

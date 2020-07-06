@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PersonalizerChatbot.Services
+namespace ChatbotExample.Services
 {
     public class CoffeeRecognizer : IRecognizer
     {

@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License
 
-namespace PersonalizerChatbot.Model
+namespace ChatbotExample.Model
 {
     /// <summary>
     /// Represents whether coffee / tee is organic in this demo.
