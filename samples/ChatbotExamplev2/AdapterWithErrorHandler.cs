@@ -16,12 +16,11 @@ namespace ChatbotSample
             OnTurnError = async (turnContext, exception) =>
             {
                 // Log any leaked exception from the application.
-                logger.LogError(exception, $"[OnTurnError] unhandled error : {exception.InnerException}");
+                logger.LogError(exception, $"[OnTurnError] unhandled error : {exception.Message}");
 
                 // Send a message to the user
                 await turnContext.SendActivityAsync("The bot encountered an error or bug.");
                 await turnContext.SendActivityAsync("Check that your configuration values for LUIS and Personalizer are correct.");
-                await turnContext.SendActivityAsync(exception.InnerException.ToString());
 
                 // Send a trace activity, which will be displayed in the Bot Framework Emulator
                 await turnContext.TraceActivityAsync("OnTurnError Trace", exception.Message, "https://www.botframework.com/schemas/error", "TurnError");

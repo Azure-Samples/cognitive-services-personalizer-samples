@@ -9,7 +9,7 @@ using System.Collections.Generic;
 namespace ChatbotSample.ReinforcementLearning
 {
     /// <summary>
-    /// Manages reinforcement features and tracks current event ID used in this demo.
+    /// Manages reinforcement learning features and tracks current event ID used in this demo.
     /// </summary>
     public class RLContextManager
     {

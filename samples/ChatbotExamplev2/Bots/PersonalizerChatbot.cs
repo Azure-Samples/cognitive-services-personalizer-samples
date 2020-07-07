@@ -48,12 +48,12 @@ namespace ChatbotSample.Bots
         /// Initializes a new instance of the <see cref="PersonalizerChatbot"/> class.
         /// </summary>
         /// <param name="coffeeRecognizer">LuisRecognizer wrapper for this demo that helps discern user intent</param>
-        /// <param name="rLContextManager"><see cref="RLContextManager"/> object used in this demo.</param>
+        /// <param name="rlContextManager"><see cref="RLContextManager"/> object used in this demo.</param>
         /// <param name="personalizerClient">Client used to rank suggestions for user/reward good suggestions</param>
-        public PersonalizerChatbot(CoffeeRecognizer coffeeRecognizer, RLContextManager rLContextManager, PersonalizerClient personalizerClient)
+        public PersonalizerChatbot(CoffeeRecognizer coffeeRecognizer, RLContextManager rlContextManager, PersonalizerClient personalizerClient)
         {
             _coffeeRecognizer = coffeeRecognizer;
-            _rlFeaturesManager = rLContextManager;
+            _rlFeaturesManager = rlContextManager;
             _personalizerClient = personalizerClient;
         }
 

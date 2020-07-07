@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
+using ChatbotSample.ReinforcementLearning;
+using ChatbotSample.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -9,9 +11,6 @@ using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ChatbotSample.Bots;
-using ChatbotSample.ReinforcementLearning;
-using ChatbotSample.Services;
 using System;
 
 namespace ChatbotSample
@@ -75,8 +74,6 @@ namespace ChatbotSample
                 {
                     endpoints.MapControllers();
                 });
-
-            // app.UseHttpsRedirection();
         }
     }
 }
