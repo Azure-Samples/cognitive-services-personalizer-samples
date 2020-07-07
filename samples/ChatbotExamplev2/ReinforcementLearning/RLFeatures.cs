@@ -1,10 +1,10 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License
 
-using ChatbotExample.Model;
+using ChatbotSample.Model;
 using System;
 
-namespace ChatbotExample.ReinforcementLearning
+namespace ChatbotSample.ReinforcementLearning
 {
     /// <summary>
     /// Represents Reinforment Features used in this demo.

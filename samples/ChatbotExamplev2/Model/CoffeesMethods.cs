@@ -4,7 +4,7 @@
 using System;
 using System.Text;
 
-namespace ChatbotExample.Model
+namespace ChatbotSample.Model
 {
     /// <summary>
     /// Method ultilities for Coffee <see cref="Coffees"/>.

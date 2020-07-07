@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ChatbotExample.Services
+namespace ChatbotSample.Services
 {
     public class CoffeeRecognizer : IRecognizer
     {
@@ -15,13 +15,17 @@ namespace ChatbotExample.Services
 
         public CoffeeRecognizer(IConfiguration configuration)
         {
-            var luisIsConfigured = !string.IsNullOrEmpty(configuration["LuisAppId"]) && !string.IsNullOrEmpty(configuration["LuisAPIKey"]) && !string.IsNullOrEmpty(configuration["LuisAPIHostName"]);
+            string luisAppId = configuration["LuisAppId"];
+            string luisApiKey = configuration["LuisAPIKey"];
+            string luisServiceEndpoint = configuration["LuisServiceEndpoint"];
+
+            var luisIsConfigured = !string.IsNullOrEmpty(luisAppId) && !string.IsNullOrEmpty(luisApiKey) && !string.IsNullOrEmpty(luisServiceEndpoint);
             if (luisIsConfigured)
             {
                 var luisApplication = new LuisApplication(
-                    configuration["LuisAppId"],
-                    configuration["LuisAPIKey"],
-                    "https://" + configuration["LuisAPIHostName"]);
+                    luisAppId,
+                    luisApiKey,
+                    luisServiceEndpoint);
                 // Set the recognizer options depending on which endpoint version you want to use.
                 // More details can be found in https://docs.microsoft.com/en-gb/azure/cognitive-services/luis/luis-migration-api-v3
                 var recognizerOptions = new LuisRecognizerOptionsV3(luisApplication)

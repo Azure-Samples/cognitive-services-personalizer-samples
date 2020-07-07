@@ -8,7 +8,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ChatbotExample.Services
+namespace ChatbotSample.Services
 {
     public class PersonalizerCoffeeClient : IDisposable
     {

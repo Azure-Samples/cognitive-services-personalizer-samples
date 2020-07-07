@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License
 
-namespace ChatbotExample.Model
+namespace ChatbotSample.Model
 {
     /// <summary>
     /// Represents coffee beans origin in this demo.

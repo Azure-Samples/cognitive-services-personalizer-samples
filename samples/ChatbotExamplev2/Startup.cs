@@ -9,12 +9,12 @@ using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ChatbotExample.Bots;
-using ChatbotExample.ReinforcementLearning;
-using ChatbotExample.Services;
+using ChatbotSample.Bots;
+using ChatbotSample.ReinforcementLearning;
+using ChatbotSample.Services;
 using System;
 
-namespace ChatbotExample
+namespace ChatbotSample
 {
     public class Startup
     {

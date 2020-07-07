@@ -6,16 +6,16 @@ using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Schema;
 using Newtonsoft.Json;
-using ChatbotExample.Model;
-using ChatbotExample.ReinforcementLearning;
-using ChatbotExample.Services;
+using ChatbotSample.Model;
+using ChatbotSample.ReinforcementLearning;
+using ChatbotSample.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ChatbotExample.Bots
+namespace ChatbotSample.Bots
 {
     /// <summary>
     /// For each interaction from the user, an instance of this class is created and
