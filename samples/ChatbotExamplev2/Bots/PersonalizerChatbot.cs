@@ -126,8 +126,7 @@ namespace ChatbotSample.Bots
                 }
                 else
                 {
-                    var msg = @"No LUIS intents were found.
-                            This sample is about identifying intents:
+                    var msg = @"Could not match your message with any of the following LUIS intents:
                             'ShowMenu'
                             'ChooseRank'
                             'RewardLike'
@@ -138,6 +137,8 @@ namespace ChatbotSample.Bots
             }
             else if (turnContext.Activity.Type == ActivityTypes.ConversationUpdate)
             {
+                // Generate a new weekday and weather condition
+                // These will act as the context features when we call rank with Personalizer
                 _rlFeaturesManager.GenerateRLFeatures();
 
                 // Send a welcome message to the user and tell them what actions they may perform to use this bot
@@ -222,6 +223,10 @@ namespace ChatbotSample.Bots
                 });
             }
 
+            // Sending a rank request to Personalizer
+            // Here we are asking Personalizer to decide which drink the user is most likely to want
+            // based on the current context features (weather, day of the week generated in RLContextManager)
+            // and the features of the drinks themselves
             var request = new RankRequest(actions, contextFeature, null, eventId);
             await turnContext.SendActivityAsync(
                 "===== DEBUG MESSAGE CALL TO RANK =====\n" +
@@ -255,6 +260,10 @@ namespace ChatbotSample.Bots
                 $"eventId = {eventId}, reward = {reward}\n",
                 cancellationToken: cancellationToken);
 
+            // Sending a reward request to Personalizer
+            // Here we are responding to the drink ranking Personalizer provided us
+            // If the user liked the highest ranked drink, we give a high reward (1)
+            // If they did not, we give a low reward (0)
             await _personalizerClient.RewardAsync(eventId, new RewardRequest(reward), cancellationToken);
         }
 

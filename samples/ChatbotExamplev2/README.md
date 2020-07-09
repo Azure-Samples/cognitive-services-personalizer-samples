@@ -2,6 +2,20 @@
 
 This sample shows how two Cognitive Services, LUIS and Personalizer, can be integrated into a coffee recommendation chat bot using ASP.NET Core 3.1.
 
+# Architecture overview
+
+When a user starts up the chatbot, it sends them a welcome message with a randomly generated day of the week and the current weather status; within the chatbot implementation,
+these two features are used as context features for Personalizer, i.e. Personalizer will inform its decisions on what drinks to recommend the user based on what it has experienced in
+the past when under those same conditions. These features will be reset every time the bot is restarted or when the user prompts a reset. When the user replies back,
+the bot uses LUIS's intent recognition capabilities to discern what the user wants; the intents this LUIS app has been trained to recognize
+include showing the user a coffee and tea menu, asking the chatbot for a drink suggestion, approving or disproving of the suggestion, and resetting the context features. 
+When a user expresses an intent that LUIS interprets as asking for a suggestion, the bot will gather the the context features mentioned above, as well as its list of drinks and their features,
+and send that information to Personalizer as a rank request. Personalizer will reply back with the same list of drinks and their corresponding ranking 
+(i.e. how well Personalizer thinks the drink suits the user and the current scenario based on the features of the drink); the first item in the list is the top ranked suggestion, and the bot will in turn suggest it to the user. 
+The user can then reply back. If LUIS registers their intent as liking the suggestion, the bot will send a reward request to Personalizer with the reward set to 1, indicating a positive response.
+Conversely, if LUIS interprets the user's reply as disliking the suggestion, the bot will send a reward request with the reward set to 0, indicating a negative response. 
+Personalizer uses this feedback to update its model, which will affect how it responds in similar future scenarios.
+
 # Setting up the bot
 
 ## Install Prereqs
@@ -20,7 +34,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 ## Necessary Azure resources
 - Create both a Personalizer and a Language Understanding resource in the Azure portal. These will be used to power the reinforcement learning and NLP cababilities of the bot, respectively.
-- NOTE: when creating a LUIS resource in the portal, you can choose between creating a prediction resource, an authoring resource, or both. Only an authoring resource is needed for this sample. More on the two [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-keys#azure-resources-for-luis)
+- NOTE: when creating a LUIS resource in the portal, you can choose between creating a prediction resource, an authoring resource, or both. You can opt to only use an authoring resource for this sample; however, the prediction key and endpoint that luis.ai will provide for you in this case can only be used for a limited number of requests. For a more robust app experience, you should create both an authoring and prediction resource. More on the two [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-keys#azure-resources-for-luis).
 
 ## Set up Personalizer
 - In [appsettings.json](./appsettings.json), modify `PersonalizerServiceEndpoint` to be your resource's endpoint and `PersonalizerAPIKey` to be either one of your resource's keys; this can be found in the Keys and Endpoint tab in the portal under `Endpoint` and `Key1`/`Key2`, respectively.
@@ -29,7 +43,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 - Navigate to [LUIS portal](https://www.luis.ai).
 - Click the `Sign in` button.
 - Click on `My Apps`.
-- Select the Subscription for your LUIS authoring resource and then the LUIS authoring resource.
+- Select the Subscription for your LUIS authoring resource and then the LUIS authoring resource itself.
 - Click on the `New app for conversation` button.
 - Click on `Import as JSON` and select [coffeebot.json](./CognitiveModels/coffeebot.json) from the `cognitive-services-personalizer-samples/samples/ChatbotExample/CognitiveModels` folder.
 
@@ -39,16 +53,21 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 - Update [appsettings.json](./appsettings.json) with your `LuisAppId`, `LuisAPIKey`, and `LuisAPIServiceEndpoint`, all of which can be found under the `Manage` tab for your resource:
     - `LuisAppId` can be found under `Settings`
+    - If you created both a LUIS authoring and prediction resource:
+        - Under `Azure Resources` > `Prediction Resources`, click `Add prediction resource`
+        - Fill out the `Subscription` and `LUIS Resource` fields with your prediction resource, and click `Done`
     - `LuisAPIKey` can be found under `Azure Resources` > `Prediction Resources` listed as `Primary Key`
     - `LuisServiceEndpoint` can be found under the `Azure Resources` > `Prediction Resources` listed as `Endpoint URL`.  
 - You should now have an `appsettings.json` that looks like this:
     ```json
     {
-        "LuisAppId": "<your app ID>",
-        "LuisAPIKey": "<your LUIS API key>",
-        "LuisServiceEndpoint": "<your hostname, e.g. https://westus.api.cognitive.microsoft.com>",
-        "PersonalizerServiceEndpoint": "<your Personalizer endpoint, e.g. https://myPersonalizerResource.cognitiveservices.azure.com/",
-        "PersonalizerAPIKey": "<your Personalizer API key>"
+        "PersonalizerChatbot:" {
+            "LuisAppId": "<your app ID>",
+            "LuisAPIKey": "<your LUIS API key>",
+            "LuisServiceEndpoint": "<your hostname, e.g. https://westus.api.cognitive.microsoft.com>",
+            "PersonalizerServiceEndpoint": "<your Personalizer endpoint, e.g. https://myPersonalizerResource.cognitiveservices.azure.com/",
+            "PersonalizerAPIKey": "<your Personalizer API key>"
+        }
     },
     ```
 
@@ -64,7 +83,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 ## Connect to bot using Bot Framework Emulator
 - Launch Bot Framework Emulator
 - File -> Open Bot
-- Enter \<your App URL\>/api/messages as the Bot URL (default App URL for this project is `http://localhost:3978`)
+- Enter \<your App URL\>/api/messages as the Bot URL. You can find your App URL by going to [launchsettings.json](./Properties/launchsettings.json) where it is listed as `applicationUrl`.
 
 ## Interact with Chatbot
 
