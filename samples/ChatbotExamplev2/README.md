@@ -83,7 +83,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 ## Connect to bot using Bot Framework Emulator
 - Launch Bot Framework Emulator
 - File -> Open Bot
-- Enter \<your App URL\>/api/messages as the Bot URL. You can find your App URL by going to [launchsettings.json](./Properties/launchsettings.json) where it is listed as `applicationUrl`.
+- Enter \<your App URL\>/api/messages as the Bot URL. You can find your App URL by going to [launchsettings.json](./Properties/launchsettings.json) where it is listed as `applicationUrl`. The default for this sample is `http://localhost:3978`
 
 ## Interact with Chatbot
 
