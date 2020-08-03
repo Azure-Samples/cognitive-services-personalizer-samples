@@ -1,0 +1,1 @@
+This sample moved to [https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
