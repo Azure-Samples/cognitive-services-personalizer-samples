@@ -1,3 +1,5 @@
+**This sample is currently not maintained.**
+
 Please run:
 
 java -jar ./swagger-codegen-cli.jar generate \
