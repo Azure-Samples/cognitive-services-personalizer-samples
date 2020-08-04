@@ -25,7 +25,7 @@ Repository for samples, tutorial, snippets and utilities that will help you unde
 <!-- [Personalizer launch blog post](TBD) -->
 
 ## SDKs and Client Libraries for Personalizer
-* [.NET Nuget](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview)
+* [.NET Nuget](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/)
 * [Python PIP Package](https://pypi.org/project/azure-cognitiveservices-personalizer/)
 * [Node JS NPM](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0)
 * Java: Coming soon
