@@ -1,6 +1,6 @@
 # Personalizer simulation in an Azure notebook
 
-This tutorial simulates a Personalizer loop _system_ which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](usrs.json). Information about the coffee is also available and stored in a [coffee dataset](coffee.json).
+This tutorial simulates a Personalizer loop _system_ which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](users.json). Information about the coffee is also available and stored in a [coffee dataset](coffee.json).
 
 Run the system for 10,000 requests and then create graph showing how fast and accurately the system learned. 
 
