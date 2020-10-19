@@ -123,17 +123,9 @@ NOTE:
         Cognitive Services account creation article and API "try" page:
             * https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account
         Cognitive Services API "try" page
-            * https://azure.microsoft.com/try/cognitive-services/
+            * https://azure.microsoft.com/free/cognitive-services/
     
-            Try to use the specific ?api= for your service in the second URL, if possible. 
-            For example:
-                https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
-
-
-        The following links show customers where to get their keys on the azure portal and website after signing up.
-
-            * location of the free trial key, after it's been activated
-                https://azure.microsoft.com/try/cognitive-services/my-apis
+        The following link shows customers where to get their keys on the azure portal and website after signing up.
             * Instructions for finding the key in the Azure Portal
                 https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource
 
@@ -141,8 +133,7 @@ See the example sign-up paragraph below
 --->
 
 You must have a [Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) subscription with access to the Text Analytics API. 
-If you don't have a subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free. Before continuing, 
-you will need the service subscription key provided after activating your account. You can get your subscription key from the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) or [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis) after creating your account.
+If you don't have a subscription, you can visit [the Microsoft Cognitive Services Web site](https://azure.microsoft.com/free/cognitive-services/), create a new Azure account, and try Cognitive Services for free. Before continuing, you will need the service subscription key provided after activating your account. You can get your subscription key from the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) or [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis) after creating your account.
 
 <!-- Language/Service specific setup instructions
     
