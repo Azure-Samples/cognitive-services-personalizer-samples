@@ -42,7 +42,7 @@ namespace PersonalizerDemo
         private async Task<IList<IList<string>>> GetKeyPhrasesBatchAsync(IList<string> batchInputText)
         {
             KeyPhraseBatchResult result = await textAnalyticsClient.KeyPhrasesAsync(
-                new MultiLanguageBatchInput(
+                null, new MultiLanguageBatchInput(
                     batchInputText.Select((text, index) => new MultiLanguageInput("en", $"{index + 1}", text)).ToList()
                     )
                 );
@@ -52,7 +52,7 @@ namespace PersonalizerDemo
         private async Task<IList<double?>> GetSentimentBatchAsync(IList<string> batchInputText)
         {
             SentimentBatchResult result = await textAnalyticsClient.SentimentAsync(
-                 new MultiLanguageBatchInput(
+                 null, new MultiLanguageBatchInput(
                     batchInputText.Select((text, index) => new MultiLanguageInput("en", $"{index + 1}", text)).ToList()
                     )
                 );
