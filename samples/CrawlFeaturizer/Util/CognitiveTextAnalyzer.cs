@@ -1,62 +1,43 @@
-﻿using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+﻿using Azure;
+using Azure.AI.TextAnalytics;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace CrawlFeaturizer.Util
 {
     public class CognitiveTextAnalyzer
     {
-        private readonly ITextAnalyticsClient textAnalyticsClient = null;
+        private readonly TextAnalyticsClient textAnalyticsClient = null;
 
         /// <summary>
         /// Initializes <see cref="ITextAnalyticsClient"/> object using cognitive service subscription key and endpoint region.
         /// </summary>
         /// <param name="textAnalyticsClient">ITextAnalyticsClient client.</param>
-        internal CognitiveTextAnalyzer(ITextAnalyticsClient textAnalyticsClient)
+        internal CognitiveTextAnalyzer(TextAnalyticsClient textAnalyticsClient)
         {
             this.textAnalyticsClient = textAnalyticsClient;
         }
 
         /// <summary>
-        /// Gets key phrases for the passed input text.
+        /// Gets key phrases for the passed document.
         /// </summary>
-        /// <param name="inputText">Text to analyze</param>
-        public async Task<IList<string>> GetKeyPhrasesAsync(string inputText)
+        /// <param name="document">Text to analyze</param>
+        public async Task<KeyPhraseCollection> GetKeyPhrasesAsync(string document)
         {
-            var response = await GetKeyPhrasesBatchAsync(new List<string> { inputText });
-            return response.FirstOrDefault();
+            Response<KeyPhraseCollection> results = await textAnalyticsClient.ExtractKeyPhrasesAsync(document, "en");
+
+            return results.Value;
         }
 
         /// <summary>
-        /// Gets sentiment score for the passed input text.
+        /// Gets sentiment score for the passed document.
         /// </summary>
-        /// <param name="inputText">Text to analyze</param>
-        public async Task<double?> GetSentimentAsync(string inputText)
+        /// <param name="document">Text to analyze</param>
+        public async Task<double?> GetSentimentAsync(string document)
         {
-            var response = await GetSentimentBatchAsync(new List<string> { inputText });
-            return response.FirstOrDefault();
-        }
+            DocumentSentiment sentiment = await textAnalyticsClient.AnalyzeSentimentAsync(document, "en");
 
-        private async Task<IList<IList<string>>> GetKeyPhrasesBatchAsync(IList<string> batchInputText)
-        {
-            KeyPhraseBatchResult result = await textAnalyticsClient.KeyPhrasesAsync(
-                new MultiLanguageBatchInput(
-                    batchInputText.Select((text, index) => new MultiLanguageInput("en", $"{index + 1}", text)).ToList()
-                    )
-                );
-            return result.Documents.Select(k => k.KeyPhrases).ToList();
-        }
-
-        private async Task<IList<double?>> GetSentimentBatchAsync(IList<string> batchInputText)
-        {
-            SentimentBatchResult result = await textAnalyticsClient.SentimentAsync(
-                 new MultiLanguageBatchInput(
-                    batchInputText.Select((text, index) => new MultiLanguageInput("en", $"{index + 1}", text)).ToList()
-                    )
-                );
-            return result.Documents.Select(s => s.Score).ToList();
+            return sentiment.ConfidenceScores.Neutral;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace CrawlFeaturizer.ActionProvider
         public async Task<IEnumerable<CrawlAction>> GetActionsAsync(string rssFeedUrl)
         {
             IEnumerable<RSSParsedElement> rssElements = await rssParser.ParseAsync(rssFeedUrl);
-            return rssElements.Select(rssElement => ConvertToCrawlAction(rssElement)).Where(ca => ca.Id!=null);
+            return rssElements.Select(rssElement => ConvertToCrawlAction(rssElement)).Where(ca => ca.Id != null);
         }
 
         /// <summary>
@@ -27,9 +27,16 @@ namespace CrawlFeaturizer.ActionProvider
         /// </summary>
         private CrawlAction ConvertToCrawlAction(RSSParsedElement rssParsedElement)
         {
+            string Id = null;
+            if (rssParsedElement.Guid != null)
+            {
+                string[] guidIdArray = rssParsedElement.Guid.Split("/");
+                Id = guidIdArray[guidIdArray.Length - 2];
+            }
+
             return new CrawlAction
             {
-                Id = rssParsedElement.Guid,
+                Id = Id,
                 Features = new List<object> { new { title = rssParsedElement.Title } },
                 Metadata = JObject.FromObject(new { rssParsedElement.Title, rssParsedElement.Description })
             };

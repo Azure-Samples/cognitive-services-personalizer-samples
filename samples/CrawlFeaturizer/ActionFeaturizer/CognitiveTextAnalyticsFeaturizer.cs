@@ -27,21 +27,21 @@ namespace CrawlFeaturizer.ActionFeaturizer
         public async Task FeaturizeActionsAsync(IEnumerable<CrawlAction> actions)
         {
             await Task.WhenAll(actions.Select(async a =>
-                {
-                    Metadata metadata = a.Metadata.ToObject<Metadata>();
-                    string content = $"{metadata.Title ?? string.Empty} {metadata.Description ?? string.Empty}";
+            {
+                Metadata metadata = a.Metadata.ToObject<Metadata>();
+                string content = $"{metadata.Title ?? string.Empty} {metadata.Description ?? string.Empty}";
 
-                    // Get key phrases from the article title and description
-                    IList<string> keyPhrases = await cognitiveTextAnalyzer.GetKeyPhrasesAsync(content);
-                    
-                    // Create a dictionary of key phrases (with a constant values) since at this time we do not support list of strings features.
-                    var keyPhrasesWithConstValues = keyPhrases.ToDictionary(x => x, x=>1);
-                    a.Features.Add(new { keyPhrases = keyPhrasesWithConstValues});
+                // Get key phrases from the article title and description
+                IReadOnlyCollection<string> keyPhrases = await cognitiveTextAnalyzer.GetKeyPhrasesAsync(content);
 
-                    // Get sentiment score for the article
-                    double? sentiment = await cognitiveTextAnalyzer.GetSentimentAsync(content);
-                    a.Features.Add(new { sentiment });
-                }
+                // Create a dictionary of key phrases (with a constant values) since at this time we do not support list of strings features.
+                var keyPhrasesWithConstValues = keyPhrases.ToDictionary(x => x, x => 1);
+                a.Features.Add(new { keyPhrases = keyPhrasesWithConstValues });
+
+                // Get sentiment score for the article
+                double? sentiment = await cognitiveTextAnalyzer.GetSentimentAsync(content);
+                a.Features.Add(new { sentiment });
+            }
             ));
         }
 
