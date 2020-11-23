@@ -59,7 +59,7 @@ namespace CrawlFeaturizer
             TextAnalyticsClient textAnalyticsClient = new TextAnalyticsClient(new Uri(CognitiveTextAnalyticsEndpoint), new AzureKeyCredential(CognitiveTextAnalyticsAPIKey));
 
             // Initialize the Cognitive Text Analytics actions featurizer
-            IActionFeaturizer actionFeaturizer = new CognitiveTextAnalyticsFeaturizer(new CognitiveTextAnalyzer(textAnalyticsClient));
+            IActionFeaturizer actionFeaturizer = new CognitiveTextAnalyticsFeaturizer(textAnalyticsClient);
 
             var newsActions = new List<RankableAction>();
 
