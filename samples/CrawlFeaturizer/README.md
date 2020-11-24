@@ -27,7 +27,7 @@ git clone https://github.com/Azure/personalization-rl.git
 
 - Replace `cognitiveTextAnalyticsEndpoint` variable's value in `Programs.cs` with one of the `Endpoints`
 
-- Replace `cognitiveTextAnalyticsSubscriptionKey` variable's value in `Programs.cs` with one of the `Keys`
+- Replace `CognitiveTextAnalyticsAPIKey ` variable's value in `Programs.cs` with one of the `Keys`
 
 
 ## Visual Studio
@@ -35,7 +35,7 @@ git clone https://github.com/Azure/personalization-rl.git
 
 - Run the project (press `F5` key)
 
-## Crawl Pipeline 
+## Crawl Pipeline
 The Crawl pipeline consists of 2 stages
 1. Crawl a feed url and get all the items listed in the feed. These items are the `Actions` that will be ranked by Personalization API. This is exposed through the `IActionsProvider` interface.
 2. Each `Action` is decorated with `Features` by using some `ActionFeaturizer` e.g Cognitive Services Text Analytics, Cognitive Services Vision. This functionality is exposed through the `IActionFeaturizer` interface. Once we have a set of actions with features, those actions can be ranked using the Personalization API.
